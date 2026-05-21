@@ -1,0 +1,20 @@
+# Segredos e tokens — NUNCA commitar
+.mcp.json
+*.env
+.env.*
+
+# Pastas do sistema
+.claude/settings.local.json
+mnt/
+
+# Outputs gerados (não versionar arquivos de clientes)
+output/propostas/*.docx
+output/roteiros/*.docx
+output/relatorios/*.docx
+output/conteudo/*.docx
+
+# Temporários
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
