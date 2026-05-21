@@ -78,31 +78,16 @@ A Firma Abacaxi não é uma produtora comum. É a ponte entre a arte, a cultura 
 
 ## Pacotes de serviço e preços
 
-### Pacotes de produção de vídeo
+Precificação por projeto — consulte `docs/TABELA_PRECOS.md` para valores de referência detalhados.
 
-**Pacote Videomaker — Eventos**
-- 4h de gravação
-- Câmera, Gimbal, 3 lentes, drone, microfone shotgun
-- Edição de 4 vídeos de até 1 minuto + 10 fotos
-- Preço: **R$4.500**
+### Tipologia e faixa de valores por projeto
 
-**Pacote Videomaker — Criadores de Conteúdo**
-- 5h de gravação
-- Câmera, Gimbal, 3 lentes, drone, microfone de lapela
-- Kit de iluminação básico (2 luzes)
-- Edição de 6 vídeos de 1 minuto + 15 fotos
-- Preço: **R$6.500**
-
-**Pacote Cinematográfico**
-- 6h de gravação
-- 2 câmeras, 2 operadores, Gimbal, 5 lentes, drone, gravador de som, lapela, boom, kit de iluminação cinematográfica
-- Edição de 6 vídeos de 1 minuto + 20 fotos
-- Preço: **R$12.000**
-
-**Vídeo Institucional** (escopo completo)
-- Pré-produção, produção e pós-produção
-- 2–4 minutos de duração final
-- Faixa: **R$14.000 – R$20.000** dependendo de locações e equipe
+| Tipo de projeto | Faixa de valor |
+|---|---|
+| Cobertura de evento | R$ 5.000–12.000 |
+| Vídeo institucional / depoimentos | R$ 8.000–20.000 |
+| Documentário / projeto longo | R$ 30.000–130.000+ |
+| Conteúdo recorrente para redes | R$ 800–2.000/mês |
 
 ### Pacotes de estratégia e redes sociais
 
@@ -116,14 +101,16 @@ A Firma Abacaxi não é uma produtora comum. É a ponte entre a arte, a cultura 
 
 | Item | Valor |
 |---|---|
-| Diária Lipe | R$1.800/dia |
-| Diária Jaya | R$1.200/dia |
-| Diária freelancer filmmaker | R$1.800/dia |
-| Ticket médio atual da Firma | ~R$8.000 |
-| Projetos pequenos/médios | R$5.000 – R$10.000 |
-| Projetos maiores | R$40.000 – R$50.000 |
-| ISS sobre serviços | ~5% |
+| Diária Lipe | R$ 1.800/dia |
+| Diária Jaya | R$ 1.200/dia |
+| Diária freelancer filmmaker | R$ 1.800/dia |
+| Ticket médio atual da Firma | ~R$ 8.000 |
+| NF sobre serviços | 7,24% |
 | Margem mínima aceitável | 35% |
+| Desconto máximo (institucional) | 15–20% |
+| Desconto social / portfólio | 30–50% (apenas com autorização Lipe/Jaya) |
+
+Ver `docs/TABELA_PRECOS.md` para tabela completa de preços por serviço e equipamento.
 
 ---
 

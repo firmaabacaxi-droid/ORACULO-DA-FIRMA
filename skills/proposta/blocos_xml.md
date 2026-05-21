@@ -41,11 +41,11 @@ Todo document.xml começa e termina com esta estrutura. O conteúdo vai entre `<
 </w:p>
 ```
 
-## Bloco: Linha dourada separadora
+## Bloco: Linha separadora (cinza)
 
 ```xml
 <w:p w14:paraId="00000003">
-  <w:pPr><w:pBdr><w:bottom w:val="single" w:sz="6" w:space="1" w:color="D4AF37"/></w:pBdr><w:spacing w:after="360"/></w:pPr>
+  <w:pPr><w:pBdr><w:bottom w:val="single" w:sz="6" w:space="1" w:color="CCCCCC"/></w:pBdr><w:spacing w:after="360"/></w:pPr>
 </w:p>
 ```
 
@@ -86,12 +86,12 @@ Todo document.xml começa e termina com esta estrutura. O conteúdo vai entre `<
 </w:p>
 ```
 
-## Bloco: Condição com label dourado
+## Bloco: Condição com label (bold, sem cor especial)
 
 ```xml
 <w:p w14:paraId="[ID]">
   <w:pPr><w:spacing w:after="60"/><w:jc w:val="both"/><w:rPr><w:rFonts w:ascii="Calibri" w:cs="Calibri" w:eastAsia="Calibri" w:hAnsi="Calibri"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr></w:pPr>
-  <w:r><w:rPr><w:rFonts w:ascii="Calibri" w:cs="Calibri" w:eastAsia="Calibri" w:hAnsi="Calibri"/><w:b/><w:sz w:val="24"/><w:szCs w:val="24"/><w:color w:val="D4AF37"/></w:rPr><w:t xml:space="preserve">[LABEL]: </w:t></w:r>
+  <w:r><w:rPr><w:rFonts w:ascii="Calibri" w:cs="Calibri" w:eastAsia="Calibri" w:hAnsi="Calibri"/><w:b/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">[LABEL]: </w:t></w:r>
   <w:r><w:rPr><w:rFonts w:ascii="Calibri" w:cs="Calibri" w:eastAsia="Calibri" w:hAnsi="Calibri"/><w:sz w:val="24"/><w:szCs w:val="24"/></w:rPr><w:t xml:space="preserve">[CONTEÚDO]</w:t></w:r>
 </w:p>
 ```
@@ -181,9 +181,9 @@ A tabela precisa de: header row (com fundo cinza claro) + data rows + footer row
   <w:tblPr>
     <w:tblW w:w="5000" w:type="pct"/>
     <w:tblBorders>
-      <w:top w:val="single" w:sz="4" w:space="0" w:color="D4AF37"/>
-      <w:bottom w:val="single" w:sz="4" w:space="0" w:color="D4AF37"/>
-      <w:insideH w:val="single" w:sz="4" w:space="0" w:color="DDDDDD"/>
+      <w:top w:val="single" w:sz="4" w:space="0" w:color="CCCCCC"/>
+      <w:bottom w:val="single" w:sz="4" w:space="0" w:color="CCCCCC"/>
+      <w:insideH w:val="single" w:sz="4" w:space="0" w:color="CCCCCC"/>
     </w:tblBorders>
     <w:tblLook w:val="04A0" w:firstRow="1" w:lastRow="0" w:firstColumn="1" w:lastColumn="0" w:noHBand="0" w:noVBand="1"/>
   </w:tblPr>
@@ -253,18 +253,18 @@ A tabela precisa de: header row (com fundo cinza claro) + data rows + footer row
   </w:tr>
 ```
 
-### Linha de TOTAL (fundo dourado)
+### Linha de TOTAL (fundo cinza, bold)
 
 ```xml
   <w:tr>
     <w:tc>
-      <w:tcPr><w:gridSpan w:val="3"/><w:shd w:val="clear" w:color="auto" w:fill="D4AF37"/></w:tcPr>
+      <w:tcPr><w:gridSpan w:val="3"/><w:shd w:val="clear" w:color="auto" w:fill="E8E8E8"/></w:tcPr>
       <w:p><w:pPr><w:jc w:val="right"/><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:b/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr></w:pPr>
         <w:r><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:b/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr><w:t>TOTAL</w:t></w:r>
       </w:p>
     </w:tc>
     <w:tc>
-      <w:tcPr><w:shd w:val="clear" w:color="auto" w:fill="D4AF37"/></w:tcPr>
+      <w:tcPr><w:shd w:val="clear" w:color="auto" w:fill="E8E8E8"/></w:tcPr>
       <w:p><w:pPr><w:jc w:val="right"/><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:b/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr></w:pPr>
         <w:r><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri"/><w:b/><w:sz w:val="20"/><w:szCs w:val="20"/></w:rPr><w:t>R$ [VALOR TOTAL]</w:t></w:r>
       </w:p>

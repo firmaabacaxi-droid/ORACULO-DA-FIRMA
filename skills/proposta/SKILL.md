@@ -103,17 +103,19 @@ Use o perfil para adaptar tom e estrutura nas próximas etapas.
 
 ## ETAPA 4 — Calcular orçamento
 
+**Consulte `docs/TABELA_PRECOS.md` para todos os valores de referência por serviço e equipamento.**
+
 ### Estrutura de custos
 
 | Categoria | O que incluir |
 |---|---|
-| Equipe | Diárias: Lipe (R$1.800/dia), Jaya (R$1.200/dia), freelancers conforme necessário |
-| Equipamento | Depreciação do próprio + aluguel externo se necessário |
+| Equipe | Diárias: Lipe (R$ 1.800/dia), Jaya (R$ 1.200/dia), freelancers conforme `TABELA_PRECOS.md` |
+| Equipamento | Depreciação do próprio + aluguel externo se necessário — ver `TABELA_PRECOS.md` |
 | Locação | Espaços, ambientação, permissões |
-| Transporte | Combustível, pedágio, estacionamento (R$150–300/dia em Brasília) |
-| Alimentação | R$60–80/pessoa/dia em set |
-| Pós-produção | Edição (Lipe), colorista externo, masterização de som, trilha, motion |
-| Impostos | ISS ~5% sobre o valor do serviço |
+| Transporte | Combustível, pedágio, estacionamento (R$ 200–300/dia em Brasília) |
+| Alimentação | R$ 80–120/pessoa/dia em set |
+| Pós-produção | Edição (Lipe), colorista externo, masterização de som, trilha, motion — ver `TABELA_PRECOS.md` |
+| NF | 7,24% sobre o total bruto |
 | Margem | Mínimo 35% sobre custo total |
 
 ### Fórmula
@@ -147,6 +149,9 @@ Exemplo: "Produções equivalentes em agências de Brasília custam entre R$25k�
 ---
 
 ## ETAPA 5 — Estruturar proposta
+
+**Modelo de referência:** `DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR/Orçamentos/PROPOSTA_VMA_AFD.docx`
+Estrutura ideal: saudação pessoal + 6 seções numeradas + tom colaborativo + condições explícitas + assinatura.
 
 Use esta estrutura padrão:
 
@@ -230,6 +235,11 @@ Ao finalizar o texto, aplique **skills/humanizador/SKILL.md**:
 ---
 
 ## ETAPA 8 — Gerar documento Word
+
+**ESTILO:** Seguir o padrão visual da `PROPOSTA_VMA_AFD.docx`. Limpo, profissional, sem ornamentos.
+- Nenhum elemento dourado — sem bordas, separadores ou fundos em #D4AF37
+- Paleta: preto para texto, cinza claro (F2F2F2) para header de tabela, cinza (E8E8E8) para linha de total
+- Fonte: Calibri em todo o documento
 
 Use **skills/proposta/blocos_xml.md** como referência técnica.
 
