@@ -33,14 +33,16 @@ Identifique a tarefa e carregue a skill correspondente **antes de executar**.
 ```
 CAPTAÇÃO / BRIEFING / CLIENTE NOVO / QUALIFICAÇÃO
 → leia skills/captacao/SKILL.md
+→ para identificar perfil DISC do cliente: ANTIGRAVITY\SKILLS\personality-profiler\SKILL.md
 
 PROPOSTA / ORÇAMENTO / PRECIFICAÇÃO / APRESENTAÇÃO COMERCIAL
 → leia skills/proposta/SKILL.md
-→ esta skill é orquestradora — ela coordena o restante
+→ orquestradora: referencia blocos_xml.md e assets/MODELO_ORCAMENTO.docx
 
 ROTEIRO / DECUPAGEM / PLANO DE FILMAGEM / PRÉ-PRODUÇÃO
 → leia skills/preproducao/SKILL.md
 → skill orquestradora
+→ para transcrever briefing de áudio: ANTIGRAVITY\SKILLS\whisper-transcription\SKILL.md
 
 FILMAGEM / SET / DIÁRIO DE PRODUÇÃO / MATERIAL BRUTO
 → leia skills/producao/SKILL.md
@@ -48,6 +50,7 @@ FILMAGEM / SET / DIÁRIO DE PRODUÇÃO / MATERIAL BRUTO
 POSTS / CONTEÚDO / REDES SOCIAIS / CALENDÁRIO EDITORIAL
 → leia skills/conteudo/SKILL.md
 → skill orquestradora
+→ para publicação automática: ANTIGRAVITY\SKILLS\upload-post\SKILL.md
 
 ORDEM DO DIA / TAREFAS / FINANCEIRO / GESTÃO / RELATÓRIO
 → leia skills/gestao/SKILL.md
@@ -57,20 +60,112 @@ QUALQUER TEXTO PARA CLIENTE EXTERNO (e-mail, proposta, post)
 → ao finalizar, aplique skills/humanizador/SKILL.md
 ```
 
+## Skills do Antigravity — referências técnicas
+
+Skills especializadas disponíveis em dois locais:
+- `skills/antigravity/` — copiadas no projeto
+- `C:\Users\User\Documents\ANTIGRAVITY\SKILLS\` — biblioteca completa (80+ skills)
+
+```
+TÉCNICAS CINEMATOGRÁFICAS DETALHADAS (175+ técnicas)
+→ skills/antigravity/cinematic-script-writer/SKILL.md
+
+CONFIGURAÇÕES DE CÂMERA / EXPOSIÇÃO / HIPERFOCAL
+→ skills/antigravity/photography-settings/SKILL.md
+
+NEGOCIAÇÃO AVANÇADA (método Voss)
+→ skills/antigravity/negotiation-voss/SKILL.md
+
+PSICOLOGIA DE MARKETING / ANCORAGEM / GATILHOS
+→ skills/antigravity/marketing-psychology/SKILL.md
+
+CÁLCULO FINANCEIRO / MARKUP / MARGEM
+→ skills/antigravity/financial-calculator-pro/SKILL.md
+
+PRIORIZAÇÃO / ORDEM DO DIA / EXEC ADMIN
+→ skills/antigravity/exec-admin/SKILL.md
+
+AUTOMAÇÕES / MAKE / ZAPIER / N8N (design de workflows)
+→ skills/antigravity/automation-workflows/SKILL.md
+
+CONTROLE ORÇAMENTÁRIO / VARIÂNCIA
+→ skills/antigravity/budget-planner/SKILL.md
+
+PERFIL DISC / COMUNICAÇÃO COM CLIENTE / ADAPTAÇÃO DE TOM
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\personality-profiler\SKILL.md
+→ usar durante briefing para identificar perfil e adaptar proposta
+
+GERAÇÃO DE IMAGENS (Nano Banana Pro / Gemini)
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\nano-banana-pro\SKILL.md
+→ usar em propostas (referências visuais) e conteúdo (Fase 2+)
+
+TRANSCRIÇÃO DE ÁUDIO LOCAL (Whisper CLI)
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\whisper-transcription\SKILL.md
+→ briefings gravados no celular → texto → decupagem automática (Fase 3)
+
+VOICE-OVER PROFISSIONAL (ElevenLabs)
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\elevenlabs\SKILL.md
+→ narração para projetos com orçamento reduzido (Fase 3)
+
+PUBLICAÇÃO AUTOMÁTICA NAS REDES (Upload-Post API)
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\upload-post\SKILL.md
+→ postar Reels, carrosséis, vídeos no Instagram/LinkedIn/YouTube (Fase 4)
+
+INTEGRAÇÃO GOOGLE DRIVE (gdrive CLI / rclone)
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\google-drive-integration\SKILL.md
+→ upload/download de arquivos de projeto diretamente do terminal (Fase 2)
+
+GERAÇÃO DE LEADS / SCRAPING (Apify)
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\apify-lead-generation\SKILL.md
+→ leads em Brasília por nicho via Google Maps, Instagram, LinkedIn (Fase 5)
+
+AUTOMAÇÃO N8N — EXPRESSÕES / NODOS / VALIDAÇÃO
+→ C:\Users\User\Documents\ANTIGRAVITY\SKILLS\n8n-skills\ (pasta com 7 sub-skills)
+→ referência técnica ao construir workflows n8n (Fase 3)
+```
+
+---
+
+## Workflows de Automação — blueprints prontos
+
+Blueprints detalhados das automações prioritárias disponíveis em:
+`C:\Users\User\Documents\ANTIGRAVITY\.agents\workflows\`
+
+```
+ONBOARDING DE NOVO PROJETO (A1 + A2)
+→ novo_projeto_audiovisual.md
+→ gatilho: CRM marcado "Ganho" → cria projeto Notion + pastas Drive
+   + convites freelancers + setup financeiro
+
+FECHAMENTO FINANCEIRO DE PROJETO (A4)
+→ fechamento_financeiro_projeto.md
+→ gatilho: projeto marcado "Finalizado" → auditoria custos + NF
+   + arquivamento Drive + NPS do cliente
+
+GESTÃO DE EQUIPE FREELANCER (parte do A2)
+→ gestao_talentos_audiovisual.md
+→ gatilho: projeto entra em Pré-Produção → filtra CONTATOS por skill
+   + convida, confirma, envia briefing técnico + avalia pós-set
+```
+
+Ler esses arquivos antes de configurar qualquer automação no n8n ou Make.
+
 ---
 
 ## Notion — dados operacionais
 
-Conectado via MCP. Bancos disponíveis:
+Conectado via MCP. Arquitetura completa documentada em `docs/ARQUITETURA_NOTION.md` (25 bancos).
 
-| Banco | Uso |
-|---|---|
-| CRM | Pipeline comercial, deals em andamento |
-| Propostas | Propostas geradas e seu status |
-| Contatos | Pessoas — clientes, freelancers, parceiros |
-| Clientes | Empresas e organizações |
-| Projeto 2026 | Projetos em execução |
-| Tarefas | Tarefas com responsável e prazo |
+**Fase 1 — bancos ativos agora:**
+
+| Banco | Prefixo | Uso |
+|---|---|---|
+| PROJETO_2026 | PRJ- | Hub central — todos os projetos |
+| CLIENTES | CLI- | Empresas e organizações |
+| CONTATOS | CTT- | Equipe, freelancers, fornecedores |
+| PROPOSTAS | PRP- | Propostas e status comercial |
+| TAREFAS | TAR- | Tarefas com responsável e prazo |
+| CRM | CRM- | Pipeline comercial |
 
 **Regra:** Sempre peça autorização antes de criar, editar ou deletar registros no Notion.
 
@@ -114,22 +209,55 @@ Exemplo: `SuperHost_proposta_v1.docx`
 
 ---
 
-## Fases de implementação
+## Subagentes do Oráculo
+
+Prompts completos dos 5 subagentes disponíveis em `docs/SUBAGENTES.md`.
 
 ```
-FASE 1 — Agora (ativo)
-skills/captacao    → briefing e qualificação
-skills/proposta    → proposta e orçamento completos
+Agente de Proposta  → briefing + proposta + orçamento
+Agente de Produção  → roteiro + decupagem + plano de filmagem
+Agente de Gestão    → ordem do dia + tarefas + financeiro
+Agente de Conteúdo  → calendário editorial + posts + newsletter
+Agente de Captação  → atendimento externo (futuro)
+```
 
-FASE 2 — Próximas semanas
-skills/gestao      → ordem do dia e tarefas
-skills/preproducao → roteiro e decupagem
+## Fases de implementação (visão macro)
 
-FASE 3 — Próximo mês
-skills/producao    → documentação de set
+```
+FASE 1 — Sem 1–2 (ativo) · R$120/mês
+  ✅ Documentação e contexto completos
+  ✅ Skills de proposta, captação, gestão, pré-produção, produção, conteúdo
+  ⬜ CONTEXTO_FIRMA.md preenchido — FEITO
+  ⬜ Primeira proposta real com cliente
 
-FASE 4 — Mês 2+
-skills/conteudo    → redes sociais e calendário editorial
+FASE 2 — Sem 3–4 · +R$160/mês
+  Google Drive MCP → acesso a arquivos de projetos
+  Frame.io → aprovação de vídeos pelo cliente
+  Domínio + Framer → site da Firma no ar
+
+FASE 3 — Sem 5–6 · +R$110/mês
+  ElevenLabs → voice-over e narração
+  Whisper → transcrição de briefings e reuniões
+  Make → primeira automação (proposta aprovada → pré-produção)
+
+FASE 4 — Sem 7–8 · +R$1.090/mês
+  LinkedIn Sales Navigator + Apollo → prospecção ativa
+  Bot Telegram → Oráculo no celular sem PC
+  Ordem do Dia automática às 8h
+
+FASE 5 — Mês 3+ · escala
+  Meta Ads + Apify → inteligência de mercado
+  Curso Videomaker Independente
+  Contratação produtor júnior
+```
+
+**5 automações prioritárias (quando chegar a Fase 3):**
+```
+A1. Briefing → Projeto no Notion automático (5 min vs 2h manual)
+A2. Proposta aprovada → Pré-produção ativada (tarefas + roteiro + kickoff)
+A3. Ordem do Dia automática às 8h com resumo via WhatsApp
+A4. Entrega → Follow-up + NF automatizados (email + 15 dias)
+A5. Making-of → Conteúdo para redes (Whisper → posts automáticos)
 ```
 
 ---

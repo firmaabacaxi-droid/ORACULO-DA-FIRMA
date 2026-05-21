@@ -3,6 +3,10 @@
 *.env
 .env.*
 
+# Documentos antigos com dados sensíveis — NUNCA commitar
+"DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR/"
+DOCUMENTOS ANTIGOS*
+
 # Pastas do sistema
 .claude/settings.local.json
 mnt/
@@ -12,6 +16,12 @@ output/propostas/*.docx
 output/roteiros/*.docx
 output/relatorios/*.docx
 output/conteudo/*.docx
+
+# Obsidian — estado de janela muda a cada abertura, não faz sentido versionar
+cerebro/**/workspace.json
+
+# Clone local do GitHub — não versionar dentro do repo
+ORACULO-DA-FIRMA/
 
 # Temporários
 *.tmp
