@@ -1,6 +1,6 @@
 # SKILL — Captação
-## Briefing estruturado e qualificação de leads
-*Skill simples — executa diretamente, não orquestra outras*
+## Orquestradora do fluxo cliente → proposta
+*Skill orquestradora — coordena: qualificação + briefing + pesquisa + Obsidian + NotebookLM + perfil DISC + proposta*
 
 ---
 
@@ -8,12 +8,31 @@
 
 - Chegou um cliente novo
 - Precisa conduzir um briefing
-- Precisa qualificar se o projeto é viável
-- Precisa cadastrar lead no Notion (CRM)
+- "Novo cliente: [nome], precisa de [projeto]"
+- Primeiro atendimento ou qualificação de lead
+
+Para **cliente já conhecido** que só precisa de proposta revisada → use `skills/proposta/SKILL.md` diretamente.
 
 ---
 
-## Etapa 1 — Qualificação inicial (antes do briefing)
+## Visão geral do fluxo
+
+```
+ENTRADA: cliente novo ou lead
+    ↓
+ETAPA 1 — Qualificação inicial      (vale o tempo?)
+ETAPA 2 — Briefing completo         (10 perguntas, uma por vez)
+ETAPA 3 — Pesquisa do cliente       (web + NotebookLM + Obsidian)
+ETAPA 4 — Registro no Notion        (CRM + Clientes + Contatos)
+ETAPA 5 — Perfil DISC               (adaptar tom da proposta)
+ETAPA 6 — Geração da proposta       (→ skills/proposta/SKILL.md)
+    ↓
+SAÍDA: proposta gerada em output/propostas/
+```
+
+---
+
+## ETAPA 1 — Qualificação inicial
 
 Antes de investir tempo em briefing completo, avalie:
 
@@ -37,7 +56,7 @@ VERMELHO — declinar ou redirecionar
 
 ---
 
-## Etapa 2 — Briefing completo
+## ETAPA 2 — Briefing completo
 
 Conduza **uma pergunta por vez**. Nunca mande lista de perguntas.
 
@@ -84,48 +103,149 @@ Conduza **uma pergunta por vez**. Nunca mande lista de perguntas.
      se não: apresentar 3 opções na proposta)
 ```
 
----
-
-## Etapa 3 — Registro no Notion
-
-Após o briefing, salve no Notion **antes de gerar proposta**:
-
-**Banco: Contatos**
-- Nome da pessoa de contato
-- Cargo
-- E-mail e telefone
-- Como chegou (indicação, Instagram, etc.)
-
-**Banco: Clientes**
-- Nome da empresa/organização
-- Segmento
-- Relação com Firma (novo, recorrente, parceiro)
-
-**Banco: CRM**
-- Nome do deal (ex: "SuperHost — Vídeo Institucional")
-- Status: Qualificado
-- Valor estimado (se souber)
-- Próxima ação: Gerar proposta
-
----
-
-## Etapa 4 — Transição para proposta
-
-Ao finalizar o briefing, sinalize:
-
-> "Tenho tudo que preciso para montar a proposta.
-> Quer que eu gere agora ou você precisa confirmar alguma informação com o cliente antes?"
-
-Se Lipe confirmar → ative **skills/proposta/SKILL.md** com os dados do briefing.
-
----
-
-## Perguntas de resgate (se o cliente for vago)
-
-Quando o cliente não sabe responder:
+### Perguntas de resgate (quando o cliente é vago)
 
 ```
 "O que vocês NÃO querem que esse vídeo pareça?" (define por exclusão)
 "Tem algum concorrente que faz comunicação que vocês admiram?" (referência)
 "Se tivesse que descrever em uma palavra o tom do vídeo, qual seria?" (direção criativa)
 ```
+
+---
+
+## ETAPA 3 — Pesquisa do cliente
+
+Esta etapa transforma o briefing em inteligência antes de precificar e escrever.
+
+### a) Pesquisa web
+
+```
+→ "[nome do cliente / organização]" — porte, projetos anteriores, notícias recentes
+→ "[segmento] produção audiovisual" — benchmarks e linguagem do setor
+```
+
+Registrar o que encontrou. Informar ao usuário: "Pesquisei X e encontrei Y."
+
+### b) Se houver gravação de reunião (áudio .m4a / .mp3 / .wav)
+
+```
+→ Chamar: ANTIGRAVITY\SKILLS\whisper-transcription\SKILL.md
+→ Saída: transcrição em texto
+→ Usar a transcrição como fonte no NotebookLM (etapa c) e na nota Obsidian (etapa d)
+```
+
+### c) NotebookLM — base de conhecimento do cliente
+
+```
+Se houver áudio transcrito, PDFs ou URLs relevantes do projeto:
+→ Criar notebook no NotebookLM (ou adicionar a um existente)
+→ Adicionar fontes: transcrição, relatórios, apresentações, sites
+→ Salvar o notebook ID para incluir na nota Obsidian
+→ Consultar o notebook: "Quais são os pontos-chave do projeto?"
+   "Qual é a linguagem que o cliente usa?" "Quais dados e números são relevantes?"
+→ Usar os insights na proposta (ETAPA 6)
+```
+
+### d) Criar nota de perfil do cliente no Obsidian
+
+```
+Caminho: cerebro/CEREBRO-ORACULO/04-REFERENCIAS/clientes/[slug-cliente]/[slug-cliente].md
+```
+
+Conteúdo mínimo da nota:
+
+```markdown
+# [Nome do Cliente] — Perfil
+
+**Fonte:** [briefing / reunião / pesquisa web]
+**Processado em:** [data]
+**NotebookLM:** [notebook ID se houver]
+
+## O projeto
+[Tipo, objetivo, protagonista, linguagem]
+
+## Pessoas
+| Nome | Papel | Contato |
+|------|-------|---------|
+| [Nome] | [Cargo] | [⭐ ponto focal] |
+
+## Decisões tomadas
+- [O que foi acordado]
+
+## Próximos passos
+- [ ] Gerar proposta
+```
+
+---
+
+## ETAPA 4 — Registro no Notion
+
+Salvar no Notion **antes de gerar proposta** (pedir autorização ao usuário se necessário):
+
+**Banco: Contatos**
+- Nome, cargo, e-mail, telefone
+- Como chegou (indicação, Instagram, etc.)
+
+**Banco: Clientes**
+- Nome da empresa / organização
+- Segmento
+- Relação com a Firma (novo, recorrente, parceiro)
+
+**Banco: CRM**
+- Nome do deal (ex: "LabLivre — Documentário Brasil Participativo")
+- Status: Qualificado
+- Valor estimado (se souber)
+- Próxima ação: Gerar proposta
+
+---
+
+## ETAPA 5 — Perfil DISC
+
+Com base no comportamento do cliente no briefing, identificar o perfil:
+
+```
+→ Ativar: C:\Users\User\Documents\ANTIGRAVITY\SKILLS\personality-profiler\SKILL.md
+→ Objetivo: classificar o cliente (D/I/S/C) para calibrar tom da proposta
+```
+
+**O perfil DISC informa TOM e FORMALIDADE — não altera estrutura da proposta:**
+
+| Perfil | Sinal | Tom da proposta |
+|--------|-------|-----------------|
+| **D** — Dominância | Direto, fala em resultados e prazos | Conciso, resultado em primeiro lugar |
+| **I** — Influência | Empolgado, fala em impacto e visibilidade | Animado, cases e impacto emocional |
+| **S** — Estabilidade | Detalhista, pergunta muito, preocupado com processo | Passo a passo, cronograma claro |
+| **C** — Conformidade | Quer números, cético, faz perguntas técnicas | Dados, especificações, termos precisos |
+
+Clientes institucionais (fundações, governo, universidades) → sempre tom mais formal independente do DISC individual.
+
+---
+
+## ETAPA 6 — Geração da proposta
+
+Ao confirmar com Lipe que briefing + pesquisa estão completos:
+
+```
+→ Ativar: skills/proposta/SKILL.md
+→ Passar os seguintes dados consolidados:
+   - Cliente e escopo (do briefing)
+   - Budget e prazo (do briefing)
+   - Perfil DISC identificado (ETAPA 5)
+   - Insights do NotebookLM (ETAPA 3c, se houver)
+   - Caminho da nota Obsidian criada (ETAPA 3d)
+```
+
+Sinalizar antes de gerar:
+
+> "Tenho tudo que preciso para montar a proposta.
+> Quer que eu gere agora ou você precisa confirmar alguma informação com o cliente antes?"
+
+---
+
+## Nota para implementação futura (chatbot)
+
+Este fluxo foi desenhado para funcionar como chatbot:
+- Uma pergunta por vez (ETAPA 2)
+- Qualificação VERDE/AMARELO/VERMELHO como filtro de entrada (ETAPA 1)
+- Perguntas de resgate mapeadas por situação de ambiguidade
+- Cada etapa tem entrada e saída definidas — pode ser implementada como nó de workflow

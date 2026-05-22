@@ -31,13 +31,15 @@ Leia esses arquivos no início de cada sessão ou quando precisar de referência
 Identifique a tarefa e carregue a skill correspondente **antes de executar**.
 
 ```
-CAPTAÇÃO / BRIEFING / CLIENTE NOVO / QUALIFICAÇÃO
+CLIENTE NOVO / CAPTAÇÃO / BRIEFING / QUALIFICAÇÃO / PRIMEIRO ATENDIMENTO
 → leia skills/captacao/SKILL.md
-→ para identificar perfil DISC do cliente: ANTIGRAVITY\SKILLS\personality-profiler\SKILL.md
+→ orquestradora: conduz briefing → pesquisa → Obsidian → NotebookLM → DISC → proposta
+→ inclui perfil DISC (personality-profiler) e registro no Notion
 
-PROPOSTA / ORÇAMENTO / PRECIFICAÇÃO / APRESENTAÇÃO COMERCIAL
-→ leia skills/proposta/SKILL.md
-→ orquestradora: referencia blocos_xml.md e assets/MODELO_ORCAMENTO.docx
+PROPOSTA / ORÇAMENTO / PRECIFICAÇÃO (cliente existente ou revisão de proposta)
+→ leia skills/proposta/SKILL.md diretamente
+→ usar quando captação já foi feita e só falta gerar ou revisar o documento
+→ referencia blocos_xml.md e assets/MODELO_ORCAMENTO.docx
 
 ROTEIRO / DECUPAGEM / PLANO DE FILMAGEM / PRÉ-PRODUÇÃO
 → leia skills/preproducao/SKILL.md
@@ -55,6 +57,10 @@ POSTS / CONTEÚDO / REDES SOCIAIS / CALENDÁRIO EDITORIAL
 ORDEM DO DIA / TAREFAS / FINANCEIRO / GESTÃO / RELATÓRIO
 → leia skills/gestao/SKILL.md
 → skill orquestradora
+
+MARKETING DIGITAL / ESTRATÉGIA DE CONTEÚDO / FUNIL / TRÁFEGO PAGO / COPYWRITING / CONVERSÃO
+→ leia skills/marketing-digital/SKILL.md
+→ base de conhecimento: cerebro/CEREBRO-ORACULO/04-REFERENCIAS/marketing-digital/
 
 QUALQUER TEXTO PARA CLIENTE EXTERNO (e-mail, proposta, post)
 → ao finalizar, aplique skills/humanizador/SKILL.md

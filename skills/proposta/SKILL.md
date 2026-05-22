@@ -1,6 +1,6 @@
 # SKILL — Proposta
 ## Geração de proposta e orçamento completos
-*Skill orquestradora — coordena: briefing + pesquisa + cálculo + escrita + documento*
+*Skill orquestradora — coordena: briefing + cálculo + escrita + documento*
 
 ---
 
@@ -8,7 +8,7 @@
 
 - "Gera uma proposta para [cliente]"
 - "Preciso orçar um projeto"
-- "Monta uma apresentação comercial"
+- "Monta um documento comercial"
 
 ---
 
@@ -19,15 +19,17 @@ ENTRADA: briefing (completo ou parcial)
     ↓
 ETAPA 1 — Verificar briefing
 ETAPA 2 — Pesquisa de mercado
-ETAPA 3 — Perfil DISC do cliente
-ETAPA 4 — Calcular orçamento
-ETAPA 5 — Estruturar proposta (PAS + AIDA)
-ETAPA 6 — Escrever conteúdo
+ETAPA 3 — Calcular orçamento
+ETAPA 4 — Estruturar proposta
+ETAPA 5 — Escrever conteúdo
+ETAPA 6 — Revisar português
 ETAPA 7 — Humanizar (→ skills/humanizador/SKILL.md)
 ETAPA 8 — Gerar documento Word (→ skills/proposta/blocos_xml.md)
     ↓
 SAÍDA: output/propostas/NomeCliente_proposta_v1.docx
 ```
+
+**Princípio fundamental:** A proposta é um documento de formalização — não uma peça de vendas. O processo de venda acontece na conversa presencial, com portfólio e atendimento. A proposta confirma o que foi acordado, com clareza e profissionalismo.
 
 ---
 
@@ -37,215 +39,175 @@ Antes de qualquer coisa, confirme que tem:
 
 ```
 ✓ Nome do cliente / empresa
-✓ Objetivo do vídeo (o que quer causar)
-✓ Público que vai assistir
-✓ Formato / plataforma de exibição
-✓ Duração estimada
-✓ Locações (quantas, quais)
-✓ Equipe especial necessária (entrevistas? atores?)
+✓ Objetivo do projeto (o que será entregue)
+✓ Formato / tipo de produção
+✓ Duração estimada ou escopo
+✓ Locações (quantas, quais cidades)
+✓ Equipe necessária (só Lipe e Jaya ou freelancers?)
 ✓ Prazo de entrega
-✓ Budget (pode estar em aberto)
+✓ Budget (pode estar definido ou em aberto)
 ```
 
-Se faltar informação crítica → pergunte ao usuário antes de continuar.
+Se faltar informação crítica → pergunte antes de continuar.
 Se briefing estiver incompleto mas suficiente → sinalize o que está faltando e prossiga.
 
 ---
 
 ## ETAPA 2 — Pesquisa de mercado
 
-**Sempre pesquise antes de precificar.** Use web search para:
+**Pesquise antes de precificar quando o cliente for desconhecido.**
 
 ```
-Pesquisas obrigatórias:
-→ "[tipo de projeto] produção audiovisual preço Brasília [ano]"
-→ "[nome do cliente]" (entender quem é, porte, segmento)
-→ Referências visuais mencionadas no briefing
-
-Pesquisas opcionais (se o cliente for desconhecido):
-→ Concorrentes do cliente (entender o mercado dele)
-→ Cases similares da Firma ou do mercado
+→ "[nome do cliente]" — entender porte, segmento, histórico
+→ "[tipo de projeto] produção audiovisual Brasília [ano]" — referência de preço de mercado
 ```
 
 Registre o que encontrou. Informe ao usuário: "Pesquisei X e encontrei Y."
 
----
-
-## ETAPA 3 — Perfil DISC do cliente
-
-Analise como o cliente se comunicou no briefing e classifique:
-
-```
-D — DOMINÂNCIA (executivos, CEOs, tomadores rápidos)
-Sinais: objetivo, fala em resultados e prazos, impaciente
-Proposta: 1-2 páginas. Resultado, prazo, preço — nessa ordem.
-Tom: direto, sem enrolação.
-
-I — INFLUÊNCIA (marketing, comunicação, criativos)
-Sinais: empolgado, fala em impacto e visibilidade, usa emojis
-Proposta: visualmente atraente, cases e referências, impacto emocional.
-Tom: animado, use "imagina seu público sentindo..."
-
-S — ESTABILIDADE (RH, administração, processos)
-Sinais: detalhista, preocupado com processo e equipe, pergunta muito
-Proposta: passo a passo detalhado, cronograma completo, suporte claro.
-Tom: seguro, paciente, "em cada etapa você vai acompanhar..."
-
-C — CONFORMIDADE (financeiro, jurídico, técnicos)
-Sinais: pergunta especificações, quer números, cético
-Proposta: dados, especificações técnicas, termos claros.
-Tom: factual, referências, sem emoção excessiva.
-```
-
-Use o perfil para adaptar tom e estrutura nas próximas etapas.
+Se o cliente já é conhecido (ex: proposta decorrente de reunião anterior), pesquisa pode ser pulada.
 
 ---
 
-## ETAPA 4 — Calcular orçamento
+## ETAPA 3 — Calcular orçamento
 
-**Consulte `docs/TABELA_PRECOS.md` para todos os valores de referência por serviço e equipamento.**
+**Consulte `docs/TABELA_PRECOS.md` para todos os valores de referência.**
 
 ### Estrutura de custos
 
 | Categoria | O que incluir |
 |---|---|
 | Equipe | Diárias: Lipe (R$ 1.800/dia), Jaya (R$ 1.200/dia), freelancers conforme `TABELA_PRECOS.md` |
-| Equipamento | Depreciação do próprio + aluguel externo se necessário — ver `TABELA_PRECOS.md` |
-| Locação | Espaços, ambientação, permissões |
-| Transporte | Combustível, pedágio, estacionamento (R$ 200–300/dia em Brasília) |
+| Equipamento | Incluso na diária quando Lipe e Jaya forem juntos — declarar explicitamente |
+| Locação | Espaços, permissões |
+| Transporte | R$ 200–300/dia em Brasília |
 | Alimentação | R$ 80–120/pessoa/dia em set |
-| Pós-produção | Edição (Lipe), colorista externo, masterização de som, trilha, motion — ver `TABELA_PRECOS.md` |
-| NF | 7,24% sobre o total bruto |
-| Margem | Mínimo 35% sobre custo total |
+| Pós-produção | Edição, color, som, trilha — ver `TABELA_PRECOS.md` |
+| NF | 7,28% |
 
-### Fórmula
+### Regra do NF
+
+O NF **sempre** está incluído no total apresentado ao cliente. Quando houver teto de budget, calcular de trás pra frente:
 
 ```
-Custo direto total
-+ Custo indireto (~15% overhead)
-+ Margem (35% mínimo)
-= Preço mínimo aceitável
-
-Preço ideal = Preço mínimo × fator de valor percebido
-(para clientes com alto valor percebido, pode ser 1.3–1.5x)
+Base de serviços = Total ÷ 1,0728
+NF = Total − Base
 ```
 
-### Se não souber o budget → apresente 3 opções
+Apresentar sempre três linhas na tabela: **Subtotal | NF 7,28% | TOTAL**
+
+### Margem mínima
+
+35% sobre custo direto total. Verificar antes de fechar o orçamento.
+
+### Se o budget for desconhecido
+
+Apresentar 3 opções apenas quando o cliente não tiver nenhum número em mente:
 
 ```
 BÁSICO      → escopo reduzido, entrega essencial
-RECOMENDADO → escopo completo (o que você quer vender) ← destaque
+RECOMENDADO → escopo completo ← destacar
 COMPLETO    → escopo expandido com extras
 ```
 
-Ancoragem: sempre mencione o valor de mercado antes do seu preço.
-Exemplo: "Produções equivalentes em agências de Brasília custam entre R$25k–R$40k. Nossa proposta: R$14.000."
-
-### Política de alterações (incluir sempre)
-- Até 2 rodadas de revisão: incluídas
-- A partir da 3ª: R$[definir por projeto] por rodada
-- Deixar claro no documento
+Se o budget já foi discutido ou há um teto aprovado, trabalhar dentro dele — sem opções múltiplas.
 
 ---
 
-## ETAPA 5 — Estruturar proposta
+## ETAPA 4 — Estruturar proposta
 
-**Modelo de referência:** `DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR/Orçamentos/PROPOSTA_VMA_AFD.docx`
-Estrutura ideal: saudação pessoal + 6 seções numeradas + tom colaborativo + condições explícitas + assinatura.
-
-Use esta estrutura padrão:
+Use esta estrutura padrão. Adapte seções que não se aplicam ao projeto.
 
 ```
-1. CAPA
-   Nome do projeto + nome do cliente + data + versão
+CAPA
+   Nome do projeto + cliente + data + versão
 
-2. ENTENDIMENTO DO PROJETO
-   O que entendemos que o cliente precisa
-   (use as palavras dele — mostra que ouviu)
+ENTENDIMENTO DO PROJETO
+   O que entendemos que será feito
+   (use as palavras do cliente — mostra que ouviu)
 
-3. NOSSA PROPOSTA
-   Como vamos resolver o problema
+NOSSA PROPOSTA
    O que vamos entregar (escopo detalhado)
-   O que NÃO está incluído (evita conflito)
+   O que NÃO está incluído (evita conflito posterior)
 
-4. CRONOGRAMA
-   Etapas e datas previstas
+CRONOGRAMA
+   Etapas e duração prevista por fase
    Prazo de feedback do cliente por etapa
 
-5. INVESTIMENTO
-   Tabela de itens (se perfil C ou S)
-   Ou apenas valor total (se perfil D ou I)
-   Formas de pagamento (recomendado: 50% entrada + 50% entrega)
-   Validade da proposta: 15 dias
+INVESTIMENTO
+   Tabela de itens + subtotal + NF + total
+   Condições de pagamento
+   Validade da proposta
 
-6. TERMOS E CONDIÇÕES
-   Política de alterações
-   Direitos autorais (footage fica com a Firma ou cliente?)
-   Cancelamento
-
-7. PRÓXIMOS PASSOS
+PRÓXIMOS PASSOS
    Um CTA único e claro
-   Ex: "Responda confirmando e reservamos sua data."
 ```
+
+**Nível de detalhe:** ajustar conforme o cliente. Clientes institucionais (licitação, fundação, contratos formais) → mais detalhado. Clientes diretos com relação próxima → pode ser mais conciso.
 
 ---
 
-## ETAPA 6 — Escrever conteúdo
-
-### Framework PAS para abertura
-
-```
-PROBLEMA: identifique a dor específica do cliente
-(use o que ele disse no briefing)
-
-AGITAÇÃO: o que acontece se isso não for resolvido?
-(perda de oportunidade, concorrentes na frente)
-
-SOLUÇÃO: a Firma como resposta natural
-(não como "empresa", mas como parceiros)
-```
-
-### Framework AIDA para o corpo
-
-```
-ATENÇÃO: abra com o problema — nunca com "Apresentamos a Firma Abacaxi"
-INTERESSE: mostre que entendeu a situação específica deles
-DESEJO: transforme características em benefícios emocionais
-AÇÃO: CTA único e claro
-```
+## ETAPA 5 — Escrever conteúdo
 
 ### Regras de escrita
 
+A proposta é um documento de formalização. Meta: **clareza, completude e zero ambiguidade**.
+
+- Abra com o **entendimento do projeto** — o que foi acordado — não com problema/solução dramatizado
+- Escopo claro: o que inclui **e** o que não inclui
+- Verbos ativos: entregamos, captamos, editamos, garantimos
+- Evitar voz passiva: "será entregue", "foi realizado"
+- Parágrafos curtos — máximo 4 linhas
 - Fale com "você" — nunca "o cliente" ou "a empresa"
-- Verbos ativos: entregamos, criamos, garantimos, filmamos
-- Nunca: "será entregue", "foi realizado"
-- Mencione o diferencial da Firma quando relevante (documentários indígenas, projetos sociais — moat real)
+- Sem linguagem corporativa: sinergia, robusto, disruptivo, holístico
+- Sem floreio de vendas: não ancore preço de mercado, não dramatize o problema do cliente, não use gatilhos de urgência artificiais
+
+### Termos e condições (sempre incluir)
+
+- Forma de pagamento: 50% assinatura + 50% entrega (padrão projetos grandes); 100% entrega (projetos simples)
+- Rodadas de revisão: até 2 incluídas; a partir da 3ª cobrar por rodada
+- Validade: 15 dias (30 dias para clientes institucionais)
+- Entrega de arquivos: Google Drive ou nuvem do cliente
+
+---
+
+## ETAPA 6 — Revisar português
+
+**Antes de gerar o documento**, revisar todo o texto:
+
+```
+[ ] Acentos corretos (não, são, também, é, está, etc.)
+[ ] Concordância verbal e nominal
+[ ] Pontuação — vírgula antes de "mas", ponto final em todas as frases
+[ ] Nomes próprios escritos corretamente (nome do cliente, da empresa)
+[ ] Valores numéricos conferidos (R$, datas, quantidades)
+[ ] Nenhuma frase cortada ou incompleta
+```
+
+Erros de português em proposta são inadmissíveis — revisar com atenção antes de gerar.
 
 ---
 
 ## ETAPA 7 — Humanizar
 
-Ao finalizar o texto, aplique **skills/humanizador/SKILL.md**:
+Aplicar **skills/humanizador/SKILL.md** com foco em:
 
-- Remover todas as palavras proibidas
+- Remover palavras proibidas
 - Verificar voz ativa
-- Teste de leitura em voz alta
-- Adaptar tom ao perfil DISC identificado
+- Garantir que o texto soa como Lipe escreveria — profissional e direto, sem frieza burocrática nem exagero de calor
+
+Nota: em propostas formais (licitação, fundação), manter tom mais neutro e técnico é adequado. O humanizador retira o corporativês, não transforma a proposta em conversa de WhatsApp.
 
 ---
 
 ## ETAPA 8 — Gerar documento Word
 
-**ESTILO:** Seguir o padrão visual da `PROPOSTA_VMA_AFD.docx`. Limpo, profissional, sem ornamentos.
-- Nenhum elemento dourado — sem bordas, separadores ou fundos em #D4AF37
-- Paleta: preto para texto, cinza claro (F2F2F2) para header de tabela, cinza (E8E8E8) para linha de total
-- Fonte: Calibri em todo o documento
+**IMPORTANTE:** Sempre usar o template `skills/proposta/assets/MODELO_ORCAMENTO.docx` como base. Nunca criar um `Document()` em branco — o template já contém o logo da Firma no cabeçalho e a assinatura manuscrita do Lipe no rodapé.
 
-Use **skills/proposta/blocos_xml.md** como referência técnica.
+Consultar **skills/proposta/blocos_xml.md** para a estrutura técnica completa (método de geração via zip + blocos XML disponíveis).
 
-Salve em: `output/propostas/NomeCliente_proposta_v1.docx`
+Salvar em: `output/propostas/NomeCliente_proposta_v1.docx`
 
-Ao finalizar, informe:
+Ao finalizar, informar:
 > "Proposta gerada em output/propostas/[arquivo].
 > Baseei o orçamento em [X]. Quer revisar algum ponto antes de enviar?"
 
@@ -255,45 +217,24 @@ Ao finalizar, informe:
 
 ```
 ANTES DE ESCREVER
-[ ] Briefing completo ou sinalizadas as lacunas
-[ ] Pesquisa de mercado realizada
-[ ] Perfil DISC identificado
-[ ] Orçamento calculado com margem mínima 35%
+[ ] Briefing completo ou lacunas sinalizadas
+[ ] Budget definido — trabalhar dentro do teto ou com opções (se desconhecido)
+[ ] Orçamento calculado com NF e margem mínima 35%
 
 AO ESCREVER
-[ ] Abre com problema do cliente, não com a Firma
+[ ] Abre com entendimento do projeto (não com problema/solução)
 [ ] Escopo claro: o que inclui E o que não inclui
-[ ] 3 opções de preço (se sem budget definido)
-[ ] Ancoragem de mercado incluída
-[ ] Cronograma com datas reais
-[ ] Política de alterações explícita
-[ ] CTA único com prazo de validade (15 dias)
+[ ] Cronograma com fases e durações reais
+[ ] Condições explícitas (pagamento, revisões, validade)
+[ ] CTA único ao final
 
-ANTES DE ENTREGAR
+ANTES DE GERAR
+[ ] Português revisado — ortografia, concordância, pontuação
+[ ] Números conferidos (valores, datas, quantidades)
 [ ] Humanizador aplicado
-[ ] Leu em voz alta — soa como Lipe?
-[ ] Números revisados (valor, prazo, escopo)
-[ ] Arquivo salvo em output/propostas/
-```
 
----
-
-## Argumentos para objeções comuns
-
-```
-"Tá caro"
-→ "Como você imagina que a gente mantém a qualidade reduzindo o investimento?"
-→ Ofereça escopo menor, não desconto direto
-
-"Preciso de desconto"
-→ "Posso trabalhar com um prazo mais folgado se isso ajudar vocês financeiramente."
-→ Troque concessão por concessão — nunca desconto sem contrapartida
-
-"Vou pensar"
-→ "Faz sentido. O que faria você se sentir mais confortável para decidir?"
-→ Rotulagem: "Parece que ainda tem alguma dúvida sobre [X]."
-
-"Tem alguém mais barato"
-→ "Imagino que sim. O que te fez considerar a Firma além do preço?"
-→ Ancore no valor, não no preço
+AO GERAR
+[ ] Usar MODELO_ORCAMENTO.docx como base (nunca Document() em branco)
+[ ] Arquivo salvo em output/propostas/ com nome correto
+[ ] Abrir o .docx e confirmar que logo e assinatura aparecem
 ```

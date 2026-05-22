@@ -105,7 +105,7 @@ Precificação por projeto — consulte `docs/TABELA_PRECOS.md` para valores de 
 | Diária Jaya | R$ 1.200/dia |
 | Diária freelancer filmmaker | R$ 1.800/dia |
 | Ticket médio atual da Firma | ~R$ 8.000 |
-| NF sobre serviços | 7,24% |
+| NF sobre serviços | 7,28% |
 | Margem mínima aceitável | 35% |
 | Desconto máximo (institucional) | 15–20% |
 | Desconto social / portfólio | 30–50% (apenas com autorização Lipe/Jaya) |

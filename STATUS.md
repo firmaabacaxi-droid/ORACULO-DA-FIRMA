@@ -1,5 +1,38 @@
 # STATUS DO ORÁCULO — Handoff de Sessão
-## Firma Abacaxi · atualizado Mai 2026 · Sessão 2
+## Firma Abacaxi · atualizado Mai 2026 · Sessão 4
+
+---
+
+## O QUE FOI FEITO NESTA SESSÃO (Sessão 4 — Mai 2026)
+
+### Grande Sincronização do Obsidian
+
+**Objetivo:** Reorganizar o vault, migrar documentação existente e atualizar integrações.
+
+**FASE 1 — Nova estrutura de pastas:**
+- Vault reorganizado de 6 para 4 pastas principais (+ INBOX)
+- Estrutura antiga: `01-PROCESSOS/`, `02-TEMPLATES/`, `03-TECNICAS/`, `04-REFERENCIAS/`, `05-APRENDIZADOS/`
+- Estrutura nova: `01-FIRMA/` (+ TEMPLATES/), `02-CLIENTES/`, `03-CONHECIMENTO/` (tecnicas/ + marketing-digital/), `04-APRENDIZADOS/`
+- Arquivos mal posicionados corrigidos (Template-Email-Entrega, Template-Briefing-Cliente, Template-Processo → TEMPLATES/)
+
+**FASE 2 — Novas notas criadas:**
+- `01-FIRMA/DNA-Firma.md` — resumo do CONTEXTO_FIRMA.md
+- `01-FIRMA/Subagentes.md` — 5 subagentes com gatilhos e entregas
+- `01-FIRMA/Roadmap.md` — fases 1–5 com status atual
+- `03-CONHECIMENTO/tecnicas/Tabela-Precos-Referencia.md` — tabela rápida de preços
+- `01-FIRMA/_INDEX.md` atualizado, `02-CLIENTES/_INDEX.md` novo, `03-CONHECIMENTO/_INDEX.md` novo, `04-APRENDIZADOS/_INDEX.md` atualizado
+
+**FASE 3 — Migração de documentos antigos:**
+- `02-CLIENTES/Historico-Clientes-Chave.md` — 120+ orçamentos históricos catalogados (AFD, RNP, INESC, Mighty Earth, ENAP, PCdoB, Red Bull, FUNAI, SICREDI, Petrobras, IGT)
+- Documentos antigos avaliados (PLANO_EXPANSAO, SYSTEM_PROMPTS) — conteúdo superado pelos docs/ atuais, nada a migrar
+
+**FASE 4 — Arquivos atualizados:**
+- `00-INBOX/_COMO-USAR.md` — reescrito com nova estrutura + integrações NotebookLM + Notion
+- `HOME.md` — atualizado com nova navegação e tabela de integrações
+
+---
+
+## ESTADO ATUAL DO SISTEMA
 
 > **Para a próxima sessão:** leia este arquivo primeiro. Ele captura onde paramos, o que foi decidido e o que vem a seguir.
 

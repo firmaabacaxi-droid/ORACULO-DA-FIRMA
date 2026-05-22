@@ -72,7 +72,7 @@
 |---|---|---|
 | Alimentação | R$ 80–120/pessoa/diária | Brasília |
 | Transporte / deslocamento | R$ 200–300 | Dependendo da distância |
-| NF / impostos | **7,24% sobre total** | — |
+| NF / impostos | **7,28% sobre total** | — |
 
 ---
 
@@ -89,7 +89,7 @@
 ## Regras de precificação
 
 - **Margem mínima aceitável:** 35% sobre os custos
-- **NF padrão:** 7,24% sobre o total bruto
+- **NF padrão:** 7,28% sobre o total bruto
 - **Desconto máximo em negociação (institucional):** 15–20%
 - **Desconto social / portfólio:** 30–50% — apenas com autorização explícita de Lipe ou Jaya
 - **Modelo consolidado:** A partir de 2024, preferir "Filmmaker com equipamentos" (R$ 1.800 tudo incluso) em vez de itemizar câmera + lentes + operador separadamente — mais limpo para o cliente

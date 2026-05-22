@@ -6,43 +6,88 @@
 
 ---
 
-## Fluxo de uso diário
+## Fluxo de uso
 
 ```
 1. Chega uma tarefa → Oráculo consulta o vault antes de responder
-2. Projeto finaliza → Oráculo propõe aprendizados para salvar aqui
-3. Lipe/Jaya aprovam → nota é salva na pasta correta
-4. NotebookLM sincroniza → fica mais inteligente automaticamente
+2. Projeto finaliza → Oráculo propõe aprendizados para salvar em 04-APRENDIZADOS/
+3. Novo cliente → Oráculo cria perfil em 02-CLIENTES/
+4. Lipe/Jaya aprovam → nota é salva na pasta correta
+5. Git sincroniza automaticamente → NotebookLM fica mais inteligente
 ```
 
 ---
 
-## Como usar cada pasta
+## Estrutura do vault (Mai 2026)
 
-**00-INBOX/** → Jogue aqui notas rápidas que ainda não categorizou. O Oráculo processa periodicamente.
+**00-INBOX/** → Captura rápida. Notas que ainda não têm lugar definido. Oráculo processa periodicamente.
 
-**01-PROCESSOS/** → Fluxos de trabalho, checklists, regras de negócio. Coisas que "sempre fazemos assim".
+**01-FIRMA/** → Tudo sobre como a Firma funciona.
+- `DNA-Firma.md` — identidade, propósito, valores, preços-chave
+- `Fluxo-13-Etapas.md` — workflow completo de um projeto
+- `Regras-de-Negocio.md` — regras de desconto, pagamento, revisão
+- `Subagentes.md` — os 5 subagentes do Oráculo e quando usar
+- `Roadmap.md` — fases 1–5 de implementação
+- `TEMPLATES/` — modelos prontos: aprendizado, briefing, e-mail, processo
 
-**02-TEMPLATES/** → Modelos prontos. Quando precisar de uma proposta ou e-mail, começa daqui.
+**02-CLIENTES/** → Perfis de clientes: briefing, histórico, DISC, projetos.
+- `brasil-participativo/` — documentário LabLivre/UnB
+- `Historico-Clientes-Chave.md` — 120+ orçamentos históricos catalogados
 
-**03-TECNICAS/** → Técnicas cinematográficas, configurações de câmera, referências de iluminação.
+**03-CONHECIMENTO/** → Técnicas cinematográficas, preços e marketing.
+- `tecnicas/` — técnicas assinatura da Firma + tabela de preços de referência
+- `marketing-digital/` — 6 módulos extraídos via NotebookLM (funil, tráfego, copywriting, vendas...)
 
-**04-REFERENCIAS/** → Links, imagens, exemplos de outros trabalhos que servem de inspiração.
-
-**05-APRENDIZADOS/** → O mais valioso: o que deu errado, o que deu certo, e por quê.
+**04-APRENDIZADOS/** → O mais valioso: o que funcionou, o que falhou, e por quê.
+- Logs por data de cada projeto real
 
 ---
 
-## Plugins recomendados para instalar
+## As 3 integrações do vault
 
-| Plugin | Para que serve |
+### Oráculo (Claude Code)
+- **Lê** o vault antes de responder para qualquer tarefa
+- **Escreve** novas notas com autorização de Lipe/Jaya
+- **Consulta** via MCP filesystem — acesso direto aos arquivos locais
+
+### NotebookLM
+- **Indexa** o vault via GitHub sync automático
+- **Gera** áudios, resumos, mind maps, quizzes a partir das notas
+- **Consultar:** use `/notebooklm` no Claude Code ou acesse via MCP
+- **O que ele sabe:** tudo que está no vault (sync via git)
+- **Caso de uso:** gerar audio overview de um briefing para Lipe ouvir dirigindo
+
+### Notion
+- **Diferença do vault:**
+  - Notion = **operação** (quem faz, quando, quanto, status de projeto)
+  - Vault = **conhecimento** (como fazer, o que aprendemos, quem somos)
+- Os dois se complementam — não duplicar informação
+- Oráculo lê Notion para tarefas, lê vault para contexto e conhecimento
+
+---
+
+## Como alimentar o vault
+
+**Ao finalizar um projeto:**
+> "Oráculo, vamos registrar o aprendizado deste projeto."
+→ Oráculo faz perguntas estruturadas → salva em `04-APRENDIZADOS/`
+
+**Ao fechar um cliente novo:**
+> O Oráculo cria automaticamente o perfil em `02-CLIENTES/`
+
+**Ao descobrir uma técnica nova:**
+> "Oráculo, registra esta técnica no cérebro."
+→ Oráculo usa o `Template-Referencia-Tecnica` e salva em `03-CONHECIMENTO/tecnicas/`
+
+**Captura rápida:**
+> Jogue a nota em `00-INBOX/` — Oráculo classifica depois
+
+---
+
+## Plugins instalados
+
+| Plugin | Função |
 |---|---|
-| **Obsidian Git** | Sincroniza automaticamente com GitHub |
-| **Dataview** | Faz queries nas notas (ex: "todos os projetos de 2026") |
-| **Templater** | Cria novas notas a partir dos templates da pasta 02 |
-
----
-
-## Conexão com o Oráculo
-
-O Oráculo lê e escreve neste vault via MCP filesystem. Você não precisa abrir o Obsidian para que o vault seja atualizado — mas o Obsidian é onde você **navega e consulta** o conhecimento acumulado.
+| **Obsidian Git** | Sync automático com GitHub a cada 30 min |
+| **Dataview** | Queries nas notas: "todos os aprendizados de 2026" |
+| **Templater** | Criar notas a partir dos templates da pasta TEMPLATES/ |

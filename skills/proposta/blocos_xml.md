@@ -1,6 +1,53 @@
 # Blocos XML para montagem de propostas
 *Referência técnica — copiar e adaptar conforme necessário*
 
+---
+
+## Como usar este arquivo
+
+O `MODELO_ORCAMENTO.docx` em `skills/proposta/assets/` já contém:
+- **Header:** logo Firma Abacaxi centralizado (preservado automaticamente)
+- **Assinatura:** imagem manuscrita do Lipe + linha + dados (FILIPE DUQUE, CNPJ, email, telefones)
+
+**Nunca criar `Document()` em branco.** Isso apaga o logo e a assinatura.
+
+### Método correto de geração (Python)
+
+O `.docx` é um arquivo zip. Substituir apenas o `word/document.xml` preserva tudo o mais:
+
+```python
+import zipfile, shutil
+
+TEMPLATE = "skills/proposta/assets/MODELO_ORCAMENTO.docx"
+OUTPUT   = "output/propostas/NomeCliente_proposta_v1.docx"
+
+# 1. Copiar template
+shutil.copy(TEMPLATE, OUTPUT)
+
+# 2. Ler todos os arquivos do zip, exceto document.xml
+with zipfile.ZipFile(OUTPUT, 'r') as z:
+    names = z.namelist()
+    contents = {n: z.read(n) for n in names if n != 'word/document.xml'}
+
+# 3. Montar novo document.xml usando os blocos abaixo
+new_xml = ENVELOPE_INICIO + blocos_concatenados + ENVELOPE_FIM
+
+# 4. Regravar o zip substituindo só o document.xml
+with zipfile.ZipFile(OUTPUT, 'w', zipfile.ZIP_DEFLATED) as z:
+    for name, content in contents.items():
+        z.writestr(name, content)
+    z.writestr('word/document.xml', new_xml.encode('utf-8'))
+```
+
+### Regras críticas de XML
+
+- **Ordem dentro de `<w:pPr>`:** `keepNext → pBdr → spacing → ind → jc → rPr` (essa ordem é obrigatória — inversão quebra a validação)
+- **Caracteres especiais:** usar entidades XML para acentos: `ã=&#227;` `ç=&#231;` `é=&#233;` `á=&#225;` `ê=&#234;` `ó=&#243;` `ú=&#250;` `õ=&#245;` `í=&#237;` `—=&#8212;`
+- **IDs de parágrafo:** cada `w14:paraId` deve ser único — usar sequência hexadecimal: `00000001`, `00000002`...
+- **gutter:** o `<w:pgMar>` deve sempre incluir `w:gutter="0"`
+
+---
+
 ## Envelope do documento
 
 Todo document.xml começa e termina com esta estrutura. O conteúdo vai entre `<w:body>` e `<w:sectPr>`.
