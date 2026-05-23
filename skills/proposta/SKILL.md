@@ -31,6 +31,8 @@ SAÍDA: output/propostas/NomeCliente_proposta_v1.docx
 
 **Princípio fundamental:** A proposta é um documento de formalização — não uma peça de vendas. O processo de venda acontece na conversa presencial, com portfólio e atendimento. A proposta confirma o que foi acordado, com clareza e profissionalismo.
 
+Mas formalização não significa frieza. A proposta precisa mostrar que você entendeu o projeto, com linguagem humana e calorosa. O cliente precisa reconhecer o próprio projeto nas palavras que leu.
+
 ---
 
 ## ETAPA 1 — Verificar briefing
@@ -119,30 +121,45 @@ Use esta estrutura padrão. Adapte seções que não se aplicam ao projeto.
 
 ```
 CAPA
-   Nome do projeto + cliente + data + versão
+   Título: tipo de documento (ex: "Proposta de Produção Audiovisual")
+   Subtítulo: nome do projeto e cliente
+
+ABERTURA NARRATIVA (2 parágrafos antes das seções)
+   Parágrafo 1: contextualize o cliente e o projeto — mostre que você entendeu
+   Parágrafo 2: confirme o engajamento — "É essa história que nos convidaram para contar."
+   → Nunca pule a abertura. É o que diferencia uma proposta de um orçamento.
 
 ENTENDIMENTO DO PROJETO
-   O que entendemos que será feito
-   (use as palavras do cliente — mostra que ouviu)
+   O que é o projeto, quem é o protagonista, qual é a narrativa
+   Use as palavras do cliente — mostra que ouviu
 
 NOSSA PROPOSTA
-   O que vamos entregar (escopo detalhado)
-   O que NÃO está incluído (evita conflito posterior)
+   Parágrafo de intro: o que será entregue em uma frase
+   "O que está incluído:" → lista de itens
+   "O que não está incluído:" → lista de exclusões explícitas (evita conflito posterior)
+   "Expansão de escopo:" → quando o projeto tem potencial de crescer (série, versões extras)
+                           formalizar que qualquer entrega adicional será em aditivo contratual
 
 CRONOGRAMA
-   Etapas e duração prevista por fase
+   Etapas e duração por fase (bullets com semanas)
    Prazo de feedback do cliente por etapa
 
 INVESTIMENTO
    Tabela de itens + subtotal + NF + total
-   Condições de pagamento
-   Validade da proposta
+   Footnote: o que está incluído na diária (equipe + equipamentos)
+   Condições de pagamento e validade
 
-PRÓXIMOS PASSOS
-   Um CTA único e claro
+FECHAMENTO CALOROSO (parágrafo antes da data)
+   → Sempre incluir. Ex: "Ficamos à disposição para dúvidas e ajustes.
+     Será um prazer contribuir com esse projeto."
+   → É o único momento de calor explícito no documento — não exagerar, mas nunca omitir.
+
+DATA + ASSINATURA
+   "Brasília, [data]."
+   Imagem da assinatura (rId6) + FILIPE DUQUE + CNPJ + contatos
 ```
 
-**Nível de detalhe:** ajustar conforme o cliente. Clientes institucionais (licitação, fundação, contratos formais) → mais detalhado. Clientes diretos com relação próxima → pode ser mais conciso.
+**Nível de detalhe:** ajustar conforme o cliente. Clientes institucionais (licitação, fundação, contratos formais) → mais detalhado. Clientes diretos com relação próxima → pode ser mais conciso. A abertura narrativa e o fechamento caloroso são sempre obrigatórios.
 
 ---
 
@@ -150,16 +167,27 @@ PRÓXIMOS PASSOS
 
 ### Regras de escrita
 
-A proposta é um documento de formalização. Meta: **clareza, completude e zero ambiguidade**.
+A proposta formaliza e apresenta. Meta: **clareza, completude, linguagem humana**.
 
-- Abra com o **entendimento do projeto** — o que foi acordado — não com problema/solução dramatizado
-- Escopo claro: o que inclui **e** o que não inclui
+**Abertura narrativa (obrigatória):**
+- 1–2 parágrafos antes das seções, sem título de seção
+- Mostre que você entendeu o contexto do cliente, não só o escopo técnico
+- Confirme engajamento genuíno: "É essa história que nos convidaram para contar."
+- Evite: "Conforme conversamos, segue a proposta..." — soa como protocolo burocrático
+
+**Corpo das seções:**
+- Abra "Entendimento" com o projeto em palavras que o cliente reconhece como suas
+- Em "Nossa Proposta": liste o que inclui E o que não inclui — zero ambiguidade
+- Quando houver potencial de crescimento: inclua "Expansão de escopo:" com nota de aditivo
 - Verbos ativos: entregamos, captamos, editamos, garantimos
-- Evitar voz passiva: "será entregue", "foi realizado"
 - Parágrafos curtos — máximo 4 linhas
 - Fale com "você" — nunca "o cliente" ou "a empresa"
 - Sem linguagem corporativa: sinergia, robusto, disruptivo, holístico
-- Sem floreio de vendas: não ancore preço de mercado, não dramatize o problema do cliente, não use gatilhos de urgência artificiais
+- Sem floreio de vendas: não ancore preço de mercado, não dramatize o problema
+
+**Fechamento (obrigatório):**
+- Parágrafo caloroso antes da data — "Ficamos à disposição... Será um prazer contribuir."
+- Não exagerar, mas nunca omitir. É o que humaniza o documento.
 
 ### Termos e condições (sempre incluir)
 
@@ -222,11 +250,13 @@ ANTES DE ESCREVER
 [ ] Orçamento calculado com NF e margem mínima 35%
 
 AO ESCREVER
-[ ] Abre com entendimento do projeto (não com problema/solução)
-[ ] Escopo claro: o que inclui E o que não inclui
-[ ] Cronograma com fases e durações reais
-[ ] Condições explícitas (pagamento, revisões, validade)
-[ ] CTA único ao final
+[ ] Abertura narrativa (2 parágrafos, antes das seções, sem título)
+[ ] Entendimento do projeto usa palavras do cliente
+[ ] Escopo: o que inclui E o que não inclui (ambos obrigatórios)
+[ ] Expansão de escopo: incluir quando o projeto tem potencial de crescer
+[ ] Cronograma com fases, durações e prazo de feedback do cliente
+[ ] Condições explícitas (pagamento, validade)
+[ ] Fechamento caloroso antes da data
 
 ANTES DE GERAR
 [ ] Português revisado — ortografia, concordância, pontuação

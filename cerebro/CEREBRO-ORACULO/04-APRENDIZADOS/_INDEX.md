@@ -9,6 +9,7 @@ Esta pasta alimenta o NotebookLM e torna o Oráculo mais inteligente a cada proj
 
 | Data | Nota | Tipo | Destaque |
 |------|------|------|---------|
+| 2026-05-22 | [[2026-05-22-Proposta-Narrativa-Escopo]] | Processo | Proposta precisa de abertura narrativa, escopo completo e fechamento caloroso |
 | 2026-05-22 | [[2026-05-22-Base-Marketing-Digital]] | Operacional | Extração NotebookLM → 6 notas de marketing digital |
 | 2026-05-21 | [[2026-05-21-Setup-MCPs]] | Operacional | Setup dos MCPs do Oráculo |
 | 2026-05-21 | [[2026-05-21-Expansao-MCPs-Arsenal]] | Operacional | Arsenal de skills Antigravity |
