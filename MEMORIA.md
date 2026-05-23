@@ -19,11 +19,13 @@ O Oráculo lê este arquivo em todas as sessões.
 ## Clientes — preferências e padrões
 
 ```
-[aguardando primeiro registro]
+2026-05 | Brasil Participativo (LabLivre/UnB) | Cliente institucional universitário.
+         Decisor: Ricardo Poppi. Tom técnico e formal, alinhado com linguagem acadêmica.
+         Aprovação depende de instância externa (Finatec) — prazo é naturalmente longo.
+         Valoriza alinhamento político e responsabilidade social.
 
-Exemplo de como registrar:
-2026-05 | CNV | Prefere propostas diretas, sem opções múltiplas. Tom institucional.
-2026-05 | SuperHost | Perfil I (DISC). Responde bem a linguagem de impacto e visibilidade.
+2026-05 | SuperHost | Mencionado como cliente estratégico (proposta gerada em Sessão 4).
+         Detalhar perfil DISC e padrões após próxima interação.
 ```
 
 ---
@@ -31,11 +33,18 @@ Exemplo de como registrar:
 ## Precificação — o que funcionou
 
 ```
-[aguardando primeiro registro]
+2026-05 | Brasil Participativo — Documentário LabLivre/UnB
+         Proposta passou por 4 versões (v1 a v4 + versão revisada por Lipe).
+         Aprendizado: separar claramente o que muda entre versões evita retrabalho.
+         Usar controle de versão explícito no nome do arquivo (v1, v2...) é essencial.
 
-Exemplo:
-2026-05 | Vídeo institucional 3min, 2 locações, Brasília → R$14.000 aprovado sem negociação
-2026-05 | Proposta com 3 opções → cliente escolheu a intermediária (como esperado)
+2026-05 | NF sempre inclusa no total apresentado ao cliente.
+         Calcular de trás pra frente quando houver teto de budget:
+         Base = Total ÷ 1,0728 | NF = Total − Base
+         Nunca apresentar valor sem NF para clientes institucionais.
+
+2026-05 | Margem mínima: 35% sobre custo direto. Verificar sempre antes de fechar.
+         Desconto máximo sem aprovação: 15–20%. Projetos sociais/culturais: até 30–50%.
 ```
 
 ---
@@ -43,11 +52,9 @@ Exemplo:
 ## Negociação — objeções e respostas
 
 ```
-[aguardando primeiro registro]
+[aguardando primeiro registro de negociação em campo]
 
-Exemplo:
-2026-05 | Objeção "tá caro" → resposta com ancoragem de mercado funcionou bem
-2026-05 | Cliente pediu desconto → oferta de prazo mais longo como contrapartida resolveu
+Referência: skills/antigravity/negotiation-voss/SKILL.md (método Voss)
 ```
 
 ---
@@ -55,11 +62,7 @@ Exemplo:
 ## Produção — aprendizados de set
 
 ```
-[aguardando primeiro registro]
-
-Exemplo:
-2026-05 | Gravação externa em Brasília centro: sempre reservar 30min a mais para estacionamento
-2026-05 | Entrevistas com iluminação natural: manhã até 10h ou tarde após 16h
+[aguardando primeiro projeto filmado com registro no Oráculo]
 ```
 
 ---
@@ -67,11 +70,13 @@ Exemplo:
 ## Operacional — o que otimizar
 
 ```
-[aguardando primeiro registro]
+2026-05 | Quando uma proposta tem muitas alterações, é mais eficiente regenerar
+         o documento do zero do que editar o Word manualmente.
+         Regenerar via MODELO_ORCAMENTO.docx mantém formatação e evita erros.
 
-Exemplo:
-2026-05 | Proposta enviada por e-mail tem menos retorno que proposta apresentada em reunião
-2026-05 | Clientes institucionais demoram em média 7 dias para aprovar proposta
+2026-05 | Clientes institucionais (fundações, governo, universidades) têm ciclo
+         de aprovação mais longo (média 7–30 dias). Calibrar follow-up para
+         não pressionar e não sumir.
 ```
 
 ---
@@ -79,16 +84,19 @@ Exemplo:
 ## Padrões de projeto por tipo de cliente
 
 ```
-[aguardando primeiro registro]
+Projetos culturais / sociais (ex: Brasil Participativo, LabLivre)
+→ Orçamento depende de edital ou aprovação de fundação (Finatec, etc.)
+→ Prazo de aprovação: semanas a meses
+→ Mais liberdade criativa, alinhamento político importante
+→ NF obrigatória; linguagem técnica e acadêmica na proposta
 
-Exemplo:
-Grandes empresas → exigem NF, prazo de pagamento 30 dias, 3+ rodadas de revisão
-Agências → pagam rápido, briefs mais detalhados, menos reuniões
-Projetos culturais → orçamento reduzido, mais liberdade criativa, prazos flexíveis
+Empresas / eventos (ex: SuperHost, Cerrado Experience)
+→ Aprovação mais rápida
+→ Tom mais comercial, foco em resultado e visibilidade
+→ Maior sensibilidade a prazo de entrega
 ```
 
 ---
 
-*Última atualização: [data do primeiro registro]*
-*Total de aprendizados: 0*
-1
+*Última atualização: Mai 2026*
+*Total de aprendizados: 8 registros*

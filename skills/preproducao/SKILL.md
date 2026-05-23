@@ -13,6 +13,15 @@
 
 ---
 
+## Skills do Antigravity — quando acionar
+
+| Situação | Skill |
+|---|---|
+| Roteiro com recomendações técnicas de cinematografia | `skills/antigravity/cinematic-script-writer/SKILL.md` — 175+ técnicas: ângulos, movimentos, iluminação, composição |
+| Calibrar setup de câmera para as condições do set | `skills/antigravity/photography-settings/SKILL.md` — ISO/apertura/shutter, hiperfocal, golden hour |
+
+---
+
 ## ETAPA 1 — Briefing de direção
 
 Antes do roteiro, pergunte:

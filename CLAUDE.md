@@ -230,11 +230,16 @@ Agente de Captação  → atendimento externo (futuro)
 ## Fases de implementação (visão macro)
 
 ```
-FASE 1 — Sem 1–2 (ativo) · R$120/mês
-  ✅ Documentação e contexto completos
-  ✅ Skills de proposta, captação, gestão, pré-produção, produção, conteúdo
-  ⬜ CONTEXTO_FIRMA.md preenchido — FEITO
-  ⬜ Primeira proposta real com cliente
+FASE 1 — Sem 1–2 · R$120/mês · ✅ CONCLUÍDA (Mai 2026)
+  ✅ Documentação e contexto completos (CONTEXTO_FIRMA, FLUXO_TRABALHO, ARQUITETURA_NOTION)
+  ✅ Skills de proposta, captação, gestão, pré-produção, produção, conteúdo, marketing-digital
+  ✅ Skills Antigravity integradas às skills da Firma
+  ✅ MEMORIA.md com primeiros registros reais
+  ✅ Obsidian vault sincronizado (CEREBRO-ORACULO)
+  ✅ MCPs: Notion, Obsidian, NotebookLM ativos
+  ✅ 2 projetos reais gerados: Brasil Participativo (v4) e Evento UnB
+  ⏳ Subagentes: system prompts prontos em docs/SUBAGENTES.md — criar como Projects no claude.ai
+  ⏳ Bancos Notion Fase 2+ — arquitetura documentada, criação pendente
 
 FASE 2 — Sem 3–4 · +R$160/mês
   Google Drive MCP → acesso a arquivos de projetos
@@ -244,7 +249,7 @@ FASE 2 — Sem 3–4 · +R$160/mês
 FASE 3 — Sem 5–6 · +R$110/mês
   ElevenLabs → voice-over e narração
   Whisper → transcrição de briefings e reuniões
-  Make → primeira automação (proposta aprovada → pré-produção)
+  Make/n8n → automações A1–A5
 
 FASE 4 — Sem 7–8 · +R$1.090/mês
   LinkedIn Sales Navigator + Apollo → prospecção ativa

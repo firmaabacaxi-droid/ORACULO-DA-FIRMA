@@ -2,6 +2,9 @@
 ## System prompts dos 5 subagentes do Oráculo
 *Firma Abacaxi Ateliê Audiovisual · atualizado Mai 2026*
 
+> **Status:** ⏳ System prompts prontos — aguardando criação como Projects no claude.ai
+> Para criar: acesse claude.ai → Projects → New Project → cole o system prompt no campo "Project instructions" → suba os documentos indicados.
+
 Cada subagente pode ser criado como um Project separado no claude.ai.
 Cole o system prompt correspondente no campo "Project instructions" e suba os documentos indicados.
 

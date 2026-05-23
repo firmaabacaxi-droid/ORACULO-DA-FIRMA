@@ -32,6 +32,16 @@ SAÍDA: proposta gerada em output/propostas/
 
 ---
 
+## Skills do Antigravity — quando acionar
+
+| Situação | Skill |
+|---|---|
+| Cliente resistente, orçamento travado, silêncio no follow-up | `skills/antigravity/negotiation-voss/SKILL.md` — mirroring, labeling, perguntas calibradas |
+| Definir tom e estratégia da primeira abordagem | `skills/antigravity/marketing-psychology/SKILL.md` — prova social, ancoragem, reciprocidade |
+| Briefing foi gravado em áudio | `ANTIGRAVITY\SKILLS\whisper-transcription\SKILL.md` — transcrever antes de prosseguir |
+
+---
+
 ## ETAPA 1 — Qualificação inicial
 
 Antes de investir tempo em briefing completo, avalie:

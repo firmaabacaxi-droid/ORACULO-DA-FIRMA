@@ -14,6 +14,16 @@
 
 ---
 
+## Skills do Antigravity — quando acionar
+
+| Situação | Skill |
+|---|---|
+| Configurar ou revisar automação de ordem do dia / follow-up | `skills/antigravity/automation-workflows/SKILL.md` — A3 (ordem do dia 8h), A4 (follow-up pós-entrega) |
+| Calcular margem, markup ou rentabilidade de projeto | `skills/antigravity/financial-calculator-pro/SKILL.md` — markup, margem líquida, FV, PV |
+| Triagem e priorização avançada de e-mails e tarefas | `skills/antigravity/exec-admin/SKILL.md` — P0/P1/P2, draft de comunicações |
+
+---
+
 ## ORDEM DO DIA — processo
 
 ### Etapa 1 — Coletar dados do Notion

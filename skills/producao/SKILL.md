@@ -13,6 +13,15 @@
 
 ---
 
+## Skills do Antigravity — quando acionar
+
+| Situação | Skill |
+|---|---|
+| Configuração técnica rápida on-set | `skills/antigravity/photography-settings/SKILL.md` — exposição, hiperfocal, golden hour |
+| Montar ou revisar automação de backup | `skills/antigravity/automation-workflows/SKILL.md` — trigger pós-filmagem → cópia automática para Drive |
+
+---
+
 ## CHECKLIST DO DIA ANTERIOR
 
 ```

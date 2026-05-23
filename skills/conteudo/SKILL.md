@@ -13,6 +13,16 @@
 
 ---
 
+## Skills do Antigravity — quando acionar
+
+| Situação | Skill |
+|---|---|
+| Copywriting de posts com mais conversão | `skills/antigravity/marketing-psychology/SKILL.md` — Zeigarnik (incompleto), prova social, escassez, ancoragem |
+| Publicação automática após criar o conteúdo | `ANTIGRAVITY\SKILLS\upload-post\SKILL.md` — postar Reels/carrossel/vídeo no Instagram, LinkedIn, YouTube |
+| Transcrever vídeo ou áudio do projeto | `ANTIGRAVITY\SKILLS\whisper-transcription\SKILL.md` — gerar legenda e base para posts |
+
+---
+
 ## PILARES DE CONTEÚDO DA FIRMA
 
 Todo conteúdo da Firma Abacaxi se encaixa em um destes pilares:

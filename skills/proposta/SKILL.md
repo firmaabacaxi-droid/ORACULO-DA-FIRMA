@@ -29,6 +29,16 @@ ETAPA 8 — Gerar documento Word (→ skills/proposta/blocos_xml.md)
 SAÍDA: output/propostas/NomeCliente_proposta_v1.docx
 ```
 
+## Skills do Antigravity — quando acionar
+
+| Situação | Skill |
+|---|---|
+| Apresentar preço com mais impacto | `skills/antigravity/marketing-psychology/SKILL.md` — ancoragem (âncora alta → oferta real), aversão à perda, prova social |
+| Verificar margem, simular cenários de desconto | `skills/antigravity/financial-calculator-pro/SKILL.md` — markup, margem líquida pós-NF |
+| Cliente em objeção de preço | `skills/antigravity/negotiation-voss/SKILL.md` — accusation audit, calibrated questions |
+
+---
+
 **Princípio fundamental:** A proposta é um documento de formalização — não uma peça de vendas. O processo de venda acontece na conversa presencial, com portfólio e atendimento. A proposta confirma o que foi acordado, com clareza e profissionalismo.
 
 Mas formalização não significa frieza. A proposta precisa mostrar que você entendeu o projeto, com linguagem humana e calorosa. O cliente precisa reconhecer o próprio projeto nas palavras que leu.
@@ -72,7 +82,7 @@ Se o cliente já é conhecido (ex: proposta decorrente de reunião anterior), pe
 
 ## ETAPA 3 — Calcular orçamento
 
-**Consulte `docs/TABELA_PRECOS.md` para todos os valores de referência.**
+**Consulte `docs/TABELA_PRECOS.md` para todos os valores de referência.** (140+ orçamentos históricos analisados, corrigidos por Lipe em Mai 2026)
 
 ### Estrutura de custos
 
