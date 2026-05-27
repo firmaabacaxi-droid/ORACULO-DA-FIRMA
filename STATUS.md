@@ -381,4 +381,99 @@ output/                       → O que o Oráculo produziu
 
 Os usuários agora conseguem navegar bidirecionalm entre projeto → filmagem/edição/orçamento e vice-versa.
 
-*Atualizado ao final da Sessão 12 — 27 Mai 2026 · Oráculo v1.3*
+---
+
+## SESSÃO 13 — Auditoria Completa de Bidimensionalidades em Todos os Projetos (27 Mai 2026)
+
+### ✅ Concluído nesta sessão
+
+**Problema identificado:**
+- Maranhã tinha 2 filmagens criadas mas NÃO vinculadas ao projeto
+- Outros projetos abertos não tinham registros de filmagem/edição/orçamento ainda
+- Necessário mapear estado completo de bidimensionalidades em todos os 8 projetos abertos
+
+**Ações tomadas:**
+
+1. ✅ **Vinculação de Filmagens Maranhã** 
+   - Maranhã — Dia 1 (28/05/2026) → vinculada ao projeto #16
+   - Maranhã — Dia 2 (29/05/2026) → vinculada ao projeto #16
+   - Confirmado: campo "Filmagens" no projeto agora exibe ambas as filmagens ✓
+
+2. ✅ **Auditoria de Bidimensionalidades — Estado Atual:**
+
+| Projeto | Status | Filmagens | Edições | Orçamentos | Financeiro |
+|---------|--------|-----------|---------|------------|-----------|
+| #10 SIMBIOSE | Briefing | ❌ 0 | ✅ 1 (Vídeo 1min30s) | ❌ 0 | ❌ 0 |
+| #16 Maranhã — Grav. 28-29/05 | Aprovado | ✅ 2 (Dia 1, Dia 2) | ❌ 0 | ✅ 12 items | ❌ 0 |
+| #08 RNP Ailton Krenak | Aprovado | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 |
+| #14 AGO | Aprovado | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 |
+| #16 Oficinas de Documentário | Em produção | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 |
+| #15 Filmmaker Independente | Pausado | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 |
+| Visite mon Agencé | Em produção | ❌ 0 | ❌ 0 | ✅ (R$ 1.000) | ❌ 0 |
+| FIOCRUZ REDE COLABORA | Em produção | ❌ 0 | ❌ 0 | ❌ 0 | ❌ 0 |
+
+**Conclusão:** 
+- Maranhã é o único projeto com infraestrutura financeira completa (orçamento + filmagens vinculadas)
+- SIMBIOSE tem edição parcial (faltam orçamento e filmagem)
+- Demais projetos precisam de investigação e vinculação de registros existentes
+
+### 🔍 Análise por Banco
+
+**FILMAGEM (collection://bc067267-b603-41fc-bb75-c00050cec4cc)**
+- 2 registros existentes: Maranhã Dia 1 e Dia 2 ✅ (ambos agora vinculados)
+- Status: Pré-filmagem para Dia 1, Pré-filmagem para Dia 2
+- Próximo: Atualizar para "Em campo" após 28/05 e "Finalizado" após 29/05
+
+**EDIÇÃO (collection://0b437e77-08c6-4f6e-a133-5ca3f682ab58)**
+- 1 registro: SIMBIOSE — Vídeo 1min30s ✅ (vinculado ao projeto)
+- Status: Em andamento
+- Etapa: Edição bruta
+- Próximo: criar registros para outros projetos em fase de pós-produção
+
+**ORÇAMENTO (collection://1acaa528-4627-4817-8d43-093d3ad19137)**
+- 12 registros Maranhã ✅ (vinculados)
+- 4 registros SOBRE2026 (projeto Prospecção — não em execução)
+- Nenhum para SIMBIOSE, RNP, AGO, OFICINAS, etc.
+- Status: Estimado / Confirmado para Maranhã
+
+**FINANCEIRO_PROJETO (collection://cd8f5929-87b0-431b-b392-00b49a11b98e)**
+- 0 registros ainda (nenhum projeto registrou despesas reais)
+- Próximo: começar a registrar após 28/05 (Maranhã) com comprovantes
+
+**GESTÃO_FINANCEIRA_EMPRESA (collection://3a29ba12-7582-458e-bbbb-f631cfcbef35)**
+- 0 registros ainda (não iniciado)
+- Para depois (despesas operacionais não vinculadas a projetos)
+
+### 📋 Próximas Ações Recomendadas
+
+**Imediato (antes do Maranhã — 28/05):**
+1. ✅ FEITO: Vincular 2 filmagens Maranhã ao projeto
+2. ⏳ Verificar orçamento de Maranhã: está na proposta aprovada? (12 itens registrados — validar)
+
+**Pós-Maranhã (29/05 em diante):**
+1. Atualizar FILMAGEM.Status para "Finalizado" após conclusão
+2. Começar a registrar FINANCEIRO_PROJETO com comprovantes de Maranhã
+3. Revisar e criar edições para Maranhã se houver pós-produção
+
+**Próximas sessões:**
+1. Investigar se RNP, AGO, OFICINAS têm orçamentos/filmagens que devem ser vinculados
+2. Criar registros de orçamento para SIMBIOSE (R$ 800)
+3. Implementar dashboard de Budget vs. Actual no FINANCEIRO_PROJETO
+
+### 🎯 Estado das Relações DUAL
+
+| Relação | Campo em A | Campo em B | Status |
+|---------|-----------|-----------|--------|
+| PROJETO_2026 ↔ FILMAGEM | Filmagens | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ EDIÇÃO | Edições | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ ORÇAMENTO | Orçamentos | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ FINANCEIRO_PROJETO | Financeiro do Projeto | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ GESTÃO_FINANCEIRA | Gestão Financeira | Projeto relacionado | ✅ DUAL |
+| PROJETO_2026 ↔ CLIENTES | Cliente | Projetos relacionados | ✅ DUAL |
+| PROJETO_2026 ↔ PROPOSTAS | Proposta | Projeto relacionado | ✅ DUAL |
+| PROJETO_2026 ↔ TAREFAS | Tarefas | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ CONTATOS | Responsável | (reverso em CONTATOS) | ✅ DUAL |
+
+**Total: 9/9 relações operacionais DUAL** ✓
+
+*Atualizado ao final da Sessão 13 — 27 Mai 2026 · Oráculo v1.3*
