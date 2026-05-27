@@ -7,9 +7,9 @@
 
 | Serviço | Faixa real | Preço de referência | Notas |
 |---|---|---|---|
-| Diretor de Fotografia (externo) | R$ 800–1.500 | **R$ 1.200** | Lipe: R$ 1.800 (fixo) |
+| Diretor de Fotografia (externo) | R$ 800–1.500 | **R$ 1.200** | Lipe: R$ 1.500 - 2.000 (fixo) |
 | Filmmaker solo (câmera inclusa) | R$ 1.500–2.000 | **R$ 1.800** | Modelo consolidado 2024+ |
-| Operador de câmera | R$ 600–1.500 | **R$ 900–1.100** | Sem equipamentos |
+| Operador de câmera | R$ 600–1.500 | **R$ 800–1.200** | Sem equipamentos |
 | Assistente câmera / som | R$ 800–1.300 | **R$ 1.000** | Jaya: R$ 1.200 (fixo) |
 | Produção executiva | R$ 500–3.500 | **R$ 1.200–1.600** | Escala com complexidade |
 | Roteiro / pesquisa / pré-produção | R$ 600–3.000 | **R$ 1.500–2.000** | Definido projeto a projeto |
@@ -23,7 +23,7 @@
 | Item | Faixa real | Preço de referência | Notas |
 |---|---|---|---|
 | Sony A7III | R$ 200–350 | **R$ 280** | Câmera principal da Firma |
-| Sony FS5 | até R$ 150 | **R$ 120–150** | Equipamento em desuso |
+| Sony FS5 | até R$ 400 | **R$ 150–400** | Equipamento em desuso |
 | Kit de lentes (3 lentes) | R$ 150–350 | **R$ 250** | Sempre junto com câmera |
 
 ---
@@ -80,15 +80,49 @@
 
 | Pessoa | Diária |
 |---|---|
-| Lipe (DOP + Direção) | R$ 1.800/dia |
-| Jaya (Assistência técnica + Produção) | R$ 1.200/dia |
-| Freelancer filmmaker externo | R$ 1.800/dia |
+| Lipe (DOP + Direção) | R$ 2.000/dia |
+| Jaya (Assistência técnica + Produção) | R$ 1.500/dia |
+| Freelancer filmmaker externo | R$ 1.500/dia |
+
+---
+
+## Como usar a variação de preços
+
+Cada serviço tem uma faixa real praticada. O valor final dentro dessa faixa depende de dois fatores: **quem é o cliente** e **qual a complexidade da produção**.
+
+### Perfil do cliente → posição na faixa
+
+| Perfil do cliente | Posição na faixa |
+|---|---|
+| Pessoa física / portfólio | Mínimo — avaliar com Lipe/Jaya |
+| Pequeno negócio local | Mínimo–médio |
+| ONG / projeto cultural alinhado | Desconto social (30–50%) — só com autorização Lipe/Jaya |
+| Empresa ou instituição de médio porte | Médio–máximo |
+| Grande corporação / multinacional | Máximo ou acima da faixa |
+
+### Complexidade da produção → posição na faixa
+
+| Complexidade | Critério | Posição |
+|---|---|---|
+| Simples | 1 diária, 1–2 câmeras, sem deslocamento, entrega rápida | Mínimo da faixa |
+| Média | 2–3 diárias, equipe de 3–4, algum deslocamento | Médio |
+| Complexa | Múltiplas diárias, locações diversas, pós-produção extensa, muitos aprovadores | Máximo ou acima |
+
+**Prazo:** projetos urgentes (entrega em menos de 7 dias) têm acréscimo de 20–30% sobre o valor referência.
+
+### Perguntas que o Oráculo faz ao montar qualquer orçamento
+
+1. Quem é o cliente? (pessoa física, pequeno negócio, instituição, grande empresa)
+2. Qual o budget indicativo? (orienta o escopo e a faixa praticável)
+3. Quantas diárias de filmagem? Quantas locações?
+4. Qual o prazo de entrega?
+5. Esse projeto é estratégico para portfólio? (pode justificar desconto com autorização Lipe/Jaya)
 
 ---
 
 ## Regras de precificação
 
-- **Margem mínima aceitável:** 35% sobre os custos
+- **Margem mínima:** 35% (novos clientes) · 20% (recorrentes / parceiros)
 - **NF padrão:** 7,28% sobre o total bruto
 - **Desconto máximo em negociação (institucional):** 15–20%
 - **Desconto social / portfólio:** 30–50% — apenas com autorização explícita de Lipe ou Jaya

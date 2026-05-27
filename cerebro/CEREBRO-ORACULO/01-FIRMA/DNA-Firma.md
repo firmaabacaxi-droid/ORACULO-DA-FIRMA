@@ -10,8 +10,8 @@
 Produtora com alma de ateliê artístico. Ponte entre arte, cultura e público.
 
 **Fundadores:**
-- **Lipe (Felipe Duque)** — Direção, DOP, Edição, Primeiro atendimento
-- **Jaya (Jayallila Barretto)** — Financeiro, Administrativo, Assistente técnica em set
+- **Lipe (Filipe Vianna Duque)** — Direção, DOP, Roteiro, Edição, Primeiro atendimento
+- **Jaya (Jayaliila Barretto de Andrade)** — Produção Executiva, Produção, Administrativo, Operação Técnica (luz, som, arte)
 
 ---
 
@@ -41,9 +41,9 @@ Produtora com alma de ateliê artístico. Ponte entre arte, cultura e público.
 | **Produtora** | Vídeo institucional/promocional, documentários, projetos sociais/culturais, videoclipes, eventos, redes sociais |
 | **Locadora Abacaxi** | Câmeras, lentes, drones, iluminação, som |
 | **Ateliê** | Projetos autorais, captação de recursos, apoio a projetos culturais |
-| **Educacional** | Curso Videomaker Independente (em desenvolvimento) |
+| **Educacional** | Curso Videomaker Independente — lançado (120 alunos). Próxima fase: IA integrada à criação e gestão de vídeo. |
 
-**Não fazemos:** Casamentos, eventos corporativos genéricos, fotos estáticas, greenwashing.
+**Não fazemos:** Casamentos, projetos que contradizem nossos valores (greenwashing etc.), fotos estáticas.
 
 ---
 
@@ -51,30 +51,27 @@ Produtora com alma de ateliê artístico. Ponte entre arte, cultura e público.
 
 | Item | Valor |
 |---|---|
-| Cobertura de evento | R$ 5.000–12.000 |
-| Vídeo institucional | R$ 8.000–20.000 |
-| Documentário | R$ 30.000–130.000+ |
-| Redes sociais recorrente | R$ 800–2.000/mês |
-| Diária Lipe | R$ 1.800/dia |
-| Diária Jaya | R$ 1.200/dia |
-| Diária freelancer filmmaker | R$ 1.800/dia |
-| Ticket médio | ~R$ 8.000 |
+| Cobertura de evento | R$ 3.000–12.000 |
+| Vídeo institucional | R$ 5.000–20.000 |
+| Documentário | R$ 5.000–50.000 |
+| Diária Lipe | R$ 2.000/dia |
+| Diária Jaya | R$ 1.500/dia |
+| Diária freelancer filmmaker | R$ 1.500/dia |
+| Ticket médio | R$ 5.000–8.000 |
 | NF sobre serviços | 7,28% |
-| Margem mínima | 35% |
+| Margem mínima | 20% |
 
 → Tabela detalhada: `03-CONHECIMENTO/tecnicas/Tabela-Precos-Referencia.md`
 
 ---
 
-## Clientes estratégicos
+## Perfil de clientes
 
-```
-CNV              → projetos institucionais e sociais
-Tamause, Vert    → parceiros de ideais
-Cerrado Experience (Thiago) → projetos culturais
-SuperHost        → conteúdo + institucional
-Chichá (Ana Paula) → parceira cultural e de moda
-```
+- **ONGs e coletivos** — projetos culturais, sociais e ambientais alinhados aos valores da Firma
+- **Grandes instituições públicas e privadas** — produção institucional, documentários, registros
+- **Festivais e projetos culturais** — circo, teatro, cinema, música; frequentemente com temáticas indígenas e tradicionais
+- **Pequenos negócios** — restaurantes, hospedagens, negócios locais com identidade própria
+- **Agências e produtoras** — serviços técnicos e locação de equipamentos
 
 **Padrão dos clientes:**
 - Retorno alto por indicação (não por prospecção ativa)
@@ -92,7 +89,9 @@ Sempre com a personalidade de Lipe e Jaya — "a gente", "filmamos", histórias 
 
 ## Técnicas assinatura
 
-Low-angle · Chiaroscuro · Golden hour · Rack-focus · Handheld · Steadicam  
+A técnica é suporte à narrativa. O que define a identidade visual da Firma é como construímos as histórias.
+
+Low-angle · Chiaroscuro · Golden hour · Rack-focus · Handheld · Gimbal  
 → Ver detalhes: `03-CONHECIMENTO/tecnicas/Tecnicas-Assinatura-Firma.md`
 
 ---

@@ -10,6 +10,8 @@
 - "Precisa de um diário de filmagem"
 - "Como documentar o material bruto?"
 - "Checklist para o dia de filmagem"
+- "Ficha de continuidade"
+- "Boletim de câmera"
 
 ---
 
@@ -46,6 +48,72 @@ PRODUÇÃO
 [ ] Contato do cliente para o dia
 [ ] Endereços das locações com rota
 ```
+
+---
+
+## FICHA DE CONTINUIDADE (raccord visual entre planos)
+
+Use quando há **múltiplos planos da mesma cena** gravados em momentos diferentes, especialmente quando há figurino específico, maquiagem ou props que precisam estar idênticos.
+
+**Diferença do Log:**
+- **Log** → rastreia takes individuais (qual take usar na edição)
+- **Ficha** → rastreia raccord visual (figurino, maquiagem, props entre planos montados juntos)
+
+```markdown
+## CENA [N] — Plano [X]
+
+| Take | Dur. | ✓ | Foco | Som | Raccord | Notas |
+|---|---|---|---|---|---|---|
+| 1 | | | ✓ | ✓ | | |
+| **TAKE APROVADO:** | | | | | | |
+
+**Figurino (take aprovado):** [Personagem]: [descrição detalhada — mão esquerda na cintura, camiseta solta]
+**Props:** [Objeto] em [posição exata]
+**Foto de continuidade:** ☐ Tirada · Referência: ___
+```
+
+Template completo: `cerebro/01-FIRMA/TEMPLATES/Template-Ficha-Continuidade.md`
+Salve em: `output/roteiros/NomeCliente_ficha-continuidade_YYYYMMDD.md`
+
+---
+
+## BOLETIM DE CÂMERA E SOM (para produções maiores)
+
+Use para produções com **2+ câmeras** ou **equipe técnica dedicada**.
+Registra metadados por take: lente, t-stop, ND, cartões, qualidade de áudio, DIT checklist.
+
+```markdown
+| Plano | Cena | Câm. | Take aprv. | Lente | T-stop | ND | Obs. |
+|---|---|---|---|---|---|---|---|
+| A001 | | A | | mm | f/ | | |
+```
+
+**Regra de backup (DIT):** mínimo 2 backups em destinos físicos diferentes antes de apagar qualquer cartão.
+
+Template completo: `cerebro/01-FIRMA/TEMPLATES/Template-Boletim-Camera-Som.md`
+Salve em: `output/roteiros/NomeCliente_boletim_YYYYMMDD.md`
+
+---
+
+## LOG DE FILMAGEM (registro de takes)
+
+Use durante o set para controlar cada take gravado. Mais preciso que o Diário para uso na edição.
+
+Salve em: `output/roteiros/NomeCliente_log_[data].md`
+
+```markdown
+# LOG DE FILMAGEM — [Projeto] — [Data]
+
+## Planilha de Takes
+
+| Cena | Plano | # | Take | Válido? | Horário | Duração | Observações |
+|------|-------|---|------|---------|---------|---------|-------------|
+| 1A | Médio | 1 | OK | Sim | 09:00 | 00:45 | [notas] |
+| 1A | Médio | 2 | NG | Não | 09:02 | 00:47 | [motivo do NG] |
+| 1B | Close | 1 | OK | Sim | 09:05 | 00:30 | [notas] |
+```
+
+**Legenda:** OK = take aprovado · NG = take reprovado · Válido = usar na edição
 
 ---
 
@@ -102,6 +170,57 @@ Quando o cliente pedir uma 3ª alteração:
   Confirmo a solicitação?"
 → Registre no diário de filmagem.
 → Gere aditivo via skills/proposta/SKILL.md.
+```
+
+---
+
+## PÓS-PRODUÇÃO — 10 fases
+
+Acompanhe o projeto da edição à entrega final. Cada fase tem um responsável e um prazo.
+
+```
+Fase 1 — Decupagem
+  → Selecionar e organizar material bruto. Identificar takes válidos (Log de Filmagem).
+  → Output: lista de takes aprovados por cena.
+
+Fase 2 — Montagem
+  → Primeira versão da edição seguindo o roteiro. Estrutura narrativa alinhada.
+  → Output: corte bruto para revisão interna.
+
+Fase 3 — Sonorização
+  → Inserção de trilha, efeitos sonoros, ajustes de áudio (níveis, EQ, ruídos).
+  → Output: versão com áudio tratado.
+
+Fase 4 — Colorização
+  → Correção e tratamento de cor. Identidade visual e estética do vídeo.
+  → Output: versão colorizada.
+
+Fase 5 — Legendagem (se necessário)
+  → Criação e inserção de legendas (PT/EN). Revisar timing e ortografia.
+  → Output: versão legendada.
+
+Fase 6 — Versão para Aprovação Interna
+  → Material revisado pela equipe (Lipe + Jaya) antes de enviar ao cliente.
+  → Output: versão para aprovação interna.
+
+Fase 7 — Ajustes do Diretor
+  → Implementar correções após revisão interna.
+  → Output: versão refinada.
+
+Fase 8 — Versão para Aprovação do Cliente
+  → Enviar ao cliente via Drive / WeTransfer / Frame.io.
+  → Registrar no Notion (ENTREGA_FEEDBACK) data de envio e link.
+  → Output: versão cliente V1.
+
+Fase 9 — Ajustes do Cliente
+  → Implementar feedback do cliente. Máx. 2 rodadas sem custo adicional.
+  → Se 3ª rodada: gerar aditivo via skills/proposta/SKILL.md.
+  → Output: versão ajustada.
+
+Fase 10 — Entrega Final
+  → Arquivo masterizado (formato, resolução e codec conforme contratado).
+  → Registrar no Notion: data de entrega, link do arquivo, aprovação final.
+  → Arquivar projeto no Drive. Emitir NF.
 ```
 
 ---

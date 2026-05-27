@@ -1,6 +1,6 @@
 # FASE 2 — Implementação Completa do Ecossistema Oráculo
 
-**Status:** 🟡 Planejado | **Última atualização:** Mai 23, 2026 | **Versão:** v1.0
+**Status:** 🟠 Em análise | **Última atualização:** Mai 23, 2026 | **Versão:** v1.1
 
 ---
 
@@ -11,6 +11,69 @@ Fase 2 consolida a integração do ecossistema: bancos Notion funcionais, Google
 **Duração estimada:** 2-3 semanas (depende de ações manuais de Lipe/Jaya)
 
 **Custo:** +R$160/mês (Google Drive, Frame.io, Framer, domínio)
+
+---
+
+## Diagnóstico — Varredura completa do sistema (Mai 23, 2026)
+
+Antes de iniciar a Fase 2, o Oráculo fez uma varredura completa dos dois repositórios (ANTIGRAVITY e ORACULO - FIRMA ABACAXI). Estas são as conclusões que impactam diretamente a execução desta fase.
+
+### O que está sólido e pode ser usado como base
+
+- **CLAUDE.md** com routing de skills funcionando e bem estruturado
+- **7 skills da Firma** (captacao, proposta, preproducao, producao, conteudo, gestao, humanizador) com lógica clara
+- **6 bancos Notion da Fase 1** com leitura e escrita simples confirmadas
+- **docs/** com 7 documentos de contexto completos e referenciados entre si
+- **Obsidian Vault** (cerebro/) organizado em 4 seções, com 120+ orçamentos históricos catalogados
+- **6 propostas Word** já geradas (BrasilParticipativo v1–v4, EVENTO UNB, SuperHost)
+- **STATUS.md e MEMORIA.md** funcionando como log de sessão e base de aprendizados
+- **80+ skills ANTIGRAVITY** disponíveis como biblioteca, incluindo 8 já importadas em `skills/antigravity/`
+
+### Pendências críticas identificadas — devem ser resolvidas antes ou junto com a Fase 2
+
+**🔴 SEGURANÇA — Credenciais expostas no ANTIGRAVITY:**
+O arquivo `c:\Users\User\Documents\ANTIGRAVITY\.env` contém 4 chaves em plaintext:
+- `OPENAI_API_KEY` → revogar em platform.openai.com/api-keys
+- `NOTION_TOKEN` (ORGANIZABOT) → revogar em notion.so/my-integrations
+- `SUPABASE_SERVICE_ROLE_KEY` → revogar no painel Supabase
+- `GEMINI_API_KEY` → revogar em console.cloud.google.com
+
+> Fazer antes de qualquer outra coisa. Se esse arquivo já esteve em repositório, as chaves estão comprometidas.
+
+**🟠 Geração automática de Word — nunca testada de ponta a ponta:**
+O script `ANTIGRAVITY/scripts/generate_proposal_docx.py` e a `skills/proposta/SKILL.md` estão prontos, mas o fluxo completo (briefing → skill → geração → arquivo .docx) nunca foi validado em tarefa real. As 6 propostas existentes foram geradas manualmente. Isso é um risco para a Fase 2, que depende desse fluxo funcionando.
+
+**🟠 Relações bidirecionais no Notion — não validadas:**
+Leitura e escrita simples confirmadas. Mas criar um Projeto no Notion e linkar automaticamente com Cliente + Proposta (relações bidirecionais entre bancos) ainda não foi testado. O Sprint A1 depende disso funcionar.
+
+**🟠 Subagentes — prompts prontos, nenhum validado com tarefa real:**
+Os 5 system prompts em `docs/SUBAGENTES.md` estão prontos. O `GUIA_SUBAGENTES_SETUP.md` ainda não foi criado (está no checklist do Sprint A2). Nenhum subagente foi testado com uma tarefa concreta.
+
+**🟡 Clientes reais não cadastrados no Notion:**
+CNV, SuperHost (além da proposta), Tamause, Vert, Cerrado e Chichá estão mencionados em MEMORIA.md e docs/ mas não foram registrados nos bancos Notion da Fase 1. O Sprint A1 vai criar relações com PROJETO_2026, mas se os Clientes não estiverem cadastrados, as relações ficam incompletas.
+
+**🟡 Pasta "DOCUMENTOS ANTIGOS — AVALIAR E MIGRAR" nunca processada:**
+Existe na raiz do projeto desde a Fase 1. Pode conter contexto útil para os bancos da Fase 2. Avaliar antes de criar os bancos de CRIATIVO e ANÁLISE TÉCNICA.
+
+**🟡 ANTIGRAVITY desorganizado — 70+ scripts obsoletos:**
+A raiz do ANTIGRAVITY acumulou dezenas de scripts Python de migração/limpeza de fases anteriores. Não afeta o Oráculo diretamente, mas dificulta manutenção. Limpar após Fase 2 estabilizar.
+
+### Impacto na ordem de execução
+
+A varredura revelou que a ordem ideal da Fase 2 muda levemente:
+
+```
+ANTES de iniciar qualquer sprint:
+  0. [CRÍTICO] Revogar credenciais expostas no ANTIGRAVITY/.env
+  0. [CRÍTICO] Testar geração de Word ponta a ponta (briefing → .docx)
+  0. [CRÍTICO] Testar relação bidirecional no Notion (Projeto → Cliente → Proposta)
+  0. Cadastrar clientes reais no Notion (CNV, Tamause, Vert, Cerrado, Chichá)
+
+SÓ DEPOIS:
+  Sprint A1 → A2 → B → C → D (ordem original mantida)
+```
+
+---
 
 ---
 
@@ -33,7 +96,9 @@ Fase 2 consolida a integração do ecossistema: bancos Notion funcionais, Google
 
 ### A1 — Criar 5 bancos Notion da Fase 2
 
-**Status:** ⏳ Aguardando
+**Status:** ⏳ Aguardando — bloqueado pelo teste de relações bidirecionais
+
+> **Observação da varredura:** A escrita simples no Notion foi confirmada, mas criar os 5 bancos abaixo sem antes validar as relações é arriscado. Se o link Projeto ↔ Proposta ↔ Cliente não funcionar corretamente no MCP, os bancos ficam desconectados do hub. Testar com um projeto real (ex: Brasil Participativo) antes de criar os novos bancos.
 
 **Bancos a criar:**
 
@@ -48,6 +113,8 @@ Fase 2 consolida a integração do ecossistema: bancos Notion funcionais, Google
 **Todas com relação obrigatória para PROJETO_2026 (hub central).**
 
 **Checklist de execução:**
+- [ ] **PRÉ-REQUISITO:** Testar relação bidirecional nos 6 bancos da Fase 1 (criar Projeto → linkar Proposta → confirmar link reverso)
+- [ ] **PRÉ-REQUISITO:** Cadastrar clientes reais (CNV, Tamause, Vert, Cerrado, Chichá) no banco CLIENTES
 - [ ] Criar ORÇAMENTO (com autorização)
 - [ ] Criar CRIATIVO (com autorização)
 - [ ] Criar ANÁLISE TÉCNICA (com autorização)
@@ -63,7 +130,9 @@ Fase 2 consolida a integração do ecossistema: bancos Notion funcionais, Google
 
 ### A2 — Preparar subagentes para claude.ai
 
-**Status:** ⏳ Aguardando
+**Status:** ⏳ Aguardando — GUIA_SUBAGENTES_SETUP.md ainda não foi criado
+
+> **Observação da varredura:** Os 5 system prompts existem em `docs/SUBAGENTES.md` e estão bem estruturados. Mas nenhum foi testado com uma tarefa real ainda. Recomendação: ao criar o GUIA, incluir um "teste mínimo" para cada subagente antes de entregar para Lipe/Jaya. Evita descobrir problemas depois que eles já estiverem tentando usar em produção.
 
 O Oráculo prepara; Lipe/Jaya executam manualmente.
 
@@ -96,7 +165,9 @@ O Oráculo prepara; Lipe/Jaya executam manualmente.
 
 ## Sprint B — Google Drive MCP
 
-**Status:** 📋 Design
+**Status:** 📋 Design — skill disponível, credenciais pendentes
+
+> **Observação da varredura:** A skill `google-drive-integration/` já existe no ANTIGRAVITY e está importada em `skills/antigravity/`. O `.mcp.json` do projeto já tem filesystem MCP configurado mas sem o caminho do Drive. A Abordagem A (Desktop + filesystem) é a mais rápida de implementar — só depende de Lipe confirmar o caminho da pasta. A `google_service_account.json` existe no ANTIGRAVITY (2.37 KB), caso a Abordagem B seja necessária.
 
 ### Diagnóstico
 
@@ -183,7 +254,9 @@ Requer:
 
 ## Sprint C — Frame.io
 
-**Status:** 📋 Design
+**Status:** 📋 Design — pode começar a qualquer momento (não tem dependência técnica do Oráculo)
+
+> **Observação da varredura:** Frame.io é 100% ação manual de Lipe/Jaya. O Oráculo só precisa criar o GUIA_FRAMEIO.md e atualizar as skills de produção e gestão. Isso pode ser feito em paralelo com Sprint A ou B, sem bloquear nada. Criar o guia e atualizar as skills é rápido (2–3 horas de trabalho do Oráculo). O gargalo real é Lipe criar a conta e testar o upload.
 
 ### O que é
 
@@ -217,7 +290,9 @@ Frame.io é uma plataforma de revisão de vídeo profissional. O cliente assiste
 
 ## Sprint D — Site da Firma (Framer)
 
-**Status:** 📋 Design
+**Status:** 📋 Design — conteúdo pode ser gerado agora, sem pré-requisitos técnicos
+
+> **Observação da varredura:** A pasta `output/site/` existe mas está vazia (só tem .gitkeep). Todo o conteúdo necessário para gerar os 5 arquivos MD está disponível: DNA em `docs/CONTEXTO_FIRMA.md`, projetos reais em `output/propostas/`, histórico de clientes em `cerebro/CEREBRO-ORACULO/02-CLIENTES/`. Este sprint pode começar em paralelo com qualquer outro — é o que tem menor risco e menor dependência. Gerar o conteúdo agora também ajuda a identificar lacunas no portfólio antes de Lipe montar o Framer.
 
 ### Estrutura do site
 
@@ -261,21 +336,38 @@ Contato          → Formulário + WhatsApp + Instagram
 
 ## Ordem de execução recomendada
 
+> **Revisada após varredura de Mai 23, 2026** — adicionados pré-requisitos da Fase 1 não concluídos.
+
 ```
+ANTES DE QUALQUER SPRINT (desbloqueadores):
+  0a. [🔴 HOJE] Revogar credenciais expostas no ANTIGRAVITY/.env
+       → OpenAI, Notion ORGANIZABOT, Supabase, Gemini
+  0b. [🔴 HOJE] Testar geração de Word ponta a ponta
+       → generate_proposal_docx.py com dados de um cliente real
+       → Validar output em output/propostas/
+       → Documentar resultado em STATUS.md
+  0c. [🔴 ESTA SEMANA] Validar relações bidirecionais no Notion
+       → Criar Projeto real → linkar Cliente + Proposta → confirmar link reverso
+       → Só avançar para Sprint A1 depois disso confirmado
+  0d. [🟠 ESTA SEMANA] Cadastrar clientes reais no Notion
+       → CNV, Tamause, Vert, Cerrado, Chichá
+
 SESSÃO ATUAL (ou próximas 1–2):
-  1. Sprint A1: Criar 5 bancos Notion (com autorização)
-  2. Sprint A2: Gerar GUIA_SUBAGENTES_SETUP.md
-  3. Sprint D: Gerar conteúdo do site em output/site/
+  1. Sprint A1: Criar 5 bancos Notion (com autorização — após 0c concluído)
+  2. Sprint A2: Gerar GUIA_SUBAGENTES_SETUP.md (com teste mínimo por subagente)
+  3. Sprint D: Gerar conteúdo do site em output/site/ (pode rodar em paralelo)
+  4. Sprint C: Criar GUIA_FRAMEIO.md + atualizar skills producao/ e gestao/
 
 APÓS LIPE/JAYA EXECUTAREM TAREFAS MANUAIS:
-  4. Sprint B: Configurar Google Drive MCP
-  5. Sprint C: Criar GUIA_FRAMEIO.md + atualizar skills
-  6. Sprint B: Criar estrutura de pastas no Drive
-  7. Teste integrado: novo projeto via Notion → pasta no Drive → Frame.io para edição
+  5. Sprint B: Confirmar caminho do Drive → configurar .mcp.json
+  6. Sprint B: Criar estrutura de pastas FIRMA ABACAXI/ no Drive
+  7. Sprint C: Lipe cria conta Frame.io + testa upload
+  8. Teste integrado: novo projeto via Notion → pasta no Drive → Frame.io para edição
 
 FINAL:
-  8. Commit consolidado: "refactor: Fase 2 completa — 5 bancos, Drive, Frame.io, site"
-  9. Atualizar CLAUDE.md: marcar Fase 2 como concluída, Fase 3 iniciada
+  9. Commit consolidado: "refactor: Fase 2 completa — 5 bancos, Drive, Frame.io, site"
+  10. Atualizar CLAUDE.md: marcar Fase 2 como concluída, Fase 3 iniciada
+  11. Limpar ANTIGRAVITY: deletar archive/ORACULO_V4-V6, scripts Python obsoletos
 ```
 
 ---
@@ -337,14 +429,147 @@ Ao finalizar, verificar:
 | Frame.io | Integração de processo, não técnica | Não existe MCP oficial, manual setup é rápido |
 | Site | Conteúdo gerado + montagem manual | Framer é visual, Oráculo foca em texto |
 | Bancos Notion | Todos com relação para PROJETO_2026 | Garante integridade referencial |
+| Credenciais | Revogar ANTES de iniciar Fase 2 | .env exposto no ANTIGRAVITY com 4 keys em plaintext |
+| Geração de Word | Testar ANTES de Sprint A1 | Fluxo nunca validado de ponta a ponta — risco alto |
+| Subagentes | Incluir teste mínimo no GUIA | Evitar que Lipe/Jaya descubram problemas em produção |
+| Clientes Notion | Cadastrar junto com Sprint A1 | Bancos com relações ficam incompletos sem os registros |
 
 ---
 
 **Próximas fases:**
 
-- **Fase 3:** Automações A1–A5 (Make/n8n), ElevenLabs, Whisper
+- **Fase 3:** Automações A1–A5 (Make/n8n), ElevenLabs, Whisper + Ferramentas de IA para Produção (Sprint E)
 - **Fase 4:** Bot Telegram, LinkedIn Sales Navigator, prospecção ativa
 - **Fase 5:** Meta Ads, Apify, escala de negócio
+
+---
+
+---
+
+## Sprint E — Ferramentas de IA para Produção Audiovisual
+
+**Status:** 📋 Mapeado — implementar a partir da Fase 3
+
+> Levantamento completo de ferramentas GitHub para cinema, storyboard, roteiro, edição e conteúdo para internet. Organizado por fase de produção e nível de prioridade para a Firma Abacaxi.
+
+---
+
+### Por onde começar (ordem recomendada para a Firma)
+
+```
+Semana 1:  Instalar Story Architect → usar para roteiros dos projetos
+Semana 2:  Usar Claude/ChatGPT para storyboard descritivo (sem instalar nada)
+Semana 3:  Instalar pymiere → automatizar uma tarefa repetitiva no Premiere
+Semana 4:  Testar Wan2.1 no Google Colab → gerar planos/cenas com IA
+Mês 2+:    Explorar ViMax ou FilmAgent para prototipar produções completas
+```
+
+**Pré-requisitos únicos:**
+- Python 3.10+ → [python.org/downloads](https://python.org/downloads)
+- Git → [git-scm.com](https://git-scm.com)
+- Node.js → apenas para o MCP do Premiere
+
+---
+
+### NÍVEL 1 — Alta Prioridade (instalar primeiro)
+
+#### Pré-Produção: Roteiro
+
+| Ferramenta | Stars | O que faz | Como instalar |
+|---|---|---|---|
+| [story-apps/starc](https://github.com/story-apps/starc) | ~259 | Software de roteiros profissional (GUI). Importa FDX, Fountain, Celtx. Cinema, TV, teatro. | Instalador direto em [starc.app](https://starc.app) — zero código |
+
+#### Pós-Produção: Adobe Premiere com IA
+
+| Ferramenta | Stars | O que faz | Como instalar |
+|---|---|---|---|
+| [qmasingarbe/pymiere](https://github.com/qmasingarbe/pymiere) | ~446 | Python controla o Premiere — monta rough cuts, importa clipes, aplica LUTs em lote | `pip install pymiere` |
+| [hetpatel-11/Adobe_Premiere_Pro_MCP](https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP) | < 100 | Deixa o Claude/ChatGPT controlar o Premiere via chat (MCP) | Requer Node.js — setup guiado no repositório |
+
+#### Conteúdo para Internet
+
+| Ferramenta | Stars | O que faz | Como instalar |
+|---|---|---|---|
+| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | ~7.100 | Automação de YouTube Shorts e TikTok: voiceover, corte, legenda, multilíngue | `pip install shortgpt` |
+| [WyattBlue/auto-editor](https://github.com/WyattBlue/auto-editor) | ~4.300 | Corta silêncios e espaços mortos automaticamente por linha de comando | `pip install auto-editor` |
+| [SamurAIGPT/AI-Youtube-Shorts-Generator](https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator) | ~3.100 | Converte vídeos longos em Shorts 9:16 com LLM + Whisper (alternativa ao Opus Clip) | `git clone` + `pip install -r requirements.txt` |
+
+---
+
+### NÍVEL 2 — Média Prioridade (Fase 3+)
+
+#### Geração de Storyboard
+
+| Ferramenta | Stars | O que faz | Como instalar |
+|---|---|---|---|
+| [yogendra-yatnalkar/storyboard-ai](https://github.com/yogendra-yatnalkar/storyboard-ai) | < 100 | Pipeline completo: texto → storyboard → arte → animação → narração + legendas | `pip install -r requirements.txt` + chave API OpenAI/Gemini |
+| [tillo13/ai_storyboard_video_generator](https://github.com/tillo13/ai_storyboard_video_generator) | < 100 | Storytelling multimídia: visuais, voiceovers e vídeos a partir de narrativas | `pip install -r requirements.txt` |
+| [tavsec/movie-crafter](https://github.com/tavsec/movie-crafter) | < 100 | Script com GPT-4 + storyboard visual com DALL-E 3 | Node.js + chave OpenAI |
+
+#### Estúdio Virtual / Produção Multi-Agente
+
+| Ferramenta | Stars | O que faz | Como instalar |
+|---|---|---|---|
+| [HKUDS/ViMax](https://github.com/HKUDS/ViMax) | ~3.800 | All-in-one: prompt → roteiro → storyboard → personagens → vídeo final (multi-agente) | `git clone` + `pip install -r requirements.txt` + GPU/API |
+| [HITsz-TMG/FilmAgent](https://github.com/HITsz-TMG/FilmAgent) | ~1.050 | Simulação de set 3D virtual: diretor, roteirista, atores e cineastas com LLM | `git clone` + `pip install -r requirements.txt` |
+
+#### Análise de Roteiro
+
+| Ferramenta | Stars | O que faz | Como instalar |
+|---|---|---|---|
+| [AdeboyeML/Film_Script_Analysis](https://github.com/AdeboyeML/Film_Script_Analysis) | < 50 | Análise de personagens, diálogos, emoções, locações — mais de 1.000 scripts do IMSDB | `pip install -r requirements.txt` |
+| [sliday/aimdb](https://github.com/sliday/aimdb) | < 100 | Analisa filmes com GPT-4o-mini (visual) + Claude 3.5 Sonnet (roteiro). Gera ratings | `pip install -r requirements.txt` + chaves OpenAI + Anthropic |
+
+---
+
+### NÍVEL 3 — Geração de Vídeo com IA (referência técnica)
+
+> Modelos open-source para gerar planos, cenas e vídeos a partir de texto/imagem. Requerem GPU ou Google Colab.
+
+| Ferramenta | Stars | O que faz | GPU necessária |
+|---|---|---|---|
+| [Wan-Video/Wan2.1](https://github.com/Wan-Video/Wan2.1) | ~15.000 | Modelo da Alibaba, superou Sora no VBench. Melhor resultado geral. | 8GB+ VRAM |
+| [zai-org/CogVideo](https://github.com/zai-org/CogVideo) | ~12.600 | CogVideoX — até 10s em alta resolução, base acadêmica sólida | 8GB+ VRAM |
+| [Lightricks/LTX-Video](https://github.com/Lightricks/LTX-Video) | ~9.700 | Vídeo + áudio sincronizados, até 50 FPS em 4K nativo | 8GB+ VRAM |
+
+> **Alternativa sem GPU:** Acessar via [Hugging Face Spaces](https://huggingface.co/spaces) — interface web gratuita para LTX-Video e CogVideo.
+
+---
+
+### Integração com o fluxo da Firma
+
+```
+ROTEIRO          → Story Architect (starc.app)
+STORYBOARD       → storyboard-ai (Python) ou Claude diretamente via chat
+GERAÇÃO DE CENAS → Wan2.1 no Google Colab (gratuito, sem GPU local)
+EDIÇÃO           → Adobe Premiere + pymiere (automação Python)
+REVISÃO CLIENTE  → Frame.io (Sprint C)
+CONTEÚDO WEB     → ShortGPT ou AI-Youtube-Shorts-Generator
+ANÁLISE          → sliday/aimdb ou Film_Script_Analysis
+```
+
+---
+
+### Checklist de implementação (Sprint E)
+
+- [ ] Instalar Story Architect (starc.app) — testar com um roteiro real
+- [ ] Instalar pymiere (`pip install pymiere`) — testar automação no Premiere
+- [ ] Instalar auto-editor (`pip install auto-editor`) — testar corte por silêncio
+- [ ] Testar storyboard-ai com roteiro de um projeto existente (ex: Brasil Participativo)
+- [ ] Testar Wan2.1 no Google Colab para geração de cena
+- [ ] Avaliar ShortGPT para automação de conteúdo de redes sociais
+- [ ] Documentar resultado de cada ferramenta em STATUS.md
+
+**Dependências:** Python 3.10+, Git, Node.js (para MCP Premiere), chave API OpenAI ou Gemini
+
+---
+
+## Registro de atualizações
+
+| Data | Versão | O que mudou |
+|---|---|---|
+| Mai 23, 2026 | v1.0 | Documento criado com 4 sprints planejados |
+| Mai 23, 2026 | v1.1 | Varredura completa do sistema: adicionados diagnóstico, pré-requisitos críticos (credenciais, geração Word, relações Notion), observações por sprint e ordem de execução revisada |
 
 ---
 

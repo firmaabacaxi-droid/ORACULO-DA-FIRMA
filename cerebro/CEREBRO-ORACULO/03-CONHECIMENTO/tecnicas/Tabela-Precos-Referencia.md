@@ -8,9 +8,9 @@
 
 | Serviço | Referência |
 |---|---|
-| Lipe (DOP + Direção) | **R$ 1.800** |
-| Jaya (Assistência + Produção) | **R$ 1.200** |
-| Filmmaker solo (câmera inclusa) | **R$ 1.800** |
+| Lipe (DOP + Direção) | **R$ 2.000** |
+| Jaya (Produção + Assistência Técnica) | **R$ 1.500** |
+| Filmmaker solo (câmera inclusa) | **R$ 1.500** |
 | DOP externo | R$ 1.200 |
 | Operador câmera | R$ 900–1.100 |
 | Assistente câmera/som | R$ 1.000 |
@@ -60,10 +60,10 @@
 
 ## Regras
 
-- Margem mínima: **35%** sobre custos
+- Margem mínima: **20%** sobre custos
 - Desconto máximo (institucional): 15–20%
 - Desconto social/portfólio: 30–50% (apenas Lipe/Jaya autorizam)
-- Modelo consolidado: "Filmmaker com equipamentos" a R$ 1.800 tudo incluso (não itemizar)
+- Modelo consolidado: "Filmmaker com equipamentos" a R$ 1.500 tudo incluso (não itemizar)
 - Projetos institucionais: preço cheio
 - Projetos pessoas físicas: avaliar caso a caso
 

@@ -43,7 +43,7 @@ O Oráculo lê este arquivo em todas as sessões.
          Base = Total ÷ 1,0728 | NF = Total − Base
          Nunca apresentar valor sem NF para clientes institucionais.
 
-2026-05 | Margem mínima: 35% sobre custo direto. Verificar sempre antes de fechar.
+2026-05 | Margem mínima: 35% (novos clientes) · 20% (recorrentes/parceiros). Verificar sempre antes de fechar.
          Desconto máximo sem aprovação: 15–20%. Projetos sociais/culturais: até 30–50%.
 ```
 
@@ -77,6 +77,23 @@ Referência: skills/antigravity/negotiation-voss/SKILL.md (método Voss)
 2026-05 | Clientes institucionais (fundações, governo, universidades) têm ciclo
          de aprovação mais longo (média 7–30 dias). Calibrar follow-up para
          não pressionar e não sumir.
+
+2026-05 | Documentação e manuais: o melhor formato para uso interno é HTML navegável
+         (single-page com índice lateral) + versão Markdown como par.
+         HTML: abre offline em qualquer navegador, sem instalar nada. Ideal para
+         apresentar e consultar. Markdown: vai para o NotebookLM e Obsidian.
+         NotebookLM NÃO aceita HTML como fonte — usar .md ou .pdf.
+
+2026-05 | NotebookLM — login via CLI: quando a sessão expira, o comando
+         `notebooklm login` abre browser mas fica aguardando ENTER interativo.
+         Solução: usar `echo "" | notebooklm login` para fechar automaticamente
+         depois que o usuário logou no browser.
+
+2026-05 | Localização dos documentos gerados — triângulo: output/ + NotebookLM + Obsidian.
+         Todo artefato importante deve ir para os três:
+         1. output/ (arquivo local, versionado)
+         2. NotebookLM (para consulta conversacional)
+         3. cerebro/CEREBRO-ORACULO/01-FIRMA/ (para navegação no Obsidian)
 ```
 
 ---
@@ -98,5 +115,5 @@ Empresas / eventos (ex: SuperHost, Cerrado Experience)
 
 ---
 
-*Última atualização: Mai 2026*
-*Total de aprendizados: 8 registros*
+*Última atualização: Mai 2026 — Sessão 6*
+*Total de aprendizados: 13 registros*

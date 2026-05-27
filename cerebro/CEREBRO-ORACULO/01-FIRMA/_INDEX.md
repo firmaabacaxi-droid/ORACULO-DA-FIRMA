@@ -31,5 +31,5 @@ Tudo sobre como a Firma funciona: identidade, processos, regras, templates e sub
 
 - `docs/CONTEXTO_FIRMA.md` → DNA completo
 - `docs/FLUXO_TRABALHO.md` → 13 etapas detalhadas
-- `docs/SUBAGENTES.md` → System prompts completos
+- `docs/arquivo/SUBAGENTES.md` → System prompts (⚠️ desatualizados — reescrever antes de usar)
 - `docs/PLANO_IMPLEMENTACAO.md` → Roadmap detalhado

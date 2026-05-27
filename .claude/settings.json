@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -NoProfile -Command \"Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\AppData\\\\Local' -Recurse -ErrorAction SilentlyContinue -Include '*drive*','*gdrive*' -Directory | Select-Object FullName\")",
+      "Bash(powershell -NoProfile -Command \"Test-Path 'C:\\\\Users\\\\User\\\\mcp-servers' ; Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\mcp-servers' -ErrorAction SilentlyContinue | Select-Object Name\")",
+      "Bash(powershell -NoProfile -Command \"Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\mcp-servers\\\\notebooklm-mcp' | Select-Object Name, FullName\")",
+      "Bash(powershell -NoProfile -Command \"Test-Path 'C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\\\\SKILLS\\\\google-drive-integration\\\\*'; Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\\\\SKILLS\\\\google-drive-integration\\\\' -ErrorAction SilentlyContinue | Select-Object Name\")"
+    ]
+  }
+}

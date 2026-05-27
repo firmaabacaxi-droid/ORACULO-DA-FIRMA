@@ -1,6 +1,6 @@
 # Subagentes do Oráculo
 
-*5 agentes especializados como Projects no claude.ai — ver system prompts completos em `docs/SUBAGENTES.md`*
+*5 agentes especializados como Projects no claude.ai — system prompts em `docs/arquivo/SUBAGENTES.md` (⚠️ desatualizados — reescrever antes de usar)*
 
 ---
 
@@ -82,10 +82,10 @@
 ## Agente 5 — Captação *(implementação futura)*
 
 **Project name:** `Captação — Firma Abacaxi`  
-**Documentos:** `docs/CONTEXTO_FIRMA.md` + `skills/captacao/SKILL.md`
+**Documentos:** `docs/CONTEXTO_FIRMA.md` + `skills/prospeccao/SKILL.md`
 
 **Função:** Atendimento direto a clientes externos que chegam pelo Instagram, WhatsApp ou indicação — funciona enquanto Lipe e Jaya estão em set.
 
 ---
 
-*Fonte: `docs/SUBAGENTES.md` · Atualizado Mai 2026*
+*Fonte: `docs/arquivo/SUBAGENTES.md` (arquivado) · Precisa ser reescrito com os valores e skills atuais*

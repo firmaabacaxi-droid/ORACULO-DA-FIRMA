@@ -8,7 +8,7 @@
 
 **Nome:** Firma Abacaxi Ateliê Audiovisual
 **Localização:** Brasília, DF
-**Fundadores:** Lipe (Felipe Duque) e Jaya
+**Fundadores:** Lipe (Filipe Vianna Duque) e Jaya (Jayaliila Barretto de Andrade)
 **CNPJ:** 50.868.798/0001-66
 **Tipo:** Produtora audiovisual com alma de ateliê artístico
 
@@ -18,15 +18,15 @@ A Firma Abacaxi não é uma produtora comum. É a ponte entre a arte, a cultura 
 
 ## Os Fundadores
 
-### Lipe (Filipe Duque)
-- **Função:** Direção Geral, Direção de Fotografia, Edição, Primeiro Atendimento
-- **Perfil:** Centro criativo e técnico da Firma. Centraliza direção, fotografia e edição. Faz o primeiro contato com clientes.
-- **Desafio atual:** Sobrecarga por centralizar criativo + operacional + atendimento simultaneamente.
+### Lipe (Filipe Vianna Duque)
+- **Função:** Direção Geral, Direção de Fotografia, Roteiro, Edição, Primeiro Atendimento
+- **Perfil:** Centro técnico da Firma. Faz tudo o que é necessário compreendendo todas as etapas do processo — da captação à entrega. Centraliza direção, fotografia, edição e atendimento ao cliente.
+- **Desafio atual:** Sobrecarga por centralizar operacional, técnico e atendimento simultaneamente.
 
-### Jaya (Jayallila Barretto)
-- **Função:** Administrativo (contas, notas, orçamentos, financeiro), Assistente Técnica (luz, som, arte)
-- **Perfil:** Sustenta a operação financeira e administrativa da Firma. Presente nas produções como assistente técnica.
-- **Desafio atual:** Gestão financeira manual sem sistema integrado.
+### Jaya (Jayaliila Barretto de Andrade)
+- **Função:** Produção Executiva, Produção, Administrativo, Operação Técnica (luz, som, arte)
+- **Perfil:** Colabora ativamente em todas as etapas do processo. Tem ótima visão estética e sustenta a produção, o administrativo e o financeiro da Firma. Presente em set como operadora de luz, som, arte e produção.
+- **Desafio atual:** Dificuldade em acompanhar todas as demandas, já que Lipe centraliza muitos processos. Gestão financeira também é um desafio — parte do papel do Oráculo é organizar e distribuir melhor essas demandas.
 
 ---
 
@@ -71,12 +71,12 @@ A Firma Abacaxi não é uma produtora comum. É a ponte entre a arte, a cultura 
 - Produção de documentários independentes
 - Apoio a projetos artísticos e culturais
 
-### Educacional (em desenvolvimento)
-- Curso Videomaker Independente — 20h de conteúdo + 4h de lives
+### Educacional
+- Curso Videomaker Independente — lançado com 120 alunos. Incluiu oficina presencial de produção de documentários. Próxima fase: integração de IA nos processos de criação e gestão de vídeo — ensinando o que a Firma sistematiza no Oráculo.
 
 ---
 
-## Pacotes de serviço e preços
+## Preços e faixas de referência
 
 Precificação por projeto — consulte `docs/TABELA_PRECOS.md` para valores de referência detalhados.
 
@@ -84,29 +84,21 @@ Precificação por projeto — consulte `docs/TABELA_PRECOS.md` para valores de 
 
 | Tipo de projeto | Faixa de valor |
 |---|---|
-| Cobertura de evento | R$ 5.000–12.000 |
-| Vídeo institucional / depoimentos | R$ 8.000–20.000 |
-| Documentário / projeto longo | R$ 30.000–130.000+ |
-| Conteúdo recorrente para redes | R$ 800–2.000/mês |
-
-### Pacotes de estratégia e redes sociais
-
-- **Plano Básico:** 3 postagens/semana no Instagram — **R$800/mês**
-- **Plano Intermediário:** 7 postagens/semana — **R$1.500/mês**
-- **Plano Completo:** 12 postagens/semana — **R$2.000/mês**
-
-*Inclui: estratégia editorial, gerenciamento de redes, reunião estratégica mensal*
+| Cobertura de evento | R$ 3.000–12.000 |
+| Vídeo institucional / depoimentos | R$ 5.000–20.000 |
+| Documentário / projeto longo | R$ 5.000–50.000 |
 
 ### Referências de preço interno
 
 | Item | Valor |
 |---|---|
-| Diária Lipe | R$ 1.800/dia |
-| Diária Jaya | R$ 1.200/dia |
-| Diária freelancer filmmaker | R$ 1.800/dia |
-| Ticket médio atual da Firma | ~R$ 8.000 |
+| Diária Lipe | R$ 2.000/dia |
+| Diária Jaya | R$ 1.500/dia |
+| Diária freelancer filmmaker | R$ 1.500/dia |
+| Ticket médio atual da Firma | R$ 5.000–8.000 |
 | NF sobre serviços | 7,28% |
-| Margem mínima aceitável | 35% |
+| Margem mínima — novo cliente | 35% |
+| Margem mínima — recorrente / parceiro | 20% |
 | Desconto máximo (institucional) | 15–20% |
 | Desconto social / portfólio | 30–50% (apenas com autorização Lipe/Jaya) |
 
@@ -117,9 +109,7 @@ Ver `docs/TABELA_PRECOS.md` para tabela completa de preços por serviço e equip
 ## O que NÃO fazemos
 
 - Casamentos e eventos sociais
-- Eventos corporativos genéricos sem propósito claro
-- Conteúdo de massa sem identidade
-- Projetos que contradizem nossos valores (ex: comunicação de greenwashing)
+- Projetos que contradizem nossos valores ou comprometem nossa integridade (ex: greenwashing)
 - Fotos estáticas como serviço principal
 
 ---
@@ -132,37 +122,26 @@ Ver `docs/TABELA_PRECOS.md` para tabela completa de preços por serviço e equip
 - Operadores de câmera adicionais
 - Assistentes de iluminação e som
 - Coloristas externos
+- Editor
 - Masterização de som
 - Arte e cenografia
 
 **Atribuições em produção:**
 - Lipe + Jaya: saem para filmagem juntos na maioria dos projetos
 - Lipe: direção de fotografia, operação principal de câmera
-- Jaya: assistência técnica (luz, som, arte), produção de set
+- Jaya: produção, arte e assistência técnica
 
 ---
 
 ## Clientes e parceiros
 
-### Segmentos de cliente
-- **Grandes empresas:** Produção institucional e promocional
-- **Pequenas empresas:** Vídeos e conteúdo para redes
-- **Agências:** Produção de vídeo, serviços técnicos
-- **Produtoras:** Serviços técnicos e locação de equipamentos
-- **Profissionais autônomos:** Locação de equipamentos
-- **Projetos culturais:** Produção audiovisual e registro de eventos
+### Perfil de clientes
 
-### Clientes e parceiros estratégicos
-
-```
-CNV               — projetos institucionais e sociais
-Tamause           — parceiro de ideais
-Vert              — parceiro de ideais
-Cerrado Experience (Thiago) — parceiro de projetos culturais
-SuperHost         — cliente de conteúdo e institucional
-Chichá (Ana Paula) — parceira cultural e de moda
-Brechós parceiros — projetos de moda sustentável
-```
+- **ONGs e coletivos** — projetos culturais, sociais e ambientais alinhados aos valores da Firma
+- **Grandes instituições públicas e privadas** — produção institucional, documentários, registros
+- **Festivais e projetos culturais** — circo, teatro, cinema, música; frequentemente com temáticas indígenas e tradicionais
+- **Pequenos negócios** — restaurantes, hospedagens, negócios locais com identidade própria
+- **Agências e produtoras** — serviços técnicos e locação de equipamentos
 
 ### Perfil de relacionamento
 - Alta retenção natural — clientes voltam por indicação
@@ -196,9 +175,9 @@ Brechós parceiros — projetos de moda sustentável
 
 ---
 
-## Técnicas cinematográficas dominadas pela Firma
+## Técnicas e linguagem visual da Firma
 
-Essas técnicas definem a identidade visual dos trabalhos da Firma:
+A técnica é suporte à narrativa — o que define a identidade visual da Firma é como construímos as histórias. As escolhas técnicas existem a serviço do conteúdo e do que precisa ser comunicado.
 
 | Técnica | Uso |
 |---|---|
@@ -207,7 +186,7 @@ Essas técnicas definem a identidade visual dos trabalhos da Firma:
 | Golden hour | Natureza, projetos sociais, autenticidade |
 | Rack-focus | Narrativa de atenção, transição emocional |
 | Handheld | Urgência, intimidade, documentário |
-| Steadicam | Fluidez, elegância, movimento contínuo |
+| Gimbal | Fluidez, elegância, movimento contínuo |
 
 ---
 
@@ -217,8 +196,11 @@ O Oráculo é o sistema de inteligência operacional da Firma Abacaxi. Seu objet
 - Eliminar o gargalo de sobrecarga dos dois fundadores
 - Automatizar tarefas repetitivas: briefing, proposta, orçamento, gestão de projetos
 - Garantir que nenhuma informação se perca
+- Acompanhar clientes ao longo do projeto
+- Geração de vídeos e conteúdo com IA
+- Postagem automática nas redes sociais
 - Permitir que Lipe foque em direção e criação
-- Permitir que Jaya foque em produção e relacionamento com clientes
+- Permitir que Jaya foque em produção, arte e relacionamento com clientes
 - Fazer a Firma crescer sem aumentar proporcionalmente a carga de trabalho
 
 **O Oráculo fala com a voz de Lipe e Jaya. Nunca soa como IA.**

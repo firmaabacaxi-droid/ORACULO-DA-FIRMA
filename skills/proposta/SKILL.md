@@ -33,7 +33,7 @@ SAÍDA: output/propostas/NomeCliente_proposta_v1.docx
 
 | Situação | Skill |
 |---|---|
-| Apresentar preço com mais impacto | `skills/antigravity/marketing-psychology/SKILL.md` — ancoragem (âncora alta → oferta real), aversão à perda, prova social |
+| Apresentar preço com mais impacto | `skills/antigravity/marketing-psychology/SKILL.md` — Marketing de Premissas, ancoragem por ROI ("Quantos clientes esse vídeo precisa trazer para pagar a si mesmo?"), prova social |
 | Verificar margem, simular cenários de desconto | `skills/antigravity/financial-calculator-pro/SKILL.md` — markup, margem líquida pós-NF |
 | Cliente em objeção de preço | `skills/antigravity/negotiation-voss/SKILL.md` — accusation audit, calibrated questions |
 
@@ -88,7 +88,7 @@ Se o cliente já é conhecido (ex: proposta decorrente de reunião anterior), pe
 
 | Categoria | O que incluir |
 |---|---|
-| Equipe | Diárias: Lipe (R$ 1.800/dia), Jaya (R$ 1.200/dia), freelancers conforme `TABELA_PRECOS.md` |
+| Equipe | Diárias: Lipe (R$ 2.000/dia), Jaya (R$ 1.500/dia), freelancers conforme `TABELA_PRECOS.md` |
 | Equipamento | Incluso na diária quando Lipe e Jaya forem juntos — declarar explicitamente |
 | Locação | Espaços, permissões |
 | Transporte | R$ 200–300/dia em Brasília |
@@ -109,7 +109,7 @@ Apresentar sempre três linhas na tabela: **Subtotal | NF 7,28% | TOTAL**
 
 ### Margem mínima
 
-35% sobre custo direto total. Verificar antes de fechar o orçamento.
+20% sobre custo direto total. Verificar antes de fechar o orçamento.
 
 ### Se o budget for desconhecido
 
@@ -257,7 +257,7 @@ Ao finalizar, informar:
 ANTES DE ESCREVER
 [ ] Briefing completo ou lacunas sinalizadas
 [ ] Budget definido — trabalhar dentro do teto ou com opções (se desconhecido)
-[ ] Orçamento calculado com NF e margem mínima 35%
+[ ] Orçamento calculado com NF e margem mínima 20%
 
 AO ESCREVER
 [ ] Abertura narrativa (2 parágrafos, antes das seções, sem título)

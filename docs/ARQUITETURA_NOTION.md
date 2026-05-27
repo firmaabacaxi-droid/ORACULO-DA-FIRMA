@@ -2,6 +2,44 @@
 ## Engenharia de informação V2 — 25 bancos de dados
 *Documento de contexto permanente do Oráculo · atualizado Mai 2026*
 
+> ⚠️ **Arquitetura em construção** — Este documento descreve a arquitetura completa planejada.
+> A implementação está acontecendo em fases. Verificar a tabela de status abaixo antes de referenciar qualquer banco.
+> Última auditoria via MCP: 25/05/2026
+
+---
+
+## Status de implementação real
+
+*Auditado via MCP em 25/05/2026 — 7 bancos existem no Notion.*
+
+| Banco | Prefixo | Fase | Status | Observações |
+|---|---|---|---|---|
+| PROJETO_2026 | PRJ- | 1 | ✅ Criado | Hub central, relações com Tarefas, Clientes, Propostas, Contatos |
+| CLIENTES | CLI- | 1 | ✅ Criado | Tem `Órgão público` como segmento extra (vs. doc) |
+| CONTATOS | CTT- | 1 | ✅ Criado | Tem campo `Restrição Alimentar` (vs. doc) |
+| PROPOSTAS | PRP- | 1 | ✅ Criado | Integrada ao CRM via relação |
+| TAREFAS | TAR- | 1 | ✅ Criado | — |
+| CRM | CRM- | 1 | ✅ Criado | Tem rollup `Valor da Proposta` e status `Fechado` extras |
+| PROSPECÇÃO | PRO- | 1 | ❌ Não criado | CRM cobre essa função; criar apenas se necessário |
+| ORÇAMENTO | ORC- | 2 | ⏳ Pendente | — |
+| CRIATIVO | CRI- | 2 | ⏳ Pendente | — |
+| ANÁLISE TÉCNICA | ANT- | 2 | ⏳ Pendente | — |
+| FINANCEIRO_PROJETO | FIN- | 2 | ⏳ Pendente | — |
+| CRONOGRAMA | CRO- | 2 | ⏳ Pendente | — |
+| FILMAGEM | FLM- | 3 | ⏳ Pendente | — |
+| EDIÇÃO | EDI- | 3 | ⏳ Pendente | — |
+| ENTREGA_FEEDBACK | ENT- | 3 | ⏳ Pendente | — |
+| LOCAÇÕES | LOC- | 3 | ⏳ Pendente | — |
+| EQUIPAMENTOS | EQP- | 3 | ⏳ Pendente | — |
+| CONTRATO | CON- | 3 | ⏳ Pendente | — |
+| ARTE | ART- | 3 | ⏳ Pendente | — |
+| ALIMENTAÇÃO | ALI- | 3 | ⏳ Pendente | — |
+| TRANSPORTE | TRP- | 3 | ⏳ Pendente | — |
+| GESTÃO_FINANCEIRA_EMPRESA | GFE- | 3 | ⏳ Pendente | — |
+| ANOTAÇÕES | ANO- | 3 | ⏳ Pendente | — |
+| DADOS_EMPRESA | EMP- | 3 | ⏳ Pendente | — |
+| PRODUÇÃO | PDC- | 3 | ⏳ Pendente | — |
+
 ---
 
 ## Visão geral
@@ -205,6 +243,10 @@ CRONOGRAMA   ← conecta todas as datas
 | Duração estimada | Número | Minutos de filmagem |
 | Responsável | Relação | → CONTATOS |
 
+> **Quando implementado, adicionar campos por departamento:**
+> Arte (props, cenografia, set dressing) · Figurino · Maquiagem · Som direto (tipo de captação, wild sound) · VFX · Complexidade (Baixa/Média/Alta)
+> Referência completa: `cerebro/01-FIRMA/TEMPLATES/Template-Analise-Tecnica.md`
+
 ---
 
 ### 10 · PRODUÇÃO `PDC-`
@@ -275,6 +317,10 @@ CRONOGRAMA   ← conecta todas as datas
 | Wrap time | Texto | Horário previsto de término |
 | Orçamento do dia | Relação | → ORÇAMENTO |
 | Observações | Texto | — |
+
+> **Documentos de set associados a cada registro de FILMAGEM (páginas filhas — sem banco próprio):**
+> Ficha de Continuidade · Boletim de Câmera e Som · Log de Filmagem
+> Templates: `cerebro/01-FIRMA/TEMPLATES/Template-Ficha-Continuidade.md` e `Template-Boletim-Camera-Som.md`
 
 ---
 
@@ -359,7 +405,7 @@ CRONOGRAMA   ← conecta todas as datas
 | CON-ID | ID único | — |
 | Título | Título | — |
 | Projeto | Relação | → PROJETO_2026 |
-| Tipo | Select | Cliente / Prestador de serviço / Locação / NDA |
+| Tipo | Select | Cliente / Prestador de serviço / Locação / NDA / **Cessão de imagem (maior)** / **Cessão de imagem (menor)** / **Autorização de imóvel** / **Licença musical (ECAD)** |
 | Partes | Relação | → CONTATOS + → CLIENTES |
 | Status | Select | Rascunho / Enviado / Assinado / Vigente / Encerrado |
 | Data de início | Data | — |
@@ -367,6 +413,10 @@ CRONOGRAMA   ← conecta todas as datas
 | Valor | Número | R$ |
 | Arquivo assinado | URL | Link Drive |
 | Observações | Texto | — |
+
+> **Quando implementado, adicionar:**
+> Campo `Cenas cobertas` (relação → ANT) para vincular cessões de imagem às cenas específicas.
+> Templates de todos os documentos legais: `cerebro/01-FIRMA/TEMPLATES/Template-Autorizacoes-Contratos.md`
 
 ---
 
@@ -508,14 +558,17 @@ CRONOGRAMA ← PROJETO_2026 e todas as etapas com datas
 
 ## Prioridade de implementação
 
-### Fase 1 — Criar agora (bancos essenciais)
-1. **PROJETO_2026** — hub central, tudo gira em torno dele
-2. **CLIENTES** — cadastro básico de clientes
+### ✅ Fase 1 — Concluída (Mai 2026)
+1. **PROJETO_2026** — hub central
+2. **CLIENTES** — cadastro de clientes
 3. **CONTATOS** — equipe, freelancers, fornecedores
 4. **PROPOSTAS** — fluxo comercial
 5. **TAREFAS** — gestão do dia a dia
+6. **CRM** — pipeline comercial
 
-### Fase 2 — Criar na semana 2
+*Nota: PROSPECÇÃO (banco #01) não foi criado — o CRM cobre essa função. Reavaliar se necessário.*
+
+### Fase 2 — Próximos bancos a criar
 6. **ORÇAMENTO** — controle financeiro detalhado por projeto
 7. **CRIATIVO** — roteiros e decupagens no Notion
 8. **ANÁLISE TÉCNICA** — breakdown técnico de cenas
@@ -523,9 +576,38 @@ CRONOGRAMA ← PROJETO_2026 e todas as etapas com datas
 10. **CRONOGRAMA** — datas integradas de todos os projetos
 
 ### Fase 3 — Criar conforme necessidade surgir
-Os demais 15 bancos: FILMAGEM, EDIÇÃO, ENTREGA_FEEDBACK, LOCAÇÕES, EQUIPAMENTOS, CONTRATO, ARTE, ALIMENTAÇÃO, TRANSPORTE, GESTÃO_FINANCEIRA_EMPRESA, ANOTAÇÕES, DADOS_EMPRESA, CRM, PROSPECÇÃO, PRODUÇÃO
+Os demais 14 bancos: FILMAGEM, EDIÇÃO, ENTREGA_FEEDBACK, LOCAÇÕES, EQUIPAMENTOS, CONTRATO, ARTE, ALIMENTAÇÃO, TRANSPORTE, GESTÃO_FINANCEIRA_EMPRESA, ANOTAÇÕES, DADOS_EMPRESA, PRODUÇÃO, PROSPECÇÃO (se necessário)
 
 ---
 
-*Última atualização: Mai 2026*
-*Fonte: Arquitetura V2 Manus — 25 bancos + dados reais da Firma*
+## Ferramentas e referências
+
+### Instaladas
+
+| Ferramenta | Versão | Uso |
+|---|---|---|
+| `notion-client` | 3.1.0 | SDK oficial Python — scripts de auditoria e automação via API |
+| `notion-backup` | 0.3.10 | Backup automático dos bancos em Markdown/CSV (`backup_notion.exe`) |
+
+**Nota:** os executáveis ficam em `C:\Users\User\AppData\Roaming\Python\Python314\Scripts` — adicionar ao PATH se quiser usar diretamente.
+
+### MCPs ativos no Claude Code
+
+| MCP | Ferramentas principais |
+|---|---|
+| `mcp__claude_ai_Notion` | notion-fetch, notion-search, notion-create-pages, notion-update-page |
+| `mcp__notion` | API-retrieve-a-database, API-post-page, API-post-search, API-patch-page |
+
+### Referências de arquitetura
+
+| Recurso | URL | Para quê |
+|---|---|---|
+| Creative Agency HQ | notion.com/templates/creative-agency-headquarters | Template de referência para agências criativas |
+| Notion for Video Production | landmarklabs.co/blog/notion-for-video-production | Guia de boas práticas para produtoras audiovisuais |
+| Agency Workflow Guide | notion.com/help/guides/how-agencies-manage-work | Padrão de Status + Views para agências |
+| Relations & Rollups | notion.com/help/relations-and-rollups | Documentação oficial de relações entre bancos |
+
+---
+
+*Última atualização: 25/05/2026*
+*Fonte: Arquitetura V2 Manus — 25 bancos + dados reais da Firma · Auditado via MCP*

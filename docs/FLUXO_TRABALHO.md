@@ -7,12 +7,15 @@
 ## Visão geral do fluxo
 
 ```
-PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
-→ PRÉ-PRODUÇÃO → PRODUÇÃO → EDIÇÃO → ACOMPANHAMENTO
+GERAÇÃO DE LEADS (Marketing Digital)
+→ PROSPECÇÃO → CRM → PRIMEIRA ABORDAGEM → ORÇAMENTO/PROPOSTA → ONBOARDING
+→ PRÉ-PRODUÇÃO → PRODUÇÃO → EDIÇÃO → ACOMPANHAMENTO DA EDIÇÃO
 → EDIÇÃO FINAL → ENTREGA → NOTA FISCAL → PAGAMENTO
 ```
 
-**Total:** 13 etapas · 2 decisões críticas · fluxo sequencial com interdependências
+**Total:** 13 etapas operacionais + Etapa 0 (captação via marketing digital) · 2 decisões críticas
+
+**Nota:** CLIENTES e CONTATOS são bancos de dados do Notion que acompanham o fluxo — não são uma etapa. O cadastro formal acontece após a proposta ser aprovada (Etapa 5 — Onboarding).
 
 ---
 
@@ -36,9 +39,41 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 | **Bot Telegram** | 📌 Fase 4 | Oráculo no celular sem PC |
 | **Apify** | 📌 Fase 5 | Geração de leads por nicho em Brasília |
 
+ainda vamos colocar mais ferramentas, produção de video por ia, gerenciador de anuncios da meta e google, integração com premiere 
+
 ---
 
 ## Etapas detalhadas
+
+### Etapa 0 — GERAÇÃO DE LEADS (Marketing Digital)
+**Objetivo:** Criar fluxo contínuo de leads qualificados via canais digitais — reduzindo a dependência exclusiva de indicações
+
+**Canais de entrada:**
+- Instagram — conteúdo orgânico (bastidores, cases, territórios) + Reels Ads
+- LinkedIn — posts de cases B2B + conexões personalizadas com decisores
+- Google Ads — keywords locais ("produtora audiovisual Brasília") — quando o site estiver no ar
+- Site / landing page — formulário de qualificação → CRM
+- E-mail — sequência de nurturing para leads que não agendaram briefing
+
+**Responsável:** Lipe e Jaya (criação do conteúdo) + Oráculo (calendário editorial, copy, relatório de leads)
+
+**Skill ativada:** `skills/prospeccao/SKILL.md` (Etapa 0 — estratégia e funil) · `skills/conteudo/SKILL.md` (execução de conteúdo orgânico)
+
+**Artefato completo:** `skills/prospeccao/MARKETING_CAPTACAO.md`
+
+**Ferramentas:**
+- Notion CRM — registro e qualificação de todos os leads gerados
+- Typeform — formulário de qualificação (tipo de projeto, orçamento, prazo)
+- Zapier — Typeform → Notion automático (📌 Fase 2)
+- Calendly — agendamento do briefing
+- Mailchimp — sequência de e-mails de nurturing (📌 Fase 2)
+- Meta Ads / Google Ads — tráfego pago (📌 Fase 3)
+
+**Saída:** Lead qualificado no CRM → segue para Etapa 2 (Passiva) ou direto para Etapa 3 (Briefing) se já agendou
+
+**Banco Notion:** CRM
+
+---
 
 ### Etapa 1 — PROSPECÇÃO
 **Objetivo:** Identificar e qualificar oportunidades
@@ -50,7 +85,7 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 **Responsável:** Lipe (atendimento) / Oráculo (qualificação)
 
-**Skill ativada:** `skills/captacao/SKILL.md`
+**Skill ativada:** `skills/prospeccao/SKILL.md`
 
 **Ferramentas:**
 - Notion CRM — registro do lead
@@ -58,7 +93,7 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 **Antigravity:**
 - `negotiation-voss` → preparar abertura do contato
-- `marketing-psychology` → calibrar primeira mensagem (prova social, ancoragem)
+- `marketing-psychology` → calibrar primeira mensagem (prova social)
 
 **Automação:** A5 — Geração de leads via Apify por nicho/cidade (📌 Fase 5)
 
@@ -99,53 +134,22 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 **Banco Notion:** CRM
 
----
-
-### Etapa 3 — CLIENTE
-**Objetivo:** Confirmação e onboarding
-
-**Atividades:**
-- Confirmação de interesse
-- Coleta de informações iniciais
-- Cadastro no sistema
-
-**Responsável:** Jaya (administrativo) + Oráculo (cadastro)
-
-**Skill ativada:** `skills/captacao/SKILL.md`
-
-**Ferramentas:**
-- Notion CLIENTES — cadastro da empresa
-- Notion CONTATOS — cadastro do responsável
-- Obsidian — nota de perfil do cliente em `02-CLIENTES/`
-- NotebookLM — criar notebook do cliente com documentos pesquisados
-
-**Antigravity:**
-- `personality-profiler` → identificar perfil DISC para adaptar comunicação
-
-**Saída:** Cliente validado, cadastrado no Notion e com notebook criado
-
-**Banco Notion:** CLIENTES (CLI) + CONTATOS (CTT)
-
-**Campos críticos:**
-- Nome da empresa
-- Responsável / contato
-- E-mail / telefone
-- Histórico de projetos
+**Nota:** O CRM acompanha toda a prospecção — ativa e passiva. Controla todos os orçamentos, propostas e negociações em andamento. Qualquer oportunidade em negociação vive no CRM até ser fechada (Ganho ou Perdido).
 
 ---
 
-### Etapa 4 — PRIMEIRA ABORDAGEM (Briefing)
+### Etapa 3 — PRIMEIRA ABORDAGEM (Briefing)
 **Objetivo:** Alinhamento inicial e briefing estruturado
 
 **Atividades:**
-- Briefing conduzido pelo Oráculo (uma pergunta por vez)
+- Briefing conduzido por Lipe ou Jaya (uma pergunta por vez, apoiado pelo Oráculo)
 - Pesquisa de mercado do cliente (Brave Search + NotebookLM)
 - Apresentação de ideias iniciais
 - Registro em Obsidian e Notion
 
-**Responsável:** Agente de Captação (Oráculo) + Lipe (validação)
+**Responsável:** Lipe ou Jaya (condução) + Oráculo (apoio e registro)
 
-**Skill ativada:** `skills/captacao/SKILL.md`
+**Skill ativada:** `skills/prospeccao/SKILL.md`
 
 **Ferramentas:**
 - Notion PROPOSTAS — registro do briefing
@@ -156,7 +160,6 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 **Antigravity:**
 - `personality-profiler` → determinar perfil DISC do decisor
-- `marketing-psychology` → ancoragem na apresentação de ideias iniciais
 - `negotiation-voss` → calibrated questions para extrair o orçamento real
 
 **⚠️ DECISÃO CRÍTICA:**
@@ -169,16 +172,21 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 ---
 
-### Etapa 5 — ORÇAMENTO / PROPOSTA
-**Objetivo:** Definição financeira e aprovação comercial
+### Etapa 4 — ORÇAMENTO / PROPOSTA
+**Objetivo:** Contextualização do projeto e definição financeira
 
 **Atividades:**
+- Contextualização do projeto: metodologia de trabalho e proposta estética
+- Pesquisa de referências estéticas e visuais
+- Geração de moodboard (opcional)
 - Pesquisa de mercado e benchmarks de preço
 - Cálculo detalhado de custos (NF 7,28% sempre incluso)
 - Geração de proposta formal em Word
 - Envio e negociação
 
-**Responsável:** Agente de Proposta (Oráculo) + Jaya (revisão financeira)
+**Nota:** A proposta não é apenas financeira — apresenta a visão do projeto, a metodologia e uma ideia da estrutura narrativa. O roteiro ainda não é desenvolvido aqui, mas já há uma leitura do que o projeto pode ser.
+
+**Responsável:** Agente de Proposta (Oráculo) + Jaya (revisão financeira) + Lipe (validação criativa)
 
 **Skill ativada:** `skills/proposta/SKILL.md`
 
@@ -189,11 +197,14 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 - `output/propostas/` — destino do arquivo gerado
 
 **Antigravity:**
-- `marketing-psychology` → ancoragem de preço (âncora alta → oferta real), prova social, urgência
 - `financial-calculator-pro` → simular margem, markup, ROI para o cliente
 - `negotiation-voss` → preparar respostas para objeções de preço
 
 **Automação:** A1 — Proposta aprovada dispara criação automática do projeto no Notion (📌 Fase 3)
+
+**⚠️ DECISÃO CRÍTICA:**
+- ✅ Proposta aprovada → Onboarding do cliente → Pré-produção
+- ❌ Não aprovada → negociação ou descarte (CRM atualizado)
 
 **Saída:** Proposta aprovada, orçamento registrado
 
@@ -208,17 +219,56 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 ---
 
+### Etapa 5 — ONBOARDING DO CLIENTE
+**Objetivo:** Cadastro formal e início do relacionamento pós-contrato
+
+**Atividades:**
+- Cadastro da empresa em CLIENTES
+- Cadastro do responsável em CONTATOS
+- Criação da nota de perfil do cliente em Obsidian (`02-CLIENTES/`)
+- Criação do notebook do cliente no NotebookLM com documentos pesquisados
+- Identificação do perfil DISC para adaptar comunicação ao longo do projeto
+
+**Responsável:** Lipe e Jaya + Oráculo (cadastro e notebook)
+
+**Skill ativada:** `skills/prospeccao/SKILL.md`
+
+**Ferramentas:**
+- Notion CLIENTES — cadastro da empresa
+- Notion CONTATOS — cadastro do responsável
+- Obsidian — nota de perfil do cliente em `02-CLIENTES/`
+- NotebookLM — criar notebook do cliente com documentos pesquisados
+
+**Antigravity:**
+- `personality-profiler` → identificar perfil DISC para adaptar comunicação
+
+**Saída:** Cliente validado e cadastrado no Notion, notebook criado. Projeto pronto para Pré-produção.
+
+**Banco Notion:** CLIENTES (CLI) + CONTATOS (CTT)
+
+**Campos críticos:**
+- Nome da empresa
+- Responsável / contato
+- E-mail / telefone
+- Histórico de projetos
+
+---
+
 ### Etapa 6 — PRÉ-PRODUÇÃO
 **Objetivo:** Planejamento técnico e criativo completo
 
 **Atividades:**
-- Roteiro e decupagem técnica
-- Confirmação de locações (com GPS)
+- Projeto Audiovisual — logline, sinopse, argumento (para documentários e projetos de edital)
+- Roteiro e decupagem técnica (Literário ou Técnico, conforme tipo de projeto)
+- Análise técnica por departamento — Arte, Som, Produção (para produções com equipe múltipla)
+- Confirmação de locações (com GPS e contato do responsável)
+- Plano de rodagem com DOOD — para filmagens com 2+ diárias
+- **Autorizações e contratos** — cessão de imagem, autorização de imóvel, licenças (ANAC, ECAD)
 - Arte e design (se aplicável)
 - Contratação de equipe freelancer
 - Reserva e checklist de equipamentos
 
-**Responsável:** Agente de Produção (Oráculo) + Lipe (validação criativa)
+**Responsável:** Lipe, Jaya e Oráculo
 
 **Skill ativada:** `skills/preproducao/SKILL.md`
 
@@ -235,15 +285,15 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 **Automação:** A2 — Proposta aprovada cria automaticamente tarefas de pré-produção + convite de freelancers (📌 Fase 3)
 
-**Saída:** Roteiro + decupagem + plano de filmagem + equipe confirmada + equipamentos reservados
+**Saída:** Roteiro + decupagem + plano de filmagem + autorizações assinadas + equipe confirmada + equipamentos reservados
 
-**Banco Notion:** CRIATIVO (CRI) + ANÁLISE TÉCNICA (ANT) + LOCAÇÕES (LOC) + ARTE (ART) + FILMAGEM (FLM) + EQUIPAMENTOS (EQP) + CONTATOS (CTT)
+**Banco Notion:** CRIATIVO (CRI) + ANÁLISE TÉCNICA (ANT) + LOCAÇÕES (LOC) + ARTE (ART) + FILMAGEM (FLM) + EQUIPAMENTOS (EQP) + CONTATOS (CTT) + CONTRATO (CON)
 
 **Campos críticos (Roteiro/Decupagem):**
-- Cenas com descrição, ângulo, movimento de câmera, iluminação
+- Cenas com descrição, tipo de plano, lente, movimento de câmera, iluminação
 - Equipamentos necessários por cena
 - Tempo estimado por cena
-- Ordem de filmagem otimizada
+- Ordem de filmagem otimizada (por locação → elenco → luz)
 
 ---
 
@@ -256,7 +306,10 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 - Locação de espaços
 - Aluguel de equipamentos extras
 - Filmagem
-- Diário de filmagem (registro de cenas, ocorrências, backup)
+- Log de filmagem (registro de takes por cena — para o editor)
+- Ficha de continuidade — raccord visual por cena (figurino, maquiagem, props entre planos)
+- Boletim de câmera e som — para produções com equipe técnica dedicada
+- Diário de filmagem (registro geral do dia — ocorrências, backup, pendências)
 
 **Responsável:** Lipe e Jaya + equipe freelancer
 
@@ -270,9 +323,7 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 **Antigravity:**
 - `photography-settings` → referência técnica rápida on-set (exposição, hiperfocal)
 
-**⚠️ REGRA DE NEGÓCIO:** Após 2 alterações do cliente em produção, cada nova alteração gera custo adicional (aditivo no orçamento).
-
-**Saída:** Material bruto gravado + diário de filmagem + backup confirmado
+**Saída:** Material bruto gravado + Log de filmagem + Ficha de continuidade + backup confirmado
 
 **Banco Notion:** FILMAGEM (FLM) + TRANSPORTE (TRP) + ALIMENTAÇÃO (ALI) + FINANCEIRO_PROJETO (FIN)
 
@@ -304,7 +355,7 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 3. Edição bruta
 4. Corte 1
 5. Finalização
-6. Correção de cor (contato + orçamento externo)
+6. Correção de cor
 7. Masterização de som
 8. Trilha sonora
 
@@ -325,7 +376,7 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 **Ferramentas:**
 - Frame.io — cliente comenta diretamente no vídeo (📌 Fase 2)
-- Notion ENTREGA_FEEDBACK — registro de versão, data, feedback, status
+- Notion EDIÇÃO — registro de versão, data, feedback, status
 - `skills/humanizador/SKILL.md` — e-mails e mensagens de envio
 
 **Antigravity:**
@@ -333,9 +384,11 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 **Automação:** A4 — alerta automático de prazo de revisão (📌 Fase 3)
 
+**⚠️ REGRA DE NEGÓCIO:** Máximo de 2 rodadas de revisão sem custo adicional. A partir da 3ª rodada, gera aditivo no orçamento. Informar o cliente antes de iniciar a edição.
+
 **Saída:** Versão final aprovada
 
-**Banco Notion:** ENTREGA_FEEDBACK (ENT)
+**Banco Notion:** EDIÇÃO (EDI)
 
 **Campos críticos:**
 - Versão do arquivo
@@ -446,8 +499,9 @@ PROSPECÇÃO → CRM → CLIENTES → PRIMEIRA ABORDAGEM → ORÇAMENTO
 
 | Etapa | Decisão | Sim | Não |
 |---|---|---|---|
-| Primeira Abordagem | Cliente aprova o briefing? | → Orçamento | ← Reformular |
-| Produção | Demanda após 2 alterações? | → Custo extra (aditivo) | → Edição normal |
+| Primeira Abordagem (3) | Cliente aprova o briefing? | → Orçamento | ← Reformular |
+| Orçamento / Proposta (4) | Proposta aprovada? | → Onboarding → Pré-produção | ← Negociar ou descartar (CRM) |
+| Acompanhamento da Edição (9) | Mais de 2 rodadas de revisão? | → Aditivo no orçamento | → Revisão normal |
 
 ---
 
@@ -473,7 +527,7 @@ Blueprints completos: `C:\Users\User\Documents\ANTIGRAVITY\.agents\workflows\`
 
 **Alertas de prazo:** O Oráculo emite alertas 3 dias antes do prazo de qualquer TAREFA ou ENTREGA.
 
-**Alterações em produção:** Máximo de 2 alterações sem custo. A partir da 3ª, gera aditivo no orçamento.
+**Alterações na edição:** Máximo de 2 rodadas de revisão sem custo adicional. A partir da 3ª rodada, gera aditivo no orçamento. Informar o cliente antes de iniciar a edição.
 
 **NF sempre inclusa:** O valor da proposta já inclui os 7,28% de nota fiscal. Nunca apresentar valor sem NF.
 
@@ -488,10 +542,11 @@ Blueprints completos: `C:\Users\User\Documents\ANTIGRAVITY\.agents\workflows\`
 | Etapa | Lipe | Jaya | Oráculo |
 |---|---|---|---|
 | Prospecção | Primeiro contato | — | Qualificação e registro |
-| Briefing | Validação criativa | — | Condução e estruturação |
-| Orçamento | — | Revisão financeira | Geração automática |
-| Pré-produção | Direção criativa | Logística | Roteiro e decupagem |
-| Produção | Direção e fotografia | Assistência técnica | Registro e alertas |
+| Primeira Abordagem | Condução do briefing | Condução do briefing | Apoio, registro e estruturação |
+| Orçamento / Proposta | Validação criativa | Revisão financeira | Geração automática |
+| Onboarding | — | Administrativo e cadastro | Registro Notion e notebook |
+| Pré-produção | Direção criativa | Logística e análise técnica | Roteiro e decupagem |
+| Produção | Direção e fotografia | Assistência técnica e produção | Registro e alertas |
 | Edição | Edição principal | — | Envio de versões |
 | Entrega | — | Verificação | E-mail automático |
 | Financeiro | — | NF e contas | Lembretes e follow-up |
@@ -501,8 +556,8 @@ Blueprints completos: `C:\Users\User\Documents\ANTIGRAVITY\.agents\workflows\`
 ## Foco atual do Oráculo
 
 **Etapas prioritárias (ativas agora):**
-- Etapa 3–4 — Briefing e qualificação (skill captacao)
-- Etapa 5 — Proposta/orçamento (skill proposta)
+- Etapa 3 — Briefing e qualificação (skill captacao)
+- Etapa 4 — Proposta/orçamento (skill proposta)
 - Etapa 6 — Pré-produção (skill preproducao)
 - Etapas 9–11 — Acompanhamento e entrega (skill gestao)
 - Etapas 12–13 — NF e pagamento (skill gestao)
@@ -514,4 +569,4 @@ Blueprints completos: `C:\Users\User\Documents\ANTIGRAVITY\.agents\workflows\`
 
 ---
 
-*Última atualização: Mai 2026 — redesenhado com ferramentas, skills e automações*
+*Última atualização: Mai 2026 — reestruturado com base nos aprendizados dos primeiros projetos reais*
