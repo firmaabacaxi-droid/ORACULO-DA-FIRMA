@@ -1,5 +1,5 @@
 # STATUS DO ORÁCULO — Handoff de Sessão
-## Firma Abacaxi · atualizado 27 Mai 2026 · Sessão 10
+## Firma Abacaxi · atualizado 27 Mai 2026 · Sessão 11
 
 ---
 
@@ -47,7 +47,69 @@
 
 ---
 
-## O QUE FOI CONCLUÍDO (Sessões 1–10)
+## SESSÃO 11 — Estrutura Financeira + Projetos em Mãos (27 Mai 2026)
+
+### ✅ Concluído nesta sessão
+
+**Problema central:** A firma envia propostas com orçamento, mas na execução o escopo muda. Não havia mecanismo para rastrear proposta vs. realizado.
+
+**Ações tomadas:**
+
+1. ✅ **Pesquisa de melhores práticas** — analisado padrão da indústria audiovisual (Movie Magic, Airtable, GreenSlate, Notion templates)
+   - Conclusão: 3 tabelas relacionadas (não uma tabela única, não uma por projeto)
+
+2. ✅ **Novos projetos com propostas em mãos:**
+   - **Maranhã** (Gravação 28-29/05 — 🔴 AMANHÃ!)
+     - Cliente: Maranhã (contato Juliana) | Status: Aprovado | R$ 10.573,86
+   - **SOBRE2026** (VI Conferência Brasileira de Restauração Ecológica, UnB 27-31/07)
+     - Cliente: SOBRE2026 (contato Viviane) | Status: Prospecção | R$ 58.124,08
+
+3. ✅ **Banco FILMAGEM** criado — cada dia = 1 registro
+   - Data Source ID: `collection://bc067267-b603-41fc-bb75-c00050cec4cc`
+   - 2 registros criados para Maranhã (dias 28 e 29/05)
+   - Campos: Nome da filmagem, Projeto, Data, Local, Equipe escalada, Equipamentos, Ordem do dia, Roteiro, Status, Observações
+
+4. ✅ **Banco ORÇAMENTO** criado — proposta detalhada por projeto
+   - Data Source ID: `collection://1acaa528-4627-4817-8d43-093d3ad19137`
+   - **Campo crítico:** `Versão` (Original / Aditivo 001...) para rastrear mudanças sem alterar proposta original
+   - 8 itens Maranhã registrados (diárias, câmera, som, iluminação, imposto)
+   - 4 itens SOBRE2026 registrados (pré-prod, produção, pós-prod, imposto)
+
+5. ✅ **Banco FINANCEIRO_PROJETO** criado — transações reais por projeto
+   - Data Source ID: `collection://cd8f5929-87b0-431b-b392-00b49a11b98e`
+   - Vincula ao ORÇAMENTO para Budget vs. Actual automático
+   - Campos: Descrição, Projeto, Item do orçamento, Tipo, Categoria, Valor, Data real, Status, Forma de pagamento, Comprovante, Número NF, Nota fiscal
+
+6. ✅ **Banco GESTÃO_FINANCEIRA_EMPRESA** criado — despesas da empresa
+   - Data Source ID: `collection://3a29ba12-7582-458e-bbbb-f631cfcbef35`
+   - Aluguel, assinaturas (Adobe CC), pró-labore, taxas bancárias, equipamentos, marketing, etc.
+   - Opcional: relação com PROJETO_2026 para despesas que afetam um projeto
+
+7. ✅ **Documentação atualizada:**
+   - ARQUITETURA_NOTION.md: adicionado IDs e schemas dos 4 novos bancos (FILMAGEM, ORÇAMENTO, FINANCEIRO_PROJETO, GFE)
+   - STATUS.md: atualizado com dados de Sessão 11
+
+**Totais criados nesta sessão:**
+- 2 novos clientes: Juliana (contato Maranhã), Viviane (contato SOBRE2026), Maranhã (cliente), SOBRE2026 (cliente)
+- 2 novos projetos: Maranhã, VI SOBRE 2026
+- 4 novos bancos Notion: FILMAGEM, ORÇAMENTO, FINANCEIRO_PROJETO, GESTÃO_FINANCEIRA_EMPRESA
+- 2 registros de filmagem: Maranhã dia 1 (28/05), Maranhã dia 2 (29/05)
+- 12 itens de orçamento: 8 Maranhã + 4 SOBRE2026
+
+### 🔴 NÃO foi feito:
+- Rollups cruzados (Notion tem limitações — fazer manualmente no UI depois)
+- Automações n8n/Make (Fase 3)
+- Integração Asaas (Fase 3)
+
+### 🟡 Próximos passos recomendados:
+1. Quando Maranhã finalizar filmagem (29/05): atualizar FILMAGEM status para "Finalizado"
+2. Se SOBRE2026 aprovar proposta: criar CRONOGRAMA e equipamentos necessários
+3. Revisar status de tarefas e projetos antigos (conforme usuária indicou)
+4. Começar a registrar despesas no FINANCEIRO_PROJETO conforme ocorrerem no Maranhã
+
+---
+
+## O QUE FOI CONCLUÍDO (Sessões 1–11)
 
 ### Infraestrutura — ✅ Operacional
 ```

@@ -24,7 +24,7 @@ Toda criação de página ou banco no Notion **DEVE** usar como parent:
 
 ## Status de implementação real
 
-*Auditado via MCP em 25/05/2026 — 7 bancos existem no Notion.*
+*Auditado via MCP em 27/05/2026 — 10 bancos existem no Notion (Fase 1 + 3 bancos Fase 2).*
 
 | Banco | Prefixo | Fase | Status | Observações |
 |---|---|---|---|---|
@@ -35,12 +35,13 @@ Toda criação de página ou banco no Notion **DEVE** usar como parent:
 | TAREFAS | TAR- | 1 | ✅ Criado | — |
 | CRM | CRM- | 1 | ✅ Criado | Tem rollup `Valor da Proposta` e status `Fechado` extras |
 | PROSPECÇÃO | PRO- | 1 | ❌ Não criado | CRM cobre essa função; criar apenas se necessário |
-| ORÇAMENTO | ORC- | 2 | ⏳ Pendente | — |
+| ORÇAMENTO | ORC- | 2 | ✅ Criado (27/05) | Rastreia proposta vs. realizado com campo Versão para aditivos |
 | CRIATIVO | CRI- | 2 | ⏳ Pendente | — |
 | ANÁLISE TÉCNICA | ANT- | 2 | ⏳ Pendente | — |
-| FINANCEIRO_PROJETO | FIN- | 2 | ⏳ Pendente | — |
+| FINANCEIRO_PROJETO | FIN- | 2 | ✅ Criado (27/05) | Transações reais por projeto, vincula ao ORÇAMENTO |
 | CRONOGRAMA | CRO- | 2 | ⏳ Pendente | — |
-| FILMAGEM | FLM- | 3 | ⏳ Pendente | — |
+| GESTÃO_FINANCEIRA_EMPRESA | GFE- | 2 | ✅ Criado (27/05) | Despesas e receitas da empresa não vinculadas a projeto |
+| FILMAGEM | FLM- | 3 | ✅ Criado (27/05) | Cada dia = 1 registro; equipamentos e equipe por dia |
 | EDIÇÃO | EDI- | 3 | ⏳ Pendente | — |
 | ENTREGA_FEEDBACK | ENT- | 3 | ⏳ Pendente | — |
 | LOCAÇÕES | LOC- | 3 | ⏳ Pendente | — |
@@ -390,24 +391,90 @@ CRONOGRAMA   ← conecta todas as datas
 ---
 
 ### 17 · ORÇAMENTO `ORC-` ⭐ TABELA VINCULADA
-**Tipo:** Financeiro · **Objetivo:** Tabela detalhada de custos por projeto
+**Tipo:** Financeiro · **Objetivo:** Tabela detalhada de custos por projeto  
+**Data Source ID:** `collection://1acaa528-4627-4817-8d43-093d3ad19137` · **Status:** ✅ Criado 27/05/2026
 
-*Cada linha é um item de custo ou receita — não um valor único.*
+*Cada linha é um item de custo ou receita — não um valor único. Rastreia proposta vs. realizado.*
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| ORC-ID | ID único | — |
 | Item | Título | Descrição do item |
 | Projeto | Relação | → PROJETO_2026 |
 | Categoria | Select | Equipe / Equipamento / Locação / Arte / Transporte / Alimentação / Pós-produção / Imposto / Outro |
 | Tipo | Select | Custo / Receita |
 | Valor unitário | Número | R$ |
 | Quantidade | Número | — |
-| Total | Fórmula | Unitário × Quantidade |
+| Total | Número | R$ (preenchido manualmente, pode ser fórmula no UI) |
 | Status | Select | Estimado / Confirmado / Pago / Recebido |
+| **Versão** | **Select** | **Original / Aditivo 001 / Aditivo 002** ← campo crítico para rastrear mudanças |
 | Fornecedor/Contato | Relação | → CONTATOS |
 | Data | Data | Previsão de pagamento/recebimento |
 | Nota fiscal | Checkbox | — |
+
+---
+
+### 17B · FILMAGEM `FLM-` ⭐ NOVO
+**Tipo:** Produção · **Objetivo:** Registro de cada dia de filmagem com equipe, equipamentos e status  
+**Data Source ID:** `collection://bc067267-b603-41fc-bb75-c00050cec4cc` · **Status:** ✅ Criado 27/05/2026
+
+*Cada registro = 1 dia de filmagem (equipe e equipamentos podem variar por dia).*
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| Nome da filmagem | Título | Ex: "Maranhã — Dia 1 (28/05/2026)" |
+| Projeto | Relação | → PROJETO_2026 |
+| Data | Data | — |
+| Local | Texto | Endereço / nome do espaço |
+| Equipe escalada | Relação | → CONTATOS |
+| Equipamentos | Texto longo | Lista dos itens para o dia |
+| Ordem do dia | URL | Link Drive / documento |
+| Roteiro | URL | Link Drive / documento |
+| Status | Select | Pré-filmagem / Em campo / Finalizado |
+| Observações | Texto | — |
+
+---
+
+### 17C · FINANCEIRO_PROJETO `FIN-` ⭐ NOVO
+**Tipo:** Financeiro · **Objetivo:** Transações reais (pagamentos e recebimentos) por projeto  
+**Data Source ID:** `collection://cd8f5929-87b0-431b-b392-00b49a11b98e` · **Status:** ✅ Criado 27/05/2026
+
+*Cada linha = um pagamento ou recebimento que realmente aconteceu. Vincula ao ORÇAMENTO para comparação.*
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| Descrição | Título | — |
+| Projeto | Relação | → PROJETO_2026 |
+| Item do orçamento | Relação | → ORÇAMENTO (vincula ao item proposto) |
+| Tipo | Select | Receita / Despesa |
+| Categoria | Select | Equipe / Equipamento / Locação / Pós-produção / Imposto / Outro |
+| Valor | Número | R$ |
+| Data real | Data | Data efetiva do pagamento/recebimento |
+| Status | Select | Pendente / Pago / Recebido / Atrasado |
+| Forma de pagamento | Select | PIX / Transferência / Boleto / Dinheiro |
+| Comprovante | URL | Link Drive |
+| Número NF | Texto | Para contabilidade |
+| Nota fiscal | Checkbox | — |
+
+---
+
+### 17D · GESTÃO_FINANCEIRA_EMPRESA `GFE-` ⭐ NOVO
+**Tipo:** Financeiro · **Objetivo:** Despesas e receitas da empresa não vinculadas a um projeto específico  
+**Data Source ID:** `collection://3a29ba12-7582-458e-bbbb-f631cfcbef35` · **Status:** ✅ Criado 27/05/2026
+
+*Aluguel, assinaturas (Adobe CC), pró-labore, taxas bancárias, equipamentos da empresa, etc.*
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| Descrição | Título | — |
+| Tipo | Select | Receita / Despesa |
+| Categoria | Select | Impostos / Taxas bancárias / Pró-labore / Fornecedores / Equipamentos / Marketing / Outros |
+| Valor | Número | R$ |
+| Data de vencimento | Data | — |
+| Data de pagamento | Data | — |
+| Status | Select | Pendente / Pago / Atrasado |
+| Projeto relacionado | Relação | → PROJETO_2026 (opcional — para despesas que afetam um projeto mas são da empresa) |
+| Recorrente | Checkbox | — |
+| Observações | Texto | — |
 
 ---
 
