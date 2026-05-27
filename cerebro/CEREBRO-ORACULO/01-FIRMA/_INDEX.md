@@ -14,6 +14,7 @@ Tudo sobre como a Firma funciona: identidade, processos, regras, templates e sub
 | [[Subagentes]] | Os 5 subagentes do Oráculo — quando e como usar cada um |
 | [[Roadmap]] | Fases 1–5 de implementação do Oráculo com status atual |
 | [[FASE2-Implementacao]] | Plano de implementação da Fase 2 — sprints, prazos, checklist e tarefas |
+| [[SESSAO-13-Bidimensionalidades]] | Auditoria de relacionamentos em 8 projetos — Maranhã + SIMBIOSE |
 
 ## Pasta TEMPLATES/
 
