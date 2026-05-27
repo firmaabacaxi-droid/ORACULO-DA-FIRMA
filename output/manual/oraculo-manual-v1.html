@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oráculo — Manual Completo · Firma Abacaxi</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#fafafa;--surface:#ffffff;--border:#e5e7eb;
+  --text:#1a1a1a;--muted:#6b7280;--accent:#0f766e;
+  --active:#15803d;--active-bg:#f0fdf4;--active-border:#bbf7d0;
+  --planned:#6b7280;--planned-bg:#f9fafb;--planned-border:#e5e7eb;
+  --progress:#b45309;--progress-bg:#fffbeb;--progress-border:#fde68a;
+  --urgent:#dc2626;--urgent-bg:#fef2f2;--urgent-border:#fecaca;
+  --sidebar-w:260px;
+}
+body{font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.7;color:var(--text);background:var(--bg);display:flex;min-height:100vh}
+
+/* SIDEBAR */
+#sidebar{width:var(--sidebar-w);min-height:100vh;background:var(--surface);border-right:1px solid var(--border);position:fixed;top:0;left:0;overflow-y:auto;z-index:100;padding-bottom:40px}
+.logo{padding:20px 18px 12px;border-bottom:1px solid var(--border);margin-bottom:8px}
+.logo-title{font-size:16px;font-weight:700;color:var(--accent);letter-spacing:-0.3px}
+.logo-sub{font-size:11px;color:var(--muted);margin-top:2px}
+nav a{display:block;padding:5px 18px;font-size:13px;color:var(--muted);text-decoration:none;border-left:2px solid transparent;transition:all .15s}
+nav a:hover{color:var(--text);background:#f3f4f6}
+nav a.active{color:var(--accent);border-left-color:var(--accent);background:var(--active-bg)}
+.nav-group{margin-top:8px}
+.nav-group-label{padding:8px 18px 3px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:#9ca3af}
+nav a.nav-sub{padding-left:28px;font-size:12px}
+
+/* MAIN */
+#main{margin-left:var(--sidebar-w);flex:1;padding:48px 56px;max-width:calc(var(--sidebar-w) + 900px)}
+section{margin-bottom:72px}
+h1{font-size:28px;font-weight:800;letter-spacing:-0.5px;margin-bottom:6px;color:var(--text)}
+h2{font-size:22px;font-weight:700;margin-bottom:16px;margin-top:40px;padding-top:40px;border-top:1px solid var(--border);color:var(--text)}
+h2:first-child{margin-top:0;padding-top:0;border-top:none}
+h3{font-size:17px;font-weight:700;margin:28px 0 10px;color:var(--text)}
+h4{font-size:14px;font-weight:700;margin:20px 0 8px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px}
+p{margin-bottom:14px;color:#374151}
+ul,ol{margin:0 0 14px 20px}
+li{margin-bottom:4px;color:#374151}
+strong{color:var(--text);font-weight:600}
+
+/* COVER */
+.cover{padding:40px 0 48px;border-bottom:1px solid var(--border);margin-bottom:48px}
+.cover h1{font-size:36px;margin-bottom:8px}
+.cover-meta{color:var(--muted);font-size:13px;margin-top:12px}
+.cover-desc{font-size:17px;color:#374151;max-width:600px;margin-top:16px;line-height:1.6}
+
+/* BADGES */
+.badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;white-space:nowrap}
+.badge-active{background:var(--active-bg);color:var(--active);border:1px solid var(--active-border)}
+.badge-planned{background:var(--planned-bg);color:var(--planned);border:1px solid var(--planned-border)}
+.badge-progress{background:var(--progress-bg);color:var(--progress);border:1px solid var(--progress-border)}
+.badge-urgent{background:var(--urgent-bg);color:var(--urgent);border:1px solid var(--urgent-border)}
+
+/* TABLES */
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:13.5px}
+th{background:#f3f4f6;text-align:left;padding:9px 12px;font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);border-bottom:1px solid var(--border)}
+td{padding:9px 12px;border-bottom:1px solid #f0f0f0;vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f9fafb}
+
+/* CODE */
+code{font-family:'Courier New',monospace;font-size:12.5px;background:#f3f4f6;padding:1px 5px;border-radius:3px;color:#374151}
+pre{background:#1e2130;color:#e2e8f0;padding:16px 20px;border-radius:8px;overflow-x:auto;font-size:12.5px;line-height:1.6;margin:12px 0 20px}
+pre code{background:none;padding:0;color:inherit}
+
+/* CARDS */
+.card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:20px 24px;margin:12px 0 20px}
+.card-title{font-weight:700;font-size:15px;margin-bottom:8px}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:16px 0 24px}
+.skill-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 20px}
+.skill-card h3{margin:0 0 6px;font-size:15px}
+.skill-card p{font-size:13px;color:var(--muted);margin:0 0 10px}
+.skill-card .prompt-ex{background:#f3f4f6;border-radius:6px;padding:8px 10px;font-size:12px;color:#374151;font-style:italic}
+
+/* FLOW */
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0 24px}
+.flow-step{background:var(--active-bg);border:1px solid var(--active-border);border-radius:6px;padding:6px 12px;font-size:12.5px;font-weight:600;color:var(--active)}
+.flow-arrow{color:var(--muted);font-size:18px;font-weight:300}
+
+/* CALLOUT */
+.callout{border-left:3px solid var(--accent);background:var(--active-bg);padding:14px 18px;border-radius:0 8px 8px 0;margin:16px 0 20px}
+.callout-warn{border-left-color:#d97706;background:var(--progress-bg)}
+.callout p{margin:0;font-size:14px}
+
+/* COMMAND TABLE */
+.cmd{font-family:'Courier New',monospace;font-size:12.5px;color:var(--accent);font-weight:600}
+
+/* DIVIDER */
+hr{border:none;border-top:1px solid var(--border);margin:40px 0}
+
+/* SECTION HEADER */
+.section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:6px}
+.section-num{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  #sidebar{display:none}
+  #main{margin-left:0;padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<aside id="sidebar">
+  <div class="logo">
+    <div class="logo-title">🌿 Oráculo</div>
+    <div class="logo-sub">Firma Abacaxi · Manual v1.0</div>
+  </div>
+  <nav>
+    <div class="nav-group">
+      <div class="nav-group-label">Introdução</div>
+      <a href="#cover">Capa</a>
+      <a href="#s0">0. O Que é o Oráculo</a>
+      <a href="#s1">1. Como Abrir e Usar</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">As Skills</div>
+      <a href="#s2">2. Skills Principais</a>
+      <a href="#s2-captacao" class="nav-sub">Captação</a>
+      <a href="#s2-proposta" class="nav-sub">Proposta</a>
+      <a href="#s2-preproducao" class="nav-sub">Pré-Produção</a>
+      <a href="#s2-producao" class="nav-sub">Produção</a>
+      <a href="#s2-gestao" class="nav-sub">Gestão</a>
+      <a href="#s2-conteudo" class="nav-sub">Conteúdo</a>
+      <a href="#s2-marketing" class="nav-sub">Marketing Digital</a>
+      <a href="#s2-humanizador" class="nav-sub">Humanizador</a>
+      <a href="#s3">3. Skills Antigravity</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Fluxo e Sistema</div>
+      <a href="#s4">4. Fluxo de Trabalho (13 Etapas)</a>
+      <a href="#s5">5. Subagentes</a>
+      <a href="#s6">6. Notion</a>
+      <a href="#s7">7. Integrações</a>
+      <a href="#s8">8. Estrutura dos Documentos</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-group-label">Referência</div>
+      <a href="#s9">9. Guia Rápido</a>
+      <a href="#s10">10. Status e Roadmap</a>
+      <a href="#ap-a">Apêndice A — Glossário</a>
+      <a href="#ap-b">Apêndice B — Preços</a>
+      <a href="#ap-c">Apêndice C — Responsabilidades</a>
+    </div>
+  </nav>
+</aside>
+
+<main id="main">
+
+<!-- CAPA -->
+<div class="cover" id="cover">
+  <div class="section-num">Firma Abacaxi Ateliê Audiovisual · Brasília · 2026</div>
+  <h1>Oráculo</h1>
+  <div class="cover-desc">Manual completo do sistema de inteligência operacional da Firma. Para quem usa o Oráculo todo dia e para quem está conhecendo agora.</div>
+  <div class="cover-meta">Versão 1.0 · Maio 2026 · Fase 1 concluída &nbsp;·&nbsp; <span class="badge badge-active">✅ Sistema ativo</span></div>
+</div>
+
+<!-- SEÇÃO 0 -->
+<section id="s0">
+<div class="section-header"><span class="section-num">Seção 0</span></div>
+<h2>O Que é o Oráculo</h2>
+<p><em>Para quem nunca usou inteligência artificial. Leia com calma — esses conceitos são a base de tudo que vem a seguir.</em></p>
+
+<h3>O problema que o Oráculo resolve</h3>
+<p>A Firma Abacaxi é uma produtora audiovisual de dois sócios. Lipe cuida da direção, da fotografia, da edição <em>e</em> do atendimento ao cliente, das propostas e da gestão de projetos. Jaya cuida do financeiro, administrativo e da operação. Em projetos intensos, ambos ficam sobrecarregados com tarefas operacionais que poderiam ser delegadas.</p>
+<p>O Oráculo nasceu para absorver exatamente esse trabalho repetitivo e administrativo — para que Lipe e Jaya possam focar no que fazem de melhor: criar, dirigir e fotografar.</p>
+
+<h3>O que o Oráculo faz</h3>
+<ul>
+  <li>Conduz briefings completos com novos clientes (faz as perguntas certas, na ordem certa)</li>
+  <li>Gera propostas comerciais e orçamentos detalhados em Word</li>
+  <li>Escreve roteiros, decupagens técnicas e planos de filmagem</li>
+  <li>Organiza a Ordem do Dia com prioridades claras (P0/P1/P2)</li>
+  <li>Cria calendários editoriais e posts para Instagram e LinkedIn</li>
+  <li>Pesquisa clientes, preços de mercado e referências na web</li>
+  <li>Acessa e atualiza os bancos de dados do Notion</li>
+  <li>Registra aprendizados de cada projeto para ficar cada vez melhor</li>
+</ul>
+
+<h3>O que o Oráculo NÃO faz</h3>
+<ul>
+  <li>Não filma e não edita vídeos</li>
+  <li>Não substitui o olhar criativo de Lipe</li>
+  <li>Não toma decisões financeiras sem aprovação</li>
+  <li>Não altera nada no Notion sem pedir autorização primeiro</li>
+  <li>Não envia e-mails ou mensagens por conta própria</li>
+</ul>
+
+<h3>A analogia: o terceiro sócio digital</h3>
+<p>Pense no Oráculo como um colaborador muito bem treinado que leu <em>todos</em> os documentos da Firma — os preços, os clientes, o fluxo de trabalho, os aprendizados de cada projeto — e está disponível 24 horas por dia. Mas ao contrário de um estagiário que só anota, o Oráculo <em>executa</em>: pesquisa, calcula, escreve e organiza. Você orienta e aprova. Ele faz.</p>
+
+<h3>O que é Claude Code</h3>
+<p><strong>Claude Code</strong> é um programa que você instala no computador e que traz uma inteligência artificial diretamente para dentro dos seus arquivos de trabalho. É diferente do ChatGPT que você usa no navegador por três razões fundamentais:</p>
+<ol>
+  <li><strong>Ele lê os seus arquivos.</strong> Quando você abre o projeto do Oráculo no VS Code, o Claude Code tem acesso a toda a documentação da Firma — o DNA, o fluxo de trabalho, as skills, o MEMORIA.md. Ele não precisa que você explique tudo do zero toda vez.</li>
+  <li><strong>Ele usa ferramentas.</strong> O Claude Code pode pesquisar na web, criar documentos Word, ler e escrever nos bancos de dados do Notion, criar arquivos — não só conversar.</li>
+  <li><strong>Ele é configurável.</strong> O arquivo <code>CLAUDE.md</code> na raiz do projeto é como o "manual de instruções" do Oráculo — define a personalidade dele, como identificar cada tipo de tarefa e qual módulo especializado (skill) usar.</li>
+</ol>
+<p>O VS Code é o programa editor de código onde o Claude Code roda. Para Lipe e Jaya, o VS Code funciona apenas como a "janela" para conversar com o Oráculo.</p>
+</section>
+
+<!-- SEÇÃO 1 -->
+<section id="s1">
+<div class="section-header"><span class="section-num">Seção 1</span></div>
+<h2>Como Abrir e Usar</h2>
+
+<h3>Abrindo o Oráculo</h3>
+<ol>
+  <li>Abra o <strong>VS Code</strong></li>
+  <li>Abra a pasta <code>ORACULO - FIRMA ABACAXI</code> (File → Open Folder)</li>
+  <li>Abra o terminal integrado (Ctrl+J ou View → Terminal)</li>
+  <li>Digite <code>claude</code> e pressione Enter</li>
+  <li>O painel do Claude Code abre no lado direito — é aqui que você conversa com o Oráculo</li>
+</ol>
+
+<h3>Os 4 modos de operação</h3>
+<p>O Oráculo tem quatro modos. Você alterna com <strong>Shift+Tab</strong> ou clicando no indicador no rodapé do painel.</p>
+<table>
+  <tr><th>Modo</th><th>O que faz</th><th>Quando usar</th></tr>
+  <tr><td><strong>PLAN</strong></td><td>Oráculo <em>só lê e planeja</em>. Não altera nada.</td><td>Sempre primeiro em tarefas complexas ← <span class="badge badge-active">recomendado</span></td></tr>
+  <tr><td><strong>DEFAULT</strong></td><td>Executa, mas pede confirmação em ações importantes</td><td>Uso geral do dia a dia</td></tr>
+  <tr><td><strong>ACCEPT EDITS</strong></td><td>Edita arquivos sem pedir confirmação a cada um</td><td>Quando você quer mais velocidade</td></tr>
+  <tr><td><strong>AUTO</strong></td><td>Faz tudo automaticamente, sem pausas</td><td>Apenas quando você confia totalmente no plano</td></tr>
+</table>
+
+<div class="callout">
+  <p><strong>Regra de ouro:</strong> Para qualquer tarefa com mais de um passo (proposta, roteiro, ordem do dia), ative o <strong>PLAN MODE</strong> primeiro. O Oráculo apresenta o plano, você revisa, aprova, e só então ele executa.</p>
+</div>
+
+<h3>Como escrever um bom pedido</h3>
+<p>Quanto mais contexto você dá, menos perguntas o Oráculo faz. A anatomia de um bom pedido:</p>
+<pre><code>[Contexto] + [O que quer] + [Formato esperado]
+
+✅ BOM:
+"Preciso de uma proposta para a CNV. Querem um documentário de 8 minutos
+ sobre mediação de conflitos em Brasília. Prazo: 45 dias. Budget aberto.
+ Pode gerar as 3 opções de valor."
+
+❌ VAGO:
+"Faz uma proposta"</code></pre>
+
+<h3>@-mentions — referenciar arquivos diretamente</h3>
+<p>Em vez de deixar o Oráculo procurar arquivos (desperdiça processamento), você aponta direto. Digite <code>@</code> seguido do nome do arquivo no chat:</p>
+<pre><code>@CLAUDE.md
+@skills/proposta/SKILL.md
+@MEMORIA.md
+@docs/CONTEXTO_FIRMA.md</code></pre>
+<p>Exemplo prático:</p>
+<pre><code>"Usando @skills/proposta/SKILL.md como referência, gera uma proposta
+ para o SuperHost. Briefing: vídeo institucional 2min, R$15k budget,
+ 2 locações em Brasília."</code></pre>
+
+<h3>Comandos slash essenciais</h3>
+<p>Digite <code>/</code> no chat para ver todos. Os mais usados:</p>
+<table>
+  <tr><th>Comando</th><th>Para que serve</th></tr>
+  <tr><td><span class="cmd">/plan</span></td><td>Ativa modo planejamento (equivale a Shift+Tab)</td></tr>
+  <tr><td><span class="cmd">/clear</span></td><td>Limpa o contexto — começa uma conversa nova, sem histórico</td></tr>
+  <tr><td><span class="cmd">/compact</span></td><td>Comprime o histórico quando a sessão fica longa (economiza tokens)</td></tr>
+  <tr><td><span class="cmd">/mcp</span></td><td>Ver integrações conectadas e status (Notion, Obsidian, etc.)</td></tr>
+  <tr><td><span class="cmd">/doctor</span></td><td>Diagnóstico completo do sistema</td></tr>
+  <tr><td><span class="cmd">/cost</span></td><td>Ver quanto custou a sessão atual</td></tr>
+</table>
+
+<div class="callout callout-warn">
+  <p><strong>Use /clear entre tarefas diferentes.</strong> Contexto de uma proposta antiga misturado com uma nova vai gerar respostas confusas. Cada proposta, cada projeto — /clear antes de começar.</p>
+</div>
+
+<h3>Revisando antes de aceitar</h3>
+<p>Quando o Oráculo edita um arquivo, o VS Code mostra as mudanças em verde (novo) e vermelho (removido) — igual ao sistema Git. Sempre revise o <em>diff</em> antes de clicar em <strong>Accept</strong>. Você nunca precisa aceitar às cegas.</p>
+
+<h3>Remote Control — pelo celular</h3>
+<p>No terminal do VS Code, digite:</p>
+<pre><code>claude --remote-control "Oráculo Firma Abacaxi"</code></pre>
+<p>Aparece um link. Abra o app Claude no celular → aba Code → sua sessão aparece. Do celular você pode mandar briefings por voz, ver o status de propostas e aprovar planos. <strong>O PC precisa ficar ligado.</strong></p>
+</section>
+
+<!-- SEÇÃO 2 -->
+<section id="s2">
+<div class="section-header"><span class="section-num">Seção 2</span></div>
+<h2>As Skills Principais</h2>
+<p>Uma <strong>skill</strong> é um módulo especializado — um conjunto de instruções detalhadas que transforma o Oráculo em um especialista naquele assunto. Quando você pede uma proposta, o Oráculo carrega a skill de proposta; quando pede um roteiro, carrega a de pré-produção. As skills ficam em <code>skills/</code> e o Oráculo escolhe automaticamente qual usar pelo contexto do pedido.</p>
+
+<p><strong>Diagrama de interrelação:</strong></p>
+<div class="flow">
+  <div class="flow-step">Captação</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">Proposta</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">Pré-Produção</div>
+  <div class="flow-arrow">→</div>
+  <div class="flow-step">Produção</div>
+</div>
+<div class="flow">
+  <div class="flow-step" style="background:#f0f9ff;border-color:#bae6fd;color:#0369a1">Gestão</div>
+  <span style="color:var(--muted);font-size:13px">cobre todas as etapas 3–13</span>
+</div>
+<div class="flow">
+  <div class="flow-step" style="background:#fdf4ff;border-color:#e9d5ff;color:#7e22ce">Humanizador</div>
+  <span style="color:var(--muted);font-size:13px">obrigatório em todo texto que sai para cliente</span>
+</div>
+
+<hr>
+
+<h3 id="s2-captacao">Skill: Captação</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Conduz o processo completo de atendimento a um novo cliente — desde a qualificação até o momento em que a proposta está pronta para ser gerada.</p>
+<p><strong>Quando usar:</strong> Quando um novo cliente chega (Instagram, WhatsApp, indicação) e você quer conduzir um briefing estruturado.</p>
+<p><strong>Fluxo interno da skill:</strong></p>
+<ol>
+  <li>Qualificação inicial — classifica o lead como VERDE (avançar), AMARELO (cautela) ou VERMELHO (recusar)</li>
+  <li>Briefing completo — 10 perguntas essenciais, uma por vez, sem sobrecarregar o cliente</li>
+  <li>Pesquisa do cliente — busca web sobre a empresa, histórico, valores</li>
+  <li>Registro no Notion — cria entradas em Clientes + CRM (com autorização)</li>
+  <li>Perfil DISC — identifica o estilo de comunicação do cliente para adaptar a proposta</li>
+  <li>Passa para a skill de Proposta</li>
+</ol>
+<p><strong>O que entrega:</strong> Briefing estruturado + cliente cadastrado no Notion + nota no Obsidian + proposta iniciada.</p>
+<div class="card">
+  <div class="card-title">Exemplo de prompt de ativação</div>
+  <code>"Novo cliente chegou pelo Instagram. Nome: Ana Lima, empresa Vert. Quer um vídeo institucional. Vamos fazer o briefing."</code>
+</div>
+
+<hr>
+
+<h3 id="s2-proposta">Skill: Proposta</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Gera uma proposta comercial completa em arquivo Word (.docx), com orçamento detalhado, ancoragem de mercado e formatação profissional.</p>
+<p><strong>Quando usar:</strong> Quando o briefing já foi feito (pela skill de Captação ou direto por Lipe) e falta gerar o documento.</p>
+<p><strong>Fluxo interno da skill:</strong></p>
+<ol>
+  <li>Verifica se o briefing está completo — faz as perguntas que faltam</li>
+  <li>Pesquisa de mercado — o que agências cobram por projetos similares</li>
+  <li>Calcula o orçamento interno (não mostrado ao cliente): equipe + equipamento + locação + transporte + pós-produção + NF 7,28%</li>
+  <li>Estrutura o documento com 7 seções</li>
+  <li>Aplica ancoragem de mercado: "Agências cobram R$X–Y, nossa proposta: R$Z"</li>
+  <li>Humaniza o texto (nunca soa como IA)</li>
+  <li>Gera o arquivo Word em <code>output/propostas/</code></li>
+</ol>
+<p><strong>Regras de ouro:</strong></p>
+<ul>
+  <li>NF 7,28% sempre inclusa no total (nunca separada)</li>
+  <li>Margem mínima de 35% sobre o custo direto</li>
+  <li>Três opções de pacote apenas quando o budget do cliente é desconhecido</li>
+  <li>Pagamento: 50% na assinatura, 50% na entrega</li>
+  <li>Validade da proposta: 15 dias</li>
+</ul>
+<p><strong>O que entrega:</strong> <code>output/propostas/NomeCliente_proposta_v1.docx</code></p>
+<div class="card">
+  <div class="card-title">Exemplo de prompt de ativação</div>
+  <code>"Gera a proposta para o SuperHost com base no briefing que acabamos de fazer. Budget: R$15k. Pode gerar em uma opção só."</code>
+</div>
+
+<hr>
+
+<h3 id="s2-preproducao">Skill: Pré-Produção</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Transforma um briefing aprovado em um plano de produção completo — roteiro, decupagem técnica cena por cena, plano de filmagem com horários e locações, e checklist de equipamentos.</p>
+<p><strong>Quando usar:</strong> Quando a proposta foi aprovada e é hora de planejar como filmar.</p>
+<p><strong>O que entrega:</strong></p>
+<ul>
+  <li>Roteiro estruturado (Abertura / Cenas / Encerramento com CTA)</li>
+  <li>Decupagem técnica: tipo de plano, ângulo de câmera, movimento, iluminação, equipamento e duração por cena</li>
+  <li>Ordem de filmagem otimizada por locação e período do dia</li>
+  <li>Checklist de equipamentos</li>
+  <li>Arquivo em <code>output/roteiros/NomeCliente_roteiro_v1.md</code></li>
+</ul>
+<div class="card">
+  <div class="card-title">Exemplo de prompt de ativação</div>
+  <code>"Projeto Brasil Participativo aprovado. Documentário 8 minutos. Duas locações: UnB e Lago Sul. Vamos criar o roteiro e a decupagem técnica."</code>
+</div>
+
+<hr>
+
+<h3 id="s2-producao">Skill: Produção</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Dá suporte durante e após a filmagem — checklists pré-set, diário de filmagem, registro de cenas gravadas e ocorrências.</p>
+<p><strong>Quando usar:</strong> No dia anterior à filmagem (preparação) e durante/após o set (registro).</p>
+<p><strong>Regra crítica:</strong> Máximo de 2 alterações no material sem custo adicional. A partir da 3ª alteração, gera um aditivo de contrato. O Oráculo ajuda a redigir e registrar isso.</p>
+<div class="card">
+  <div class="card-title">Exemplo de prompt de ativação</div>
+  <code>"Vou filmar amanhã o projeto Cerrado Experience. Me dá o checklist de equipamentos e prepara o diário de set."</code>
+</div>
+
+<hr>
+
+<h3 id="s2-gestao">Skill: Gestão</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Organiza o dia, prioriza tarefas, controla prazos, acompanha o financeiro e gera comunicações operacionais.</p>
+<p><strong>Quando usar:</strong> No início de cada dia, em reuniões semanais, ou quando precisar de uma visão geral dos projetos.</p>
+<p><strong>Sistema de priorização:</strong></p>
+<ul>
+  <li><strong>P0</strong> — urgente, faz hoje, não pode esperar</li>
+  <li><strong>P1</strong> — alta prioridade, faz hoje se possível</li>
+  <li><strong>P2</strong> — importante, mas pode ser esta semana</li>
+</ul>
+<p><strong>O que entrega:</strong> Ordem do Dia formatada por pessoa (Lipe/Jaya) + painel de projetos + controle financeiro (recebido / a receber / pipeline) + pautas de reunião + e-mails de follow-up.</p>
+<div class="card">
+  <div class="card-title">Exemplo de prompt de ativação</div>
+  <code>"Qual é a ordem do dia? Temos 3 projetos ativos: Brasil Participativo, SuperHost e Evento UnB."</code>
+</div>
+
+<hr>
+
+<h3 id="s2-conteudo">Skill: Conteúdo</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Cria calendários editoriais mensais, posts para Instagram e LinkedIn, e transforma projetos finalizados em múltiplas peças de conteúdo.</p>
+<p><strong>Os 5 pilares de conteúdo da Firma:</strong></p>
+<ol>
+  <li><strong>Portfólio e resultados</strong> — mostrar o trabalho e o impacto</li>
+  <li><strong>Bastidores e processo</strong> — humanizar, mostrar o valor de cada detalhe</li>
+  <li><strong>Valores e identidade</strong> — projetos indígenas, arte, sustentabilidade</li>
+  <li><strong>Conhecimento técnico</strong> — construir autoridade, educar o cliente</li>
+  <li><strong>Empreendedorismo</strong> — a jornada de Lipe e Jaya construindo a Firma</li>
+</ol>
+<p><strong>Repropósito:</strong> De 1 projeto finalizado, a skill gera até 10 peças de conteúdo diferentes.</p>
+<div class="card">
+  <div class="card-title">Exemplo de prompt de ativação</div>
+  <code>"Vamos criar o calendário editorial de junho. Projetos para mostrar: Brasil Participativo (documentário) e Cerrado Experience (making-of)."</code>
+</div>
+
+<hr>
+
+<h3 id="s2-marketing">Skill: Marketing Digital</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Estratégia de conteúdo, funil de conversão, tráfego pago e copywriting de alta conversão. Usa uma base de conhecimento construída a partir de apostilas de marketing salvas no Obsidian.</p>
+<p><strong>Quando usar:</strong> Quando precisar de decisões estratégicas sobre canais, campanhas ou quando o copywriting de uma proposta ou post precisa de mais impacto.</p>
+<div class="card">
+  <div class="card-title">Exemplo de prompt de ativação</div>
+  <code>"Quero estruturar um funil de captação para novos clientes via Instagram. Qual é a estratégia recomendada para uma produtora do nosso porte?"</code>
+</div>
+
+<hr>
+
+<h3 id="s2-humanizador">Skill: Humanizador</h3>
+<span class="badge badge-active">✅ Ativa — Fase 1 — SEMPRE usar em textos externos</span>
+<p style="margin-top:10px"><strong>O que faz:</strong> Reescreve qualquer texto para soar como Lipe ou Jaya escreveram — caloroso, direto, sem jargão corporativo, sem linguagem de IA.</p>
+<p><strong>Palavras e frases proibidas:</strong> "sinergia", "disruptivo", "solução inovadora", "Muito orgulhosos de apresentar", "Prezado cliente", "Venho por meio desta"</p>
+<p><strong>Regra absoluta:</strong> Todo texto que sai da Firma para um cliente externo (e-mail, proposta, post, mensagem) deve passar pelo Humanizador antes.</p>
+<div class="card">
+  <div class="card-title">Exemplo de ativação</div>
+  <code>"Humanize este texto antes de eu enviar: [cola o texto]"</code>
+</div>
+</section>
+
+<!-- SEÇÃO 3 -->
+<section id="s3">
+<div class="section-header"><span class="section-num">Seção 3</span></div>
+<h2>As Skills Antigravity</h2>
+<p>As skills Antigravity são módulos técnicos especializados que as skills principais acionam automaticamente quando precisam de um conhecimento específico. Você raramente vai precisar ativá-las diretamente — elas entram nos bastidores quando o Oráculo identifica a necessidade.</p>
+<table>
+  <tr><th>Skill</th><th>O que faz</th><th>Quem aciona</th><th>Quando</th></tr>
+  <tr><td><strong>cinematic-script-writer</strong></td><td>175+ técnicas cinematográficas: ângulos, movimentos de câmera, iluminação, tipos de plano</td><td>Pré-Produção</td><td>Ao escrever decupagem técnica</td></tr>
+  <tr><td><strong>photography-settings</strong></td><td>Configuração de câmera: exposição, ISO, abertura, foco hiperfocal, golden hour</td><td>Produção, Pré-Produção</td><td>Planejamento de set</td></tr>
+  <tr><td><strong>negotiation-voss</strong></td><td>Método Chris Voss: mirroring, labeling, perguntas calibradas — para lidar com objeções</td><td>Captação, Proposta</td><td>Cliente resistente, negociação de preço</td></tr>
+  <tr><td><strong>marketing-psychology</strong></td><td>Ancoragem de preço, prova social, escassez, gatilhos mentais de conversão</td><td>Proposta, Marketing</td><td>Apresentação de preço, copywriting</td></tr>
+  <tr><td><strong>financial-calculator-pro</strong></td><td>Markup, margem, ROI, simulação de descontos, valor presente/futuro</td><td>Proposta, Gestão</td><td>Cálculo de orçamento, análise financeira</td></tr>
+  <tr><td><strong>exec-admin</strong></td><td>Triagem e priorização avançada de tarefas, P0/P1/P2/P3</td><td>Gestão</td><td>Ordem do Dia, início da semana</td></tr>
+  <tr><td><strong>automation-workflows</strong></td><td>Design de automações Make/n8n/Zapier — quando as automações da Fase 3 chegarem</td><td>Gestão</td><td>Fase 3 — automações A1–A5</td></tr>
+  <tr><td><strong>budget-planner</strong></td><td>Controle orçamentário por projeto: variância, projeção, alertas de estouro</td><td>Gestão, Proposta</td><td>Acompanhamento de custo em projetos longos</td></tr>
+</table>
+
+<div class="callout">
+  <p>As skills Antigravity ficam em <code>skills/antigravity/</code>. Se precisar de uma delas diretamente, diga ao Oráculo: <em>"Usa a skill de negotiation-voss para me ajudar a responder a objeção de preço do cliente X."</em></p>
+</div>
+</section>
+
+<!-- SEÇÃO 4 -->
+<section id="s4">
+<div class="section-header"><span class="section-num">Seção 4</span></div>
+<h2>O Fluxo de Trabalho Completo — 13 Etapas</h2>
+<p>Todo projeto da Firma passa pelas mesmas 13 etapas, nessa ordem. O Oráculo acompanha, automatiza e documenta cada uma delas.</p>
+
+<div class="flow" style="flex-wrap:wrap">
+  <div class="flow-step">1. Prospecção</div><div class="flow-arrow">→</div>
+  <div class="flow-step">2. CRM</div><div class="flow-arrow">→</div>
+  <div class="flow-step">3. Cliente</div><div class="flow-arrow">→</div>
+  <div class="flow-step">4. Briefing</div><div class="flow-arrow">→</div>
+  <div class="flow-step">5. Proposta</div><div class="flow-arrow">→</div>
+  <div class="flow-step">6. Pré-Produção</div><div class="flow-arrow">→</div>
+  <div class="flow-step">7. Produção</div><div class="flow-arrow">→</div>
+  <div class="flow-step">8. Edição</div><div class="flow-arrow">→</div>
+  <div class="flow-step">9. Revisão</div><div class="flow-arrow">→</div>
+  <div class="flow-step">10. Edição Final</div><div class="flow-arrow">→</div>
+  <div class="flow-step">11. Entrega</div><div class="flow-arrow">→</div>
+  <div class="flow-step">12. Nota Fiscal</div><div class="flow-arrow">→</div>
+  <div class="flow-step">13. Pagamento</div>
+</div>
+
+<table>
+  <tr><th>#</th><th>Etapa</th><th>Lipe</th><th>Jaya</th><th>Oráculo</th><th>Skill</th><th>Status</th></tr>
+  <tr><td>1</td><td><strong>Prospecção</strong><br><small>Identificar e qualificar leads</small></td><td>✓ Decide ir atrás</td><td>—</td><td>Pesquisa o lead, analisa viabilidade, qualifica VERDE/AMARELO/VERMELHO</td><td>Captação</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>2</td><td><strong>CRM</strong><br><small>Pipeline de vendas, follow-up</small></td><td>—</td><td>—</td><td>Monitora status, dispara follow-up após 7 dias sem resposta</td><td>Gestão</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>3</td><td><strong>Cliente</strong><br><small>Onboarding e cadastro</small></td><td>—</td><td>✓ Confirma dados</td><td>Cadastra em CLIENTES + CONTATOS + CRM no Notion (com autorização)</td><td>Captação</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>4</td><td><strong>Briefing</strong><br><small>Entrevista estruturada</small></td><td>✓ Toma decisão final</td><td>—</td><td>Conduz 10 perguntas, pesquisa empresa, identifica perfil DISC</td><td>Captação</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>5</td><td><strong>Proposta / Orçamento</strong><br><small>Documento comercial</small></td><td>✓ Revisa e aprova</td><td>✓ Revisa financeiro</td><td>Pesquisa mercado, calcula orçamento, gera Word, registra no Notion</td><td>Proposta</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>6</td><td><strong>Pré-Produção</strong><br><small>Roteiro e plano de filmagem</small></td><td>✓ Direção criativa</td><td>✓ Logística</td><td>Escreve roteiro, decupagem, plano de filmagem, checklist equipamentos</td><td>Pré-Produção</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>7</td><td><strong>Produção (Set)</strong><br><small>Filmagem</small></td><td>✓ Filma e dirige</td><td>✓ Luz/som, produção</td><td>Gera checklist, diário de set, registra material gravado e ocorrências</td><td>Produção</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>8</td><td><strong>Edição</strong><br><small>Montagem, cor, som</small></td><td>✓ Edita e colore</td><td>—</td><td>Acompanha etapas no Notion, organiza feedback recebido</td><td>Gestão</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>9</td><td><strong>Revisão</strong><br><small>Ciclo de feedback com cliente</small></td><td>✓ Aplica revisões</td><td>—</td><td>Estrutura feedback, controla contador de alterações (máx. 2 sem custo)</td><td>Gestão</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>10</td><td><strong>Edição Final</strong><br><small>Exportação de formatos</small></td><td>✓ Exporta masters</td><td>—</td><td>Documenta entregáveis, confirma formatos solicitados</td><td>Gestão</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>11</td><td><strong>Entrega</strong><br><small>Envio ao cliente</small></td><td>—</td><td>—</td><td>Escreve e-mail de entrega (humanizado), organiza links Drive/WeTransfer</td><td>Humanizador</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>12</td><td><strong>Nota Fiscal</strong><br><small>Documentação fiscal</small></td><td>—</td><td>✓ Emite a NF</td><td>Lembra de emitir, confirma que NF 7,28% já estava inclusa no total cobrado</td><td>Gestão</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+  <tr><td>13</td><td><strong>Pagamento + Fechamento</strong><br><small>Recebimento e NPS</small></td><td>—</td><td>✓ Confirma recebimento</td><td>Follow-up de NPS 15 dias após entrega, fecha projeto no Notion</td><td>Gestão</td><td><span class="badge badge-active">✅ Ativa</span></td></tr>
+</table>
+
+<div class="callout callout-warn">
+  <p><strong>⚠️ Decisão crítica — Etapa 7:</strong> O cliente tem direito a 2 rodadas de revisão sem custo adicional. Na 3ª solicitação, o Oráculo ajuda a redigir um aditivo de contrato com o valor da alteração. Essa regra precisa estar clara na proposta desde o início.</p>
+</div>
+</section>
+
+<!-- SEÇÃO 5 -->
+<section id="s5">
+<div class="section-header"><span class="section-num">Seção 5</span></div>
+<h2>Os Subagentes</h2>
+<p>Os subagentes são versões especializadas do Oráculo que rodam no <strong>claude.ai</strong> (browser ou celular), sem precisar do VS Code aberto. São úteis quando você está fora do escritório ou quando quer uma versão mais simples e focada em uma tarefa específica.</p>
+
+<div class="callout">
+  <p><strong>Como criar:</strong> Acesse claude.ai → Projects → New Project → cole o system prompt (em <code>docs/SUBAGENTES.md</code>) no campo "Project instructions" → suba os documentos indicados.</p>
+</div>
+
+<table>
+  <tr><th>Subagente</th><th>Nome no claude.ai</th><th>Quando usar</th><th>Status</th></tr>
+  <tr><td><strong>Proposta</strong></td><td>Proposta — Firma Abacaxi</td><td>Briefing + proposta + orçamento + negociação</td><td><span class="badge badge-progress">⏳ Criar no claude.ai</span></td></tr>
+  <tr><td><strong>Produção</strong></td><td>Produção — Firma Abacaxi</td><td>Roteiro + decupagem + plano de filmagem</td><td><span class="badge badge-progress">⏳ Criar no claude.ai</span></td></tr>
+  <tr><td><strong>Gestão</strong></td><td>Gestão — Firma Abacaxi</td><td>Ordem do Dia + projetos + financeiro + reunião semanal</td><td><span class="badge badge-progress">⏳ Criar no claude.ai</span></td></tr>
+  <tr><td><strong>Conteúdo</strong></td><td>Conteúdo — Firma Abacaxi</td><td>Calendário editorial + posts + newsletter</td><td><span class="badge badge-progress">⏳ Criar no claude.ai</span></td></tr>
+  <tr><td><strong>Captação</strong></td><td>Captação — Firma Abacaxi</td><td>Atendimento a leads externos direto pelo celular</td><td><span class="badge badge-planned">📌 Futuro</span></td></tr>
+</table>
+
+<h3>Subagente vs Oráculo principal — quando usar cada um</h3>
+<table>
+  <tr><th>Situação</th><th>Use</th></tr>
+  <tr><td>Está no PC, com VS Code aberto, tarefa complexa</td><td>Oráculo principal (Claude Code)</td></tr>
+  <tr><td>Está no celular, precisa gerar uma proposta rápida</td><td>Subagente de Proposta (claude.ai)</td></tr>
+  <tr><td>Quer ver a Ordem do Dia sem ligar o PC</td><td>Subagente de Gestão (claude.ai)</td></tr>
+  <tr><td>Precisa de acesso ao Notion, Obsidian ou arquivos locais</td><td>Oráculo principal (Claude Code)</td></tr>
+  <tr><td>Decisão estratégica que cruza várias áreas</td><td>Oráculo principal (Claude Code)</td></tr>
+</table>
+</section>
+
+<!-- SEÇÃO 6 -->
+<section id="s6">
+<div class="section-header"><span class="section-num">Seção 6</span></div>
+<h2>O Notion — Base de Dados Operacional</h2>
+<p>O Notion é o "escritório" do Oráculo — onde todos os projetos, clientes e tarefas são registrados. O Oráculo acessa o Notion via MCP (uma integração direta), o que significa que ele pode ler e atualizar os dados sem que você precise abrir o Notion manualmente.</p>
+
+<div class="callout callout-warn">
+  <p><strong>Regra de segurança:</strong> O Oráculo <em>sempre</em> pede autorização explícita antes de criar, editar ou deletar qualquer registro no Notion. Ele nunca faz alterações por conta própria.</p>
+</div>
+
+<h3>Bancos da Fase 1 — Ativos agora</h3>
+<table>
+  <tr><th>Banco</th><th>Prefixo</th><th>Função</th><th>Status</th></tr>
+  <tr><td><strong>PROJETO_2026</strong></td><td>PRJ-</td><td>Hub central — todos os projetos ativos e histórico</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>CLIENTES</strong></td><td>CLI-</td><td>Empresas e organizações — dados e histórico</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>CONTATOS</strong></td><td>CTT-</td><td>Equipe, freelancers, fornecedores e clientes</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>PROPOSTAS</strong></td><td>PRP-</td><td>Propostas geradas e status comercial</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>CRM</strong></td><td>CRM-</td><td>Pipeline de vendas e acompanhamento de leads</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>TAREFAS</strong></td><td>TAR-</td><td>Todas as tarefas com responsável e prazo</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+</table>
+
+<h3>Bancos planejados — Fase 2 e além</h3>
+<table>
+  <tr><th>Banco</th><th>Função</th><th>Fase</th></tr>
+  <tr><td>ORÇAMENTO</td><td>Detalhamento linha a linha de custos e receitas por projeto</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>CRIATIVO</td><td>Roteiros, conceitos, decupagens e referências</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>ANÁLISE TÉCNICA</td><td>Breakdown de cenas e necessidades técnicas</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>FINANCEIRO_PROJETO</td><td>Controle financeiro específico por projeto</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>CRONOGRAMA</td><td>Datas e marcos com alertas</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>FILMAGEM, EDIÇÃO, ENTREGA, LOCAÇÕES, EQUIPAMENTOS...</td><td>Controle operacional detalhado</td><td><span class="badge badge-planned">📌 Fase 3</span></td></tr>
+</table>
+
+<h3>Como consultar o Notion via Oráculo</h3>
+<pre><code>"Quais projetos estão ativos no Notion agora?"
+"Qual é o status da proposta para o SuperHost?"
+"Me lista as tarefas abertas desta semana para o Lipe."
+"Cria uma entrada no banco de Clientes para a CNV." ← pede autorização primeiro</code></pre>
+</section>
+
+<!-- SEÇÃO 7 -->
+<section id="s7">
+<div class="section-header"><span class="section-num">Seção 7</span></div>
+<h2>Integrações e Ecossistema</h2>
+
+<h3>Ferramentas ativas agora (Fase 1)</h3>
+<table>
+  <tr><th>Ferramenta</th><th>O que faz no Oráculo</th><th>Status</th></tr>
+  <tr><td><strong>Notion MCP</strong></td><td>Lê e escreve nos 6 bancos de dados</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>Obsidian MCP</strong></td><td>Acessa o segundo cérebro — notas, briefings, aprendizados</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>NotebookLM</strong></td><td>Análise de documentos longos, pesquisa de cliente, geração de podcasts de resumo</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>DuckDuckGo / Brave Search</strong></td><td>Pesquisa de mercado, benchmarks de preço, pesquisa sobre clientes</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td><strong>Filesystem MCP</strong></td><td>Lê e cria arquivos locais (propostas, roteiros, etc.)</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+</table>
+
+<h3>Roadmap de integrações por fase</h3>
+<table>
+  <tr><th>Fase</th><th>Custo adicional</th><th>Ferramentas</th><th>O que muda</th></tr>
+  <tr><td><strong>Fase 2</strong><br><small>Sem 3–4</small></td><td>+R$160/mês</td><td>Google Drive MCP, Frame.io, Site no Framer</td><td>Acesso a arquivos de projeto no Drive, aprovação de vídeos pelo cliente online</td></tr>
+  <tr><td><strong>Fase 3</strong><br><small>Sem 5–6</small></td><td>+R$110/mês</td><td>ElevenLabs, Whisper, Make/n8n</td><td>Voice-over, transcrição de briefings gravados, automações A1–A5</td></tr>
+  <tr><td><strong>Fase 4</strong><br><small>Sem 7–8</small></td><td>+R$1.090/mês</td><td>Bot Telegram, LinkedIn Sales Navigator, Apollo</td><td>Oráculo no celular via Telegram, prospecção ativa</td></tr>
+  <tr><td><strong>Fase 5</strong><br><small>Mês 3+</small></td><td>Escala</td><td>Meta Ads, Apify, Curso Videomaker</td><td>Inteligência de mercado, geração de leads em escala</td></tr>
+</table>
+
+<h3>As 5 automações prioritárias (Fase 3)</h3>
+<table>
+  <tr><th>ID</th><th>Nome</th><th>Gatilho</th><th>O que faz</th><th>Economia</th></tr>
+  <tr><td><strong>A1</strong></td><td>Briefing → Projeto</td><td>CRM marcado "Ganho"</td><td>Cria projeto no Notion + pastas no Drive + convites freelancers</td><td>5 min vs 2h manual</td></tr>
+  <tr><td><strong>A2</strong></td><td>Proposta → Pré-Produção</td><td>Proposta "Aprovada"</td><td>Cria tarefas + ativa roteiro + envia kickoff ao cliente</td><td>30 min de setup automático</td></tr>
+  <tr><td><strong>A3</strong></td><td>Ordem do Dia às 8h</td><td>Cron diário 08:00</td><td>Puxa Notion, prioriza, envia resumo via WhatsApp</td><td>30 min/dia</td></tr>
+  <tr><td><strong>A4</strong></td><td>Entrega → Follow-up + NF</td><td>Projeto "Entregue"</td><td>E-mail automático + lembrete NF + NPS 15 dias depois</td><td>1h de comunicações</td></tr>
+  <tr><td><strong>A5</strong></td><td>Making-of → Conteúdo</td><td>Projeto fechado</td><td>Whisper transcreve, Oráculo gera 6 posts, publica no Upload-Post</td><td>2h de produção de conteúdo</td></tr>
+</table>
+</section>
+
+<!-- SEÇÃO 8 -->
+<section id="s8">
+<div class="section-header"><span class="section-num">Seção 8</span></div>
+<h2>Estrutura dos Documentos</h2>
+<p>Todo o sistema do Oráculo vive na pasta <code>ORACULO - FIRMA ABACAXI/</code>. Entender o que cada arquivo faz ajuda a manter o sistema saudável e atualizado.</p>
+
+<h3>Arquivos na raiz</h3>
+<table>
+  <tr><th>Arquivo</th><th>O que é</th><th>Quem lê</th></tr>
+  <tr><td><code>CLAUDE.md</code></td><td>O cérebro do Oráculo — identidade, routing de skills, regras de comportamento</td><td>Oráculo carrega automaticamente em toda sessão</td></tr>
+  <tr><td><code>MEMORIA.md</code></td><td>Aprendizados acumulados de projetos reais — fica cada vez melhor com o tempo</td><td>Oráculo carrega; Lipe/Jaya alimentam com autorização</td></tr>
+  <tr><td><code>STATUS.md</code></td><td>Handoff entre sessões — o que foi feito, o que falta, próximos passos</td><td>Oráculo lê no início de cada sessão nova</td></tr>
+  <tr><td><code>.mcp.json</code></td><td>Configuração das integrações (Notion, Obsidian, etc.) — não editar manualmente</td><td>Sistema interno</td></tr>
+</table>
+
+<h3>Pasta docs/ — contexto permanente</h3>
+<table>
+  <tr><th>Arquivo</th><th>O que contém</th></tr>
+  <tr><td><code>CONTEXTO_FIRMA.md</code></td><td>DNA completo: identidade, valores, preços, equipe, clientes, o que não fazem</td></tr>
+  <tr><td><code>FLUXO_TRABALHO.md</code></td><td>As 13 etapas detalhadas com responsáveis, ferramentas e regras de negócio</td></tr>
+  <tr><td><code>ARQUITETURA_NOTION.md</code></td><td>Schema dos 25 bancos de dados — campos, tipos e relacionamentos</td></tr>
+  <tr><td><code>SUBAGENTES.md</code></td><td>System prompts completos dos 5 subagentes para criar no claude.ai</td></tr>
+  <tr><td><code>TABELA_PRECOS.md</code></td><td>Referência de preços históricos — 140+ orçamentos catalogados</td></tr>
+  <tr><td><code>GUIA_ORACULO.md</code></td><td>Guia de uso rápido do VS Code + Claude Code</td></tr>
+  <tr><td><code>FASE2_IMPLEMENTACAO.md</code></td><td>Roadmap detalhado da Fase 2</td></tr>
+</table>
+
+<h3>Pasta skills/ — os módulos</h3>
+<pre><code>skills/
+├── captacao/SKILL.md          ← skill orquestradora
+├── proposta/
+│   ├── SKILL.md               ← skill orquestradora
+│   ├── blocos_xml.md          ← formatação dos blocos da proposta
+│   └── assets/MODELO_ORCAMENTO.docx  ← template Word com logo
+├── preproducao/SKILL.md
+├── producao/SKILL.md
+├── gestao/SKILL.md            ← skill orquestradora
+├── conteudo/SKILL.md          ← skill orquestradora
+├── marketing-digital/SKILL.md
+├── humanizador/SKILL.md
+└── antigravity/               ← 8 skills técnicas de referência
+    ├── cinematic-script-writer/
+    ├── photography-settings/
+    ├── negotiation-voss/
+    ├── marketing-psychology/
+    ├── financial-calculator-pro/
+    ├── exec-admin/
+    ├── automation-workflows/
+    └── budget-planner/</code></pre>
+
+<h3>Pasta output/ — o que o Oráculo produz</h3>
+<table>
+  <tr><th>Pasta</th><th>O que vai para lá</th><th>Nomenclatura padrão</th></tr>
+  <tr><td><code>output/propostas/</code></td><td>Propostas em Word (.docx)</td><td><code>NomeCliente_proposta_v1.docx</code></td></tr>
+  <tr><td><code>output/roteiros/</code></td><td>Roteiros e decupagens</td><td><code>NomeCliente_roteiro_v1.md</code></td></tr>
+  <tr><td><code>output/conteudo/</code></td><td>Posts, calendários editoriais, newsletters</td><td><code>NomeCliente_posts_jun2026.md</code></td></tr>
+  <tr><td><code>output/relatorios/</code></td><td>Relatórios financeiros e de projeto</td><td><code>NomeCliente_relatorio_v1.md</code></td></tr>
+  <tr><td><code>output/manual/</code></td><td>Este manual e futuras documentações</td><td><code>oraculo-manual-v1.html</code></td></tr>
+</table>
+
+<h3>Pasta cerebro/ — o segundo cérebro (Obsidian)</h3>
+<pre><code>cerebro/CEREBRO-ORACULO/
+├── 00-INBOX/       ← entrada de novas ideias e anotações rápidas
+├── 01-FIRMA/       ← DNA, fluxo, subagentes, roadmap, regras
+│   └── TEMPLATES/  ← 6 templates (briefing, e-mail, processo, aprendizado...)
+├── 02-CLIENTES/    ← perfis e histórico de clientes
+├── 03-CONHECIMENTO/← técnicas cinematográficas, tabela de preços, marketing digital
+└── 04-APRENDIZADOS/← notas de cada sessão com o Oráculo</code></pre>
+</section>
+
+<!-- SEÇÃO 9 -->
+<section id="s9">
+<div class="section-header"><span class="section-num">Seção 9</span></div>
+<h2>Guia de Uso Rápido</h2>
+
+<h3>Os 10 pedidos mais comuns</h3>
+<table>
+  <tr><th>O que você quer fazer</th><th>O que digitar para o Oráculo</th></tr>
+  <tr><td>Gerar uma proposta</td><td><em>"Quero fazer uma proposta para [cliente]. [briefing básico]"</em></td></tr>
+  <tr><td>Atender novo cliente</td><td><em>"Novo cliente chegou: [nome], empresa [X], quer [projeto]"</em></td></tr>
+  <tr><td>Ver a Ordem do Dia</td><td><em>"Qual é a ordem do dia? Projetos ativos: [lista]"</em></td></tr>
+  <tr><td>Criar roteiro</td><td><em>"Preciso de roteiro para [projeto]. Briefing: [resumo]"</em></td></tr>
+  <tr><td>Criar posts do mês</td><td><em>"Cria o calendário editorial de [mês]. Projetos: [lista]"</em></td></tr>
+  <tr><td>Humanizar um texto</td><td><em>"Humanize este texto antes de eu enviar: [cola o texto]"</em></td></tr>
+  <tr><td>Ver projetos no Notion</td><td><em>"Quais projetos estão ativos no Notion agora?"</em></td></tr>
+  <tr><td>Pesquisar um cliente</td><td><em>"Pesquisa sobre [empresa] — quero entender o contexto antes do briefing"</em></td></tr>
+  <tr><td>Registrar aprendizado</td><td><em>"Temos algum aprendizado desta sessão para registrar no MEMORIA.md?"</em></td></tr>
+  <tr><td>Consultar preço</td><td><em>"Quanto custa um [tipo de projeto] segundo nossa tabela de referência?"</em></td></tr>
+</table>
+
+<h3>Fluxo ideal de uma proposta — passo a passo</h3>
+<pre><code>1. Abra o VS Code na pasta do Oráculo
+
+2. Terminal: claude
+   → O painel do Claude Code abre
+
+3. Ative o Plan Mode (Shift+Tab)
+
+4. "Preciso de uma proposta para [cliente].
+    [briefing que você tem]"
+
+5. Oráculo planeja → você lê o plano → aprova
+
+6. Oráculo executa:
+   → Pesquisa o cliente na web
+   → Lê skills/proposta/SKILL.md
+   → Faz perguntas se faltar informação
+   → Calcula orçamento interno
+   → Escreve a proposta
+   → Aplica o Humanizador
+   → Gera Word em output/propostas/
+
+7. Você revisa o arquivo → aceita
+
+8. Oráculo pergunta: "Quer registrar no Notion?"
+   → Você autoriza ou não
+
+9. /clear → pronto para próxima tarefa</code></pre>
+
+<h3>Boas práticas consolidadas</h3>
+<ul>
+  <li><strong>Plan Mode primeiro</strong> — antes de qualquer proposta, roteiro ou tarefa complexa</li>
+  <li><strong>/clear entre tarefas</strong> — cada proposta é uma sessão nova</li>
+  <li><strong>@-mentions</strong> — referencie os arquivos em vez de deixar o Oráculo procurar</li>
+  <li><strong>Alimente o MEMORIA.md</strong> — ao fechar cada projeto, peça ao Oráculo para registrar o aprendizado</li>
+  <li><strong>Humanizador sempre</strong> — todo texto externo passa pelo Humanizador antes de sair</li>
+  <li><strong>Controle de versão</strong> — use _v1, _v2, _v3 nos nomes de arquivo para não perder histórico</li>
+  <li><strong>/compact em sessões longas</strong> — quando a conversa passa de 1h, use /compact para economizar tokens</li>
+</ul>
+
+<h3>Erros comuns e como evitar</h3>
+<table>
+  <tr><th>Erro</th><th>Como evitar</th></tr>
+  <tr><td>Pedir proposta sem dar briefing</td><td>Sempre inclua: cliente, tipo de projeto, prazo, budget (se souber)</td></tr>
+  <tr><td>Dois projetos misturados na mesma sessão</td><td>/clear entre um projeto e outro</td></tr>
+  <tr><td>Oráculo alterou o Notion sem querer</td><td>Sempre use Plan Mode antes de tarefas que envolvem o Notion</td></tr>
+  <tr><td>Texto soando como IA na proposta</td><td>Lembre de pedir o Humanizador ao final</td></tr>
+  <tr><td>NF cobrada separada do cliente</td><td>NF 7,28% sempre já inclusa no total — nunca separada</td></tr>
+  <tr><td>Sessão lenta e respostas confusas</td><td>Use /compact para comprimir o histórico</td></tr>
+</table>
+</section>
+
+<!-- SEÇÃO 10 -->
+<section id="s10">
+<div class="section-header"><span class="section-num">Seção 10</span></div>
+<h2>Status e Roadmap</h2>
+
+<h3>O que está funcionando hoje — Fase 1 <span class="badge badge-active">✅ Concluída · Mai 2026</span></h3>
+<table>
+  <tr><th>Capacidade</th><th>Status</th></tr>
+  <tr><td>Skills: captação, proposta, pré-produção, produção, gestão, conteúdo, marketing-digital, humanizador</td><td><span class="badge badge-active">✅ Ativas</span></td></tr>
+  <tr><td>Skills Antigravity (8 módulos técnicos)</td><td><span class="badge badge-active">✅ Ativas</span></td></tr>
+  <tr><td>Notion MCP — leitura e escrita nos 6 bancos da Fase 1</td><td><span class="badge badge-active">✅ Confirmado</span></td></tr>
+  <tr><td>Obsidian MCP — segundo cérebro sincronizado</td><td><span class="badge badge-active">✅ Confirmado</span></td></tr>
+  <tr><td>DuckDuckGo / Brave Search — pesquisa web</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td>NotebookLM — análise de documentos</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td>MEMORIA.md com primeiros aprendizados reais</td><td><span class="badge badge-active">✅ Ativo</span></td></tr>
+  <tr><td>Propostas geradas: Brasil Participativo (v1–v4), SuperHost, Evento UnB</td><td><span class="badge badge-active">✅ Em produção</span></td></tr>
+</table>
+
+<h3>O que ainda precisa ser feito — próxima sessão</h3>
+<ul>
+  <li><strong>Testar geração do Word de ponta a ponta</strong> — é o maior bloqueio do fluxo de proposta</li>
+  <li><strong>Cadastrar clientes reais no Notion</strong> — CNV, SuperHost, Tamause, Vert, Cerrado, Chichá</li>
+  <li><strong>Criar subagentes no claude.ai</strong> — Proposta, Produção, Gestão, Conteúdo</li>
+</ul>
+
+<h3>O que ainda não funciona (aguardando fases futuras)</h3>
+<table>
+  <tr><th>Capacidade</th><th>Quando chega</th></tr>
+  <tr><td>Geração automática do Word (.docx)</td><td><span class="badge badge-progress">⏳ Testar em breve</span></td></tr>
+  <tr><td>Google Drive MCP — acesso a arquivos de projeto</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>Frame.io — aprovação de vídeos pelo cliente</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>Site da Firma no Framer</td><td><span class="badge badge-planned">📌 Fase 2</span></td></tr>
+  <tr><td>Whisper — transcrição de briefings gravados</td><td><span class="badge badge-planned">📌 Fase 3</span></td></tr>
+  <tr><td>ElevenLabs — voice-over para projetos</td><td><span class="badge badge-planned">📌 Fase 3</span></td></tr>
+  <tr><td>Automações A1–A5 (Make/n8n)</td><td><span class="badge badge-planned">📌 Fase 3</span></td></tr>
+  <tr><td>Bot Telegram — Oráculo no celular</td><td><span class="badge badge-planned">📌 Fase 4</span></td></tr>
+  <tr><td>Ordem do Dia automática às 8h</td><td><span class="badge badge-planned">📌 Fase 4</span></td></tr>
+</table>
+</section>
+
+<!-- APÊNDICE A -->
+<section id="ap-a">
+<div class="section-header"><span class="section-num">Apêndice A</span></div>
+<h2>Glossário</h2>
+<p><em>Termos técnicos explicados em linguagem simples.</em></p>
+<table>
+  <tr><th>Termo</th><th>O que significa na prática</th></tr>
+  <tr><td><strong>Claude Code</strong></td><td>O programa que você instala no PC e que roda a IA do Oráculo diretamente nos seus arquivos. Diferente do ChatGPT: lê seus documentos, usa ferramentas e é configurável.</td></tr>
+  <tr><td><strong>VS Code</strong></td><td>O editor de código onde o Claude Code roda. Para a Firma, é apenas a "janela" para conversar com o Oráculo.</td></tr>
+  <tr><td><strong>MCP</strong></td><td>Model Context Protocol — a ponte que conecta o Oráculo a ferramentas externas (Notion, Obsidian, etc.). É o que permite o Oráculo ler e escrever no Notion sem que você precise abrir o navegador.</td></tr>
+  <tr><td><strong>Skill</strong></td><td>Um módulo especializado que transforma o Oráculo em um especialista naquele assunto. Como contratar um especialista diferente dependendo da tarefa.</td></tr>
+  <tr><td><strong>Subagente</strong></td><td>Uma versão simplificada e especializada do Oráculo que roda no browser (claude.ai). Útil no celular ou quando você não está no PC.</td></tr>
+  <tr><td><strong>Token</strong></td><td>A "moeda" de processamento da IA. Cada palavra lida ou gerada consome tokens. Por isso o /compact e o /clear ajudam a economizar — limpam tokens desnecessários.</td></tr>
+  <tr><td><strong>Context window</strong></td><td>A "memória de curto prazo" do Oráculo em uma sessão. Quando a janela fica cheia (sessão muito longa), o Oráculo começa a "esquecer" o início da conversa. Use /compact para gerenciar.</td></tr>
+  <tr><td><strong>Plan Mode</strong></td><td>Modo onde o Oráculo só lê e planeja — não altera nada. Você revisa o plano e aprova antes da execução.</td></tr>
+  <tr><td><strong>@-mention</strong></td><td>Forma de referenciar um arquivo direto no chat do Oráculo. Em vez de ele procurar, você aponta: @CLAUDE.md, @skills/proposta/SKILL.md.</td></tr>
+  <tr><td><strong>Diff</strong></td><td>A visualização das mudanças que o Oráculo quer fazer em um arquivo — verde = novo, vermelho = removido. Você aprova ou rejeita antes de aceitar.</td></tr>
+  <tr><td><strong>Vault</strong></td><td>Nome do Obsidian para uma pasta de arquivos. O "segundo cérebro" da Firma é o vault em <code>cerebro/CEREBRO-ORACULO/</code>.</td></tr>
+  <tr><td><strong>Prompt</strong></td><td>A mensagem que você escreve para o Oráculo. Um bom prompt tem: contexto + tarefa + formato esperado.</td></tr>
+  <tr><td><strong>Decupagem</strong></td><td>O plano técnico de filmagem cena por cena — descreve ângulo de câmera, movimento, iluminação e equipamento para cada plano.</td></tr>
+  <tr><td><strong>DISC</strong></td><td>Modelo de perfil comportamental (Dominante, Influente, Estável, Cauteloso). O Oráculo identifica o perfil do cliente durante o briefing para adaptar o tom da proposta.</td></tr>
+  <tr><td><strong>NF / Nota Fiscal</strong></td><td>Imposto de 7,28% sobre serviços audiovisuais. Na Firma, sempre já incluso no valor total cobrado ao cliente — nunca separado.</td></tr>
+  <tr><td><strong>Ancoragem de preço</strong></td><td>Técnica de apresentar um preço de referência maior (o que agências cobram) antes do preço real — faz o preço parecer mais razoável. O Oráculo usa automaticamente nas propostas.</td></tr>
+</table>
+</section>
+
+<!-- APÊNDICE B -->
+<section id="ap-b">
+<div class="section-header"><span class="section-num">Apêndice B</span></div>
+<h2>Tabela de Preços de Referência</h2>
+<p>Valores internos da Firma — use como base de cálculo. Consulte <code>docs/TABELA_PRECOS.md</code> para 140+ orçamentos históricos detalhados.</p>
+
+<h3>Pacotes e serviços</h3>
+<table>
+  <tr><th>Tipo de Projeto</th><th>Faixa</th></tr>
+  <tr><td>Cobertura de evento</td><td>R$ 5.000 – 12.000</td></tr>
+  <tr><td>Vídeo institucional / depoimentos</td><td>R$ 8.000 – 20.000</td></tr>
+  <tr><td>Documentário / projeto longo</td><td>R$ 30.000 – 130.000+</td></tr>
+  <tr><td>Conteúdo recorrente para redes sociais</td><td>R$ 800 – 2.000 / mês</td></tr>
+  <tr><td>Plano social media básico (3 posts/semana)</td><td>R$ 800/mês</td></tr>
+  <tr><td>Plano social media intermediário (7 posts/semana)</td><td>R$ 1.500/mês</td></tr>
+  <tr><td>Plano social media completo (12 posts/semana)</td><td>R$ 2.000/mês</td></tr>
+</table>
+
+<h3>Referências de custo interno</h3>
+<table>
+  <tr><th>Item</th><th>Valor</th></tr>
+  <tr><td>Diária Lipe (direção + fotografia)</td><td>R$ 1.800/dia</td></tr>
+  <tr><td>Diária Jaya (produção + som)</td><td>R$ 1.200/dia</td></tr>
+  <tr><td>NF sobre serviços (ISS)</td><td>7,28% — calcular: Base = Total ÷ 1,0728</td></tr>
+  <tr><td>Margem mínima</td><td>35% sobre custo direto</td></tr>
+  <tr><td>Desconto máximo (institucional)</td><td>15–20%</td></tr>
+  <tr><td>Desconto máximo (projetos sociais)</td><td>30–50% com autorização de Lipe</td></tr>
+  <tr><td>Ticket médio atual</td><td>~R$ 8.000</td></tr>
+</table>
+</section>
+
+<!-- APÊNDICE C -->
+<section id="ap-c">
+<div class="section-header"><span class="section-num">Apêndice C</span></div>
+<h2>Responsabilidades por Etapa</h2>
+<table>
+  <tr><th>Etapa</th><th>Lipe</th><th>Jaya</th><th>Oráculo</th></tr>
+  <tr><td>1. Prospecção</td><td>✓ Decisão de prospectar</td><td>—</td><td>Pesquisa, qualifica, primeiro contato</td></tr>
+  <tr><td>2. CRM</td><td>—</td><td>—</td><td>Monitora pipeline, dispara follow-up</td></tr>
+  <tr><td>3. Cliente</td><td>—</td><td>✓ Confirma dados fiscais</td><td>Cadastra no Notion</td></tr>
+  <tr><td>4. Briefing</td><td>✓ Aprova avanço</td><td>—</td><td>Conduz entrevista, pesquisa, DISC</td></tr>
+  <tr><td>5. Proposta</td><td>✓ Revisão criativa</td><td>✓ Revisão financeira</td><td>Calcula, escreve, gera Word</td></tr>
+  <tr><td>6. Pré-Produção</td><td>✓ Direção criativa, aprovação</td><td>✓ Logística</td><td>Roteiro, decupagem, checklist</td></tr>
+  <tr><td>7. Produção (Set)</td><td>✓ Dirige e filma</td><td>✓ Som, luz, produção</td><td>Diário de set, checklist</td></tr>
+  <tr><td>8. Edição</td><td>✓ Edita e colore</td><td>—</td><td>Acompanha Notion, organiza feedback</td></tr>
+  <tr><td>9. Revisão</td><td>✓ Aplica correções</td><td>—</td><td>Controla contador de alterações</td></tr>
+  <tr><td>10. Edição Final</td><td>✓ Exporta masters</td><td>—</td><td>Documenta entregáveis</td></tr>
+  <tr><td>11. Entrega</td><td>—</td><td>—</td><td>E-mail de entrega (humanizado)</td></tr>
+  <tr><td>12. Nota Fiscal</td><td>—</td><td>✓ Emite a NF</td><td>Lembra, confirma valor</td></tr>
+  <tr><td>13. Pagamento</td><td>—</td><td>✓ Confirma recebimento</td><td>NPS 15 dias, fecha no Notion</td></tr>
+</table>
+
+<hr>
+<p style="text-align:center;color:var(--muted);font-size:12px;margin-top:40px">Oráculo — Firma Abacaxi Ateliê Audiovisual · Brasília · 2026<br>Manual v1.0 · Maio 2026 · gerado pelo próprio Oráculo</p>
+</section>
+
+</main>
+
+<script>
+// Highlight active nav link on scroll
+const sections = document.querySelectorAll('section[id], div[id="cover"]');
+const navLinks = document.querySelectorAll('nav a');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + id) link.classList.add('active');
+      });
+    }
+  });
+}, { rootMargin: '-20% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+// Smooth scroll
+document.querySelectorAll('nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>

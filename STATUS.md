@@ -1,5 +1,5 @@
 # STATUS DO ORÁCULO — Handoff de Sessão
-## Firma Abacaxi · atualizado 27 Mai 2026 · Sessão 9
+## Firma Abacaxi · atualizado 27 Mai 2026 · Sessão 10
 
 ---
 
@@ -9,7 +9,45 @@
 
 ---
 
-## O QUE FOI CONCLUÍDO (Sessões 1–9)
+## SESSÃO 10 — Migração do Notion Beta + Documentação Notion (27 Mai 2026)
+
+### ✅ Concluído nesta sessão
+
+**Problema identificado:**
+- Oráculo estava criando registros em workspace ANTIGO (ORACULO TESTES, ORACULO V7) — versões descontinuadas
+
+**Ações tomadas:**
+1. ✅ Usuária removeu pasta antiga do sistema
+2. ✅ Identificou URL canônica correta: https://www.notion.so/3288a52591f381a0885fc20691f28468 (🔮 ORÁCULO -FIRMA ABACAXi)
+3. ✅ Atualizou CLAUDE.md com URL canônica + regra de parent obrigatório
+4. ✅ Atualizou ARQUITETURA_NOTION.md com seção "Parent obrigatório"
+5. ✅ Criou memory/notion_parent_canonical.md (referência persistente)
+6. ✅ Explorou e mapeou 6 bancos corretos dentro da wiki (schemas completos)
+7. ✅ **Migração completa executada:**
+   - 3 clientes criados: RNP, SIMBIOSE, Tâmara
+   - 5 projetos criados: #16 OFICINAS, #08 RNP, #10 SIMBIOSE, #14 AGO, #15 FILMMAKER
+   - 8 tarefas de projetos vinculadas (5 + 2 + 1)
+   - 9 atividades gerais (sem projeto vinculado)
+   - **Total: 3 clientes + 5 projetos + 17 tarefas**
+
+**Workspace correto agora:**
+```
+🔮 ORÁCULO -FIRMA ABACAXi (wiki)
+  ✅ Projeto 2026      → ba03e1a5-9656-4a97-8f0b-2ebdba19b434
+  ✅ Tarefas           → 2a3345d3-9bd7-4d7d-a1a9-9fff26560386
+  ✅ Clientes          → 82984a0b-b757-4a6a-8a5d-6c66782ad99c
+  ✅ CRM               → 21759e84-e3cc-4949-b465-255db7177f16
+  ✅ Contatos          → cfd457d2-ad54-4790-be3e-0d180bed50f6
+  ✅ Propostas         → 3548a525-91f3-80b8-9f68-000b6b5b0eec
+```
+
+### 🔴 NÃO foi feito (pendências):
+- Não foram registradas cobranças no CRM (usuária confirmou que já foram pagas)
+- Não foram criados bancos FILMAGEM/EDIÇÃO (Fase 3 — ainda não urgente)
+
+---
+
+## O QUE FOI CONCLUÍDO (Sessões 1–10)
 
 ### Infraestrutura — ✅ Operacional
 ```

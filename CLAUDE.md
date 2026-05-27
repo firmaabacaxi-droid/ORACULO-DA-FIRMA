@@ -99,6 +99,12 @@ Blueprints prontos em `C:\Users\User\Documents\ANTIGRAVITY\.agents\workflows\`:
 
 Conectado via MCP. Arquitetura completa: `docs/ARQUITETURA_NOTION.md` (25 bancos).
 
+**🔮 WIKI PRINCIPAL (parent obrigatório para TODAS as criações):**
+- **URL:** https://www.notion.so/3288a52591f381a0885fc20691f28468
+- **Título:** 🔮 ORÁCULO -FIRMA ABACAXi
+- **Parent type:** `page` (é uma wiki database — nunca usar `database_id`)
+- **⚠️ Nunca criar fora desta wiki.** Toda criação via MCP deve usar esta URL como parent.
+
 | Banco | Prefixo | Uso |
 |---|---|---|
 | PROJETO_2026 | PRJ- | Hub central |

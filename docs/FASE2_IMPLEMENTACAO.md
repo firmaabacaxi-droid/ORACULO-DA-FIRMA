@@ -454,95 +454,128 @@ Ao finalizar, verificar:
 
 ---
 
-### Por onde começar (ordem recomendada para a Firma)
+### GPU do sistema (confirmado Mai 2026)
+
+| Componente | Especificação |
+|---|---|
+| GPU | NVIDIA GeForce RTX 4060 Ti (Ada Lovelace) |
+| VRAM | 8 GB GDDR6 |
+| CUDA | 12.9 (instalado, sem configuração adicional necessária) |
+| Driver | 576.80 |
+
+> **Gestão de VRAM:** O sistema usa ~4GB de VRAM com Chrome + Premiere abertos. Antes de rodar modelos de IA, fechar Chrome e Premiere para liberar os 8GB completos.
+
+---
+
+### Por onde começar (ordem de instalação com GPU)
 
 ```
-Semana 1:  Instalar Story Architect → usar para roteiros dos projetos
-Semana 2:  Usar Claude/ChatGPT para storyboard descritivo (sem instalar nada)
-Semana 3:  Instalar pymiere → automatizar uma tarefa repetitiva no Premiere
-Semana 4:  Testar Wan2.1 no Google Colab → gerar planos/cenas com IA
-Mês 2+:    Explorar ViMax ou FilmAgent para prototipar produções completas
+Dia 1 (~30 min):  Ollama + Llama 3.1 8B  → assistente de roteiro local, sem custo de API
+Dia 1 (~10 min):  FasterWhisper INT8      → transcrição de footage em português
+Dia 2 (~1 hora):  ComfyUI + SDXL         → storyboard visual local
+Dia 3 (~20 min):  auto-editor + pymiere   → automação no Premiere
+Semana 2+:        Wan2.1 T2V-1.3B        → geração de cenas com IA (lento, mas funciona local)
+Mês 2+:           ViMax / FilmAgent       → produção multi-agente completa
 ```
 
 **Pré-requisitos únicos:**
 - Python 3.10+ → [python.org/downloads](https://python.org/downloads)
 - Git → [git-scm.com](https://git-scm.com)
 - Node.js → apenas para o MCP do Premiere
+- CUDA: **já instalado** (confirmado v12.9)
 
 ---
 
-### NÍVEL 1 — Alta Prioridade (instalar primeiro)
+### NÍVEL 1 — Instalar primeiro (sem custo de API, rodam local)
 
-#### Pré-Produção: Roteiro
+#### LLM Local — Assistente de Roteiro
 
-| Ferramenta | Stars | O que faz | Como instalar |
+| Ferramenta | Stars | O que faz | VRAM | Instalação |
+|---|---|---|---|---|
+| [Ollama](https://github.com/ollama/ollama) + Llama 3.1 8B | ~100k | LLM local: roteiro, análise, decupagem, sem custo por uso | ~5GB | Baixar em [ollama.com/download](https://ollama.com/download) → `ollama pull llama3.1:8b` |
+
+#### Transcrição de Footage
+
+| Ferramenta | Stars | O que faz | VRAM | Instalação |
+|---|---|---|---|---|
+| [FasterWhisper](https://github.com/SYSTRAN/faster-whisper) | ~15k | Transcreve áudio/vídeo em português, gera legendas, extrai diálogos gravados | ~2-3GB | `pip install faster-whisper` |
+
+#### Storyboard Visual Local
+
+| Ferramenta | Stars | O que faz | VRAM | Instalação |
+|---|---|---|---|---|
+| [ComfyUI](https://github.com/comfyanonymous/ComfyUI) + SDXL | ~70k | Geração de imagens cinematográficas para storyboard, frame a frame | ~6-7GB | `git clone https://github.com/comfyanonymous/ComfyUI` → `pip install torch --index-url https://download.pytorch.org/whl/cu124` → `pip install -r requirements.txt` → `python main.py --lowvram` |
+
+> Após instalar ComfyUI: baixar modelo SDXL (ex: JuggernautXL) em [civitai.com](https://civitai.com) e colocar em `ComfyUI/models/checkpoints/`. Gera imagens em ~15s a 768x768.
+
+#### Pré-Produção: Roteiro (GUI)
+
+| Ferramenta | Stars | O que faz | Instalação |
 |---|---|---|---|
-| [story-apps/starc](https://github.com/story-apps/starc) | ~259 | Software de roteiros profissional (GUI). Importa FDX, Fountain, Celtx. Cinema, TV, teatro. | Instalador direto em [starc.app](https://starc.app) — zero código |
+| [story-apps/starc](https://github.com/story-apps/starc) | ~259 | Software profissional de roteiros com interface gráfica. Importa FDX, Fountain, Celtx. | Instalador direto em [starc.app](https://starc.app) — zero código |
 
-#### Pós-Produção: Adobe Premiere com IA
+#### Pós-Produção: Automação no Premiere
 
-| Ferramenta | Stars | O que faz | Como instalar |
+| Ferramenta | Stars | O que faz | Instalação |
 |---|---|---|---|
-| [qmasingarbe/pymiere](https://github.com/qmasingarbe/pymiere) | ~446 | Python controla o Premiere — monta rough cuts, importa clipes, aplica LUTs em lote | `pip install pymiere` |
-| [hetpatel-11/Adobe_Premiere_Pro_MCP](https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP) | < 100 | Deixa o Claude/ChatGPT controlar o Premiere via chat (MCP) | Requer Node.js — setup guiado no repositório |
+| [WyattBlue/auto-editor](https://github.com/WyattBlue/auto-editor) | ~4.300 | Remove silêncios e espaços mortos de vídeos automaticamente | `pip install auto-editor` |
+| [qmasingarbe/pymiere](https://github.com/qmasingarbe/pymiere) | ~446 | Python controla o Premiere — rough cuts, importação em lote, LUTs | `pip install pymiere` (+ ativar painel no Premiere) |
+| [hetpatel-11/Adobe_Premiere_Pro_MCP](https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP) | < 100 | Claude controla o Premiere via chat (MCP) | Requer Node.js — setup guiado no repositório |
+
+---
+
+### NÍVEL 2 — Geração de Vídeo Local (RTX 4060 Ti — lento mas funciona)
+
+| Ferramenta | Stars | O que faz | VRAM real | Velocidade | Instalação |
+|---|---|---|---|---|---|
+| [Wan-Video/Wan2.1 T2V-1.3B](https://github.com/Wan-Video/Wan2.1) | ~15.000 | Gera cenas de vídeo a partir de texto. Melhor modelo open-source (supera Sora no VBench) | ~8GB com `--offload_model True --t5_cpu` | 15-30 min/clip de 5s | `git clone` → `pip install -r requirements.txt` → `python generate.py --task t2v-1.3B --offload_model True --t5_cpu` |
+| [Lightricks/LTX-Video distilled](https://github.com/Lightricks/LTX-Video) | ~9.700 | Geração de vídeo rápida, 480p, útil para testar composições | ~8GB com lowvram mode | Mais rápido que Wan2.1 | `pip install -r requirements.txt` + lowvram flag |
+
+> **Requisito extra para Wan2.1:** 24GB+ de RAM do sistema (o T5-XXL encoder roda na CPU).
+> **CogVideoX-2B:** Tecnicamente possível mas requer H100 para FP8 — usar no Google Colab.
 
 #### Conteúdo para Internet
 
-| Ferramenta | Stars | O que faz | Como instalar |
+| Ferramenta | Stars | O que faz | Instalação |
 |---|---|---|---|
-| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | ~7.100 | Automação de YouTube Shorts e TikTok: voiceover, corte, legenda, multilíngue | `pip install shortgpt` |
-| [WyattBlue/auto-editor](https://github.com/WyattBlue/auto-editor) | ~4.300 | Corta silêncios e espaços mortos automaticamente por linha de comando | `pip install auto-editor` |
-| [SamurAIGPT/AI-Youtube-Shorts-Generator](https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator) | ~3.100 | Converte vídeos longos em Shorts 9:16 com LLM + Whisper (alternativa ao Opus Clip) | `git clone` + `pip install -r requirements.txt` |
+| [RayVentura/ShortGPT](https://github.com/RayVentura/ShortGPT) | ~7.100 | Automação de YouTube Shorts e TikTok: voiceover, corte, legenda, multilíngue | `pip install shortgpt` + chave OpenAI |
+| [SamurAIGPT/AI-Youtube-Shorts-Generator](https://github.com/SamurAIGPT/AI-Youtube-Shorts-Generator) | ~3.100 | Vídeo longo → Shorts 9:16 com highlight automático via LLM + Whisper | `git clone` + `pip install -r requirements.txt` + chave OpenAI |
 
 ---
 
-### NÍVEL 2 — Média Prioridade (Fase 3+)
+### NÍVEL 3 — Média/Alta Complexidade (Fase 3+)
 
-#### Geração de Storyboard
+#### Geração de Storyboard com API
 
-| Ferramenta | Stars | O que faz | Como instalar |
+| Ferramenta | Stars | O que faz | Instalação |
 |---|---|---|---|
-| [yogendra-yatnalkar/storyboard-ai](https://github.com/yogendra-yatnalkar/storyboard-ai) | < 100 | Pipeline completo: texto → storyboard → arte → animação → narração + legendas | `pip install -r requirements.txt` + chave API OpenAI/Gemini |
-| [tillo13/ai_storyboard_video_generator](https://github.com/tillo13/ai_storyboard_video_generator) | < 100 | Storytelling multimídia: visuais, voiceovers e vídeos a partir de narrativas | `pip install -r requirements.txt` |
-| [tavsec/movie-crafter](https://github.com/tavsec/movie-crafter) | < 100 | Script com GPT-4 + storyboard visual com DALL-E 3 | Node.js + chave OpenAI |
+| [yogendra-yatnalkar/storyboard-ai](https://github.com/yogendra-yatnalkar/storyboard-ai) | < 100 | Texto → storyboard → arte → animação → narração | `pip install -r requirements.txt` + chave OpenAI/Gemini |
+| [tillo13/ai_storyboard_video_generator](https://github.com/tillo13/ai_storyboard_video_generator) | < 100 | Storytelling multimídia: visuais, voiceovers e vídeos | `pip install -r requirements.txt` |
 
-#### Estúdio Virtual / Produção Multi-Agente
+#### Estúdio Virtual Multi-Agente
 
-| Ferramenta | Stars | O que faz | Como instalar |
+| Ferramenta | Stars | O que faz | Instalação |
 |---|---|---|---|
-| [HKUDS/ViMax](https://github.com/HKUDS/ViMax) | ~3.800 | All-in-one: prompt → roteiro → storyboard → personagens → vídeo final (multi-agente) | `git clone` + `pip install -r requirements.txt` + GPU/API |
-| [HITsz-TMG/FilmAgent](https://github.com/HITsz-TMG/FilmAgent) | ~1.050 | Simulação de set 3D virtual: diretor, roteirista, atores e cineastas com LLM | `git clone` + `pip install -r requirements.txt` |
+| [HKUDS/ViMax](https://github.com/HKUDS/ViMax) | ~3.800 | All-in-one: prompt → roteiro → storyboard → vídeo final | `git clone` + `pip install -r requirements.txt` + GPU/API |
+| [HITsz-TMG/FilmAgent](https://github.com/HITsz-TMG/FilmAgent) | ~1.050 | Set 3D virtual: diretor, roteirista, atores e cineastas com LLM | `git clone` + `pip install -r requirements.txt` |
 
 #### Análise de Roteiro
 
-| Ferramenta | Stars | O que faz | Como instalar |
+| Ferramenta | Stars | O que faz | Instalação |
 |---|---|---|---|
-| [AdeboyeML/Film_Script_Analysis](https://github.com/AdeboyeML/Film_Script_Analysis) | < 50 | Análise de personagens, diálogos, emoções, locações — mais de 1.000 scripts do IMSDB | `pip install -r requirements.txt` |
-| [sliday/aimdb](https://github.com/sliday/aimdb) | < 100 | Analisa filmes com GPT-4o-mini (visual) + Claude 3.5 Sonnet (roteiro). Gera ratings | `pip install -r requirements.txt` + chaves OpenAI + Anthropic |
+| [sliday/aimdb](https://github.com/sliday/aimdb) | < 100 | GPT-4o-mini (visual) + Claude 3.5 Sonnet (roteiro). Gera ratings | `pip install -r requirements.txt` + chaves OpenAI + Anthropic |
+| [AdeboyeML/Film_Script_Analysis](https://github.com/AdeboyeML/Film_Script_Analysis) | < 50 | Análise profunda: personagens, diálogos, emoções, locações | `pip install -r requirements.txt` |
 
 ---
 
-### NÍVEL 3 — Geração de Vídeo com IA (referência técnica)
-
-> Modelos open-source para gerar planos, cenas e vídeos a partir de texto/imagem. Requerem GPU ou Google Colab.
-
-| Ferramenta | Stars | O que faz | GPU necessária |
-|---|---|---|---|
-| [Wan-Video/Wan2.1](https://github.com/Wan-Video/Wan2.1) | ~15.000 | Modelo da Alibaba, superou Sora no VBench. Melhor resultado geral. | 8GB+ VRAM |
-| [zai-org/CogVideo](https://github.com/zai-org/CogVideo) | ~12.600 | CogVideoX — até 10s em alta resolução, base acadêmica sólida | 8GB+ VRAM |
-| [Lightricks/LTX-Video](https://github.com/Lightricks/LTX-Video) | ~9.700 | Vídeo + áudio sincronizados, até 50 FPS em 4K nativo | 8GB+ VRAM |
-
-> **Alternativa sem GPU:** Acessar via [Hugging Face Spaces](https://huggingface.co/spaces) — interface web gratuita para LTX-Video e CogVideo.
-
----
-
-### Integração com o fluxo da Firma
+### Integração com o fluxo da Firma (com GPU local)
 
 ```
-ROTEIRO          → Story Architect (starc.app)
-STORYBOARD       → storyboard-ai (Python) ou Claude diretamente via chat
-GERAÇÃO DE CENAS → Wan2.1 no Google Colab (gratuito, sem GPU local)
-EDIÇÃO           → Adobe Premiere + pymiere (automação Python)
+ROTEIRO          → Story Architect (starc.app) + Ollama para análise/feedback local
+STORYBOARD       → ComfyUI + SDXL (local, sem custo por imagem)
+TRANSCRIÇÃO      → FasterWhisper (footage, entrevistas, making of)
+GERAÇÃO DE CENAS → Wan2.1 T2V-1.3B (local, lento) ou Google Colab (rápido)
+EDIÇÃO           → Adobe Premiere + auto-editor (corte) + pymiere (automação)
 REVISÃO CLIENTE  → Frame.io (Sprint C)
 CONTEÚDO WEB     → ShortGPT ou AI-Youtube-Shorts-Generator
 ANÁLISE          → sliday/aimdb ou Film_Script_Analysis
@@ -552,15 +585,22 @@ ANÁLISE          → sliday/aimdb ou Film_Script_Analysis
 
 ### Checklist de implementação (Sprint E)
 
-- [ ] Instalar Story Architect (starc.app) — testar com um roteiro real
-- [ ] Instalar pymiere (`pip install pymiere`) — testar automação no Premiere
-- [ ] Instalar auto-editor (`pip install auto-editor`) — testar corte por silêncio
-- [ ] Testar storyboard-ai com roteiro de um projeto existente (ex: Brasil Participativo)
-- [ ] Testar Wan2.1 no Google Colab para geração de cena
-- [ ] Avaliar ShortGPT para automação de conteúdo de redes sociais
-- [ ] Documentar resultado de cada ferramenta em STATUS.md
+**Nível 1 — Instalar primeiro (sem API, sem custo):**
+- [ ] Baixar e instalar Story Architect em [starc.app](https://starc.app) — testar com roteiro real (~5 min)
+- [ ] Instalar Ollama em [ollama.com/download](https://ollama.com/download) → `ollama pull llama3.1:8b` → testar análise de roteiro (~30 min)
+- [ ] `pip install faster-whisper` → transcrever um vídeo de projeto existente (~10 min)
+- [ ] Instalar ComfyUI → baixar modelo SDXL → gerar primeiro frame de storyboard (~1 hora)
+- [ ] `pip install auto-editor` → testar corte por silêncio em um vídeo (~10 min)
+- [ ] `pip install pymiere` → ativar painel no Premiere → testar uma automação simples (~20 min)
 
-**Dependências:** Python 3.10+, Git, Node.js (para MCP Premiere), chave API OpenAI ou Gemini
+**Nível 2 — Geração de vídeo (fechar Chrome e Premiere antes):**
+- [ ] Instalar Wan2.1 T2V-1.3B → gerar cena de teste com prompt de um projeto real
+- [ ] Documentar tempo de geração e qualidade em STATUS.md
+
+**Nível 3 — Conteúdo para internet:**
+- [ ] Criar chave API OpenAI → `pip install shortgpt` → testar com um vídeo longo
+
+**Dependências:** Python 3.10+, Git, Node.js (para MCP Premiere) — CUDA 12.9 já instalado
 
 ---
 
@@ -570,6 +610,7 @@ ANÁLISE          → sliday/aimdb ou Film_Script_Analysis
 |---|---|---|
 | Mai 23, 2026 | v1.0 | Documento criado com 4 sprints planejados |
 | Mai 23, 2026 | v1.1 | Varredura completa do sistema: adicionados diagnóstico, pré-requisitos críticos (credenciais, geração Word, relações Notion), observações por sprint e ordem de execução revisada |
+| Mai 27, 2026 | v1.2 | Sprint E adicionado: levantamento de ferramentas GitHub de IA para produção audiovisual, GPU do sistema confirmada (RTX 4060 Ti, 8GB, CUDA 12.9), stack local definido (Ollama + FasterWhisper + ComfyUI + Wan2.1 + pymiere + auto-editor), instalação detalhada por ferramenta |
 
 ---
 

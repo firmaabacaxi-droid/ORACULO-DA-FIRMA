@@ -8,6 +8,20 @@
 
 ---
 
+## ⚠️ Parent obrigatório — Wiki principal
+
+Toda criação de página ou banco no Notion **DEVE** usar como parent:
+
+- **URL:** https://www.notion.so/3288a52591f381a0885fc20691f28468
+- **Título:** 🔮 ORÁCULO -FIRMA ABACAXi
+- **Tipo:** wiki database (parent type = `"page"`, não `"database_id"`)
+
+**Workspaces a IGNORAR (versões antigas — nunca criar dentro delas):**
+- ORACULO TESTES (3548a525-91f3-8089-aa2e-d8f9fad2dc9b)
+- ORACULO V7 (3378a525-91f3-80f3-9a05-da07ba8c3acf)
+
+---
+
 ## Status de implementação real
 
 *Auditado via MCP em 25/05/2026 — 7 bancos existem no Notion.*

@@ -222,7 +222,7 @@ SEMPRE: "A gente", "criamos", "filmamos", histórias específicas com detalhes r
 
 **Documentos necessários:**
 - docs/CONTEXTO_FIRMA.md
-- skills/captacao/SKILL.md
+- skills/prospeccao/SKILL.md
 
 **Quando usar:** Atendimento direto a clientes externos que chegam pelo Instagram, WhatsApp ou indicação.
 
