@@ -477,3 +477,246 @@ Os usuários agora conseguem navegar bidirecionalm entre projeto → filmagem/ed
 **Total: 9/9 relações operacionais DUAL** ✓
 
 *Atualizado ao final da Sessão 13 — 27 Mai 2026 · Oráculo v1.3*
+
+---
+
+## SESSÃO 14 — Reestruturação Financeira: Budget vs. Actual (27 Mai 2026)
+
+### ✅ Concluído nesta sessão
+
+**Problema identificado:**
+- Banco ORÇAMENTO exibia itens de todos os projetos misturados numa tabela flat (sem views nem filtros)
+- Relação FINANCEIRO_PROJETO → ORÇAMENTO era unidirecional (sem rollup possível)
+- Não havia distinção entre "orçamento da proposta" e "orçamento da execução"
+
+**Diagnóstico aplicado:**
+- A arquitetura de UMA tabela de itens com relações é o padrão correto da indústria (Movie Magic, Airtable, etc.)
+- O problema era de views + campos faltando, não de estrutura
+
+**Ações tomadas:**
+
+1. ✅ **Relação FINANCEIRO_PROJETO ↔ ORÇAMENTO convertida para DUAL**
+   - Campo em FINANCEIRO_PROJETO: `Item Orcamento`
+   - Campo sincronizado em ORÇAMENTO: `Transacoes`
+   - **Total de relações DUAL: 10** (era 9)
+
+2. ✅ **3 novos campos adicionados ao ORÇAMENTO:**
+   - `Fase` (Select): `Proposta` / `Execucao` — distingue o que foi enviado ao cliente do que surgiu na produção
+   - `Valor Real` (Rollup): soma de `Valor` em FINANCEIRO_PROJETO vinculado ao item
+   - `Variancia` (Fórmula): `Total − Valor Real` — positivo = dentro do orçado; negativo = estouro
+
+3. ✅ **4 views criadas no ORÇAMENTO:**
+   - `Por Projeto` — todos os itens agrupados por projeto (resolve o "tudo misturado")
+   - `Proposta` — filtrada por Fase = Proposta, agrupada por projeto
+   - `Budget vs Actual` — mostra Total / Valor Real / Variancia agrupados por projeto
+   - `Pendencias` — filtrada por Status = Estimado
+
+4. ✅ **Documentação atualizada:**
+   - `docs/ARQUITETURA_NOTION.md` — schemas do ORÇAMENTO e FINANCEIRO_PROJETO atualizados
+
+### 📊 Estado do ORÇAMENTO após Sessão 14
+
+| Relação | Direção | Status |
+|---------|---------|--------|
+| ORÇAMENTO ↔ PROJETO_2026 | DUAL | ✅ |
+| ORÇAMENTO ↔ FINANCEIRO_PROJETO (via Transacoes) | DUAL | ✅ NOVO |
+| ORÇAMENTO ↔ CONTATOS (Fornecedor/Contato) | Unidirecional | — |
+
+### 🟡 Como usar a partir de agora
+
+**Ao elaborar proposta:**
+1. Criar itens no ORÇAMENTO com `Fase = Proposta`
+2. Preencher `Valor unitário` × `Quantidade` = `Total` (manualmente)
+3. Versão = `Original` (ou `Aditivo 001` se houver revisão)
+
+**Ao executar o projeto:**
+1. Registrar gastos reais no FINANCEIRO_PROJETO
+2. Vincular cada transação ao campo `Item Orcamento` correspondente
+3. O campo `Valor Real` atualiza automaticamente no ORÇAMENTO
+4. `Variancia` mostra se está dentro ou acima do orçado
+
+**Para ver só um projeto:**
+- Abrir o projeto em PROJETO_2026 → campo `Orçamentos` → tabela filtrada daquele projeto
+
+### 🔴 Pendências
+
+**Ação manual no Notion UI:**
+- Os 12 itens existentes do Maranhã não têm `Fase` preenchida — preencher como `Proposta` via interface
+- Os 4 itens do SOBRE2026 idem
+
+**Próximas sessões:**
+- Preencher `Fase = Proposta` nos itens existentes de Maranhã e SOBRE2026
+- Criar orçamento para SIMBIOSE (R$ 800)
+- Registrar primeiras transações no FINANCEIRO_PROJETO após filmagem do Maranhã (28-29/05)
+
+*Atualizado ao final da Sessão 14 — 27 Mai 2026 · Oráculo v1.4*
+
+---
+
+## SESSÃO 15 — Arquitetura Híbrida: Orçamento dentro do Projeto (27 Mai 2026)
+
+### ✅ Concluído nesta sessão
+
+**Questão central levantada:**
+A usuária questionou se o orçamento deveria ficar dentro de cada projeto (como a proposta IBICT mostrou) em vez de um banco central. Preocupação com sobreposição de dados entre PROPOSTAS, ORÇAMENTO e FINANCEIRO_PROJETO.
+
+**Decisão arquitetural:**
+Arquitetura **híbrida**: banco central ORÇAMENTO permanece como fonte única de verdade, mas cada projeto recebe uma Linked View filtrada — dando a experiência de "orçamento dentro do projeto" sem duplicar dados.
+
+**Papéis redefinidos para eliminar sobreposição:**
+- `PROPOSTAS` = documento comercial (PDF, valor fechado, status, histórico de versões)
+- `ORÇAMENTO` = itemização dos custos (cada linha = um item)
+- `FINANCEIRO_PROJETO` = transações reais (o que foi pago/recebido)
+
+**Ações tomadas:**
+
+1. ✅ **Campo `Proposta` DUAL adicionado ao ORÇAMENTO**
+   - Relação bidirecional: ORÇAMENTO ↔ PROPOSTAS
+   - Permite ver "quais itens fazem parte da Proposta V1?" ou "quais vieram do Aditivo 001?"
+   - Complementa (e não substitui) o campo `Versão`
+
+2. ✅ **Rollup `Valor Total Orcado` adicionado ao PROJETO_2026**
+   - Soma de campo `Total` de todos os itens de ORÇAMENTO vinculados ao projeto
+   - Exibe o total orçado direto no card do projeto, sem abrir o ORÇAMENTO
+
+3. ✅ **Linked Views "💰 Orçamento" criadas nas páginas de 8 projetos ativos:**
+   - Maranhã
+   - Comunicação Simbiose
+   - RNP Ailton Krenak
+   - AGO
+   - Oficinas de Documentário
+   - Filmmaker Independente
+   - Visite mon Agencé
+   - FIOCRUZ REDE COLABORA
+
+4. ✅ **ARQUITETURA_NOTION.md atualizado** — seções ORÇAMENTO e PROJETO_2026
+
+### ⚠️ Ação manual necessária (Linked Views — filtro)
+
+A API do Notion não suporta filtrar linked views por campo de relação via DSL. As views foram criadas nas páginas dos projetos mas **estão sem filtro** — mostram todos os itens de todos os projetos.
+
+**Para ativar o filtro em cada projeto (30 segundos cada):**
+1. Abrir a página do projeto no Notion
+2. Na seção "💰 Orçamento" (linked view ao fundo da página), clicar em **"Filtrar"**
+3. Adicionar filtro: **Projeto → contém → [nome deste projeto]**
+4. Repita para os 8 projetos
+
+Após isso, cada página de projeto exibirá somente os seus itens de orçamento.
+
+### 📊 Estado das relações DUAL após Sessão 15
+
+| Relação | Campo em A | Campo em B | Status |
+|---------|-----------|-----------|--------|
+| PROJETO_2026 ↔ FILMAGEM | Filmagens | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ EDIÇÃO | Edições | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ ORÇAMENTO | Orçamentos | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ FINANCEIRO_PROJETO | Financeiro do Projeto | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ GESTÃO_FINANCEIRA | Gestão Financeira | Projeto relacionado | ✅ DUAL |
+| PROJETO_2026 ↔ CLIENTES | Cliente | Projetos relacionados | ✅ DUAL |
+| PROJETO_2026 ↔ PROPOSTAS | Proposta | Projeto relacionado | ✅ DUAL |
+| PROJETO_2026 ↔ TAREFAS | Tarefas | Projeto | ✅ DUAL |
+| PROJETO_2026 ↔ CONTATOS | Responsável | (reverso em CONTATOS) | ✅ DUAL |
+| ORÇAMENTO ↔ PROPOSTAS | Proposta | (reverso em PROPOSTAS) | ✅ DUAL NOVO |
+
+**Total: 10 relações DUAL** ✓
+
+### 🔴 Pendências herdadas
+
+**Ação manual no Notion UI:**
+- Preencher `Fase = Proposta` nos 12 itens de Maranhã e 4 do SOBRE2026 no ORÇAMENTO
+- Configurar filtro nas 8 Linked Views de "💰 Orçamento" (instruções acima)
+- Avaliar campo `Untitled Database` em PROJETO_2026 — aponta para banco de testes `ORÇAMENTOS TESTE LIPE`; pode ser removido após confirmar que o banco não é mais necessário
+
+**Próximas sessões:**
+- Criar orçamento para SIMBIOSE (R$ 800)
+- Registrar primeiras transações no FINANCEIRO_PROJETO após filmagem do Maranhã (28-29/05)
+- Preencher campo `Proposta` nos itens de orçamento existentes
+
+*Atualizado ao final da Sessão 15 — 27 Mai 2026 · Oráculo v1.5*
+
+---
+
+## SESSÃO 15 (parte 2) — VI SOBRE 2026: Proposta + Google Drive + rclone (27 Mai 2026)
+
+### ✅ Concluído nesta etapa
+
+#### 1. VI SOBRE 2026 — Correção de estrutura
+
+**Problema:** PRJ-17 "VI SOBRE 2026 — Conferência Brasileira de Restauração Ecológica" estava incorretamente criado como PROJETO. É ainda uma proposta (status: Prospecção).
+
+**Ações tomadas:**
+
+1. ✅ **Registro PROPOSTAS criado** — `VI SOBRE 2026 — Conferência Brasileira de Restauração Ecológica`
+   - Cliente: SOBRE2026 | Contato: Viviane | Status: Prospecção
+   - Valor: R$ 58.124,08 | Validade: 21/06/2026
+   - Evento: UnB, 27–31/07/2026
+
+2. ✅ **9 itens de ORÇAMENTO criados e vinculados à proposta:**
+   - Pré-produção (5 dias × R$ 2.000 = R$ 10.000)
+   - Diária de produção — dias completos (4 dias × R$ 4.500 = R$ 18.000)
+   - Diária de produção — meia diária (1 × R$ 2.250 = R$ 2.250)
+   - Material de gravação (1 × R$ 1.500 = R$ 1.500)
+   - Edição e pós-produção (1 × R$ 8.000 = R$ 8.000)
+   - Correção de cor e tratamento (1 × R$ 3.500 = R$ 3.500)
+   - Trilha sonora licenciada (1 × R$ 1.500 = R$ 1.500)
+   - Deslocamento e hospedagem (1 × R$ 6.000 = R$ 6.000)
+   - ISS/Impostos 8% (1 × R$ 4.820 = R$ 4.820 — calculado sobre subtotal)
+   - Todos com Fase = Proposta, Status = Estimado
+
+3. ✅ **CRM atualizado** — entrada criada para SOBRE2026 com status Contato Feito
+
+4. ⏳ **PRJ-17 para deletar manualmente** — Usuária deve ir no projeto VI SOBRE 2026 no Notion → ··· → Mover para lixo
+
+---
+
+#### 2. Integração Google Drive + rclone
+
+**rclone instalado e configurado — Drive agora operacional (não é mais Fase 2 pendente).**
+
+**Configuração:**
+- Ferramenta: `rclone` (CLI, gratuita)
+- Remote: `gdrive`
+- Pasta raiz restrita: `FIRMA ABACAXI/` → ID `10hUTz_FXeFiIj5yyrjM8Aygeg8HpH_UK`
+- Arquivo de config: `C:\Users\User\AppData\Roaming\rclone\rclone.conf`
+- Escopo: `drive` (acesso completo, mas navegação restrita ao `root_folder_id`)
+
+**Privacidade:** O rclone enxerga **apenas** a pasta `FIRMA ABACAXI/` — o resto do Drive pessoal é inacessível.
+
+**Estrutura criada no Drive:**
+```
+FIRMA ABACAXI/
+└── PROJETOS/
+    └── 2026/
+        └── VI SOBRE 2026 — UnB/
+            └── 01_PROPOSTA/
+                └── SOBRE2026_proposta_v1.pdf   ← upload concluído ✅
+```
+
+**Noção atualizada:** campo `Arquivo PDF` na proposta VI SOBRE 2026 recebeu link direto para o arquivo no Drive.
+
+**Regra estabelecida (saved em memory):** Criar pastas no Drive **apenas quando a etapa do projeto começar**, não todas de uma vez. Template de referência documentado em `memory/feedback_google_drive.md`.
+
+---
+
+### 📋 Pendências desta etapa
+
+**Ação manual no Notion UI:**
+- Deletar PRJ-17 (VI SOBRE 2026 como projeto): página → ··· → Mover para lixo
+
+**Documentação a atualizar (próxima sessão):**
+- `docs/FLUXO_TRABALHO.md` — adicionar rclone/Drive como ferramenta ativa (não mais "Fase 2 pendente")
+- `docs/ARQUITETURA_NOTION.md` — anotar que Drive está integrado via rclone
+
+### 📊 Estado da infraestrutura após esta etapa
+
+```
+✅ rclone          — instalado, autenticado, gdrive remote ativo
+✅ Google Drive    — pasta FIRMA ABACAXI/ restrita, operacional
+✅ VI SOBRE 2026   — PROPOSTA criada + 9 itens ORÇAMENTO + CRM
+```
+
+### 🔄 Status Google Drive MCP (Fase 2)
+
+O acesso ao Drive via **rclone CLI** já está funcionando para upload/download de arquivos. A integração via **Google Drive MCP** (que permitiria ao Oráculo operar o Drive diretamente via ferramentas nativas) continua listada na Fase 2, mas não é urgente — o rclone cobre o caso de uso atual.
+
+*Atualizado ao final da Sessão 15 (parte 2) — 27 Mai 2026 · Oráculo v1.5.2*

@@ -194,10 +194,11 @@ CRONOGRAMA   ← conecta todas as datas
 | Data de início | Data | — |
 | Data de entrega | Data | — |
 | Responsável | Relação | → CONTATOS (Lipe ou Jaya) |
-| Proposta | Relação | → PROPOSTAS |
-| Orçamento | Relação | → ORÇAMENTO |
+| Proposta | Relação DUAL | ↔ PROPOSTAS |
+| Orçamento | Relação DUAL | ↔ ORÇAMENTO |
 | Cronograma | Relação | → CRONOGRAMA |
-| Financeiro | Relação | → FINANCEIRO_PROJETO |
+| Financeiro | Relação DUAL | ↔ FINANCEIRO_PROJETO |
+| **Valor Total Orcado** | **Rollup** | **Soma de Total em ORÇAMENTO** ← total orçado do projeto |
 | Pasta no Drive | URL | Link da pasta do projeto |
 | Prioridade | Select | Alta / Média / Baixa |
 | Observações | Texto longo | — |
@@ -392,24 +393,40 @@ CRONOGRAMA   ← conecta todas as datas
 
 ### 17 · ORÇAMENTO `ORC-` ⭐ TABELA VINCULADA
 **Tipo:** Financeiro · **Objetivo:** Tabela detalhada de custos por projeto  
-**Data Source ID:** `collection://1acaa528-4627-4817-8d43-093d3ad19137` · **Status:** ✅ Criado 27/05/2026
+**Data Source ID:** `collection://1acaa528-4627-4817-8d43-093d3ad19137` · **Status:** ✅ Criado 27/05/2026 · **Atualizado:** 27/05/2026 (Sessão 15)
 
-*Cada linha é um item de custo ou receita — não um valor único. Rastreia proposta vs. realizado.*
+*Cada linha é um item de custo ou receita — não um valor único. Rastreia proposta vs. realizado via campos Budget vs. Actual.*
 
 | Campo | Tipo | Descrição |
 |---|---|---|
 | Item | Título | Descrição do item |
-| Projeto | Relação | → PROJETO_2026 |
+| Projeto | Relação DUAL | ↔ PROJETO_2026 |
+| **Proposta** | **Relação DUAL** | **↔ PROPOSTAS** ← vincula os itens ao documento comercial |
+| **Fase** | **Select** | **Proposta / Execucao** ← distingue orçamento enviado ao cliente do que surgiu na execução |
 | Categoria | Select | Equipe / Equipamento / Locação / Arte / Transporte / Alimentação / Pós-produção / Imposto / Outro |
 | Tipo | Select | Custo / Receita |
 | Valor unitário | Número | R$ |
 | Quantidade | Número | — |
-| Total | Número | R$ (preenchido manualmente, pode ser fórmula no UI) |
+| Total | Número | R$ (Valor unitário × Quantidade) |
 | Status | Select | Estimado / Confirmado / Pago / Recebido |
-| **Versão** | **Select** | **Original / Aditivo 001 / Aditivo 002** ← campo crítico para rastrear mudanças |
+| **Versão** | **Select** | **Original / Aditivo 001 / Aditivo 002** ← rastreia mudanças de escopo da proposta |
 | Fornecedor/Contato | Relação | → CONTATOS |
 | Data | Data | Previsão de pagamento/recebimento |
 | Nota fiscal | Checkbox | — |
+| **Transacoes** | **Relação DUAL** | **↔ FINANCEIRO_PROJETO** ← lista de transações reais vinculadas a este item |
+| **Valor Real** | **Rollup** | **Soma de Valor em FINANCEIRO_PROJETO** ← o que realmente foi gasto/recebido |
+| **Variancia** | **Fórmula** | **Total − Valor Real** ← positivo = abaixo do orçado (bom); negativo = estouro |
+
+**Views globais no banco central:**
+- `Por Projeto` — todos os itens agrupados por projeto
+- `Proposta` — filtrada por Fase = Proposta, agrupada por projeto
+- `Budget vs Actual` — mostra Total / Valor Real / Variancia agrupados por projeto
+- `Pendencias` — filtrada por Status = Estimado (itens ainda não confirmados)
+
+**Linked Views (Sessão 15 — arquitetura híbrida):**
+Cada projeto ativo tem uma view "💰 Orçamento" inline na sua página, apontando para este banco central.
+Para ver apenas os itens do projeto, defina o filtro `Projeto = [este projeto]` na view (botão "Filtrar" no topo da view).
+Projetos configurados: Maranhã, Comunicação Simbiose, RNP Ailton Krenak, AGO, Oficinas de Documentário, Filmmaker Independente, Visite mon Agencé, FIOCRUZ REDE COLABORA.
 
 ---
 
@@ -436,15 +453,15 @@ CRONOGRAMA   ← conecta todas as datas
 
 ### 17C · FINANCEIRO_PROJETO `FIN-` ⭐ NOVO
 **Tipo:** Financeiro · **Objetivo:** Transações reais (pagamentos e recebimentos) por projeto  
-**Data Source ID:** `collection://cd8f5929-87b0-431b-b392-00b49a11b98e` · **Status:** ✅ Criado 27/05/2026
+**Data Source ID:** `collection://cd8f5929-87b0-431b-b392-00b49a11b98e` · **Status:** ✅ Criado 27/05/2026 · **Atualizado:** 27/05/2026 (Sessão 14)
 
-*Cada linha = um pagamento ou recebimento que realmente aconteceu. Vincula ao ORÇAMENTO para comparação.*
+*Cada linha = um pagamento ou recebimento que realmente aconteceu. Vincula ao ORÇAMENTO via relação DUAL para alimentar Budget vs. Actual.*
 
 | Campo | Tipo | Descrição |
 |---|---|---|
 | Descrição | Título | — |
-| Projeto | Relação | → PROJETO_2026 |
-| Item do orçamento | Relação | → ORÇAMENTO (vincula ao item proposto) |
+| Projeto | Relação DUAL | ↔ PROJETO_2026 |
+| **Item Orcamento** | **Relação DUAL** | **↔ ORÇAMENTO** ← vincula a transação ao item de orçamento previsto |
 | Tipo | Select | Receita / Despesa |
 | Categoria | Select | Equipe / Equipamento / Locação / Pós-produção / Imposto / Outro |
 | Valor | Número | R$ |
@@ -454,6 +471,8 @@ CRONOGRAMA   ← conecta todas as datas
 | Comprovante | URL | Link Drive |
 | Número NF | Texto | Para contabilidade |
 | Nota fiscal | Checkbox | — |
+
+**Como usar:** Ao registrar uma transação real, vincule ao `Item Orcamento` correspondente. Isso alimenta automaticamente o campo `Valor Real` no ORÇAMENTO e atualiza a `Variancia`.
 
 ---
 

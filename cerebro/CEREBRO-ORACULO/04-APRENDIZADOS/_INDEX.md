@@ -9,6 +9,7 @@ Esta pasta alimenta o NotebookLM e torna o Oráculo mais inteligente a cada proj
 
 | Data | Nota | Tipo | Destaque |
 |------|------|------|---------|
+| 2026-05-27 | [[2026-05-27-Finalizacao-Sessao-15]] | Operacional | Arquitetura híbrida orçamento, linked views, VI SOBRE 2026 proposta, rclone Drive |
 | 2026-05-25 | [[2026-05-25-Revisao-Arquitetura-Oraculo-Sessao8]] | Operacional | CLAUDE.md enxugado, .claude/rules/ criado, STATUS atualizado, margem 35%/20% resolvida, protocolo de finalização |
 | 2026-05-25 | [[2026-05-25-Kit-Documentos-Producao-Completo]] | Processo | 9 templates profissionais: Projeto Audiovisual, Análise Técnica, Plano de Rodagem, Ficha de Continuidade, Boletim Câmera/Som, Autorizações e Contratos |
 | 2026-05-25 | [[2026-05-25-Templates-VideoDesk-Sessao8]] | Processo | Ordem do Dia completa; Log de Filmagem; Roteiro Técnico (tabela); Pós-Produção 10 fases |
