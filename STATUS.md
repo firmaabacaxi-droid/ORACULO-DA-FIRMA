@@ -274,4 +274,74 @@ output/                       → O que o Oráculo produziu
 
 ---
 
-*Atualizado ao final da Sessão 9 — 27 Mai 2026 · Oráculo v1.3*
+---
+
+## SESSÃO 12 — Revisão de Projetos em Andamento: SIMBIOSE (27 Mai 2026)
+
+### ✅ Concluído nesta sessão
+
+**Projeto: #10 COMUNICAÇÃO SIMBIOSE**
+- Gravação realizada, material entregue para análise
+- Fase atual: EDIÇÃO
+
+**Ações tomadas:**
+
+1. ✅ **Banco EDIÇÃO criado** — rastreia progresso de edição de vídeos e fotos
+   - Data Source ID: `collection://0b437e77-08c6-4f6e-a133-5ca3f682ab58`
+   - 9 campos: Nome / Projeto / Etapa de edição / Editor / Prazo / Software / Pasta / Status / Tipo de entrega / Observações
+   - Parent: wiki 🔮 ORÁCULO - FIRMA ABACAXI
+
+2. ✅ **Registro de edição do SIMBIOSE criado**
+   - "SIMBIOSE — Vídeo 1min30s"
+   - Etapa: Edição bruta
+   - Tipo: Ambos (vídeo + fotos)
+   - Status: Em andamento
+
+3. ✅ **Tarefa "AGENDAR AS FOTOS" marcada como Concluída**
+
+4. ✅ **2 novas tarefas de edição criadas**
+   - "Editar vídeo 1min30s — imagens da casa (SIMBIOSE)"
+   - "Editar fotos solicitadas pelo cliente (SIMBIOSE)"
+   - Ambas: Prioridade Alta, Status A fazer
+
+5. ✅ **Projeto #10 SIMBIOSE atualizado**
+   - Status: Edição (era "Não Iniciado")
+   - Etapa atual: Edição (era "ACOMPANHAMENTO")
+   - Prioridade: Alta (era vazio)
+   - Tipo de projeto: Redes
+   - Valor contratado: R$ 800,00
+
+### 🔍 Análise do Overlap: Status vs. Etapa atual
+
+**Problema:** Campos Status e Etapa atual pareciam redundantes (ambos rastreando fases do workflow).
+
+**Decisão tomada (confirmada pela usuária):** Separar os papéis
+
+| Campo | Antes | Agora |
+|---|---|---|
+| **Status** | Prospecção/Briefing/Proposta/Aprovado/Pré-produção/Em produção/Edição/Entrega/Concluído/Cancelado | Será simplificado para: Ativo / Pausado / Concluído / Cancelado |
+| **Etapa atual** | 13 etapas do workflow | Permanece: Pré-produção / Em produção / Edição / Entrega |
+
+> **Ação manual necessária:** Usuária deve remover/renomear as opções antigas de Status na interface do Notion (Prospecção, Briefing, Proposta, etc.). A API não consegue editar nomes de opções select existentes, mas pode criar novos valores. O Oráculo começará a usar Ativo/Pausado/Concluído/Cancelado.
+
+### 📊 Totais da Sessão 12
+- 1 banco criado: EDIÇÃO
+- 1 registro de edição criado
+- 1 tarefa marcada como concluída
+- 2 novas tarefas criadas
+- 1 projeto atualizado com informações completas
+
+### 🔴 Pendências identificadas
+
+**Para a usuária (UI do Notion):**
+- Remover valores antigos de Status no banco PROJETO_2026 (ou renomeá-los)
+- Validar se a separação Status/Etapa atual está funcionando
+
+**Para próximas sessões:**
+- Revisar outros projetos em andamento (RNP KRENAK #08, OFICINAS DOC #16, etc.)
+- Criar registros de edição para projetos que estão em fase de pós-produção
+- Implementar rollups automáticos no banco EDIÇÃO (horas estimadas vs. reais)
+
+---
+
+*Atualizado ao final da Sessão 12 — 27 Mai 2026 · Oráculo v1.3*

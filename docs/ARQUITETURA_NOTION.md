@@ -42,7 +42,7 @@ Toda criação de página ou banco no Notion **DEVE** usar como parent:
 | CRONOGRAMA | CRO- | 2 | ⏳ Pendente | — |
 | GESTÃO_FINANCEIRA_EMPRESA | GFE- | 2 | ✅ Criado (27/05) | Despesas e receitas da empresa não vinculadas a projeto |
 | FILMAGEM | FLM- | 3 | ✅ Criado (27/05) | Cada dia = 1 registro; equipamentos e equipe por dia |
-| EDIÇÃO | EDI- | 3 | ⏳ Pendente | — |
+| EDIÇÃO | EDI- | 3 | ✅ Criado (27/05) | Rastreia etapas de edição e pós-produção por projeto |
 | ENTREGA_FEEDBACK | ENT- | 3 | ⏳ Pendente | — |
 | LOCAÇÕES | LOC- | 3 | ⏳ Pendente | — |
 | EQUIPAMENTOS | EQP- | 3 | ⏳ Pendente | — |
@@ -501,22 +501,28 @@ CRONOGRAMA   ← conecta todas as datas
 
 ---
 
-### 19 · EDIÇÃO `EDI-`
-**Tipo:** Pós-produção · **Objetivo:** Acompanhamento detalhado das etapas de edição
+### 19 · EDIÇÃO `EDI-` ⭐ CRIADO 27/05
+**Tipo:** Pós-produção · **Objetivo:** Rastreamento de etapas de edição e pós-produção
+
+**Data Source ID:** `collection://0b437e77-08c6-4f6e-a133-5ca3f682ab58`
 
 | Campo | Tipo | Descrição |
 |---|---|---|
-| EDI-ID | ID único | — |
+| Nome da edição | Título | Ex: "SIMBIOSE — Vídeo 1min30s" |
 | Projeto | Relação | → PROJETO_2026 |
-| Etapa atual | Select | Log material / Select / Edição bruta / Corte 1 / Finalização / Correção cor / Masterização som / Trilha / Concluído |
-| Editor | Relação | → CONTATOS |
-| Colorista | Relação | → CONTATOS |
-| Engenheiro de som | Relação | → CONTATOS |
-| Compositor trilha | Relação | → CONTATOS |
-| Prazo de entrega | Data | — |
-| Software utilizado | Select | Premiere / DaVinci / Final Cut / After Effects / Resolve |
-| Pasta de edição | URL | Link Drive |
+| Etapa de edição | Select | Log material / Seleção / Edição bruta / Corte 1 / Finalização / Correção cor / Masterização som / Trilha / Concluído |
+| Editor | Texto | Nome do editor responsável |
+| Prazo de entrega | Data | Data de entrega esperada |
+| Software | Select | Premiere / DaVinci / Final Cut / After Effects |
+| Pasta de edição | URL | Link da pasta no Drive |
 | Status | Select | Em andamento / Aguardando feedback / Concluído |
+| Tipo de entrega | Select | Vídeo / Foto / Reel / Ambos |
+| Observações | Texto longo | Notas sobre a edição |
+
+**Notas de implementação:**
+- Campo `Editor` criado como TEXT em vez de RELATION (API Notion não permite relações em bancos novos via DDL simples)
+- Relação `Projeto` vinculada ao PROJETO_2026
+- Cada registro representa um projeto/tipo de entrega em edição (pode ter múltiplos registros por projeto se há vídeo + fotos simultâneos)
 
 ---
 
