@@ -344,4 +344,41 @@ output/                       → O que o Oráculo produziu
 
 ---
 
+---
+
+## SESSÃO 12 (continuação) — Correção de Relacionamentos Bidirecionais: DUAL Relations (27 Mai 2026)
+
+### ✅ Concluído nesta etapa
+
+**Problema:** Os 5 bancos criados (FILMAGEM, EDIÇÃO, ORÇAMENTO, FINANCEIRO_PROJETO, GESTÃO_FINANCEIRA_EMPRESA) tinham relacionamentos mão única com PROJETO_2026 — o usuário não conseguia ver as filmagens/edições/orçamentos ao abrir um projeto.
+
+**Solução:** Converter todos para `dual_property` via API Notion.
+
+**Ações tomadas:**
+
+1. ✅ **Auditoria de relacionamentos** — Identificadas 5 relações unidirecionais críticas
+2. ✅ **Conversão para DUAL** — Alteradas 5 relações:
+   - FILMAGEM.Projeto → DUAL → criou PROJETO_2026.Filmagens
+   - EDIÇÃO.Projeto → DUAL → criou PROJETO_2026.Edições
+   - ORÇAMENTO.Projeto → DUAL → criou PROJETO_2026.Orçamentos
+   - FINANCEIRO_PROJETO.Projeto → DUAL → criou PROJETO_2026.Financeiro do Projeto
+   - GESTÃO_FINANCEIRA_EMPRESA.Projeto relacionado → DUAL → criou PROJETO_2026.Gestão Financeira
+
+3. ✅ **Verificação** — PROJETO_2026 agora tem 5 novos campos com `propertyUrl` (bidirecional confirmado)
+
+### 📊 Resultado final
+
+**Antes:** 4 relacionamentos DUAL (PROJETO ↔ CLIENTES/PROPOSTAS/TAREFAS/CONTATOS)
+**Depois:** 9 relacionamentos DUAL (adicionados os 5 novos)
+
+**Impacto para o usuário:**
+- Ao abrir projeto SIMBIOSE agora aparece:
+  - Campo `Edições` com "SIMBIOSE — Vídeo 1min30s" vinculado
+  - Campo `Filmagens` (vazio — não há filmagem registrada ainda)
+  - Campo `Orçamentos` (vazio — não há orçamento vinculado ao SIMBIOSE)
+  - Campo `Financeiro do Projeto` (vazio)
+  - Campo `Gestão Financeira` (vazio)
+
+Os usuários agora conseguem navegar bidirecionalm entre projeto → filmagem/edição/orçamento e vice-versa.
+
 *Atualizado ao final da Sessão 12 — 27 Mai 2026 · Oráculo v1.3*

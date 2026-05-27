@@ -28,7 +28,7 @@ Toda criação de página ou banco no Notion **DEVE** usar como parent:
 
 | Banco | Prefixo | Fase | Status | Observações |
 |---|---|---|---|---|
-| PROJETO_2026 | PRJ- | 1 | ✅ Criado | Hub central, relações com Tarefas, Clientes, Propostas, Contatos |
+| PROJETO_2026 | PRJ- | 1 | ✅ Criado | Hub central, 9 relações DUAL: Clientes, Propostas, Tarefas, Contatos, Filmagens, Edições, Orçamentos, Financeiro, Gestão Financeira |
 | CLIENTES | CLI- | 1 | ✅ Criado | Tem `Órgão público` como segmento extra (vs. doc) |
 | CONTATOS | CTT- | 1 | ✅ Criado | Tem campo `Restrição Alimentar` (vs. doc) |
 | PROPOSTAS | PRP- | 1 | ✅ Criado | Integrada ao CRM via relação |
