@@ -94,6 +94,29 @@ Referência: skills/antigravity/negotiation-voss/SKILL.md (método Voss)
          1. output/ (arquivo local, versionado)
          2. NotebookLM (para consulta conversacional)
          3. cerebro/CEREBRO-ORACULO/01-FIRMA/ (para navegação no Obsidian)
+
+2026-05 | Relacionamentos bidirecionais no Notion — DUAL relations
+         Quando criar novo banco secundário (FILMAGEM, EDIÇÃO, ORÇAMENTO, etc),
+         SEMPRE especificar dual_property na API ao criar a relação.
+         Caso contrário, fica mão única: filho → pai, mas pai não vê filho.
+         Uma vez DUAL, o Notion sincroniza automaticamente — clicar em projeto
+         mostra todas as filmagens, edições, orçamentos vinculadas.
+         Se esquecer, pode corrigir depois com ALTER COLUMN SET.
+
+2026-05 | Estrutura financeira em 3 bancos interdependentes
+         ORÇAMENTO: proposta detalhada por projeto (o que foi PLANEJADO)
+         FINANCEIRO_PROJETO: transações reais com comprovantes (o que foi GASTO)
+         GESTÃO_FINANCEIRA_EMPRESA: despesas operacionais não vinculadas
+         Usar campo "Item do orçamento" em FINANCEIRO_PROJETO para rastrear
+         "Budget vs. Actual" — essencial para controle de margem.
+
+2026-05 | Auditoria de bidimensionalidades é crítica ANTES de começar novos projetos.
+         Antes de escalar (mais clientes, mais projetos), verificar:
+         - Todas as filmagens/edições/orçamentos têm projeto vinculado?
+         - Todos os projetos abertos têm seus registros?
+         - Há gaps (orçamento sem edição, edição sem filmagem)?
+         Isso previne cacos de informação espalhados — cada projeto é uma célula
+         conectada, não um silo.
 ```
 
 ---
@@ -115,5 +138,5 @@ Empresas / eventos (ex: SuperHost, Cerrado Experience)
 
 ---
 
-*Última atualização: Mai 2026 — Sessão 6*
-*Total de aprendizados: 13 registros*
+*Última atualização: Mai 2026 — Sessão 13*
+*Total de aprendizados: 16 registros*
