@@ -1,5 +1,5 @@
 # STATUS DO ORÁCULO — Handoff de Sessão
-## Firma Abacaxi · atualizado 27 Mai 2026 · Sessão 11
+## Firma Abacaxi · atualizado 01 Jun 2026 · Sessão 17
 
 ---
 
@@ -123,16 +123,22 @@
 ✅ Git — limpo, sem credenciais, .gitignore protegendo dados sensíveis
 ```
 
-### Notion — 6 bancos Fase 1 ativos
+### Notion — 12 bancos Fase 1-3 ativos
 ```
-Hub: 🔮 ORÁCULO - FIRMA ABACAXI
-  ✅ PROJETO_2026   → 2c031822-5594-4204-826b-752d5c2897bc
-  ✅ CLIENTES       → b08a5316-af2c-4fc7-9815-a5f50ac8e654
-  ✅ CONTATOS       → 43fa1821-83f1-47e4-9ba3-711ca8c3a210
-  ✅ PROPOSTAS      → 3548a525-91f3-80e6-b542-e2e651ed5dfc
-  ✅ CRM            → 5240a3c2-d0d1-4726-b23b-96463f5cc615
-  ✅ TAREFAS        → 6c3ccf72-5539-43f6-9fbb-7906142a246d
-  ⏳ 19 bancos Fase 2+ — documentados em docs/ARQUITETURA_NOTION.md, não criados
+Hub: 🔮 ORÁCULO - FIRMA ABACAXI (ID: 3288a525-91f3-81a0-885f-c20691f28468)
+  ✅ PROJETO_2026              → 2c031822-5594-4204-826b-752d5c2897bc
+  ✅ CLIENTES                  → b08a5316-af2c-4fc7-9815-a5f50ac8e654
+  ✅ CONTATOS                  → 43fa1821-83f1-47e4-9ba3-711ca8c3a210
+  ✅ PROPOSTAS                 → 3548a525-91f3-80e6-b542-e2e651ed5dfc
+  ✅ CRM                       → 5240a3c2-d0d1-4726-b23b-96463f5cc615
+  ✅ TAREFAS                   → 6c3ccf72-5539-43f6-9fbb-7906142a246d
+  ✅ ORÇAMENTO                 → 0652762f-bac3-4a0b-ad3c-2b7223132a2b
+  ✅ EDIÇÃO                    → 7f7422fc-cf76-4196-80de-c60c6a49df55
+  ✅ FILMAGEM                  → 2a5f9302-689f-440e-985c-c3b16362a4fe
+  ✅ FINANCEIRO_PROJETO        → a263e225-a5e4-427d-a887-d2e56ba12fb5
+  ✅ GESTÃO_FINANCEIRA_EMPRESA → 6b663765-f604-405b-a6eb-d9a5cba008af
+  ✅ TAREFAS DA FIRMA          → 3728a525-91f3-802d-ae2f-e15b167b1ff8
+  ⏳ 13 bancos Fase 2/3+ pendentes — ver docs/ARQUITETURA_NOTION.md
 ```
 
 ### Skills — 7 skills operacionais + 8 Antigravity
@@ -720,3 +726,127 @@ FIRMA ABACAXI/
 O acesso ao Drive via **rclone CLI** já está funcionando para upload/download de arquivos. A integração via **Google Drive MCP** (que permitiria ao Oráculo operar o Drive diretamente via ferramentas nativas) continua listada na Fase 2, mas não é urgente — o rclone cobre o caso de uso atual.
 
 *Atualizado ao final da Sessão 15 (parte 2) — 27 Mai 2026 · Oráculo v1.5.2*
+
+---
+
+## SESSÃO 16 — Maranhã: Estruturação Completa do Projeto (27 Mai 2026)
+
+### ✅ Concluído nesta sessão
+
+**Objetivo:** Estruturar o PRJ-16 Maranhã como projeto modelo — o mais completo até o momento.
+
+**Contexto:** O usuário forneceu PDF da proposta aprovada (R$ 10.573,86), cronograma detalhado das filmagens dos dias 28-29/05/2026, formato de gravação (Braw 12:1, 24fps, 6k) e link do Drive da Juliana com fotos das locações.
+
+**Descoberta:** Os 12 itens de ORÇAMENTO indicados no STATUS das sessões anteriores eram de outro projeto (valores completamente diferentes, vinculados a outra proposta). O Maranhã não tinha nenhum item de orçamento criado corretamente.
+
+**Ações tomadas:**
+
+1. ✅ **PROPOSTAS — Maranhã criado**
+   - Título: "Maranhã — Proposta Gravação 28-29/05"
+   - Status: Aprovada | Tipo: Institucional | Valor: R$ 10.573,86
+   - Data de Envio: 25/05/2026 | Validade: 25/06/2026
+   - ID: `36d8a525-91f3-819d-8c09-d58c1a04639b`
+
+2. ✅ **8 itens ORÇAMENTO criados** (fonte: PDF da proposta)
+
+   | Item | Categoria | Valor Unit. | Qtd | Total |
+   |------|-----------|-------------|-----|-------|
+   | Diretor de Fotografia | Equipe | R$ 1.500 | 2 | R$ 3.000 |
+   | Câmera - Blackmagic | Equipamento | R$ 600 | 2 | R$ 1.200 |
+   | Kit de Lentes | Equipamento | R$ 300 | 2 | R$ 600 |
+   | Op. de Som com Equipamentos | Equipe | R$ 1.200 | 2 | R$ 2.400 |
+   | Assistente | Equipe | R$ 600 | 2 | R$ 1.200 |
+   | Equipamentos de Iluminação | Equipamento | R$ 400 | 2 | R$ 800 |
+   | Produção (Alimentação/Combustível) | Outro | R$ 660 | 1 | R$ 660 |
+   | Imposto NF 7,24% | Imposto | R$ 713,86 | 1 | R$ 713,86 |
+
+   Todos: Fase = Proposta | Versão = Original | Status = Confirmado | Tipo = Custo
+   Vinculados ao projeto PRJ-16 + PROPOSTAS Maranhã
+
+3. ✅ **PROJETO_2026 (PRJ-16) atualizado:**
+   - Valor contratado: R$ 10.573,86
+   - Tipo de projeto: Institucional
+   - Status: Em produção (filmagem amanhã)
+   - Etapa atual: Produção
+   - Cliente: Maranhã ✅
+   - Proposta: vinculada ✅
+   - Pasta no Drive: https://drive.google.com/open?id=1y7b3ao5iH9C2xcSO3thlBnxpzzsWO_gb
+
+4. ✅ **FILMAGEM Dia 1 (28/05) atualizada:**
+   - Local: Palácio do Congresso Nacional (9h30) → Edifício Toufic (11h30)
+   - Cronograma: 9h Nilto Tatto / 11h30 Anne Moura / Tarde livre para coberturas
+   - Equipamentos: Câmera Blackmagic (Braw 12:1, 24fps, 6k) + kit completo
+
+5. ✅ **FILMAGEM Dia 2 (29/05) atualizada:**
+   - Local: DIEESE Brasília — Asa Sul EQS 314/315, Bloco A, 2° andar
+   - Cronograma: 9h entrada / 10h Adriana Marcolino / 3 opções de sala
+   - Link fotos locações: https://drive.google.com/drive/folders/10rga1s-jRiqYwC_6cwa2L7259EQATAIq
+
+6. ✅ **Google Drive — pasta Maranhã criada:**
+   ```
+   FIRMA ABACAXI/
+   └── PROJETOS/
+       └── 2026/
+           └── Maranha - Gravacao 28-29-05/     ← nome ASCII (Windows)
+               └── 01_PROPOSTA/
+                   └── Marana_proposta_v1.pdf   ← 247.750 bytes ✅
+   ```
+   - PDF link: https://drive.google.com/open?id=1tFN8EAD4amFQQWHEuXZuFtDH0XflNPo3
+   - Campo `Arquivo PDF` na PROPOSTA atualizado ✅
+
+7. ✅ **FLUXO_TRABALHO.md** — Google Drive (rclone CLI) marcado como ✅ Ativo
+
+### ⚠️ Ação manual ainda pendente (UI Notion)
+- Configurar filtros nas Linked Views "💰 Orçamento" dos 8 projetos (de sessão 15)
+- Remover PRJ-17 VI SOBRE 2026 duplicado do banco PROJETOS (de sessão 15)
+
+### 📊 Estado do Maranhã após Sessão 16
+
+| Componente | Status |
+|---|---|
+| PROJETO_2026 PRJ-16 | ✅ Completo |
+| PROPOSTAS Maranhã | ✅ Criado e vinculado |
+| ORÇAMENTO (8 itens) | ✅ Criado e vinculado |
+| FILMAGEM Dia 1 | ✅ Cronograma completo |
+| FILMAGEM Dia 2 | ✅ Cronograma completo |
+| Google Drive (pasta) | ✅ Criado |
+| PDF proposta | ✅ Upado e linkado |
+| Valor Total Orçado (rollup) | ✅ Auto-calculado = R$ 10.573,86 |
+
+**Modelo de referência:** Este projeto é o mais estruturado da firma até agora. Serve como template para projetos futuros.
+
+### 🔴 Próximos passos (pós-filmagem 29/05)
+1. Atualizar FILMAGEM.Status → "Em campo" (28/05 manhã) → "Finalizado" (29/05 noite)
+2. Criar registros em FINANCEIRO_PROJETO com comprovantes de despesas reais
+3. Registrar RECEITA no FINANCEIRO_PROJETO (pagamento do cliente)
+4. Vincular transações reais aos itens de ORÇAMENTO (para Budget vs. Actual automático)
+5. Criar banco/registros de EDIÇÃO após filmagem (pós-produção)
+
+---
+
+## SESSÃO 17 — Sincronização Notion V3 & Dashboard Digital (01 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+**Grande Atualização do Notion Realizada pelo Usuário:**
+- Ativação de 6 novas databases ligando as Fases 2 e 3: `ORÇAMENTO`, `EDIÇÃO`, `FILMAGEM`, `FINANCEIRO_PROJETO`, `GESTÃO_FINANCEIRA_EMPRESA` e o novo banco `TAREFAS DA FIRMA` (backoffice administrativo).
+- Cadastro de novos projetos, tarefas estratégicas e itens de orçamentos diretamente pelas abas e views do Notion.
+
+**Ações Tomadas pelo Oráculo:**
+1. ✅ **Varredura Completa por API:** Mapeamento de todas as novas estruturas do Notion e confirmação de sucesso de integração (12 bancos de dados de produção ativos).
+2. ✅ **Atualização de Regras e STATUS:** Sincronização dos 12 novos IDs de banco ativos no `STATUS.md` e regras internas do Claude Code (`.claude/rules/notion-schema.md`).
+3. ✅ **Dashboard Executivo Digital Premium:** Desenvolvido um painel web local premium em `output/dashboard/` contendo:
+   - `index.html` (estrutura em abas para Visão Geral, Projetos, Tarefas da Firma, Edição e Finanças).
+   - `style.css` (visual Dark Mode contemporâneo, efeito glassmorphic, cores vibrantes HSL da Firma, micro-animações).
+   - `app.js` (carregamento dinâmico e injeção em tempo real de projetos, checklists de tarefas e orçamento vinculados baseados nos dados reais do Notion).
+
+### 📊 Totais Consolidados do Notion V3
+- 12 bancos de dados operacionais ativos
+- 7 projetos cinematográficos e corporativos em andamento
+- 10 tarefas de backoffice e estratégico mapeadas no checklist da firma
+- 3 cortes ativos em pós-produção na mesa de edição
+- 18 itens de orçamentos e lançamentos financeiros indexados
+
+---
+
+*Atualizado ao final da Sessão 17 — 01 Jun 2026 · Oráculo v2.0*

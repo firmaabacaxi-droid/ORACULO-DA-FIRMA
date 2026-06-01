@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔮 ORÁCULO 3.0 — Firma Abacaxi Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-logo">🔮</span>
+                <div class="brand-info">
+                    <h2>ORÁCULO</h2>
+                    <p>SISTEMA OPERACIONAL V3.0</p>
+                </div>
+            </div>
+            
+            <nav class="navigation">
+                <ul>
+                    <li class="nav-item active" data-tab="visao-geral">
+                        <span class="icon">📊</span> Visão Geral
+                    </li>
+                    <li class="nav-item" data-tab="projetos">
+                        <span class="icon">🎬</span> Projetos Ativos
+                    </li>
+                    <li class="nav-item" data-tab="tarefas">
+                        <span class="icon">📌</span> Tarefas da Firma
+                    </li>
+                    <li class="nav-item" data-tab="pos-producao">
+                        <span class="icon">✂️</span> Pós-Produção
+                    </li>
+                    <li class="nav-item" data-tab="financeiro">
+                        <span class="icon">💰</span> Finanças & Custos
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="pulse-green"></span>
+                    <p>Notion V3 Conectado</p>
+                </div>
+                <p class="session-info">Sessão 10 · Junho 2026</p>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="header-title">
+                    <p class="breadcrumb">Firma Abacaxi Ateliê Audiovisual</p>
+                    <h1>Painel de Controle Central</h1>
+                </div>
+                <div class="user-profile">
+                    <div class="profile-info">
+                        <span class="profile-name">Mestre</span>
+                        <span class="profile-role">Administrador</span>
+                    </div>
+                    <div class="avatar">🍍</div>
+                </div>
+            </header>
+
+            <!-- Visao Geral View -->
+            <section id="visao-geral" class="tab-content active">
+                <div class="kpi-grid">
+                    <div class="kpi-card glow-orange">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">🎬</span>
+                            <span class="kpi-tag">Ativos</span>
+                        </div>
+                        <h3>Projetos em Produção</h3>
+                        <p class="kpi-value" id="kpi-projetos-ativos">7</p>
+                        <p class="kpi-sub">Fase 1 e Fase 2 do Notion</p>
+                    </div>
+                    <div class="kpi-card glow-green">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">💰</span>
+                            <span class="kpi-tag success">Faturamento</span>
+                        </div>
+                        <h3>Faturamento Estimado</h3>
+                        <p class="kpi-value">R$ 145.800</p>
+                        <p class="kpi-sub">Soma das Propostas Ativas</p>
+                    </div>
+                    <div class="kpi-card glow-blue">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">📌</span>
+                            <span class="kpi-tag info">Tarefas</span>
+                        </div>
+                        <h3>Tarefas Pendentes</h3>
+                        <p class="kpi-value" id="kpi-tarefas-pendentes">12</p>
+                        <p class="kpi-sub">Urgência: Alta / Média</p>
+                    </div>
+                    <div class="kpi-card glow-purple">
+                        <div class="kpi-header">
+                            <span class="kpi-icon">✂️</span>
+                            <span class="kpi-tag warning">Edição</span>
+                        </div>
+                        <h3>Cortes em Finalização</h3>
+                        <p class="kpi-value" id="kpi-edicoes-ativas">3</p>
+                        <p class="kpi-sub">Bonito Cine Sur, AGO, Simbiose</p>
+                    </div>
+                </div>
+
+                <div class="content-row">
+                    <!-- Projetos Recentes -->
+                    <div class="content-block flex-2">
+                        <div class="block-header">
+                            <h2>🎬 Projetos Recentes no Notion</h2>
+                            <button class="btn btn-primary" onclick="switchTab('projetos')">Ver Todos</button>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Projeto</th>
+                                        <th>Cliente</th>
+                                        <th>Etapa</th>
+                                        <th>Status</th>
+                                        <th>Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="recent-projects-list">
+                                    <!-- Dynamic content -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Ultimas Tarefas -->
+                    <div class="content-block flex-1">
+                        <div class="block-header">
+                            <h2>📌 Próximas Ações</h2>
+                            <button class="btn btn-secondary" onclick="switchTab('tarefas')">Firma</button>
+                        </div>
+                        <ul class="task-list-simple" id="recent-tasks-list">
+                            <!-- Dynamic content -->
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Outras Sections Dinamicas (Projetos, Tarefas, Pos, Financeiro) -->
+            <section id="projetos" class="tab-content">
+                <div class="block-header">
+                    <h2>🎬 Portfólio de Projetos Ativos — Notion V3</h2>
+                </div>
+                <div class="projects-grid" id="full-projects-grid">
+                    <!-- Dynamic Grid -->
+                </div>
+            </section>
+
+            <section id="tarefas" class="tab-content">
+                <div class="block-header">
+                    <h2>📌 Gerenciamento de Tarefas Internas e Operacionais</h2>
+                </div>
+                <div class="task-sections">
+                    <div class="content-block">
+                        <h3>📌 TAREFAS DA FIRMA (Backoffice & Estratégico)</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Tarefa</th>
+                                        <th>Status</th>
+                                        <th>ID</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="firma-tasks-table">
+                                    <!-- Dynamic -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pos-producao" class="tab-content">
+                <div class="block-header">
+                    <h2>✂️ Mesa de Edição e Finalização Audiovisual</h2>
+                </div>
+                <div class="pos-producao-grid" id="editions-grid">
+                    <!-- Dynamic -->
+                </div>
+            </section>
+
+            <section id="financeiro" class="tab-content">
+                <div class="block-header">
+                    <h2>💰 Planejamento Orçamentário e Lançamentos</h2>
+                </div>
+                <div class="content-row">
+                    <div class="content-block flex-2">
+                        <h3>📋 Detalhamento Orçamentário de Itens (Notion Linked Table)</h3>
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Item de Custo / Receita</th>
+                                        <th>Categoria</th>
+                                        <th>Valor Un.</th>
+                                        <th>Qtd.</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="budget-items-table">
+                                    <!-- Dynamic -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="content-block flex-1">
+                        <h3>📊 Indicadores de Saúde Financeira</h3>
+                        <div class="financial-metrics">
+                            <div class="metric-row">
+                                <span>Margem Operacional Média</span>
+                                <span class="text-green text-bold">64.1%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill bg-green" style="width: 64.1%"></div>
+                            </div>
+                            <div class="metric-row">
+                                <span>Custos Freelancer / Equipe</span>
+                                <span class="text-orange text-bold">R$ 38.600</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill bg-orange" style="width: 26.5%"></div>
+                            </div>
+                            <div class="metric-row">
+                                <span>Logística (Viagens / Alimentação)</span>
+                                <span class="text-blue text-bold">R$ 13.800</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill bg-blue" style="width: 9.4%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
