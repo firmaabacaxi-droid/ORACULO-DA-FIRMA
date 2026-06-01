@@ -28,7 +28,8 @@ GERAÇÃO DE LEADS (Marketing Digital)
 | **NotebookLM** | ✅ Ativo | Pesquisa de cliente, extração de conhecimento de apostilas |
 | **Brave Search** | ✅ Ativo | Pesquisa de mercado, benchmarks, concorrentes |
 | **Claude Code** (Oráculo) | ✅ Ativo | Execução de todas as skills |
-| **Google Drive** (MCP) | 📌 Fase 2 | Arquivos de projeto, entrega de material |
+| **Google Drive** (rclone CLI) | ✅ Ativo | Upload de PDFs, pastas de projeto, material bruto |
+| **Google Drive** (MCP) | 📌 Fase 2 | Integração nativa do Oráculo com o Drive (operações automáticas) |
 | **Frame.io** | 📌 Fase 2 | Aprovação de vídeos pelo cliente |
 | **Make / n8n** | 📌 Fase 3 | Automações A1–A5 |
 | **ElevenLabs** | 📌 Fase 3 | Voice-over profissional |

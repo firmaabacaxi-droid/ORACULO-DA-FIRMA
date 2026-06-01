@@ -849,4 +849,95 @@ O acesso ao Drive via **rclone CLI** já está funcionando para upload/download 
 
 ---
 
-*Atualizado ao final da Sessão 17 — 01 Jun 2026 · Oráculo v2.0*
+---
+
+## SESSÃO 18 — Preparação Edital FAC 2026: Auditoria + Base de Conhecimento (01 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+**Objetivo:** Preparar estrutura completa para inscrição em Edital FAC I/2026 — auditoria de documentação existente, organização no vault Obsidian e criação de base de conhecimento no NotebookLM.
+
+**Contexto:** 
+- Prazo: 5 de junho 2026 (23h59) — 4 dias para submissão
+- Modalidade: Ampla Concorrência
+- Valor máximo (PF): R$ 200.000
+- Documentação: 12 anexos do edital
+
+**Ações tomadas:**
+
+1. ✅ **Auditoria completa de projetos FAC antigos** — 8 arquivos em 4 projetos
+   - 5 Atos da Escada (2021): Formulário + Script
+   - Festival CircoLar (2021): Formulário + Cronograma + Ficha Técnica
+   - Videomaker Independente (2021): Formulário ✅ Planilha ✅ Plano de Curso ✅ Cronograma ✅ Ficha Técnica
+   - Cinema Documental (2023): Planilha ✅ Plano de Curso ✅ Ficha Técnica
+   - **Cobertura: 4 projetos, 25% → 75% documentação**
+
+2. ✅ **Vault Obsidian — 11 arquivos MD (~15.000 linhas)**
+   - 00-INDEX.md — entrada principal com prazos e checklist
+   - BASE-CONHECIMENTO-FAC-2026.md — consolidado de 6.200+ linhas
+   - 01-Edital-Ampla.md — 22 áreas, 3 módulos, quesitos de avaliação
+   - 02-Formulario.md — 40+ campos com limites de caracteres
+   - 04-Modelos.md — Videomaker como modelo de excelência (estrutura completa)
+   - 05-Checklist.md — 60+ documentos obrigatórios
+   - PROJETOS-ANTIGOS-*.md × 4 — Referências documentadas
+   - PLANO-DE-EXECUCAO.md — Fluxo 4 dias (Dia 1-4, 5 jun)
+   - NOTEBOOKLM-CONFIG.md — Guia de uso
+   - SUMARIO-PREPARACAO-COMPLETA.md — Resumo final
+
+3. ✅ **NotebookLM — 9 fontes processadas e prontas**
+   - ID: 944cbd55-d01b-430e-924d-4a49fe9cfeb4
+   - Status: Todas as 9 fontes em "ready" (indexadas)
+   - Acesso: https://notebooklm.google.com/
+
+4. ✅ **Plano de Execução 4 dias definido:**
+   - **Dia 1:** Refinamento + Pesquisa (2-3h) → Ideia validada
+   - **Dia 2:** Redação narrativa (4-5h) → Campos principais preenchidos
+   - **Dia 3:** Orçamento + Cronograma (3-4h) → Anexos IV e IX prontos
+   - **Dia 4:** Documentação complementar (2-3h) → Todos os docs
+   - **Dia 5 (tarde):** Revisão + Envio (30 min) → **SUBMIT antes de 23h59**
+
+5. ✅ **Modelos de Referência Consolidados:**
+   - Videomaker Independente: ⭐⭐⭐⭐⭐ (100% — Objeto, Objetivos, Justificativa, Público-alvo, Metas, Acessibilidade, Metodologia, Conteúdo, Avaliação, Cronograma, Ficha Técnica, Comunicação)
+   - CircoLar: ⭐⭐⭐⭐ (75% — Formulário, Cronograma, Ficha Técnica, Comunicação)
+   - Cinema Documental: ⭐⭐⭐⭐ (75% — Orçamento FGV, Planos de Curso, Ficha Técnica)
+
+### 📊 Preparação Consolidada para FAC 2026
+
+| Item | Status | Quantidade |
+|---|---|---|
+| Arquivos MD no Vault | ✅ Pronto | 11 |
+| Fontes NotebookLM | ✅ Pronto | 9 (todas processadas) |
+| Projetos Antigos Mapeados | ✅ Pronto | 4 |
+| Áreas Culturais Documentadas | ✅ Pronto | 22 |
+| Documentos Obrigatórios Listados | ✅ Pronto | 60+ |
+| Linhas de Conteúdo | ✅ Pronto | ~15.000+ |
+| Horas de Preparação | ✅ Pronto | ~40h |
+
+### 📋 Fluxo de Trabalho Definido
+
+**Informações que o usuário deve trazer:**
+1. Título do projeto
+2. Conceito (1-2 parágrafos)
+3. Tipo de ação (oficina, mostra, produção, curso, festival, pesquisa)
+4. Área cultural (qual das 22)
+5. Módulo (I: R$ 100k, II: R$ 200k)
+6. Público-alvo
+7. Duração (máx. 12 meses)
+8. Diferenciais
+
+**Resto:** Já documentado e estruturado
+
+### 🔴 Próximos passos
+
+1. **Usuária apresenta a ideia do projeto** com os 8 pontos acima
+2. **Oráculo ativa Plan Mode** para validação contra edital
+3. **Execução 4 dias:** Dia 1 (01 jun) → Dia 4 (04 jun) → Dia 5 (05 jun) SUBMIT
+4. **Resultado:** Projeto completo + documentação + checklist final
+
+### 💾 Documentação Atualizada
+
+- `cerebro/CEREBRO-ORACULO/05-PROJETOS/FAC-2026/` — 11 arquivos criados
+- NotebookLM linkado com 9 fontes processadas
+- Status.md atualizado com Sessão 18
+
+*Atualizado ao final da Sessão 18 — 01 Jun 2026 · Oráculo v2.1*
