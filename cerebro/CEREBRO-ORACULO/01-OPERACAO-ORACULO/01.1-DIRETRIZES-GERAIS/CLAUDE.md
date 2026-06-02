@@ -32,7 +32,7 @@ Identifique a tarefa e carregue a skill correspondente **antes de executar**.
 ```
 MARKETING DIGITAL / GERAÇÃO DE LEADS / FUNIL / ESTRATÉGIA DE CAPTAÇÃO (Etapa 0)
 → leia skills/prospeccao/MARKETING_CAPTACAO.md + skills/conteudo/SKILL.md
-→ base de conhecimento: cerebro/CEREBRO-ORACULO/03-CONHECIMENTO/marketing-digital/
+→ base de conhecimento: cerebro/CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/
 
 PROSPECÇÃO / CAPTAÇÃO / LEAD / BRIEFING / QUALIFICAÇÃO / PRIMEIRO ATENDIMENTO
 → leia skills/prospeccao/SKILL.md
@@ -45,7 +45,7 @@ PROPOSTA / ORÇAMENTO / PRECIFICAÇÃO (cliente existente ou revisão)
 
 ROTEIRO / DECUPAGEM / PLANO DE FILMAGEM / PRÉ-PRODUÇÃO
 → leia skills/preproducao/SKILL.md
-→ templates em cerebro/CEREBRO-ORACULO/01-FIRMA/TEMPLATES/
+→ templates em cerebro/CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/
 
 FILMAGEM / SET / DIÁRIO DE PRODUÇÃO / MATERIAL BRUTO
 → leia skills/producao/SKILL.md
@@ -183,7 +183,7 @@ Quando Lipe ou Jaya disserem **"finalizar sessão"**, **"encerrar sessão"** ou 
 
 1. **STATUS.md** — atualizar o bloco da sessão atual: o que foi feito, decisões tomadas, próximos passos
 2. **MEMORIA.md** — perguntar: "Há algum aprendizado novo para registrar?" — só registrar com autorização
-3. **Cerebro (Obsidian)** — criar nota datada em `cerebro/CEREBRO-ORACULO/04-APRENDIZADOS/` com o formato `AAAA-MM-DD-Titulo-Sessao.md`
+3. **Cerebro (Obsidian)** — criar nota datada em `cerebro/CEREBRO-ORACULO/07-LOGS-DE-SESSAO/` com o formato `AAAA-MM-DD-Titulo-Sessao.md`
 4. **Commit git** — fazer commit com a mensagem `"sessão N — [resumo em uma linha]"`
 
 Pergunte antes de executar cada etapa se houver dúvida sobre o conteúdo.

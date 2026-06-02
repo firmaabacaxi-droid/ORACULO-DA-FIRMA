@@ -157,7 +157,7 @@ Hub: 🔮 ORÁCULO - FIRMA ABACAXI (ID: 3288a525-91f3-81a0-885f-c20691f28468)
 
 ### Templates de produção — 10 templates criados (Sessão 8)
 ```
-cerebro/CEREBRO-ORACULO/01-FIRMA/TEMPLATES/
+cerebro/CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/
 ✅ Template-Ordem-do-Dia.md
 ✅ Template-Log-Filmagem.md
 ✅ Template-Roteiro-Literario.md
