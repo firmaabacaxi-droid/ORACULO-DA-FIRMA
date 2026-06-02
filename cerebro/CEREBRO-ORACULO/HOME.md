@@ -12,7 +12,7 @@ Repositório de conhecimento vivo da Firma. Tudo que aprendemos, desenvolvemos e
 Projeto finalizado → Oráculo extrai aprendizados → salva aqui → git sincroniza → NotebookLM aprende → Oráculo fica mais inteligente
 ```
 
-**Como usar:** [[00-INBOX/_COMO-USAR|Guia completo de uso →]]
+**Como usar:** [Guia completo de uso →](00-INBOX/_COMO-USAR.md)
 
 ---
 
@@ -20,14 +20,14 @@ Projeto finalizado → Oráculo extrai aprendizados → salva aqui → git sincr
 
 | Pasta | Conteúdo |
 |---|---|
-| [[00-INBOX/_COMO-USAR\|00 · INBOX]] | Rascunhos temporários e notas rápidas |
-| [[01-OPERACAO-ORACULO/_INDEX\|01 · OPERAÇÃO ORÁCULO]] | Diretrizes, DNA da Firma, arquitetura Notion e templates |
-| [[02-PROCESSOS-E-MANUAIS/_INDEX\|02 · PROCESSOS INTERNOS]] | Manuais de "Como a Firma Funciona" por departamento (SOPs) |
-| [[03-CLIENTES/_INDEX\|03 · CLIENTES]] | Dossiês permanentes dos clientes, perfis DISC e histórico |
-| [[04-PROJETOS-ATIVOS/_INDEX\|04 · PROJETOS ATIVOS]] | Projetos em andamento e acompanhamento de etapas criativas |
-| [[05-ARQUIVO-HISTORICO/_INDEX\|05 · ARQUIVO HISTÓRICO]] | Projetos finalizados e editais passados (ex: FAC-2026) |
-| [[06-ESTUDOS-E-REFERENCIAS/_INDEX\|06 · ESTUDOS E REFERÊNCIAS]] | Biblioteca de estudos, cursos, estética e referências criativas |
-| [[07-LOGS-DE-SESSAO/_INDEX\|07 · SESSÕES E APRENDIZADOS]] | Notas cronológicas de sessões e aprendizados com o Oráculo |
+| [00 · INBOX](00-INBOX/_COMO-USAR.md) | Rascunhos temporários e notas rápidas |
+| [01 · OPERAÇÃO ORÁCULO](01-OPERACAO-ORACULO/_INDEX.md) | Diretrizes, DNA da Firma, arquitetura Notion e templates |
+| [02 · PROCESSOS INTERNOS](02-PROCESSOS-E-MANUAIS/_INDEX.md) | Manuais de "Como a Firma Funciona" por departamento (SOPs) |
+| [03 · CLIENTES](03-CLIENTES/_INDEX.md) | Dossiês permanentes dos clientes, perfis DISC e histórico |
+| [04 · PROJETOS ATIVOS](04-PROJETOS-ATIVOS/_INDEX.md) | Projetos em andamento e acompanhamento de etapas criativas |
+| [05 · ARQUIVO HISTÓRICO](05-ARQUIVO-HISTORICO/_INDEX.md) | Projetos finalizados e editais passados (ex: FAC-2026 antigo) |
+| [06 · ESTUDOS E REFERÊNCIAS](06-ESTUDOS-E-REFERENCIAS/_INDEX.md) | Biblioteca de estudos, cursos, estética e referências criativas |
+| [07 · SESSÕES E APRENDIZADOS](07-LOGS-DE-SESSAO/_INDEX.md) | Notas cronológicas de sessões e aprendizados com o Oráculo |
 
 ---
 
@@ -47,8 +47,8 @@ Projeto finalizado → Oráculo extrai aprendizados → salva aqui → git sincr
 - **Vault criado:** Maio 2026
 - **Reorganização 3.0:** Junho 2026 — Reestruturado em 8 pastas com separação de Clientes, Projetos Ativos, Estudos e Processos.
 - **Sincronização Core:** Ativa via script `sync_vault_core.py` (sincroniza `CLAUDE.md`, `STATUS.md` e `MEMORIA.md`).
-- **Clientes cadastrados:** RNP, SIMBIOSE, Tâmara, Maranhã, SOBRE2026.
-- **Projetos ativos estruturados:** Maranhã (#16), Simbiose (#10), RNP Ailton Krenak (#08).
+- **Clientes cadastrados:** RNP, SIMBIOSE, Tâmara, Maranhã, SOBRE2026, Brasil Participativo.
+- **Projetos ativos estruturados:** Maranhã (#16), Simbiose (#10), RNP (#08), Brasil Participativo (#04), FAC-2026.
 
 ---
 

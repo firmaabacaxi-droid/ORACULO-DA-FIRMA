@@ -8,24 +8,24 @@ Seu banco de dados de conhecimento geral, inspirações visuais, técnicas e est
 
 Anotações de cursos, módulos de aprendizado teórico e resumos de livros.
 *   **Marketing Digital (Apostilas Extraídas):**
-    *   [[06.1-CURSOS-E-ESTUDOS/marketing-digital/01-fundamentos\|01 · Fundamentos e Personas]]
-    *   [[06.1-CURSOS-E-ESTUDOS/marketing-digital/02-trafego-pago\|02 · Tráfego Pago e Google/Meta Ads]]
-    *   [[06.1-CURSOS-E-ESTUDOS/marketing-digital/03-conteudo-organico\|03 · Conteúdo Orgânico e Algoritmo]]
-    *   [[06.1-CURSOS-E-ESTUDOS/marketing-digital/04-copywriting\|04 · Copywriting e Gatilhos Mentais]]
-    *   [[06.1-CURSOS-E-ESTUDOS/marketing-digital/05-email-marketing\|05 · E-mail Marketing e Nurturing]]
-    *   [[06.1-CURSOS-E-ESTUDOS/marketing-digital/06-vendas-conversao\|06 · Técnicas de Vendas e Conversão]]
+    *   [01 · Fundamentos e Personas](06.1-CURSOS-E-ESTUDOS/marketing-digital/01-fundamentos.md)
+    *   [02 · Tráfego Pago e Google/Meta Ads](06.1-CURSOS-E-ESTUDOS/marketing-digital/02-trafego-pago.md)
+    *   [03 · Conteúdo Orgânico e Algoritmo](06.1-CURSOS-E-ESTUDOS/marketing-digital/03-conteudo-organico.md)
+    *   [04 · Copywriting e Gatilhos Mentais](06.1-CURSOS-E-ESTUDOS/marketing-digital/04-copywriting.md)
+    *   [05 · E-mail Marketing e Nurturing](06.1-CURSOS-E-ESTUDOS/marketing-digital/05-email-marketing.md)
+    *   [06 · Técnicas de Vendas e Conversão](06.1-CURSOS-E-ESTUDOS/marketing-digital/06-vendas-conversao.md)
 
 ---
 
 ## 06.2 · Estética e Autores
 
 Inspirações cinematográficas, paletas de cores e técnicas artísticas.
-*   [[06.2-ESTETICA-E-AUTORES/Tecnicas-Assinatura-Firma\|Técnicas Assinatura da Firma]]
-*   [[06.2-ESTETICA-E-AUTORES/Diretores-Cinematografos\|Fichas de Diretores e Cinematógrafos]]
-*   [[06.2-ESTETICA-E-AUTORES/Esteticas-Por-Nicho\|Estéticas Visuais por Nicho de Mercado]]
-*   [[06.2-ESTETICA-E-AUTORES/Filmes-Referencias\|Filmes e Referências Narrativas]]
-*   [[06.2-ESTETICA-E-AUTORES/Moodboards\|Moodboards e Paletas de Cores]]
-*   [[06.2-ESTETICA-E-AUTORES/Tecnicas-Visuais-Favoritas\|Técnicas Visuais Favoritas do Filipe]]
+*   [Técnicas Assinatura da Firma](06.2-ESTETICA-E-AUTORES/Tecnicas-Assinatura-Firma.md)
+*   [Fichas de Diretores e Cinematógrafos](06.2-ESTETICA-E-AUTORES/Diretores-Cinematografos.md)
+*   [Estéticas Visuais por Nicho de Mercado](06.2-ESTETICA-E-AUTORES/Esteticas-Por-Nicho.md)
+*   [Filmes e Referências Narrativas](06.2-ESTETICA-E-AUTORES/Filmes-Referencias.md)
+*   [Moodboards e Paletas de Cores](06.2-ESTETICA-E-AUTORES/Moodboards.md)
+*   [Técnicas Visuais Favoritas do Filipe](06.2-ESTETICA-E-AUTORES/Tecnicas-Visuais-Favoritas.md)
 
 ---
 

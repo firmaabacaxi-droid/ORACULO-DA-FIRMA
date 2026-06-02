@@ -8,7 +8,7 @@ Perfis dos clientes da Firma: contatos, histórico, pesquisa, perfis DISC e hist
 
 | Cliente | Pasta | Status |
 |---|---|---|
-| Brasil Participativo (LabLivre/UnB) | [[brasil-participativo/brasil-participativo\|Brasil Participativo]] | Ativo |
+| Brasil Participativo (LabLivre/UnB) | [Brasil Participativo](brasil-participativo/brasil-participativo.md) | Ativo |
 
 ---
 
