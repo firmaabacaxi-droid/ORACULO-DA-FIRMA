@@ -54,7 +54,7 @@ O documentário não é institucional sobre a plataforma Brasil Participativo �
 ## Próximos passos combinados
 
 - [ ] **Pop** — sistematizar o escopo em documento e compartilhar com a equipe
-- [ ] **Firma Abacaxi** — elaborar e enviar proposta com estrutura + orçamento (diárias de gravação, edição, etc.)
+- [x] **Firma Abacaxi** — elaborar e enviar proposta com estrutura + orçamento (diárias de gravação, edição, etc.) → proposta v2 enviada (R$ 50.025,00), registrada no Notion (PRP em "Propostas", vinculada a PRJ-4)
 - [ ] **Imersão:** Felipe e Jaya passam um dia inteiro no LabLivre (preferencialmente **terça-feira** — dia de maior movimento e reuniões de planejamento)
 - [ ] **Contrato** via **Finatec** (fundação de apoio da UnB) — início oficial condicionado ao contrato formalizado
 
