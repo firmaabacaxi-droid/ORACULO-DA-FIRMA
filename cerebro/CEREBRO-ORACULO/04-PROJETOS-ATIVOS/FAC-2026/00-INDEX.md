@@ -8,9 +8,9 @@
 
 - [x] **Etapa 1** — Documentação organizada no vault ✅
 - [x] **Etapa 2** — NotebookLM criado com 5 fontes processadas ✅
-- [ ] **Etapa 3** — Ideia do projeto apresentada
-- [ ] **Etapa 4** — Projeto desenvolvido (campo a campo)
-- [ ] **Etapa 5** — Planilha orçamentária (Anexo IV) preenchida
+- [x] **Etapa 3** — Ideia do projeto apresentada ✅ (Todas as Histórias do Mundo)
+- [x] **Etapa 4** — Projeto desenvolvido (campo a campo) ✅ (9 campos narrativos + roteiro-guia)
+- [x] **Etapa 5** — Planilha orçamentária (Anexo IV) preenchida ✅ (38 itens, R$199.300 — 3 jun)
 - [ ] **Etapa 6** — Documentos complementares coletados
 - [ ] **Etapa 7** — Cronograma (Anexo IX) preenchido
 - [ ] **Etapa 8** — Ficha técnica montada
@@ -28,7 +28,8 @@
 | **02-Formulario.md**   | Formulário de inscrição (JotForm) — campo a campo              | ✅ No NotebookLM |
 | **04-Modelos.md**      | Projetos aprovados como referência (Videomaker FAC 2021)      | ✅ No NotebookLM |
 | **05-Checklist.md**    | 60+ documentos obrigatórios, cronograma, dicas               | ✅ No NotebookLM |
-| **03-Projeto.md**      | Texto do projeto em desenvolvimento (será criado)              | ⏳ Pendente |
+| **SESSAO-3JUN-BLOCO-B-ORCAMENTO.md** | Aprendizados, workflow, números finais (Bloco B) | ✅ 3 jun 2026 |
+| **MEMORIA-SESSAO-18.md** | Memória da sessão 18 (preparação inicial) | ✅ Referência |
 
 ---
 
