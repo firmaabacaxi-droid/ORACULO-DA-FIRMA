@@ -12,7 +12,7 @@
 - [x] **Etapa 4** — Projeto desenvolvido (campo a campo) ✅ (9 campos narrativos + roteiro-guia)
 - [x] **Etapa 5** — Planilha orçamentária (Anexo IV) preenchida ✅ (38 itens, R$199.300 — 3 jun)
 - [ ] **Etapa 6** — Documentos complementares coletados
-- [ ] **Etapa 7** — Cronograma (Anexo IX) preenchido
+- [x] **Etapa 7** — Cronograma (Anexo IX) preenchido ✅ (6 meses, 26 atividades — 3 jun)
 - [ ] **Etapa 8** — Ficha técnica montada
 - [ ] **Etapa 9** — Formulário preenchido online
 - [ ] **Etapa 10** — Envio e confirmação
@@ -29,6 +29,7 @@
 | **04-Modelos.md**      | Projetos aprovados como referência (Videomaker FAC 2021)      | ✅ No NotebookLM |
 | **05-Checklist.md**    | 60+ documentos obrigatórios, cronograma, dicas               | ✅ No NotebookLM |
 | **SESSAO-3JUN-BLOCO-B-ORCAMENTO.md** | Aprendizados, workflow, números finais (Bloco B) | ✅ 3 jun 2026 |
+| **SESSAO-3JUN-BLOCO-C-CRONOGRAMA.md** | Estrutura 6 meses, 26 atividades, coerência com orçamento (Bloco C) | ✅ 3 jun 2026 |
 | **MEMORIA-SESSAO-18.md** | Memória da sessão 18 (preparação inicial) | ✅ Referência |
 
 ---
