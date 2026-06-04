@@ -200,8 +200,7 @@ table.data td {
   margin-bottom: 0.55cm;
 }
 .scene {
-  margin-bottom: 1cm;
-  page-break-inside: avoid;
+  margin-bottom: 0.7cm;
 }
 .scene-header {
   background: rgba(122,92,58,0.055);
@@ -243,23 +242,25 @@ table.data td {
 .da-block p:last-child { margin-bottom: 0; }
 .tecnica { font-size: 10pt; color: #5A4030; margin-top: 0.18cm; }
 
-/* ─── FIGURAS INLINE ─── */
+/* ─── FIGURAS INLINE — float à direita, texto ao lado ─── */
 .inline-figure {
-  margin: 0.6cm auto 0.7cm;
+  float: right;
+  width: 6.2cm;
+  margin: 0.1cm 0 0.5cm 0.7cm;
   text-align: center;
-  page-break-inside: avoid;
 }
 .inline-figure img {
-  width: 7cm;
+  width: 100%;
   display: block;
-  margin: 0 auto 0.2cm;
   border: 1px solid #C8B090;
+  margin-bottom: 0.15cm;
 }
 .inline-figure figcaption {
-  font-size: 8pt;
+  font-size: 7.5pt;
   font-style: italic;
   color: #5A4030;
 }
+.clearfix::after { content: ""; display: table; clear: both; }
 
 /* ─── PAINEL VISUAL — 2 colunas via table ─── */
 .pranchas-intro {
@@ -273,7 +274,6 @@ table.data td {
   border-collapse: separate;
   border-spacing: 0.35cm 0;
   margin-bottom: 0.6cm;
-  page-break-inside: avoid;
 }
 .pranchas-row td {
   width: 50%;
@@ -316,7 +316,6 @@ table.data td {
 }
 
 .content-section { margin-bottom: 1.1cm; }
-.section-page-break { page-break-before: always; }
 </style>
 </head>
 <body>
@@ -393,6 +392,7 @@ table.data td {
     <img src="images/01-figurino-sael.png" alt="Figurino — Sael">
     <figcaption>Estudo de figurino — Sael</figcaption>
   </figure>
+  <div class="clearfix"></div>
 </div>
 
 <hr class="rule">
@@ -413,6 +413,7 @@ table.data td {
     <img src="images/02-cenografia-palco.png" alt="Cenografia — O Palco">
     <figcaption>Estudo de cenografia — painéis de tecido, polias e sistema de cordas</figcaption>
   </figure>
+  <div class="clearfix"></div>
 </div>
 
 <hr class="rule">
@@ -438,7 +439,7 @@ table.data td {
 <hr class="rule">
 
 <!-- ══════════════════════ VI. ROTEIRO ══════════════════════ -->
-<div class="content-section section-page-break">
+<div class="content-section">
   <div class="section-header">
     <span class="section-num">VI</span>
     <h2>Roteiro</h2>
@@ -616,6 +617,7 @@ table.data td {
       <img src="images/05-crise.png" alt="A Crise — Colapso Visual">
       <figcaption>Estudo visual — A Crise: colapso dos quatro universos simultâneos</figcaption>
     </figure>
+    <div class="clearfix"></div>
   </div>
 
   <div class="scene">
@@ -682,6 +684,7 @@ table.data td {
       <img src="images/06-revelacao.png" alt="A Revelação — Branco Absoluto">
       <figcaption>Estudo visual — A Revelação: branco absoluto, a corda pousada</figcaption>
     </figure>
+    <div class="clearfix"></div>
   </div>
 </div>
 
@@ -727,6 +730,7 @@ table.data td {
     <img src="images/03-aderecos.png" alt="Adereços — Objetos de Cena">
     <figcaption>Estudo de adereços — objetos de cena reunidos pela corda</figcaption>
   </figure>
+  <div class="clearfix"></div>
 </div>
 
 <hr class="rule">
@@ -764,12 +768,13 @@ table.data td {
     <img src="images/04-universos.png" alt="Universos — Projeção Mapeada">
     <figcaption>Estudo visual — os quatro universos projetados nos tecidos</figcaption>
   </figure>
+  <div class="clearfix"></div>
 </div>
 
 <hr class="rule">
 
 <!-- ══════════════════════ X. PAINEL VISUAL ══════════════════════ -->
-<div class="content-section section-page-break">
+<div class="content-section">
   <div class="section-header">
     <span class="section-num">X</span>
     <h2>Painel de Estudo Visual</h2>
