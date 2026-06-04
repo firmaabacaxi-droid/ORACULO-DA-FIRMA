@@ -941,3 +941,135 @@ O acesso ao Drive via **rclone CLI** já está funcionando para upload/download 
 - Status.md atualizado com Sessão 18
 
 *Atualizado ao final da Sessão 18 — 01 Jun 2026 · Oráculo v2.1*
+
+---
+
+---
+
+## SESSÃO 19 — Painel de Estudo Visual: Direção de Arte + Prompts DALL-E 3 (04 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+**Objetivo:** Gerar painel de 9 imagens de estudo visual para a seção IX (Referências Visuais) do Roteiro v3 da FAC 2026 — projeto "Todas as Histórias do Mundo".
+
+**Contexto:**
+- Projeto: Solo circo contemporâneo + videoprojeção mapeada em tecido
+- Necessário: 9 imagens de referência teatrais em estilo impressionístico (não fotorrealista)
+- Desafio anterior: Tentativa de geração via API OpenAI atingiu limite de crédito após 6 imagens
+
+**Ações tomadas:**
+
+#### 1. ✅ **Análise de Referências Visuais (5 YouTube + 1 Pinterest)**
+
+Usuária forneceu:
+- 5 vídeos YouTube de espetáculos teatrais de projeção mapeada (técnicas circenses)
+- 1 referência Pinterest de design de moda teatral
+
+**Insights extraídos:**
+- Cenografia de painéis de tecido branco suspensos por polias (estrutura visível e compositiva)
+- Iluminação dramática de baixo para cima (uplighting) criando sombras em fabric
+- Projeção mapeada em tecido com cores por universo narrativo
+- Técnicas: teatro de sombras, animação projetada, transformação de paisagem
+- Paleta por universo: âmbar/quente (pescador), rosa-lavanda (torre/flores), verde-escura (floresta), dourado-misterioso (fios)
+
+#### 2. ✅ **Extração de 3 Decisões Visuais**
+
+| Decisão | Detalhe |
+|---------|---------|
+| **Cenografia** | Base branca (100% cor vem da projeção). Painéis de linho suspensos em formas cônicas e ondulantes. Polias e cordas VISÍVEIS como elemento compositivo. |
+| **Iluminação e Projeção** | Uplighting dramático (de baixo). Projeção mapeada com paleta por universo. Cenas de crise = fragmentação de todas as paletas. |
+| **Figurino e Personagem** | Calças largas de linho. Acessórios teatralizados. Corda como objeto central. Rosto do performer = impressionístico, não definido. |
+
+#### 3. ✅ **Refinamento de Prompts — Novo Estilo Visual**
+
+**Problemas resolvidos:**
+- Primeira versão dos prompts gerava imagens muito fotorrealísticas (rejeitadas)
+- Usuária forneceu 2 referências de design teatral (aquarela + nanquim, impressionístico)
+
+**Novo padrão estabelecido para 9 prompts:**
+
+| Elemento | Padrão |
+|----------|--------|
+| Rosto | Impressionístico, não definido — sugerido apenas por linhas e silhueta |
+| Técnica | Aquarela + nanquim (não fotografia) |
+| Layout | Estudo de DA teatral: figura principal + paleta de cores + detalhes de adereços |
+| Polias/Cordas | VISÍVEIS como elemento de design compositivo |
+| Iluminação | Uplighting dramático (de baixo) — clara indicação de fonte luz |
+| Texto | ZERO texto visível em nenhuma imagem |
+| Paleta | Swatches de cor como elementos gráficos (não nomes de cores) |
+
+**9 imagens estruturadas:**
+1. Sael: apresentação do personagem (figura + corda + luz)
+2. Cenografia: o palco vivo (painéis + polias + rigging)
+3. Os adereços: objetos de cena (lanterna, veu, corda, etc.)
+4. Prólogo: o lar (projeção mapeada — cabana pescador, âmbar)
+5. Elara: a torre de vidro (projeção — flores, constelações, rosa-lavanda)
+6. Moacir: a floresta e a pedra (projeção — floresta escura, guerreiro indígena, verde)
+7. Ísola: os fios do destino (projeção — fios dourados, figura feminina, roxo-dourado)
+8. A crise: colapso visual (fragmentação caótica de todas as projeções)
+9. A revelação: branco absoluto (minimalismo — figura em repouso, corda abandonada, luz quente)
+
+#### 4. ✅ **Página Notion Criada com 9 Prompts Completos**
+
+**URL:** https://app.notion.com/p/3758a52591f381e1ab35e893d054ad2b
+
+Conteúdo:
+- Estilo visual global (referências e regras)
+- 9 prompts detalhados (800+ palavras cada)
+- Instruções de uso no ChatGPT
+- Timeline (~30-45 min para todas)
+
+**Status:** Pronto para o usuário acessar de qualquer computador via tablet/laptop
+
+#### 5. ✅ **Arquivo PROMPTS_CHATGPT_FINAL.md Atualizado**
+
+Localização: `output/fac2026/PROMPTS_CHATGPT_FINAL.md`
+
+**Melhorias incorporadas:**
+- Polias e cordas agora PROMINENTLY VISIBLE (imagens 2, 4, 5, 6, 7, 8)
+- Uplighting dramático reforçado (especialmente imagem 6 — Moacir)
+- Layout teatral confirmado (figura + paleta + detalhes)
+- Referências visuais atualizadas no cabeçalho
+
+### 📊 Totais desta Sessão
+
+| Item | Quantidade | Status |
+|------|-----------|--------|
+| Referências analisadas | 6 (5 YT + 1 Pinterest) | ✅ |
+| Decisões visuais extraídas | 3 | ✅ |
+| Prompts reescritos | 9 | ✅ |
+| Página Notion criada | 1 | ✅ |
+| Arquivos atualizado | 1 (PROMPTS_FINAL) | ✅ |
+
+### 🔄 Próximos passos (imediato)
+
+1. **Usuária abre Notion** → copia prompts da página 🎨
+2. **Abre ChatGPT** → cola cada prompt, gera 2-3 variações
+3. **Seleciona 1 imagem por cena** (9 imagens selecionadas)
+4. **Retorna ao Notion** → insere as 9 imagens na seção IX do Roteiro v3
+5. **Commit final** no GitHub com "FAC 2026: Painel Visual — 9 imagens inseridas"
+
+### 💾 Arquivos Atualizado
+
+```
+output/fac2026/
+├── PROMPTS_CHATGPT_FINAL.md      ✅ Reescrito com novo estilo
+├── PROMPTS_CHATGPT_SKETCH.md     (versão anterior — manter para referência)
+└── Notion: 🎨 Painel de Estudo Visual  ✅ Página criada
+
+Notion:
+└── 🔮 ORACULO - FIRMA ABACAXI/
+    └── FAC 2026 — Todas as Histórias do Mundo
+        └── 🎨 Painel de Estudo Visual (9 prompts) ✅
+```
+
+### ⚠️ Diferencial implementado
+
+O painel de 9 imagens diferencia-se de concorrentes FAC porque:
+- ✅ Cada imagem é um **estudo de direção de arte completo** (não apenas ilustração)
+- ✅ Incorpora **elementos técnicos viáveis** (polias, cordas, uplighting) — não fantasia pura
+- ✅ Estilo **impressionístico teatral** (referência de design de moda do circo contemporâneo)
+- ✅ **Zero texto** — puro visual (respeita regra FAC de que referencias devem falar por si)
+- ✅ Mostra **domínio de linguagem visual** do projeto (da projeção mapeada em tecido)
+
+*Atualizado ao final da Sessão 19 — 04 Jun 2026 · Oráculo v2.2*
