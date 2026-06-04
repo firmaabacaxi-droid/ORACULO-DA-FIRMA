@@ -140,7 +140,7 @@ h3 {
   margin-bottom: 0.1cm;
   text-align: left;
 }
-hr.rule { border: none; border-top: 1px solid #C8B090; margin: 1.1cm 0; }
+hr.rule { border: none; border-top: 1px solid #C8B090; margin: 0.5cm 0; }
 
 /* ─── BLOCO META ─── */
 .meta-block {
@@ -200,7 +200,7 @@ table.data td {
   margin-bottom: 0.55cm;
 }
 .scene {
-  margin-bottom: 0.7cm;
+  margin-bottom: 0.45cm;
 }
 .scene-header {
   background: rgba(122,92,58,0.055);
@@ -242,25 +242,13 @@ table.data td {
 .da-block p:last-child { margin-bottom: 0; }
 .tecnica { font-size: 10pt; color: #5A4030; margin-top: 0.18cm; }
 
-/* ─── FIGURAS INLINE — float à direita, texto ao lado ─── */
-.inline-figure {
-  float: right;
-  width: 6.2cm;
-  margin: 0.1cm 0 0.5cm 0.7cm;
-  text-align: center;
-}
-.inline-figure img {
-  width: 100%;
-  display: block;
-  border: 1px solid #C8B090;
-  margin-bottom: 0.15cm;
-}
-.inline-figure figcaption {
-  font-size: 7.5pt;
-  font-style: italic;
-  color: #5A4030;
-}
-.clearfix::after { content: ""; display: table; clear: both; }
+/* ─── 2 COLUNAS TEXTO + IMAGEM ─── */
+.two-col { width: 100%; border-collapse: collapse; margin-bottom: 0.4cm; }
+.col-text { vertical-align: top; padding-right: 0.4cm; width: 54%; }
+.col-img  { vertical-align: top; width: 46%; text-align: center; }
+.col-img figure { margin: 0; }
+.col-img img { width: 100%; display: block; border: 1px solid #C8B090; margin-bottom: 0.12cm; }
+.col-img figcaption { font-size: 7.5pt; font-style: italic; color: #5A4030; }
 
 /* ─── PAINEL VISUAL — 2 colunas via table ─── */
 .pranchas-intro {
@@ -315,7 +303,7 @@ table.data td {
   text-align: center;
 }
 
-.content-section { margin-bottom: 1.1cm; }
+.content-section { margin-bottom: 0.55cm; }
 </style>
 </head>
 <body>
@@ -379,20 +367,22 @@ table.data td {
     <span class="section-num">III</span>
     <h2>O Personagem — Sael</h2>
   </div>
-  <h3>O Nome</h3>
-  <p><strong>Sael</strong> — nome inventado que soa como se sempre tivesse existido. A raiz <em>sa-</em> ecoa o sal — o mar, a memória, a origem. O sufixo <em>-el</em> vem do hebraico <em>sha'al</em>: perguntar, buscar. O menino que nasceu do mar e que parte em busca do que não sabe que não sabe.</p>
-  <h3>Personalidade e História de Vida</h3>
-  <p>Sael cresceu num mundo pequeno: uma cabana, o avô, o mar. O horizonte era o limite do que conhecia de concreto — mas não do que conhecia de histórias. Cresceu curioso mas isolado, mais confortável na companhia de personagens do que de pessoas reais. O dom que herdou do avô — conhecer o fim de toda história — virou o modo como se relaciona com o mundo: Sael observa, posiciona, analisa. Raramente se deixa surpreender.</p>
-  <p>Quando parte, não é por coragem. É por inquietação — a sensação de que algo falta, sem conseguir nomear o quê. Ele não é o herói clássico que sabe para onde vai. É um menino que saiu porque ficar ficou impossível.</p>
-  <p>A jornada vai fazê-lo descobrir que saber o fim de uma história e entender o que ela significa são coisas completamente diferentes.</p>
-  <h3>No Palco: O Corpo como Multidão</h3>
-  <p>Todos os personagens emergem do mesmo corpo — através de trocas mínimas de adereço, mudanças de postura e qualidade de voz. A inspiração é a Commedia dell'Arte: um único elemento exagerado basta para instaurar outro ser em cena.</p>
-  <p>A corda é o objeto central de Sael — entregue pelo avô, ela muda de função a cada cena. Linha de pesca, corda de trapézio, fio do destino, arma, objeto de ilusionismo, peso. O fio que conecta todas as histórias.</p>
-  <figure class="inline-figure">
-    <img src="images/01-figurino-sael.png" alt="Figurino — Sael">
-    <figcaption>Estudo de figurino — Sael</figcaption>
-  </figure>
-  <div class="clearfix"></div>
+  <table class="two-col"><tr>
+    <td class="col-text">
+      <h3>O Nome</h3>
+      <p><strong>Sael</strong> — nome inventado que soa como se sempre tivesse existido. A raiz <em>sa-</em> ecoa o sal — o mar, a memória, a origem. O sufixo <em>-el</em> vem do hebraico <em>sha'al</em>: perguntar, buscar. O menino que nasceu do mar e que parte em busca do que não sabe que não sabe.</p>
+      <h3>Personalidade e História de Vida</h3>
+      <p>Sael cresceu num mundo pequeno: uma cabana, o avô, o mar. O horizonte era o limite do que conhecia de concreto — mas não do que conhecia de histórias. Cresceu curioso mas isolado, mais confortável na companhia de personagens do que de pessoas reais. O dom que herdou do avô — conhecer o fim de toda história — virou o modo como se relaciona com o mundo: Sael observa, posiciona, analisa. Raramente se deixa surpreender.</p>
+      <p>Quando parte, não é por coragem. É por inquietação — a sensação de que algo falta, sem conseguir nomear o quê. Ele não é o herói clássico que sabe para onde vai. É um menino que saiu porque ficar ficou impossível.</p>
+      <p>A jornada vai fazê-lo descobrir que saber o fim de uma história e entender o que ela significa são coisas completamente diferentes.</p>
+      <h3>No Palco: O Corpo como Multidão</h3>
+      <p>Todos os personagens emergem do mesmo corpo — através de trocas mínimas de adereço, mudanças de postura e qualidade de voz. A inspiração é a Commedia dell'Arte: um único elemento exagerado basta para instaurar outro ser em cena.</p>
+      <p>A corda é o objeto central de Sael — entregue pelo avô, ela muda de função a cada cena. Linha de pesca, corda de trapézio, fio do destino, arma, objeto de ilusionismo, peso. O fio que conecta todas as histórias.</p>
+    </td>
+    <td class="col-img">
+      <figure><img src="images/01-figurino-sael.png" alt="Figurino — Sael"><figcaption>Estudo de figurino — Sael</figcaption></figure>
+    </td>
+  </tr></table>
 </div>
 
 <hr class="rule">
@@ -403,17 +393,19 @@ table.data td {
     <span class="section-num">IV</span>
     <h2>Cenografia e Direção de Arte</h2>
   </div>
-  <h3>O Espaço</h3>
-  <p>O cenário é feito de <strong>tecidos brancos suspensos por cordas e polias</strong>, formando volumes tridimensionais que um único operador manipula ao vivo. Os tecidos se transformam durante o espetáculo: criam uma cabana, uma vela de barco, as ondas do mar, uma floresta, uma caverna, um palco vazio.</p>
-  <p>A videoprojeção mapeada não opera como ilustração — é dramaturgia visual. Cada universo que Sael atravessa tem uma identidade visual própria projetada sobre os tecidos. Quando o espaço muda, o mundo inteiro muda. Não há troca de cenário. Há transformação.</p>
-  <p>O operador de vídeo, em console, dispara as transições em tempo real — em diálogo constante com o operador que move as cordas e polias. Quando o tecido se move, a projeção se deforma, ondula, racha. Esse comportamento não é falha técnica. É a linguagem do espetáculo.</p>
-  <h3>A Sombra como Segunda Narrativa</h3>
-  <p>O teatro de sombras integra-se à videoprojeção de forma orgânica. Não apenas o corpo do artista projeta sombra sobre os tecidos iluminados — objetos manipulados em cena também produzem sombras sobre as superfícies. A sombra do corpo e a sombra do objeto se combinam: uma narrativa paralela que conta o que a voz ainda não disse.</p>
-  <figure class="inline-figure">
-    <img src="images/02-cenografia-palco.png" alt="Cenografia — O Palco">
-    <figcaption>Estudo de cenografia — painéis de tecido, polias e sistema de cordas</figcaption>
-  </figure>
-  <div class="clearfix"></div>
+  <table class="two-col"><tr>
+    <td class="col-text">
+      <h3>O Espaço</h3>
+      <p>O cenário é feito de <strong>tecidos brancos suspensos por cordas e polias</strong>, formando volumes tridimensionais que um único operador manipula ao vivo. Os tecidos se transformam durante o espetáculo: criam uma cabana, uma vela de barco, as ondas do mar, uma floresta, uma caverna, um palco vazio.</p>
+      <p>A videoprojeção mapeada não opera como ilustração — é dramaturgia visual. Cada universo que Sael atravessa tem uma identidade visual própria projetada sobre os tecidos. Quando o espaço muda, o mundo inteiro muda. Não há troca de cenário. Há transformação.</p>
+      <p>O operador de vídeo, em console, dispara as transições em tempo real — em diálogo constante com o operador que move as cordas e polias. Quando o tecido se move, a projeção se deforma, ondula, racha. Esse comportamento não é falha técnica. É a linguagem do espetáculo.</p>
+      <h3>A Sombra como Segunda Narrativa</h3>
+      <p>O teatro de sombras integra-se à videoprojeção de forma orgânica. Não apenas o corpo do artista projeta sombra sobre os tecidos iluminados — objetos manipulados em cena também produzem sombras sobre as superfícies. A sombra do corpo e a sombra do objeto se combinam: uma narrativa paralela que conta o que a voz ainda não disse.</p>
+    </td>
+    <td class="col-img">
+      <figure><img src="images/02-cenografia-palco.png" alt="Cenografia — O Palco"><figcaption>Estudo de cenografia — painéis de tecido, polias e cordas</figcaption></figure>
+    </td>
+  </tr></table>
 </div>
 
 <hr class="rule">
@@ -608,16 +600,18 @@ table.data td {
       <p class="stage-dir"><em>O caos nos tecidos atinge seu pico. Sael para — suspenso, no centro do barulho visual — e há um silêncio súbito.</em></p>
       <p class="tecnica"><strong>Técnica:</strong> Trapézio — sequência física intensa; o corpo carrega o que não cabe em palavras.</p>
     </div>
-    <div class="da-block">
-      <span class="block-label">Direção de Arte</span>
-      <p><strong>Videoprojeção:</strong> Todos os ambientes anteriores fragmentam-se e surgem sobrepostos — a cabana, flores de Elara, sertão de Pedro, floresta de Moacir, fios de Ísola. Caos visual total.</p>
-      <p><strong>Paleta:</strong> Todas as paletas anteriores simultaneamente — nenhuma domina, todas brigam. &nbsp;<strong>Luz:</strong> Instável, cortante.</p>
-    </div>
-    <figure class="inline-figure">
-      <img src="images/05-crise.png" alt="A Crise — Colapso Visual">
-      <figcaption>Estudo visual — A Crise: colapso dos quatro universos simultâneos</figcaption>
-    </figure>
-    <div class="clearfix"></div>
+    <table class="two-col"><tr>
+      <td class="col-text" style="padding-right:0.4cm;">
+        <div class="da-block">
+          <span class="block-label">Direção de Arte</span>
+          <p><strong>Videoprojeção:</strong> Todos os ambientes anteriores fragmentam-se e surgem sobrepostos — a cabana, flores de Elara, sertão de Pedro, floresta de Moacir, fios de Ísola. Caos visual total.</p>
+          <p><strong>Paleta:</strong> Todas as paletas anteriores simultaneamente — nenhuma domina, todas brigam. &nbsp;<strong>Luz:</strong> Instável, cortante.</p>
+        </div>
+      </td>
+      <td class="col-img">
+        <figure><img src="images/05-crise.png" alt="A Crise — Colapso Visual"><figcaption>Estudo visual — A Crise: colapso dos quatro universos</figcaption></figure>
+      </td>
+    </tr></table>
   </div>
 
   <div class="scene">
@@ -675,16 +669,18 @@ table.data td {
       <p class="stage-dir"><em>Sael não pega a corda. Não apanha o lampião. Vai embora com as mãos vazias.</em></p>
       <p class="tecnica"><strong>Técnica:</strong> Voz e silêncio.</p>
     </div>
-    <div class="da-block">
-      <span class="block-label">Direção de Arte</span>
-      <p><strong>Videoprojeção:</strong> Nenhuma. O tecido branco ao fundo — imaculado, absoluto.</p>
-      <p><strong>Paleta:</strong> Branco puro. &nbsp;<strong>Luz:</strong> Mínima, quente, direta. &nbsp;<strong>Adereço:</strong> Nenhum. A corda está no chão.</p>
-    </div>
-    <figure class="inline-figure">
-      <img src="images/06-revelacao.png" alt="A Revelação — Branco Absoluto">
-      <figcaption>Estudo visual — A Revelação: branco absoluto, a corda pousada</figcaption>
-    </figure>
-    <div class="clearfix"></div>
+    <table class="two-col"><tr>
+      <td class="col-text" style="padding-right:0.4cm;">
+        <div class="da-block">
+          <span class="block-label">Direção de Arte</span>
+          <p><strong>Videoprojeção:</strong> Nenhuma. O tecido branco ao fundo — imaculado, absoluto.</p>
+          <p><strong>Paleta:</strong> Branco puro. &nbsp;<strong>Luz:</strong> Mínima, quente, direta. &nbsp;<strong>Adereço:</strong> Nenhum. A corda está no chão.</p>
+        </div>
+      </td>
+      <td class="col-img">
+        <figure><img src="images/06-revelacao.png" alt="A Revelação — Branco Absoluto"><figcaption>Estudo visual — A Revelação: branco absoluto, a corda pousada</figcaption></figure>
+      </td>
+    </tr></table>
   </div>
 </div>
 
@@ -714,23 +710,25 @@ table.data td {
     <span class="section-num">VIII</span>
     <h2>Adereços por Personagem</h2>
   </div>
-  <table class="data">
-    <thead><tr><th>Personagem</th><th>Adereço(s)</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Sael</strong></td><td>Corda — cinto e objeto central de toda a jornada</td></tr>
-      <tr><td><strong>O Avô</strong></td><td>Lampião aceso</td></tr>
-      <tr><td><strong>Elara</strong></td><td>Véu branco fino, tiara de flores</td></tr>
-      <tr><td><strong>Pedro Malasartes</strong></td><td>Chapéu de couro surrado, cachimbo, navalha (mágica e ilusionismo)</td></tr>
-      <tr><td><strong>Moacir</strong></td><td>Pena no cabelo, pintura facial em ocre e preto</td></tr>
-      <tr><td><strong>Ísola</strong></td><td>Xale escuro, fios finos reais (que ela vai largando ao longo da cena)</td></tr>
-      <tr><td><strong>O Ancião</strong></td><td>Pintura facial em branco e cinza</td></tr>
-    </tbody>
-  </table>
-  <figure class="inline-figure">
-    <img src="images/03-aderecos.png" alt="Adereços — Objetos de Cena">
-    <figcaption>Estudo de adereços — objetos de cena reunidos pela corda</figcaption>
-  </figure>
-  <div class="clearfix"></div>
+  <table class="two-col"><tr>
+    <td class="col-text">
+      <table class="data" style="width:100%;">
+        <thead><tr><th>Personagem</th><th>Adereço(s)</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Sael</strong></td><td>Corda — cinto e objeto central</td></tr>
+          <tr><td><strong>O Avô</strong></td><td>Lampião aceso</td></tr>
+          <tr><td><strong>Elara</strong></td><td>Véu branco fino, tiara de flores</td></tr>
+          <tr><td><strong>Pedro Malasartes</strong></td><td>Chapéu de couro, cachimbo, navalha</td></tr>
+          <tr><td><strong>Moacir</strong></td><td>Pena no cabelo, pintura em ocre e preto</td></tr>
+          <tr><td><strong>Ísola</strong></td><td>Xale escuro, fios finos reais</td></tr>
+          <tr><td><strong>O Ancião</strong></td><td>Pintura em branco e cinza</td></tr>
+        </tbody>
+      </table>
+    </td>
+    <td class="col-img">
+      <figure><img src="images/03-aderecos.png" alt="Adereços — Objetos de Cena"><figcaption>Estudo de adereços — objetos de cena reunidos pela corda</figcaption></figure>
+    </td>
+  </tr></table>
 </div>
 
 <hr class="rule">
@@ -750,25 +748,27 @@ table.data td {
       <tr><td><span class="chip" style="background:#E8974A;"></span> Âmbar / Ocre</td><td><code>#E8974A</code></td><td>A lamparina, o avô, o lar, o início</td></tr>
     </tbody>
   </table>
-  <h3 style="margin-top:0.55cm;">Paletas por Universo</h3>
-  <table class="data">
-    <thead><tr><th>Universo</th><th>Tons dominantes</th><th>Sensação</th></tr></thead>
-    <tbody>
-      <tr><td>Prólogo — O Lar</td><td>Âmbar, dourado suave, branco quente</td><td>Aconchego, memória afetiva</td></tr>
-      <tr><td>Elara — Conto europeu</td><td><span class="chip" style="background:#F8C8D4;"></span> Rosa-pálido, <span class="chip" style="background:#C8A8E4;"></span> lavanda, azul-gelo</td><td>Delicadeza, perda, constelações</td></tr>
-      <tr><td>Pedro — Folclore BR</td><td><span class="chip" style="background:#2D6A4F;"></span> Verde-mata, <span class="chip" style="background:#F4C430;"></span> amarelo-vivo, terracota</td><td>Exuberância, humor, Brasil</td></tr>
-      <tr><td>Moacir — Mito indígena</td><td><span class="chip" style="background:#8B4513;"></span> Ocre-escuro, verde-selva, preto-noite</td><td>Peso, enraizamento, honra</td></tr>
-      <tr><td>Ísola — Mundo Romani</td><td><span class="chip" style="background:#4A0E4E;"></span> Roxo-profundo, bordô, dourado-sombra</td><td>Mistério, destino, fios</td></tr>
-      <tr><td>Ancião — Cosmos</td><td><span class="chip" style="background:#0047AB;"></span> Azul-cobalto, índigo, branco-luz estelar</td><td>Origem, infinito, criação</td></tr>
-      <tr><td>A Crise</td><td>Todas as paletas sobrepostas, fragmentadas</td><td>Caos, saturação</td></tr>
-      <tr><td>A Revelação</td><td>Branco absoluto</td><td>Esvaziamento, possibilidade pura</td></tr>
-    </tbody>
-  </table>
-  <figure class="inline-figure">
-    <img src="images/04-universos.png" alt="Universos — Projeção Mapeada">
-    <figcaption>Estudo visual — os quatro universos projetados nos tecidos</figcaption>
-  </figure>
-  <div class="clearfix"></div>
+  <table class="two-col"><tr>
+    <td class="col-text">
+      <h3 style="margin-top:0.3cm;">Paletas por Universo</h3>
+      <table class="data" style="width:100%;">
+        <thead><tr><th>Universo</th><th>Tons</th><th>Sensação</th></tr></thead>
+        <tbody>
+          <tr><td>O Lar</td><td>Âmbar, dourado</td><td>Memória afetiva</td></tr>
+          <tr><td>Elara</td><td><span class="chip" style="background:#F8C8D4;"></span> Rosa, <span class="chip" style="background:#C8A8E4;"></span> lavanda</td><td>Delicadeza</td></tr>
+          <tr><td>Pedro</td><td><span class="chip" style="background:#2D6A4F;"></span> Verde, <span class="chip" style="background:#F4C430;"></span> amarelo</td><td>Exuberância</td></tr>
+          <tr><td>Moacir</td><td><span class="chip" style="background:#8B4513;"></span> Ocre, verde-selva</td><td>Enraizamento</td></tr>
+          <tr><td>Ísola</td><td><span class="chip" style="background:#4A0E4E;"></span> Roxo, bordô</td><td>Mistério</td></tr>
+          <tr><td>Ancião</td><td><span class="chip" style="background:#0047AB;"></span> Azul-cobalto</td><td>Criação</td></tr>
+          <tr><td>A Crise</td><td>Todas sobrepostas</td><td>Caos</td></tr>
+          <tr><td>A Revelação</td><td>Branco absoluto</td><td>Possibilidade</td></tr>
+        </tbody>
+      </table>
+    </td>
+    <td class="col-img">
+      <figure><img src="images/04-universos.png" alt="Universos — Projeção Mapeada"><figcaption>Estudo visual — quatro universos projetados nos tecidos</figcaption></figure>
+    </td>
+  </tr></table>
 </div>
 
 <hr class="rule">
