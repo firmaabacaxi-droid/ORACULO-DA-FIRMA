@@ -768,32 +768,59 @@ A **transparência parcial** de alguns tecidos permite que a projeção atravess
 
 ---
 
-**Imagem 1 — Sael: apresentação do personagem**
-Filipe Duque em calça larga de linho branco-creme, camisa aberta, corda amarrada na cintura. Descalço. Fundo neutro com projeção suave de luz azul-índigo. A corda em evidência — o objeto central da jornada.
+**Imagem 1 — Sael: O Caminhante**
 
-**Imagem 2 — A Cenografia: o palco vivo**
-Vista do palco com tecidos brancos suspensos por cordas e polias em diferentes alturas e configurações. O espaço vazio e cheio ao mesmo tempo — possibilidade pura antes da projeção.
+*Sael parte com uma corda na cintura e nenhuma história sua para contar — só as histórias alheias que carrega como fardos. É a corda que o define antes mesmo de ele saber quem é.*
 
-**Imagem 3 — Os Adereços: objetos de cena**
-Composição com todos os adereços do espetáculo dispostos sobre tecido branco: lampião, véu com tiara de flores, chapéu de couro + cachimbo, navalha, pena, xale. A corda ao centro.
+---
 
-**Imagem 4 — Prólogo: O Lar**
-Interior de cabana projetado sobre tecidos — paredes âmbar, o brilho da lamparina, o mar escuro e estrelado através de um vão. Atmosfera de memória afetiva, quente e íntima.
+**Imagem 2 — A Cenografia: Telas em Branco**
 
-**Imagem 5 — Elara: a torre de vidro**
-Projeção floral sobre tecidos brancos — pétalas de rosa-pálido e lavanda florescendo nas superfícies. No centro, constelações com nomes em letras finas. Delicadeza e perda coexistindo.
+*Os tecidos suspensos são o palco antes de ser palco. Vazios e já cheios de possibilidade, eles esperam a luz — e a história — que os tornará mundos.*
 
-**Imagem 6 — Moacir: a floresta e a pedra**
-Projeção de floresta densa e noturna sobre os tecidos — verde-selva, ocre-escuro, preto. A silhueta de um guerreiro tornando-se rocha. A aldeia, pequena, ao fundo.
+---
 
-**Imagem 7 — Ísola: os fios do destino**
-Fios de luz dourada cruzando os tecidos em todas as direções. Uma figura com xale escuro passando as mãos pelos fios projetados. Roxo-profundo, bordô e sombra.
+**Imagem 3 — Os Adereços: Portais de Transformação**
 
-**Imagem 8 — A Crise: o colapso visual**
-Fragmentos de todos os ambientes anteriores sobrepostos e girando nos tecidos. A sombra de Sael multiplicada. Caos de cor — todas as paletas brigando no mesmo espaço.
+*Seis objetos, seis vidas. Na mão de Filipe, cada adereço é um portal: o lampião vira avô, o véu vira princesa, a navalha vira guerreiro. O objeto não representa — ele se torna.*
 
-**Imagem 9 — A Revelação: o branco absoluto**
-Tecido branco puro ao fundo. Uma figura em repouso no centro. Sem projeção. Luz mínima. A ausência como presença.
+---
+
+**Imagem 4 — Prólogo: A Luz do Avô**
+
+*É da lamparina âmbar do avô que Sael parte. Essa luz não apaga: ela reaparece sempre que ele precisa lembrar que havia um lar — e que, portanto, há um caminho de volta.*
+
+---
+
+**Imagem 5 — Elara: A Linguagem das Estrelas**
+
+*Elara catalogou constelações com nomes próprios como se nomear as estrelas fosse uma forma de não se perder entre elas. Rosa-pálido e lavanda: a delicadeza da perda quando ela ainda parece bonita.*
+
+---
+
+**Imagem 6 — Moacir: O Guerreiro que Virou Pedra**
+
+*Moacir não morreu — ele se enraizou. A floresta escura e densa que o cerca não é prisão: é o resultado de uma escolha. Sua imobilidade é o maior ato de amor que o espetáculo testemunha.*
+
+---
+
+**Imagem 7 — Ísola: Os Fios de Toda Escolha**
+
+*Ísola não lê o futuro — ela tece o que já foi escolhido, sem que soubéssemos. Os fios de luz dourada que cruzam os tecidos são os fios das nossas próprias decisões, visíveis pela primeira vez.*
+
+---
+
+**Imagem 8 — A Crise: Quando Todas as Histórias Falam ao Mesmo Tempo**
+
+*No olho do furacão, Sael. Ao redor, fragmentos de todos os mundos que visitou: caos de cor, memórias sobrepostas, identidades brigando pelo mesmo espaço. A saturação como linguagem do colapso.*
+
+---
+
+**Imagem 9 — A Revelação: O Branco que Chegou Depois**
+
+*No fim, o silêncio. O tecido branco voltou — mas desta vez está cheio. Sael aprendeu que a sua história existe. E que isso, por si só, já é tudo.*
+
+---
 
 ---
 
