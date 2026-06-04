@@ -1,456 +1,287 @@
 # FAC 2026 — Painel de Estudo Visual
-## Prompts Finais para ChatGPT (DALL-E 3) — Estilo Teatral Aquarela + Nanquim
+## 6 Pranchas para ChatGPT (DALL-E 3) — Estilo Ilustração de Figurino Teatral
 
-**Estilo Visual:**  
-Desenho de estudo de figurino teatral — técnica mista de aquarela + nanquim, em estilo impressionístico. Rosto NÃO definido. Layout: figura principal + paleta de cores + detalhes de adereços. Estrutura de polias e cordas VISÍVEIS como elemento compositivo. Iluminação de baixo para cima (uplighting) dramática. ZERO texto.
+**Estilo Visual (atualizado com base em referência):**  
+Ilustração técnica de figurino/cenografia teatral — grafite fino em papel creme envelhecido. Cor MÍNIMA, presente apenas nos swatches. Figuras com cabeça de manequim (sem rosto). Fundo = textura de papel creme visível. SEM aquarela dominante. Linha precisa e técnica.
 
-**Referências Visuais:**  
-1. **Croqui teatral:** Figura principal com paleta de cores e detalhamentos (lado a lado)  
-2. **Estética:** Aquarela + nanquim impressionístico, não fotorrealístico  
-3. **Cenografia:** Painéis de tecido branco suspensos por polias e cordas visíveis, iluminação dramática de baixo, configurações cônicas e ondulantes
+**Referência:** Prancha de design de figurino teatral profissional (grafite + nanquim em papel creme, swatches de cor laterais, close-ups de detalhes, vistas frente + perfil)
 
 ---
 
-## IMAGEM 1 — Sael: Apresentação do Personagem
+## PRANCHA 01 — FIGURINO: Sael
 
-Create a theatrical costume design study in watercolor and ink sketch style. Show a single male performer figure facing forward and a side profile view.
+Create a professional theatrical costume design plate in fine pencil and graphite style on aged cream paper — exactly like a high-end fashion/costume illustration from a theater production book.
 
-**Main figure (front):**
-- Athletic build, confident yet vulnerable posture
-- White-cream linen trousers (wide leg), simple open linen shirt
-- Weathered rope tied around waist as belt — CENTRAL element
+FIGURE LAYOUT:
+- Two views side by side: front-facing figure (left, larger) and side profile (right, smaller)
+- Mannequin-style heads — completely smooth, featureless, no face, no hair, no expression — like a dress form
+- Athletic male build, natural relaxed posture
 - Barefoot
-- **Face: intentionally undefined and impressionistic — suggested only by gestural ink lines, no clear facial features, silhouette-like**
 
-**Additional elements in composition:**
-- Small side-view figure showing the same costume from profile
-- Color palette swatch section (bottom): warm amber, cream, soft blue-indigo, ochre
-- Close-up detail sketches of: rope texture, linen fabric folds, belt knot
-- Light indication from upper left suggesting stage lighting
+COSTUME:
+- Wide-leg linen trousers, floor-length, slightly draped and heavy with folds
+- Simple open linen shirt, rolled sleeves
+- Thick braided rope tied as a belt around the waist — CENTRAL element of the design
+- Subtle embroidered trim along collar and sleeve edges (geometric pattern, hand-stitched look, delicate)
 
-**Artistic technique:**
-- Main figure: loose watercolor washes in cream/warm tones + confident ink line work
-- Anatomically suggested but expressionistic
-- Gestural, not photorealistic
-- Mix of refined detail (fabric, rope) and painterly abstraction
+STUDY ELEMENTS (arranged around figures, like the reference):
+- Left side: three fabric/material swatches — linen texture, woven geometric pattern, rope braid texture
+- Bottom right: detail close-up of the rope belt knot
+- Top right: collar embroidery detail (zoomed)
+- Small ornamental graphic (compass rose or geometric snowflake) in one corner
+- Bottom: 4 color swatches as small blocks — cream, warm sand, dark navy-indigo, golden ochre
 
-**Color palette visible:**
-- Cream, soft gray, warm amber, blue-indigo accent, light ochre
-- Show as color swatches/blocks, not labeled
+TECHNIQUE — CRITICAL:
+- Primary medium: precise fine graphite pencil line work — NOT watercolor
+- Fabric folds rendered through pencil hatching and tonal shading, NOT color washes
+- Background: warm cream/beige aged paper texture (visible paper grain)
+- Color: MINIMAL — appears ONLY in the small swatches at bottom and subtle pencil toning
+- Line quality: confident, precise, technical — like a professional illustration board
+- Shadows: soft graphite shading only, no dramatic contrast
 
-**Critical:** No text, letters, words, or annotations visible anywhere. Pure visual only.
-
----
-
-## IMAGEM 2 — Cenografia: O Palco Vivo
-
-Create a detailed theatrical stage design study showing suspended white fabric panels as if viewed from the audience perspective. This combines technical set design documentation with artistic illustration—in the style of a costume/set design study.
-
-**Main composition:**
-- Multiple white linen fabric panels suspended at varying heights using visible pulley systems and ropes
-- Varied panel configurations visible: some in sharp triangular/conical shapes (creating shadow theater potential), some wavy/undulating (like cascading curtains), some flat and open
-- **Pulley and rope systems PROMINENTLY visible** — this is a feature of the design, not hidden
-- Thick ropes clearly shown routing through pulleys mounted above
-- The rigging becomes part of the sculptural composition
-
-**Lighting/shading:**
-- Strong uplighting (from below stage) creating dramatic shadows on fabric surfaces
-- Shadows visible on underside of fabric creating depth and volume
-- Light hits fabric from multiple angles, showing dimensionality
-- Watercolor grey and charcoal shadows with cream highlights
-
-**Artistic technique:**
-- Nanquill ink for pulley mechanisms and rope routing — precise, technical, beautiful
-- Watercolor washes (grey, cream, soft charcoal) for shadow and depth on fabric
-- Mix of technical drawing (pulleys, measurements) with expressionistic rendering (fabric drape)
-- Reference: blend of architectural blueprint with theatrical sketch
-
-**Additional study elements:**
-- Close-up detail sketches: pulley mechanism (how rope threads through), rope knots, fabric suspension point
-- Section showing fabric texture variations and fold patterns
-- Lighting direction arrows showing uplighting effect
-- Small perspective sketches showing how this transforms with projection
-
-**Color palette:**
-- Pure black ink for structural elements
-- Charcoal and grey watercolor for shadows
-- Cream/off-white for fabric highlights
-- NO other colors — this is pre-projection study
-
-**Critical:** No text, annotations, or labels visible anywhere.
+ABSOLUTE RESTRICTIONS:
+- Zero text, zero letters, zero annotations, zero numbers anywhere
+- No watercolor washes covering the composition
+- Figures must have completely blank smooth heads — no faces whatsoever
 
 ---
 
-## IMAGEM 3 — Os Adereços: Objetos de Cena
+## PRANCHA 02 — CENOGRAFIA: O Palco Vivo
 
-Create a theatrical props design study in watercolor and ink. This is a beautiful, precious arrangement of objects like a museum artifact illustration combined with costume design study.
+Create a professional theatrical set design plate in fine pencil and graphite style on aged cream paper — a technical and artistic study of suspended white fabric panels and visible rigging, like a stage design documentation plate.
 
-**Objects arranged with narrative intention (center: rope):**
-- Vintage oil lantern with glass and worn brass
-- Delicate white veil with small floral tiara
-- Worn leather fisherman-style hat beside an old pipe
-- Folding knife with weathered handle
-- Single bird feather (elegantly curved)
-- Dark aged fabric/shawl
+MAIN COMPOSITION:
+- Front-of-house view showing multiple white linen fabric panels suspended at varying heights by visible pulley systems and thick ropes
+- Panel configurations: some cone/triangular shapes, some undulating/wavy, some flat
+- PULLEY AND ROPE SYSTEMS PROMINENTLY DRAWN — technical, precise, beautiful
+- Ropes routing through pulleys clearly shown with precise graphite line work
+- The rigging is architecturally beautiful, not industrial or crude
+- Stage floor barely suggested at bottom edge
 
-**Central organizing element:**
-- Long, worn rope coiled through composition, connecting all objects
-- Rope is the visual anchor and narrative thread
+LIGHTING STUDY (shown as graphic elements):
+- Uplighting arrows from below stage — indicating the dramatic light source direction
+- Shadows on underside of fabric panels shown through graphite hatching
+- Small diagram in corner showing side-view cross-section of uplighting setup
 
-**Composition:**
-- Objects arranged on white background as if in a precious collection
-- Rope creates visual flow and compositional unity
-- Objects arranged with reverence — like studying precious theatrical artifacts
-- Front view showing all objects clearly
+STUDY ELEMENTS:
+- Top corner: detail close-up of a single pulley mechanism (precise technical drawing)
+- Side: rope knot and suspension point close-up
+- Bottom: fabric drape texture study (3 variants — conical tight, loose wave, flat taut)
+- Small perspective sketch showing same panels WITH projection (transformation concept)
+- Ornamental geometric motif in one corner
 
-**Artistic technique:**
-- Fine, precise nanquill ink work for each object's details
-- Watercolor washes for texture (worn leather = sepia, lantern glass = amber glow, shawl = dark grey)
-- Objects rendered 3-dimensionally with clear shadows
-- Each object tells a story through detail
+COLOR — MINIMAL:
+- Swatches: pure white (fabric), charcoal grey (shadow), rope beige/tan, black (rigging)
+- Color appears ONLY in the 4 small swatch blocks
+- All drawing in graphite/pencil only — cream paper background dominant
 
-**Additional study elements:**
-- Close-up detail of rope weaving/texture
-- Material texture studies (leather, glass, fabric grain)
-- Lantern light glow effect (amber watercolor)
-- Paleta de cores: sepia, ochre, dark grey, soft cream, amber
+TECHNIQUE — CRITICAL:
+- Fine, precise pencil line work — technical illustration quality
+- Shadow and depth through graphite hatching only
+- Aged cream/beige paper background (visible texture)
+- NO watercolor, NO color washes
+- Clean, architectural, beautiful
 
-**Mood:** Precious, narrative-rich, mysterious, theatrical.
-
-**Critical:** No text, labels, or annotations visible.
-
----
-
-## IMAGEM 4 — Prólogo: O Lar
-
-Create a theatrical stage design study combining technical set architecture with atmospheric illustration—in theatrical costume/set design study style. Show the PROJECTION MAPPING CONCEPT: how projected light transforms white fabric into a scene.
-
-**The stage structure (visible and beautiful):**
-- Multiple white linen fabric panels suspended by visible pulleys and ropes
-- Panels positioned to show front-of-house view from audience perspective
-- **Pulley and rope systems clearly visible** — they are part of the architectural beauty
-- Uplighting (from stage floor below) creating dramatic shadows on fabric
-
-**The projected environment (layered on the white fabric):**
-- Intimate interior of a rustic fisherman's cabin at night, projected onto the fabric
-- Warm amber-ochre lantern glow illuminating rough wooden walls
-- Dark sea visible through a gap/window showing water with stars
-- Gentle wave movement suggested
-- The projection GLOWS on the white linen — showing the lighting effect
-
-**Composition:**
-- Show the white fabric as the PRIMARY element (the canvas)
-- Projected image suggested within and on the fabric surfaces
-- Stage structure (pulleys, ropes, rigging) integrated as compositional elements
-- Lighting arrows indicating uplighting source
-
-**Artistic technique:**
-- Nanquill ink for technical stage elements (pulleys, ropes, fabric structure)
-- Warm watercolor washes (amber, ochre, sepia, burnt sienna) for the PROJECTED environment
-- The projected image rendered looser and more atmospheric than the technical structure
-- Layered watercolor showing how light transforms fabric
-- Overall watercolor + ink blend
-
-**Color palette visible:**
-- Swatches showing: warm amber, ochre, deep blue-green (sea), cream, charcoal grey
-- Warm, nostalgic, memory-like feeling
-
-**Additional study elements:**
-- Detail of lantern glow (how amber light spreads on fabric)
-- Close-up of rope and pulley system
-- Water reflection texture study
-- Lighting direction diagram showing uplighting effect
-
-**Mood:** Intimate, nostalgic, warm, like entering a cherished childhood memory made visible through light and fabric.
-
-**Critical:** No text or annotations visible.
+ABSOLUTE RESTRICTIONS:
+- Zero text, zero annotations anywhere
+- No human figures in this plate — pure architecture and fabric
 
 ---
 
-## IMAGEM 5 — Elara: A Torre de Vidro
+## PRANCHA 03 — ADEREÇOS: Objetos de Cena
 
-Create a theatrical stage design study for a magical, ethereal universe—in theatrical costume/set design study style. Show how white fabric becomes luminous through rose-pink and lavender projection light.
+Create a theatrical props design plate in fine pencil and graphite style on aged cream paper — precious objects arranged like museum artifact illustrations, in the style of a professional costume/prop design study.
 
-**The stage structure:**
-- Multiple white linen fabric panels suspended at varying heights
-- **Visible pulley and rope systems** integrated into the composition
-- Panels positioned at graceful angles creating dimensional space
-- Uplighting from below creating luminous quality on fabric
+OBJECTS (arranged with compositional intention):
+- Vintage oil lantern — glass panels, worn brass fittings, aged handle
+- Delicate white veil with small floral tiara crown (separate study)
+- Worn leather fisherman-style hat beside a short curved pipe
+- Folding knife with weathered wooden handle, closed
+- Single long bird feather, elegantly curved
+- Dark aged heavy shawl/fabric, partially folded
 
-**The projected environment (layered on white fabric):**
-- European stone tower with ivy-covered walls and hanging gardens
-- Abundant blooming flowers: roses, wisteria, cascading flowering plants
-- Constellations of delicate stars dissolving through and around the tower
-- Projected light is predominantly soft rose-pink and lavender
-- Flowers appear to emit inner glow
-- Overall effect: light filtering through luminous fabric as if through stained glass
+CENTRAL ORGANIZING ELEMENT:
+- Long braided rope coiled through the entire composition
+- Rope connects and weaves between all objects as visual thread
+- Rope is the compositional anchor — everything orbits around it
 
-**Composition:**
-- White fabric as primary visual (the canvas for projection)
-- Pulley and rope systems visible but integrated gracefully
-- Projected tower and flowers softly rendered within/on fabric
-- Lighting creates ethereal, dreamlike quality
+ARRANGEMENT:
+- Objects arranged on white/cream surface as if laid out for inventory
+- Each object given space and reverence — precious, theatrical, storied
+- Rope creates visual flow and compositional unity between all items
+- Some objects overlapping slightly, natural museum display feel
 
-**Artistic technique:**
-- Fine, delicate nanquill line work for structural elements and flowers
-- Very loose, impressionistic watercolor washes in rose, lavender, soft gold
-- Watercolor applied with soft, gestural technique (not precise)
-- Botanical accuracy in flowers combined with romantic dreaminess
-- Layered, luminous quality showing light transformation of fabric
+DETAIL STUDIES (around main composition):
+- Close-up: rope weave texture (cross-section showing braid pattern)
+- Close-up: lantern glass and brass fitting detail
+- Close-up: knife handle texture and aged wood grain
+- Material texture samples: leather (sepia hatching), glass (precise lines), fabric (soft)
 
-**Color palette visible:**
-- Swatches: soft rose-pink, lavender, pale gold, cream, subtle grey
-- Very few dark values — entirely luminous and ethereal
-- Dreamy, romantic feeling
+COLOR — MINIMAL:
+- Swatches: worn sepia (leather), amber gold (lantern glass/light), dark charcoal (shawl), cream (veil/feather), rope tan
+- Color appears ONLY in 5 small swatch blocks at bottom or side
+- All drawing in precise graphite — cream paper visible throughout
 
-**Additional study elements:**
-- Color palette swatches (rose, lavender, gold)
-- Close-up botanical study of flower details
-- Star and constellation patterns
-- Rope and pulley detail
-- Fabric luminosity study showing light effect
+TECHNIQUE — CRITICAL:
+- Fine nanquil-like ink and pencil combined — precise object outlines + graphite toning
+- Each object rendered 3-dimensionally through hatching and careful shadow
+- Aged cream/beige paper background
+- Objects feel precious, worn, storytelling
 
-**Mood:** Romantic, ethereal, magical, hopeful, dreamlike, transcendent beauty.
-
-**Critical:** No text or annotations visible.
+ABSOLUTE RESTRICTIONS:
+- Zero text, zero labels anywhere
+- No human figures — objects only
 
 ---
 
-## IMAGEM 6 — Moacir: A Floresta e a Pedra
+## PRANCHA 04 — UNIVERSOS × 4: Projeção Mapeada
 
-Create a theatrical stage design study for a dark, primal, indigenous narrative—in theatrical costume/set design study style. Show DRAMATIC UPLIGHTING transforming white fabric into a dark forest vision.
+Create a single theatrical stage design plate divided into FOUR equal quadrants — each quadrant showing one projected universe mapped onto white fabric panels. Fine pencil and graphite style on aged cream paper, like a production design reference plate.
 
-**The stage structure:**
-- White linen fabric panels suspended by visible pulleys and ropes
-- **Pulley and rope systems prominently visible** — sculptural, architectural
-- Panels arranged to create varied depth and angles
-- **Uplighting from stage floor creating DRAMATIC SHADOWS on fabric undersides**
-- Shadows emphasize dimensionality and transformative power
+PLATE STRUCTURE:
+- 4 equal quadrants arranged in 2×2 grid
+- Each quadrant shows the same basic stage structure (white fabric panels + visible pulleys and ropes) but transformed by a different projected environment
+- Thin clean graphite line dividing the quadrants (like a design plate border)
+- Each quadrant has a small color palette swatch strip at its bottom edge
 
-**The projected environment (layered on white fabric):**
-- Dense, dark night forest with deep jungle atmosphere
-- Deep greens (viridian, sap green), dark ochre earth, pure black night sky
-- Centered silhouette of Indigenous warrior—strong, defiant, powerful posture
-- Warrior slowly transforming into stone/rock—becoming eternal guardian
-- Small distant village with single warm amber light at forest edge
-- Primal, ancient, sacred atmosphere
+QUADRANT 1 — TOP LEFT: O Lar (The Fisherman's Home)
+- White fabric panels glowing with warm amber-ochre projected light
+- Rustic fisherman's cabin environment projected onto fabric: rough wooden walls, dark sea visible through small window, single lantern glow
+- Atmosphere: intimate, warm, memory-like
+- Palette swatch: warm amber, ochre, sepia, deep blue-green (sea), cream
 
-**Composition:**
-- White fabric as primary (illuminated from below by uplighting)
-- Warrior figure central and powerful
-- Dark forest environment rendered within projected light on fabric
-- Distant village light as spiritual/memory anchor
-- Rope and pulley systems integrated visually
+QUADRANT 2 — TOP RIGHT: Elara (A Torre de Vidro)
+- White fabric panels luminous with soft rose-pink and lavender light
+- Stone tower with ivy, cascading flowering plants (roses, wisteria), delicate constellation stars dissolving through the fabric
+- Atmosphere: ethereal, romantic, dreamlike
+- Palette swatch: soft rose, lavender, pale gold, cream, subtle grey
 
-**Artistic technique:**
-- Strong, confident nanquill ink for structural elements (pulleys, ropes, warrior outline)
-- Bold, expressive watercolor washes in deep greens, browns, blacks
-- Warrior rendered with reverence and power
-- Rock/stone texture emerging on warrior's form (transformation)
-- Uplighting diagram showing light direction from below
-- Mix of technical structure with emotional/spiritual imagery
+QUADRANT 3 — BOTTOM LEFT: Moacir (A Floresta e a Pedra)
+- White fabric panels transformed by dark, primal deep-green projection
+- Dense night forest atmosphere, centered silhouette of Indigenous warrior (powerful posture, transforming into stone), distant village amber light
+- Dramatic uplighting shadows visible on fabric undersides
+- Atmosphere: primal, sacred, powerful, ancient
+- Palette swatch: deep forest green, burnt sienna, umber, black, warm amber
 
-**Color palette visible:**
-- Swatches: deep forest greens, burnt sienna, umber, black, silver-blue, warm amber
-- Very dark, primal, moody feeling
-- Minimal light values
+QUADRANT 4 — BOTTOM RIGHT: Ísola (Os Fios do Destino)
+- White fabric panels covered in golden amber thread-lines of light (web of destiny)
+- Geometric mandala-like pattern of light threads across fabric surfaces
+- Female silhouette in dark shawl reaching hands gently into the threads
+- Atmosphere: mystical, prophetic, otherworldly
+- Palette swatch: deep purple, burgundy, midnight blue, golden amber, cream
 
-**Additional study elements:**
-- Color palette showing deep tones
-- Close-up of warrior transformation (flesh to stone)
-- Vegetation and stone texture studies
-- Rope and pulley detail
-- Uplighting direction diagram
+WITHIN EACH QUADRANT — VISIBLE ELEMENTS:
+- Pulley and rope systems clearly drawn (architectural feature of each quadrant)
+- Uplighting indicated (arrows or shading from below)
+- The projected environment rendered with slightly looser graphite toning than the structural elements (structure = precise, projection = gestural)
 
-**Mood:** Primal, powerful, eternal, protective, honoring indigenous traditions, sacred transformation.
+TECHNIQUE — CRITICAL:
+- Fine pencil graphite line work for all structural elements (pulleys, ropes, fabric)
+- Projection environments suggested through graphite toning variations, not color
+- Color ONLY in the 4 small palette swatch strips at bottom of each quadrant
+- Aged cream/beige paper background throughout
+- Clean, precise, editorial — like a professional production design document
 
-**Critical:** No text or annotations visible.
-
----
-
-## IMAGEM 7 — Ísola: Os Fios do Destino
-
-Create a theatrical stage design study combining technical set architecture with mystical, mysterious illustration—in theatrical costume/set design study style. Show golden light threads creating a web of destiny on white fabric.
-
-**The stage structure:**
-- Multiple white linen fabric panels suspended by visible pulleys and ropes
-- **Pulley and rope systems prominently visible** — they echo the "threads of destiny" theme
-- Panels positioned to create spatial depth and mystery
-- Lateral lighting creating dramatic shadows and highlights
-
-**The projected environment (layered on white fabric):**
-- Golden and warm amber THREADS OF LIGHT crisscrossing the white fabric surfaces
-- A luminous web of destiny made visible through projection
-- Threads create organic yet geometric patterns (mandala-like, geometric sacred geometry)
-- Central figure: a female silhouette in dark age-worn shawl, graceful and mysterious
-- Figure reaching hands gently INTO the projected light threads
-- As if reading them like a fortune teller, visionary, or seer touching invisible fate
-
-**Composition:**
-- White fabric as primary (canvas for the golden light web)
-- Rope and pulley systems visible, creating visual echo of the "threads"
-- Figure positioned within the geometric pattern of threads
-- Dynamic yet balanced composition
-
-**Artistic technique:**
-- Nanquill for structural elements (pulleys, ropes, fabric, figure outline)
-- Delicate, precise nanquill for thread lines (fine line work)
-- Watercolor in deep purples, burgundies, golds for luminous effects
-- Figure silhouette rendered gracefully—facial features hidden in shadow, but body language and hand gesture crystal clear
-- Golden thread lines rendered with delicate precision using ink
-- Layered, mysterious quality
-
-**Color palette visible:**
-- Swatches: deep purple, burgundy, midnight blue, golden/amber, cream
-- Very few lighter values — maintains mystery, depth, otherworldliness
-- Luminous threads against dark background
-
-**Additional study elements:**
-- Color palette swatches
-- Geometric thread/destiny web pattern studies
-- Figure hand gesture close-up (showing interaction with threads)
-- Jewelry/bangles catching golden light
-- Rope and pulley detail
-- Composition study showing figure-to-thread balance
-
-**Mood:** Mysterious, mystical, powerful, fate-like, prophetic, deep knowing, sacred geometry, otherworldly.
-
-**Critical:** No text or annotations visible.
+ABSOLUTE RESTRICTIONS:
+- Zero text, zero labels anywhere in the plate
+- Facial features: female silhouette in quadrant 4 has no defined face
+- NO watercolor washes — graphite and pencil only, color only in swatches
 
 ---
 
-## IMAGEM 8 — A Crise: O Colapso Visual
+## PRANCHA 05 — A CRISE: Colapso Visual
 
-Create a theatrical stage design study for complete visual and emotional collapse—in theatrical costume/set design study style. This is RADICALLY DIFFERENT from previous calm, ordered designs. This is CHAOS.
+Create a theatrical stage design plate in fine pencil and graphite — RADICALLY DIFFERENT from the other plates. Same format (aged cream paper, graphite technique) but the composition expresses complete structural and visual collapse.
 
-**The stage structure:**
-- Multiple white linen fabric panels in DISARRAY and DYNAMIC positions
-- **Pulley and rope systems visible but in DISORDER** — suggesting mechanical failure or overload
-- Fabric panels at awkward angles, some seemingly falling or collapsing
-- Stage structure looks unstable and dangerous
-- Dramatic, chaotic uplighting from multiple contradictory angles
+THE STAGE STRUCTURE (in DISARRAY):
+- Same white fabric panels and pulley/rope systems as other plates — BUT:
+- Panels at chaotic, unstable angles — some seemingly falling, twisting violently
+- Rope systems in visible DISORDER — tangled, looping incorrectly, overloaded
+- One or two pulleys shown askew, off their intended path
+- Stage floor implied at bottom but unstable
 
-**The projected environment (CHAOTIC and FRAGMENTING):**
-- **ALL previous environments SIMULTANEOUSLY and FRAGMENTING:**
-  - Warm amber cabin light FIGHTING with pink/lavender flowers
-  - Sertão greens CONFLICTING with dark jungle forest  
-  - Golden destiny threads BREAKING APART and scattering
-  - Cosmic stardust and nebulas bursting through
-- All colors overlapping, competing, AT WAR with each other
-- Projected imagery fractured, distorted, disintegrating
+THE PROJECTED ENVIRONMENT (FRAGMENTING AND OVERLAPPING):
+- ALL FOUR PREVIOUS ENVIRONMENTS COLLIDING simultaneously:
+  - Amber cabin warmth FIGHTING pink/lavender flowers (quadrant borders dissolved)
+  - Forest deep greens CONFLICTING with golden destiny threads
+  - All visual elements from all 4 universes fragmented, distorted, overlapping
+- Multiple ghostly silhouettes of the performer scattered across fabric surfaces
+- Figures echo and multiply — figure appears 3–4 times in different positions
+- Body language: arms reaching, falling, disoriented postures
 
-**The performer:**
-- Shadow MULTIPLIED across fabric surfaces
-- Multiple echoes and ghostly versions of the silhouette scattered everywhere
-- Figure SURROUNDED by competing, colliding imagery
-- Creates visual VERTIGO and total DISORIENTATION
-- Body language suggests panic or spiritual emergency
+GRAPHITE TECHNIQUE (expressive, frenetic):
+- Line work: strong, angular, fast — hatching suggests violent movement
+- Lines cross and overlap aggressively — controlled chaos
+- Heavier graphite pressure creating dark areas that contrast with cream paper
+- Detail studies: fragments of each universe (broken lantern, scattered petals, cracked stone, severed thread lines) arranged in corners like evidence of collapse
+- Composition feels DENSE and UNSTABLE — no calm center
 
-**Color palette (aggressive and chaotic):**
-- ALL colors from previous scenes simultaneously: warm amber, pink, lavender, forest green, deep blue, gold, black
-- Saturated, vibrant, FIGHTING for dominance
-- Very little white space — composition feels PACKED and OVERWHELMING
-- Colors clash, not harmonize — visual discord
+COLOR — MINIMAL BUT PRESENT:
+- ALL 4 palette swatches shown at bottom — but OVERLAPPING each other chaotically
+- Colors bleeding into each other in the swatch section (mirroring the narrative chaos)
+- Still primarily graphite — color only in swatches, slightly more aggressive than other plates
 
-**Artistic technique:**
-- Strong, angular, frenetic nanquill line work suggesting violent movement and chaos
-- **NO careful blending** — aggressive, harsh color layering
-- Bold, saturated watercolor washes overlapping and CONFLICTING
-- Technique itself EXPRESSES the emotional state — wild, uncontrolled
-- Dynamic, unstable, vertiginous composition
-- Multiple competing focal points — eye cannot settle anywhere
+TECHNIQUE — CRITICAL:
+- Same medium as other plates (pencil + graphite on cream paper) for visual consistency
+- But the LINE QUALITY changes: from precise/technical → frenetic/expressive
+- This contrast IS the storytelling
 
-**Additional study elements:**
-- Color palette swatch showing all colors crashing/fighting together
-- Recognizable elements from previous scenes FRAGMENTED and DISTORTED
-- Energy lines suggesting chaotic movement and instability  
-- Cracks and breaks in visual space
-- Multiple pulley systems at odd angles
-
-**Mood:** Chaotic, disorienting, visually overwhelming, crisis-like, emergency, visual and spiritual collapse, internal emergency.
-
-**Critical:** No text or annotations visible.
+ABSOLUTE RESTRICTIONS:
+- Zero text or annotations anywhere
+- No defined faces on any figure/silhouette
 
 ---
 
-## IMAGEM 9 — A Revelação: O Branco Absoluto
+## PRANCHA 06 — A REVELAÇÃO: Branco Absoluto
 
-Create a minimalist theatrical stage design study — the ultimate simplicity and transcendence after complete chaos. The ABSENCE becomes the presence.
+Create a theatrical stage design plate — the ultimate minimalism. Same format as all other plates (aged cream paper, fine pencil graphite) but with EXTREME restraint. The absence of image IS the image.
 
-**The stage space:**
-- Pure white linen fabric backdrop and suspended panels
-- Immaculate, absolute, undisturbed white
-- **Minimal pulley and rope structure visible in shadows ONLY** — suggested but barely visible
-- NO projection, NO color except one focused light
-- Zen, meditative, peaceful, empty aesthetic
-- Negative space as powerful compositional element
+THE STAGE SPACE:
+- Pure cream/white paper dominates — vast negative space
+- Minimal suggestion of fabric panels in background: barely-there pencil lines, almost ghostlike, fading into the paper
+- Pulley and rope system: suggested only by faint shadow lines — present but barely
+- NO projection, NO environmental detail — just space and stillness
 
-**Lighting:**
-- Single warm golden-amber light source directed ONLY downward on central figure
-- Strong uplighting (from stage floor below) creating a spotlight/sacred geometry effect
-- Everything else remains deep black/dark shadow (off-stage, obscured)
-- Contrast between illuminated figure and void
+THE FIGURE (the single focus):
+- Barefoot male performer in wide-leg linen trousers and simple open shirt
+- Seated in deep stillness OR standing with arms relaxed at sides, eyes closed
+- Head: mannequin-smooth, featureless — but posture radiates profound peace
+- Rendered with slightly more graphite detail than the background — the focal point
+- Around or beside figure: rope lying abandoned on the stage floor, coiled loosely
 
-**The figure:**
-- Barefoot male performer in white-cream linen trousers and simple open shirt
-- Dark hair, full beard (Sael, finally at peace)
-- Complete repose—lying in meditation, sitting in profound stillness, or standing with eyes closed
-- Expression: peaceful, resolved, transcendent, awake
-- **Abandoned rope on floor beside figure**—the central object of the entire journey, now discarded and empty
+LIGHTING (as graphite study):
+- Single warm light source from above and slightly below (uplighting meeting downlight)
+- Creates a circular halo of slightly deeper graphite tone around figure
+- Everything outside the circle fades completely into cream paper
+- Small diagram in one corner: cross-section showing single light beam in dark space
 
-**Color palette (extremely restrained—almost monochromatic):**
-- Primarily white (paper/fabric)—the dominant element
-- Cream and off-white for linen costume
-- Warm ochre-gold for the ONLY projected light (on skin and rope)
-- Deep black for surrounding void/darkness
-- One of the most color-restrained compositions of all 9 images
+STUDY ELEMENTS (extremely minimal):
+- One close-up detail: abandoned rope texture and the knot now loosened/undone
+- One study: hand position (open, relaxed, empty)
+- One lighting diagram (tiny, precise, in corner)
+- ONE single color swatch: warm ochre-gold floating against white — the only color
 
-**Artistic technique:**
-- Extremely fine, delicate nanquill line work
-- Minimal ink used — vast white space with powerful use of NEGATIVE SPACE
-- Watercolor only in warmest ochre-gold for light on skin, rope, and stage floor
-- The rest is white paper and deep black ink shadow
-- Zen, meditative quality achieved through RESTRAINT
-- Everything pared down to essential elements: figure, light, rope, emptiness
+TECHNIQUE — CRITICAL:
+- Finest, most delicate pencil line work of all 6 plates
+- Maximum negative space — cream paper is the dominant visual element
+- Graphite used with extreme restraint: only on figure, rope, and faint background hint
+- Color: ONE swatch block only — warm ochre-gold — nothing else
+- Zen, meditative, architectural in its precision and emptiness
 
-**Additional study elements:**
-- Minimal detail drawings: peaceful face suggestion, abandoned rope, fabric folds, hand position
-- Light source direction diagram (uplighting from below)
-- Single color palette swatch: one warm gold note floating against white/black void
-- Negative space studies showing how emptiness shapes meaning
-
-**Mood:** Profound stillness. Peace after storm. Resolution, acceptance, release. The absence of image becomes the image itself. Meditative, transcendent, hopeful, illuminated, free.
-
-**Critical:** No text or annotations whatsoever. Pure visual silence and light.
+ABSOLUTE RESTRICTIONS:
+- Zero text anywhere
+- No faces — smooth mannequin head as in all other plates
+- NO additional decorative elements — any ornament would destroy the silence
+- This is the quietest plate of the series — restraint is mandatory
 
 ---
 
-## 📋 HOW TO USE IN CHATGPT
+## Como usar no ChatGPT
 
-1. **Open:** https://chatgpt.com (with DALL-E 3 model)
-2. **For each image above:** Paste the complete prompt
-3. **Generate 2-3 variations** of each image
-4. **Select the best one** that matches your vision
-5. **Download/save** the 9 chosen images
+1. Abra https://chatgpt.com (com DALL-E 3)
+2. Faça upload da imagem de referência de figurino teatral (opcional mas recomendado)
+3. Cole um prompt por vez
+4. Peça 2 variações de cada
+5. Selecione a melhor das 6
 
----
-
-## ⏱ Timeline
-
-- **~3-5 min per image** (generation + variations)
-- **30-45 min total** for all 9 images
-
----
-
-## Key Differences from Previous Version
-
-✅ Rosto = impressionístico, NÃO definido (não realista)  
-✅ Técnica = aquarela + nanquim (não foto)  
-✅ Formato = estudo de DA completo (figura + paleta + detalhes)  
-✅ Layout = inspirado em design teatral (como suas referências)  
-✅ Zero texto visível em qualquer imagem  
-✅ Cada imagem é uma composição estética, não apenas ilustração
-
----
-
-**Pronto para gerar!** 🎨
+**Tempo estimado:** ~20-30 min para todas as 6 pranchas
