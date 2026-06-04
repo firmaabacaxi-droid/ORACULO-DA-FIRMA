@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Todas as Histórias do Mundo — Roteiro + Memorial v4</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+@page {
+  size: A4;
+  margin: 2.2cm 2.8cm;
+  background: #F5EDD8;
+}
+
+body {
+  font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  font-size: 12pt;
+  line-height: 1.65;
+  color: #1C1208;
+  background: #F5EDD8;
+  text-align: justify;
+  hyphens: auto;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─── TIPOGRAFIA ─── */
+p { margin-bottom: 0.32cm; }
+strong { font-weight: 700; }
+em { font-style: italic; }
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.88em;
+  background: rgba(0,0,0,0.07);
+  padding: 0.02em 0.22em;
+}
+ul, ol { padding-left: 0.9cm; margin-bottom: 0.32cm; }
+li { margin-bottom: 0.12cm; }
+
+h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18pt;
+  font-weight: 600;
+  line-height: 1.15;
+  color: #1C1208;
+  text-align: left;
+}
+h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 12.5pt;
+  font-weight: 600;
+  color: #1C1208;
+  margin: 0.55cm 0 0.18cm;
+  text-align: left;
+}
+
+/* ─── CAPA ─── */
+.cover {
+  height: 25.3cm;
+  text-align: center;
+  page-break-after: always;
+  display: table;
+  width: 100%;
+}
+.cover-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+.cover-eyebrow {
+  font-size: 8.5pt;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: #7A5C3A;
+  margin-bottom: 0.35cm;
+}
+.cover-ornament {
+  font-size: 15pt;
+  color: #7A5C3A;
+  margin: 0.28cm 0;
+}
+.cover-title {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 34pt;
+  font-weight: 300;
+  line-height: 1.1;
+  color: #1C1208;
+  margin: 0.15cm 0;
+}
+.cover-subtitle {
+  font-size: 12pt;
+  font-style: italic;
+  color: #5A4030;
+  margin: 0.15cm 0 0.3cm;
+}
+.cover-version {
+  font-size: 8.5pt;
+  letter-spacing: 0.28em;
+  color: #C8B090;
+  text-transform: uppercase;
+  margin-bottom: 0.4cm;
+}
+.cover-img {
+  width: 8.5cm;
+  display: block;
+  margin: 0 auto 0.5cm;
+  border: 1px solid #C8B090;
+}
+.cover-rule {
+  border: none;
+  border-top: 1px solid #C8B090;
+  width: 6cm;
+  margin: 0.5cm auto;
+}
+.cover-credits {
+  font-size: 10.5pt;
+  line-height: 2;
+  color: #5A4030;
+}
+.cover-firma {
+  font-size: 7.5pt;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C8B090;
+  margin-top: 0.25cm;
+}
+
+/* ─── CABEÇALHO DE SEÇÃO ─── */
+.section-header {
+  margin-bottom: 0.55cm;
+  padding-bottom: 0.28cm;
+  border-bottom: 1.5px solid #7A5C3A;
+}
+.section-num {
+  display: block;
+  font-size: 8pt;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #7A5C3A;
+  margin-bottom: 0.1cm;
+  text-align: left;
+}
+hr.rule { border: none; border-top: 1px solid #C8B090; margin: 1.1cm 0; }
+
+/* ─── BLOCO META ─── */
+.meta-block {
+  font-size: 10.5pt;
+  line-height: 2;
+  color: #5A4030;
+  border-left: 2.5px solid #7A5C3A;
+  padding-left: 0.45cm;
+  margin-bottom: 0.6cm;
+  text-align: left;
+}
+
+/* ─── TABELAS ─── */
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0.4cm 0;
+  font-size: 10.5pt;
+}
+table.data thead tr { background: rgba(122,92,58,0.08); }
+table.data th {
+  font-size: 8pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #7A5C3A;
+  padding: 0.2cm 0.32cm;
+  text-align: left;
+  border-bottom: 1.5px solid #7A5C3A;
+}
+table.data td {
+  padding: 0.16cm 0.32cm;
+  border-bottom: 1px solid rgba(200,176,144,0.5);
+  vertical-align: top;
+}
+.chip {
+  display: inline-block;
+  width: 0.85em; height: 0.85em;
+  border: 1px solid rgba(0,0,0,0.12);
+  vertical-align: middle;
+  margin-right: 0.12em;
+}
+
+/* ─── ROTEIRO ─── */
+.act-label {
+  font-size: 8.5pt;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #7A5C3A;
+  margin: 0.9cm 0 0.35cm;
+  display: block;
+  text-align: left;
+}
+.prologue-note {
+  font-style: italic;
+  color: #5A4030;
+  font-size: 10.5pt;
+  margin-bottom: 0.55cm;
+}
+.scene {
+  margin-bottom: 1cm;
+  page-break-inside: avoid;
+}
+.scene-header {
+  background: rgba(122,92,58,0.055);
+  border-left: 3px solid #7A5C3A;
+  padding: 0.2cm 0.42cm;
+  margin-bottom: 0.4cm;
+  page-break-after: avoid;
+}
+.scene-header h3 { margin: 0; font-size: 11.5pt; }
+.block-label {
+  font-size: 7.5pt;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #7A5C3A;
+  display: block;
+  margin-bottom: 0.12cm;
+  text-align: left;
+}
+.dialogue {
+  font-style: italic;
+  padding-left: 0.55cm;
+  border-left: 1px solid #C8B090;
+  margin: 0.2cm 0;
+  text-align: left;
+}
+.stage-dir {
+  font-style: italic;
+  color: #5A4030;
+}
+.da-block {
+  background: rgba(236,226,208,0.55);
+  border: 1px solid rgba(200,176,144,0.6);
+  padding: 0.28cm 0.42cm;
+  margin-top: 0.3cm;
+  font-size: 10pt;
+  line-height: 1.55;
+}
+.da-block p { margin-bottom: 0.12cm; }
+.da-block p:last-child { margin-bottom: 0; }
+.tecnica { font-size: 10pt; color: #5A4030; margin-top: 0.18cm; }
+
+/* ─── FIGURAS INLINE ─── */
+.inline-figure {
+  margin: 0.6cm auto 0.7cm;
+  text-align: center;
+  page-break-inside: avoid;
+}
+.inline-figure img {
+  width: 7cm;
+  display: block;
+  margin: 0 auto 0.2cm;
+  border: 1px solid #C8B090;
+}
+.inline-figure figcaption {
+  font-size: 8pt;
+  font-style: italic;
+  color: #5A4030;
+}
+
+/* ─── PAINEL VISUAL — 2 colunas via table ─── */
+.pranchas-intro {
+  font-style: italic;
+  color: #5A4030;
+  font-size: 10.5pt;
+  margin-bottom: 0.7cm;
+}
+.pranchas-row {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0.35cm 0;
+  margin-bottom: 0.6cm;
+  page-break-inside: avoid;
+}
+.pranchas-row td {
+  width: 50%;
+  vertical-align: top;
+  padding: 0;
+  border: none;
+}
+.prancha-item { page-break-inside: avoid; }
+.prancha-item img {
+  width: 100%;
+  display: block;
+  border: 1px solid #C8B090;
+  margin-bottom: 0.2cm;
+}
+.prancha-title {
+  font-size: 11pt;
+  font-weight: 600;
+  color: #7A5C3A;
+  margin-bottom: 0.06cm;
+  text-align: left;
+}
+.prancha-desc {
+  font-size: 9.5pt;
+  font-style: italic;
+  color: #5A4030;
+  line-height: 1.45;
+  text-align: justify;
+}
+
+/* ─── RODAPÉ ─── */
+.doc-footer {
+  margin-top: 1.4cm;
+  padding-top: 0.5cm;
+  border-top: 1px solid #C8B090;
+  font-size: 7.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #C8B090;
+  text-align: center;
+}
+
+.content-section { margin-bottom: 1.1cm; }
+.section-page-break { page-break-before: always; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ CAPA ══════════════════════ -->
+<div class="cover">
+  <div class="cover-inner">
+    <div class="cover-eyebrow">Circo Contemporâneo &nbsp;·&nbsp; Monólogo &nbsp;·&nbsp; Solo</div>
+    <div class="cover-ornament">✦</div>
+    <div class="cover-title">Todas as Histórias<br>do Mundo</div>
+    <p class="cover-subtitle">Roteiro + Memorial de Direção de Arte</p>
+    <div class="cover-version">— v 4 —</div>
+    <img class="cover-img" src="images/00-capa.png" alt="Capa">
+    <hr class="cover-rule">
+    <div class="cover-credits">
+      <strong>Concepção e Atuação</strong> &nbsp;Filipe Duque<br>
+      <strong>Direção</strong> &nbsp;Eliana Carneiro
+    </div>
+    <div class="cover-firma">Brasília &nbsp;·&nbsp; Junho 2026</div>
+  </div>
+</div>
+
+<!-- ══════════════════════ I. APRESENTAÇÃO ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">I</span>
+    <h2>Apresentação do Espetáculo</h2>
+  </div>
+  <div class="meta-block">
+    <strong>Concepção e Atuação:</strong> Filipe Duque<br>
+    <strong>Direção:</strong> Eliana Carneiro<br>
+    <strong>Duração:</strong> 50 minutos<br>
+    <strong>Faixa etária:</strong> A partir de 10 anos<br>
+    <strong>Formato:</strong> Monólogo com técnicas circenses e videoprojeção mapeada
+  </div>
+  <p><em>Todas as Histórias do Mundo</em> é um espetáculo solo de circo contemporâneo — 50 minutos de monólogo em que contação de histórias, técnicas circenses e videoprojeção mapeada formam uma narrativa única. Filipe Duque está em cena do início ao fim, habitando múltiplos personagens pelo mesmo corpo: troca de adereço, mudança de postura, de voz.</p>
+  <p><strong>A ideia-força:</strong> Um menino que conhece todas as histórias do mundo descobre, ao final da jornada, que existe uma história que nunca foi contada para ele — a única que ninguém mais poderia conhecer. É a história da sua própria vida.</p>
+  <p>A estrutura segue a jornada do herói em três atos e doze cenas. Ao longo do caminho, Sael encontra cinco personagens cujas histórias vêm de tradições diversas: contos de fadas europeus, folclore brasileiro, narrativas Romani, mitos indígenas brasileiros e mitos de criação do mundo.</p>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ II. ARGUMENTO ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">II</span>
+    <h2>Argumento</h2>
+  </div>
+  <p>Sael cresceu à beira do mar, numa cabana de madeira que cheirava a sal e a história. Seu avô, um pescador que havia navegado os sete mares, tinha um dom raro: conhecia histórias de todos os contos do mundo. Noite após noite, antes de apagar a lamparina, o velho sentava na beirada da cama e contava histórias de desertos e neves, de princesas e dragões, de guerreiros e feiticeiras, de crianças que cruzavam florestas e de velhos que ensinavam montanhas a falar.</p>
+  <p>Os anos passaram. Sael cresceu dentro dessas histórias. E uma noite, quando pediu ao avô uma nova, o velho ficou em silêncio. Pela primeira vez na vida, não havia mais nenhuma. Sael já as conhecia todas.</p>
+  <p>Inquieto, o menino decide partir. Se não há mais histórias no mundo do avô, ele vai buscá-las no mundo grande. Mas a jornada revela um problema: a cada pessoa que encontra, a cada história que ouve, Sael já conhece o final. O dom do avô tornou-se uma espécie de maldição — ele é o menino que sabe todos os fins, mas que não consegue mais ser surpreendido.</p>
+  <p>Em sua jornada, Sael encontra cinco personagens. Uma donzela que busca liberdade — ela aceita que o menino saiba seu destino, e Sael se pergunta por que a certeza traz paz aos outros e inquietação a ele. Um companheiro trapaceiro e alegre, cujas histórias absurdas fazem Sael rir, e por um momento ele esquece de saber demais. Um guerreiro que não aceita que o menino conheça seu fim — e é o primeiro a lançar o desafio: <em>"Se você conhece todas as histórias, qual é a sua?"</em> Uma feiticeira que vê além do dom: <em>"Você carrega todas as histórias do mundo e se perdeu dentro delas. Não sabe mais se é o narrador ou a história."</em> E por fim, um ancião que começa a contar uma história que Sael não conhece. Pela primeira vez, o menino não consegue dizer o final. O ancião sorri: <em>"Esta história ainda está acontecendo. É a única que você nunca soube. É a sua."</em></p>
+  <p>A revelação chega como uma onda: cada passo da jornada, cada pessoa encontrada, cada história ouvida, eram fragmentos de uma narrativa que estava sendo escrita enquanto ele vivia. Sael não retorna para casa. Vai adiante — mas agora com uma história para contar: a sua.</p>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ III. PERSONAGEM ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">III</span>
+    <h2>O Personagem — Sael</h2>
+  </div>
+  <h3>O Nome</h3>
+  <p><strong>Sael</strong> — nome inventado que soa como se sempre tivesse existido. A raiz <em>sa-</em> ecoa o sal — o mar, a memória, a origem. O sufixo <em>-el</em> vem do hebraico <em>sha'al</em>: perguntar, buscar. O menino que nasceu do mar e que parte em busca do que não sabe que não sabe.</p>
+  <h3>Personalidade e História de Vida</h3>
+  <p>Sael cresceu num mundo pequeno: uma cabana, o avô, o mar. O horizonte era o limite do que conhecia de concreto — mas não do que conhecia de histórias. Cresceu curioso mas isolado, mais confortável na companhia de personagens do que de pessoas reais. O dom que herdou do avô — conhecer o fim de toda história — virou o modo como se relaciona com o mundo: Sael observa, posiciona, analisa. Raramente se deixa surpreender.</p>
+  <p>Quando parte, não é por coragem. É por inquietação — a sensação de que algo falta, sem conseguir nomear o quê. Ele não é o herói clássico que sabe para onde vai. É um menino que saiu porque ficar ficou impossível.</p>
+  <p>A jornada vai fazê-lo descobrir que saber o fim de uma história e entender o que ela significa são coisas completamente diferentes.</p>
+  <h3>No Palco: O Corpo como Multidão</h3>
+  <p>Todos os personagens emergem do mesmo corpo — através de trocas mínimas de adereço, mudanças de postura e qualidade de voz. A inspiração é a Commedia dell'Arte: um único elemento exagerado basta para instaurar outro ser em cena.</p>
+  <p>A corda é o objeto central de Sael — entregue pelo avô, ela muda de função a cada cena. Linha de pesca, corda de trapézio, fio do destino, arma, objeto de ilusionismo, peso. O fio que conecta todas as histórias.</p>
+  <figure class="inline-figure">
+    <img src="images/01-figurino-sael.png" alt="Figurino — Sael">
+    <figcaption>Estudo de figurino — Sael</figcaption>
+  </figure>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ IV. CENOGRAFIA ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">IV</span>
+    <h2>Cenografia e Direção de Arte</h2>
+  </div>
+  <h3>O Espaço</h3>
+  <p>O cenário é feito de <strong>tecidos brancos suspensos por cordas e polias</strong>, formando volumes tridimensionais que um único operador manipula ao vivo. Os tecidos se transformam durante o espetáculo: criam uma cabana, uma vela de barco, as ondas do mar, uma floresta, uma caverna, um palco vazio.</p>
+  <p>A videoprojeção mapeada não opera como ilustração — é dramaturgia visual. Cada universo que Sael atravessa tem uma identidade visual própria projetada sobre os tecidos. Quando o espaço muda, o mundo inteiro muda. Não há troca de cenário. Há transformação.</p>
+  <p>O operador de vídeo, em console, dispara as transições em tempo real — em diálogo constante com o operador que move as cordas e polias. Quando o tecido se move, a projeção se deforma, ondula, racha. Esse comportamento não é falha técnica. É a linguagem do espetáculo.</p>
+  <h3>A Sombra como Segunda Narrativa</h3>
+  <p>O teatro de sombras integra-se à videoprojeção de forma orgânica. Não apenas o corpo do artista projeta sombra sobre os tecidos iluminados — objetos manipulados em cena também produzem sombras sobre as superfícies. A sombra do corpo e a sombra do objeto se combinam: uma narrativa paralela que conta o que a voz ainda não disse.</p>
+  <figure class="inline-figure">
+    <img src="images/02-cenografia-palco.png" alt="Cenografia — O Palco">
+    <figcaption>Estudo de cenografia — painéis de tecido, polias e sistema de cordas</figcaption>
+  </figure>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ V. TÉCNICAS ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">V</span>
+    <h2>Técnicas Circenses</h2>
+  </div>
+  <p>O espetáculo mobiliza o repertório completo de Filipe Duque, construído ao longo de 20 anos de carreira — 12 deles na Companhia Circênicos. As técnicas não são números isolados — estão a serviço da narrativa.</p>
+  <ul>
+    <li><strong>Malabarismo com diabolô</strong> — leveza, ritmo, presença cômica e lúdica</li>
+    <li><strong>Teatro físico</strong> — expressividade corporal intensa, corporificação de personagens</li>
+    <li><strong>Mímica</strong> — precisão gestual, silêncio como linguagem</li>
+    <li><strong>Trapézio</strong> — elevação, esforço, risco, o corpo no limite como metáfora interna</li>
+    <li><strong>Mágica e ilusionismo</strong> — revelação, transformação, surpresa como poética</li>
+    <li><strong>Teatro de sombras</strong> — a sombra como duplo, como passado, como o que não se vê mas existe</li>
+    <li><strong>Contação de histórias</strong> — o fio condutor de todo o espetáculo</li>
+  </ul>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ VI. ROTEIRO ══════════════════════ -->
+<div class="content-section section-page-break">
+  <div class="section-header">
+    <span class="section-num">VI</span>
+    <h2>Roteiro</h2>
+  </div>
+  <p class="prologue-note"><em>O artista está em cena do início ao fim. Os personagens emergem do mesmo corpo — troca de adereço, mudança de postura, de voz, de qualidade de movimento. Não há coadjuvantes. Há um ator que contém multidões.</em></p>
+  <p class="prologue-note"><em>A projeção, a luz e o espaço são elementos dramáticos — não decoração.</em></p>
+
+  <span class="act-label">Prólogo</span>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 1 — O Lar</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>O palco emerge do escuro. Uma cabana à beira do mar. Os tecidos formam paredes e teto. Sael entra com o lampião aceso nas mãos. Senta. Olha o lampião. Começa a falar.</em></p>
+      <p class="dialogue"><em>"Meu avô sabia todas as histórias do mundo."</em></p>
+      <p class="stage-dir"><em>Pausa. O som das ondas.</em></p>
+      <p class="dialogue"><em>"Isso não é exagero. Ele era pescador, e tinha navegado os sete mares. Em cada porto, em cada costa, em cada praia onde o barco encostou — ele trocou histórias por peixe, histórias por abrigo, histórias por companhia. Guardou cada uma delas dentro de um lugar que eu nunca descobri onde fica."</em></p>
+      <p class="stage-dir"><em>Sael narra o avô, narra a si mesmo menino, narra histórias dentro de histórias. Quando o avô emerge, a coluna curva, os movimentos ficam mais lentos.</em></p>
+      <p class="dialogue"><em>"Toda noite, antes de apagar a lamparina, ele sentava na beirada da minha cama. E eu sabia: enquanto a luz estivesse acesa, a noite não terminava. Enquanto ele falasse, eu era invencível."</em></p>
+      <p class="tecnica"><strong>Técnica:</strong> Contação de história + manipulação suave dos tecidos.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Interior de cabana — paredes ásperas, teto baixo, lamparina tremulando. Mar escuro com estrelas refletidas. Ondas lentas.</p>
+      <p><strong>Paleta:</strong> Âmbar <code>#E8974A</code>, dourado suave, branco quente. &nbsp;<strong>Luz:</strong> A lamparina é a fonte dramática. &nbsp;<strong>Adereço:</strong> Lampião aceso.</p>
+    </div>
+  </div>
+
+  <span class="act-label">Ato I — A Partida</span>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 2 — A Última História</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>Sael cresceu. A lamparina ainda queima. Mas algo mudou.</em></p>
+      <p class="dialogue"><em>"Avô. Me conta uma história." &nbsp;— &nbsp;"Eu sei, Sael." &nbsp;— &nbsp;"Qual é? Conta essa."</em></p>
+      <p class="stage-dir"><em>Outro silêncio.</em></p>
+      <p class="dialogue"><em>"Eu... não tenho mais nenhuma."</em></p>
+      <p class="stage-dir"><em>O silêncio não é vazio — é cheio de tudo que já foi dito.</em></p>
+      <p class="tecnica"><strong>Técnica:</strong> Teatro físico — o corpo traduz a hesitação e o peso.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> A lamparina começa a fraquejar. O mar imobiliza-se. O âmbar recua, um azul-índigo muito suave entra pelas bordas.</p>
+      <p><strong>Paleta:</strong> Transição âmbar → azul-índigo nas bordas.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 3 — A Bênção do Avô</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>O avô traz de um canto escuro um pequeno saco de tecido, amarrado com um nó marineiro, surrado de tanto tempo guardado.</em></p>
+      <p class="dialogue"><em>"Isso era do meu pai. Que era do pai do pai dele." &nbsp;— &nbsp;"O que tem aqui dentro?" &nbsp;— &nbsp;"Uma corda. Simples. Comprida. Velha."</em></p>
+      <p class="dialogue"><em>"Há uma história que eu nunca te contei. Porque ela ainda não aconteceu."</em></p>
+      <p class="stage-dir"><em>Mágica e ilusionismo: a corda aparece de dentro do tecido — maior do que o saco poderia conter, ela se estende e pousa no chão. Sael passa a corda na cintura. A cabana começa a se dissolver.</em></p>
+      <p class="tecnica"><strong>Técnica:</strong> Contação de história + mágica e ilusionismo.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> A lamparina acende forte uma última vez. A corda aparece iluminada. As paredes da cabana se dissolvem. O horizonte do mar surge nas laterais.</p>
+      <p><strong>Paleta:</strong> Âmbar intenso → transição para azul do horizonte. &nbsp;<strong>Adereço:</strong> A corda passa a ser o cinto de Sael.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 4 — A Travessia</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>A cabana some, o horizonte se expande — o mar entra pelo palco. Pela primeira vez, o espaço é grande demais. Sael olha para cima. Uma corda pende do urdimento — o trapézio esperando. O corpo sobe. Suspenso entre dois mundos.</em></p>
+      <p class="tecnica"><strong>Técnica:</strong> Trapézio — a travessia é literal; o corpo sobe, atravessa, suspende-se entre dois mundos.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> O mar se abre. Horizonte expandido — azul-profundo, faixa de âmbar. Quando Sael sobe, a projeção mostra o ponto de vista do alto.</p>
+      <p><strong>Paleta:</strong> Azul-índigo <code>#0A2A4A</code> dominante. Faixa de âmbar — última lembrança do lar.</p>
+    </div>
+  </div>
+
+  <span class="act-label">Ato II — A Iniciação</span>
+  <p class="prologue-note"><em>Em cada encontro: Sael encontra o personagem → o personagem conta sua história → Sael já sabe o final → o personagem reage. O artista interpreta os cinco personagens através de transformações de adereço e corporalidade, sem sair de cena.</em></p>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 5 — A Donzela (Elara)</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>O véu branco fino. A tiara de flores. Os ombros se abrem, o pescoço alonga. <strong>Elara</strong>. Ela conta sua história — a torre de vidro, o feiticeiro, o cavaleiro.</em></p>
+      <p class="dialogue"><em>"O cavaleiro tinha olhos da cor do mar." &nbsp;— &nbsp;"Tinha." &nbsp;— &nbsp;"E quando ele chegou à torre, o feiticeiro estava dormindo." &nbsp;— &nbsp;"Estava." &nbsp;— &nbsp;"E você saiu pela janela. Sem fazer barulho. Descalça."</em></p>
+      <p class="stage-dir"><em>Elara para. Depois sorri — mais sábio do que Sael esperava.</em></p>
+      <p class="dialogue"><em>"Você sabe que ele me salvou. Mas você sabe o que o feiticeiro me ensinava todas as noites? A linguagem das estrelas. Eram histórias que só existiam em cima da torre. Quando o cavaleiro me libertou, eu tive que deixar a torre para trás. E com ela, tudo que eu sabia."</em></p>
+      <p class="tecnica"><strong>Arquétipo:</strong> Anima / Alma. &nbsp;<strong>Tradição:</strong> Conto de fadas europeu. &nbsp;<strong>Técnica:</strong> Teatro físico + mímica.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Torre de pedra coberta de flores. Quando Elara fala das estrelas, constelações aparecem com nomes em letras finas.</p>
+      <p><strong>Paleta:</strong> Rosa-pálido <code>#F8C8D4</code>, lavanda <code>#C8A8E4</code>, azul-gelo. &nbsp;<strong>Adereço:</strong> Véu branco + tiara de flores.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 6 — O Companheiro (Pedro Malasartes)</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>A risada chega antes. O chapéu de couro surrado. O cachimbo. <strong>Pedro Malasartes</strong>.</em></p>
+      <p class="dialogue"><em>"Você aí, com essa cara de quem sabe demais e ri de menos — você conhece a história da minha panela?"</em></p>
+      <p class="stage-dir"><em>O diabolô entra em cena enquanto a história avança. O fazendeiro gordo aparece em silhueta nos tecidos. Pedro narra a peça que pregou — Sael já sabe o final.</em></p>
+      <p class="dialogue"><em>"Você sabe como termina?" &nbsp;— &nbsp;"Sei." &nbsp;— &nbsp;"Ótimo."</em> <em>Sorriso largo.</em> <em>"Me conta de novo que dessa vez eu ouço com atenção."</em></p>
+      <p class="tecnica"><strong>Arquétipo:</strong> Trickster / Aliado. &nbsp;<strong>Tradição:</strong> Folclore brasileiro. &nbsp;<strong>Técnica:</strong> Malabarismo com diabolô + mágica e ilusionismo.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Sertão e mata brasileira. Fazenda em silhueta cômica — animação simples, quase xilogravura de cordel.</p>
+      <p><strong>Paleta:</strong> Verde-mata <code>#2D6A4F</code>, amarelo-vivo <code>#F4C430</code>, terracota. A cena mais colorida. &nbsp;<strong>Luz:</strong> Diurna, aberta, alegre.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 7 — O Guerreiro (Moacir)</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>O riso acaba. Os tecidos escurecem. A pena no cabelo. A pintura facial em ocre e preto. <strong>Moacir</strong> — os pés no chão como raízes.</em></p>
+      <p class="dialogue"><em>"Me sento aqui toda noite. Na entrada da aldeia. Onde a floresta começa."</em></p>
+      <p class="stage-dir"><em>Moacir narra: o inimigo na floresta, a escolha entre despertar a aldeia ou ficar sozinho. Sael interrompe. Moacir para.</em></p>
+      <p class="dialogue"><em>"Fica quieto."</em></p>
+      <p class="dialogue"><em>"Eu fiquei. Segurei o inimigo sozinho. E o grande espírito transformou meu corpo em pedra. Para que minha vigília durasse para sempre."</em></p>
+      <p class="dialogue"><em>"Se você sabe todos os fins — me diz: valeu a pena? Se você conhece todas as histórias... qual é a sua?"</em></p>
+      <p class="stage-dir"><em>Sael abre a boca. Fecha. E Moacir petrifica.</em></p>
+      <p class="tecnica"><strong>Arquétipo:</strong> Guardião do Limiar. &nbsp;<strong>Tradição:</strong> Mito indígena brasileiro. &nbsp;<strong>Técnica:</strong> Teatro físico + acrobacia.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Noite densa. Floresta escura. Ao fundo, luz distante da aldeia. Quando Moacir petrifica, sua sombra torna-se rocha permanente.</p>
+      <p><strong>Paleta:</strong> Ocre-escuro <code>#8B4513</code>, verde-selva, preto-noite. &nbsp;<strong>Luz:</strong> Única fonte lateral — como luar coado pela floresta.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 8 — A Feiticeira (Ísola)</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>Ela já está lá. Sentada, os fios nas mãos. O xale escuro. <strong>Ísola</strong> — conta como se estivesse contando para si mesma.</em></p>
+      <p class="dialogue"><em>"Minha avó sabia ler os fios que saem de cada pessoa. Ela me ensinou. Por muito tempo eu via. Sabia. Dizia."</em></p>
+      <p class="dialogue"><em>"O que acontece com quem sabe demais?" &nbsp;— &nbsp;"Prepara uma poção de esquecimento e bebe."</em></p>
+      <p class="dialogue"><em>"Larguei o dom. Acordei no dia seguinte sem saber ler nada. O café esfriou e eu me peguei surpresa. A chuva chegou sem aviso. Alguém disse uma coisa engraçada e eu ri sem saber que ia rir."</em></p>
+      <p class="stage-dir"><em>Os fios em suas mãos se dissolvem — ela os vai largando, um por um.</em></p>
+      <p class="dialogue"><em>"Foi o melhor dia da minha vida. E todos os dias depois."</em></p>
+      <p class="dialogue"><em>"Você carrega todas as histórias do mundo e se perdeu dentro delas. Você não sabe mais se é o narrador ou a história."</em></p>
+      <p class="tecnica"><strong>Arquétipo:</strong> Shapeshifter / Sombra. &nbsp;<strong>Tradição:</strong> Conto Romani. &nbsp;<strong>Técnica:</strong> Teatro de sombras + mímica.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Fios de luz cruzam os tecidos. Quando ela bebe a poção, os fios se dissolvem um por um. O espaço fica simples, ordinário.</p>
+      <p><strong>Paleta:</strong> Roxo-profundo <code>#4A0E4E</code>, bordô, dourado-sombra. &nbsp;<strong>Adereço:</strong> Xale escuro + fios finos reais.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 9 — A Crise</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>Sael está só. Sem personagem. Sem voz para evocar. Só o corpo no espaço.</em></p>
+      <p class="dialogue"><em>"Qual o sentido? Eu conheço o começo e o fim de cada história que já foi contada. Sei onde estão as surpresas antes delas aparecerem."</em></p>
+      <p class="stage-dir"><em>O trapézio desce. Sael sobe. Esforço físico real, tensão real, risco real. Lá em cima, no meio do caos visual:</em></p>
+      <p class="dialogue"><em>"Eu conheço todos os fins. Mas não sei o que fazer com isso."</em></p>
+      <p class="dialogue"><em>"Qual é a minha história?"</em></p>
+      <p class="stage-dir"><em>O caos nos tecidos atinge seu pico. Sael para — suspenso, no centro do barulho visual — e há um silêncio súbito.</em></p>
+      <p class="tecnica"><strong>Técnica:</strong> Trapézio — sequência física intensa; o corpo carrega o que não cabe em palavras.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Todos os ambientes anteriores fragmentam-se e surgem sobrepostos — a cabana, flores de Elara, sertão de Pedro, floresta de Moacir, fios de Ísola. Caos visual total.</p>
+      <p><strong>Paleta:</strong> Todas as paletas anteriores simultaneamente — nenhuma domina, todas brigam. &nbsp;<strong>Luz:</strong> Instável, cortante.</p>
+    </div>
+    <figure class="inline-figure">
+      <img src="images/05-crise.png" alt="A Crise — Colapso Visual">
+      <figcaption>Estudo visual — A Crise: colapso dos quatro universos simultâneos</figcaption>
+    </figure>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 10 — O Ancião</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>O caos para. Há um homem sentado no chão — sempre esteve ali. Muito velho. Pintura branca e cinza no rosto. Sem objeto. Só presença. Sael desce e se aproxima devagar.</em></p>
+      <p class="dialogue"><em>"No começo, não havia histórias."</em></p>
+      <p class="stage-dir"><em>Sael para. Ouve. E não sabe o final — pela primeira vez na vida.</em></p>
+      <p class="dialogue"><em>"Havia tudo — luz, sombra, água, terra, fogo — mas era o caos imóvel. Então o primeiro ser deu um passo. E ao dar esse passo, criou o ontem e o amanhã. Com o passo, nasceu o tempo. E com o tempo, nasceu a primeira história."</em></p>
+      <p class="dialogue"><em>"'Era uma vez um ser que andou.'"</em></p>
+      <p class="stage-dir"><em>Sael abre a boca. Mas não sabe o que vem depois.</em></p>
+      <p class="dialogue"><em>"Esta história ainda está acontecendo. Você é o ser que anda. E só você pode dizer o que vem depois."</em></p>
+      <p class="tecnica"><strong>Arquétipo:</strong> Mentor. &nbsp;<strong>Tradição:</strong> Mito de criação do mundo. &nbsp;<strong>Técnica:</strong> Contação de história — voz e silêncio.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> O universo nascendo em câmera lentíssima. Poeira cósmica. Estrelas se formando uma por uma. Uma silhueta caminha sobre os tecidos — lenta, decisiva.</p>
+      <p><strong>Paleta:</strong> Azul-cobalto <code>#0047AB</code>, índigo, branco-luz estelar. &nbsp;<strong>Luz:</strong> Mínima — a luz vem da projeção.</p>
+    </div>
+  </div>
+
+  <span class="act-label">Ato III — O Retorno</span>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 11 — A Revelação</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>Sael está sozinho. Os tecidos carregam fragmentos de tudo que aconteceu.</em></p>
+      <p class="dialogue"><em>"Cada passo." &nbsp;— &nbsp;"Cada pessoa." &nbsp;— &nbsp;"Cada história que eu ouvi — eu achei que estava coletando. Que estava armazenando. Como o avô fazia."</em></p>
+      <p class="stage-dir"><em>Os tecidos começam a se harmonizar — cores coexistindo pela primeira vez sem brigar. Um por um, os universos se dissolvem. O último a ir é o âmbar do lar.</em></p>
+      <p class="dialogue"><em>"Mas eu não estava coletando."</em></p>
+      <p class="dialogue"><em>"Eu estava vivendo."</em></p>
+      <p class="stage-dir"><em>O tecido volta ao branco puro. Sael respira.</em></p>
+      <p class="tecnica"><strong>Técnica:</strong> A projeção é a técnica central desta cena.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Todos os ambientes surgem sobrepostos em harmonia, depois se dissolvem um por um. O tecido volta ao branco puro. Vazio. Possibilidade.</p>
+      <p><strong>Paleta:</strong> Todos os universos em harmonia → branco absoluto.</p>
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-header"><h3>Cena 12 — A História de Sael</h3></div>
+    <div class="narrative">
+      <span class="block-label">Narrativa</span>
+      <p class="stage-dir"><em>O tecido branco ao fundo. Nenhuma projeção. Sael olha para o público pela primeira vez — não como narrador, não como personagem. A corda no chão. O lampião apagado. Só o corpo e a voz.</em></p>
+      <p class="dialogue"><em>"Meu avô me deu uma corda e disse que havia uma história que ele nunca me contou. Ele tinha razão."</em></p>
+      <p class="dialogue"><em>"Há uma história que não está em nenhum lugar. Que só existe no presente de quem a vive. Que não tem começo porque sempre esteve acontecendo. Que não tem fim porque ainda não terminou."</em></p>
+      <p class="dialogue"><em>"É a história que você está vivendo agora mesmo, sentado nessa cadeira."</em></p>
+      <p class="dialogue"><em>"A única história que ninguém pode te contar é a sua."</em></p>
+      <p class="stage-dir"><em>Uma última pausa. Longa. Presente.</em></p>
+      <p class="dialogue"><em>"Mas você pode contá-la."</em></p>
+      <p class="stage-dir"><em>Sael não pega a corda. Não apanha o lampião. Vai embora com as mãos vazias.</em></p>
+      <p class="tecnica"><strong>Técnica:</strong> Voz e silêncio.</p>
+    </div>
+    <div class="da-block">
+      <span class="block-label">Direção de Arte</span>
+      <p><strong>Videoprojeção:</strong> Nenhuma. O tecido branco ao fundo — imaculado, absoluto.</p>
+      <p><strong>Paleta:</strong> Branco puro. &nbsp;<strong>Luz:</strong> Mínima, quente, direta. &nbsp;<strong>Adereço:</strong> Nenhum. A corda está no chão.</p>
+    </div>
+    <figure class="inline-figure">
+      <img src="images/06-revelacao.png" alt="A Revelação — Branco Absoluto">
+      <figcaption>Estudo visual — A Revelação: branco absoluto, a corda pousada</figcaption>
+    </figure>
+  </div>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ VII. FIGURINO ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">VII</span>
+    <h2>Figurino</h2>
+  </div>
+  <p><strong>Paleta:</strong> Branco-creme / Azul-índigo</p>
+  <ul>
+    <li>Calça larga de linho branco-creme, com volume exagerado</li>
+    <li>Camisa simples de linho, aberta no peito, levemente desgastada</li>
+    <li>A <strong>corda serve de cinto</strong> — funcional e simbólica. Em determinados momentos, ela pode se soltar e a calça cair: comédia física que humaniza o herói</li>
+    <li>Pés descalços ou sandálias simples de couro</li>
+  </ul>
+  <p><strong>Lógica da paleta:</strong> O branco-creme absorve a videoprojeção — Sael não apenas entra num mundo, ele <em>se torna</em> esse mundo.</p>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ VIII. ADEREÇOS ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">VIII</span>
+    <h2>Adereços por Personagem</h2>
+  </div>
+  <table class="data">
+    <thead><tr><th>Personagem</th><th>Adereço(s)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Sael</strong></td><td>Corda — cinto e objeto central de toda a jornada</td></tr>
+      <tr><td><strong>O Avô</strong></td><td>Lampião aceso</td></tr>
+      <tr><td><strong>Elara</strong></td><td>Véu branco fino, tiara de flores</td></tr>
+      <tr><td><strong>Pedro Malasartes</strong></td><td>Chapéu de couro surrado, cachimbo, navalha (mágica e ilusionismo)</td></tr>
+      <tr><td><strong>Moacir</strong></td><td>Pena no cabelo, pintura facial em ocre e preto</td></tr>
+      <tr><td><strong>Ísola</strong></td><td>Xale escuro, fios finos reais (que ela vai largando ao longo da cena)</td></tr>
+      <tr><td><strong>O Ancião</strong></td><td>Pintura facial em branco e cinza</td></tr>
+    </tbody>
+  </table>
+  <figure class="inline-figure">
+    <img src="images/03-aderecos.png" alt="Adereços — Objetos de Cena">
+    <figcaption>Estudo de adereços — objetos de cena reunidos pela corda</figcaption>
+  </figure>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ IX. PALETA ══════════════════════ -->
+<div class="content-section">
+  <div class="section-header">
+    <span class="section-num">IX</span>
+    <h2>Paleta Geral do Espetáculo</h2>
+  </div>
+  <h3>Âncoras Permanentes</h3>
+  <table class="data">
+    <thead><tr><th>Cor</th><th>Código</th><th>Referência</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip" style="background:#FFFFFF;border-color:#ccc;"></span> Branco puro</td><td><code>#FFFFFF</code></td><td>Os tecidos — a tela de mundo, o vazio, a revelação</td></tr>
+      <tr><td><span class="chip" style="background:#0A2A4A;"></span> Azul-índigo escuro</td><td><code>#0A2A4A</code></td><td>O mar, o sal, a memória, o figurino de Sael</td></tr>
+      <tr><td><span class="chip" style="background:#E8974A;"></span> Âmbar / Ocre</td><td><code>#E8974A</code></td><td>A lamparina, o avô, o lar, o início</td></tr>
+    </tbody>
+  </table>
+  <h3 style="margin-top:0.55cm;">Paletas por Universo</h3>
+  <table class="data">
+    <thead><tr><th>Universo</th><th>Tons dominantes</th><th>Sensação</th></tr></thead>
+    <tbody>
+      <tr><td>Prólogo — O Lar</td><td>Âmbar, dourado suave, branco quente</td><td>Aconchego, memória afetiva</td></tr>
+      <tr><td>Elara — Conto europeu</td><td><span class="chip" style="background:#F8C8D4;"></span> Rosa-pálido, <span class="chip" style="background:#C8A8E4;"></span> lavanda, azul-gelo</td><td>Delicadeza, perda, constelações</td></tr>
+      <tr><td>Pedro — Folclore BR</td><td><span class="chip" style="background:#2D6A4F;"></span> Verde-mata, <span class="chip" style="background:#F4C430;"></span> amarelo-vivo, terracota</td><td>Exuberância, humor, Brasil</td></tr>
+      <tr><td>Moacir — Mito indígena</td><td><span class="chip" style="background:#8B4513;"></span> Ocre-escuro, verde-selva, preto-noite</td><td>Peso, enraizamento, honra</td></tr>
+      <tr><td>Ísola — Mundo Romani</td><td><span class="chip" style="background:#4A0E4E;"></span> Roxo-profundo, bordô, dourado-sombra</td><td>Mistério, destino, fios</td></tr>
+      <tr><td>Ancião — Cosmos</td><td><span class="chip" style="background:#0047AB;"></span> Azul-cobalto, índigo, branco-luz estelar</td><td>Origem, infinito, criação</td></tr>
+      <tr><td>A Crise</td><td>Todas as paletas sobrepostas, fragmentadas</td><td>Caos, saturação</td></tr>
+      <tr><td>A Revelação</td><td>Branco absoluto</td><td>Esvaziamento, possibilidade pura</td></tr>
+    </tbody>
+  </table>
+  <figure class="inline-figure">
+    <img src="images/04-universos.png" alt="Universos — Projeção Mapeada">
+    <figcaption>Estudo visual — os quatro universos projetados nos tecidos</figcaption>
+  </figure>
+</div>
+
+<hr class="rule">
+
+<!-- ══════════════════════ X. PAINEL VISUAL ══════════════════════ -->
+<div class="content-section section-page-break">
+  <div class="section-header">
+    <span class="section-num">X</span>
+    <h2>Painel de Estudo Visual</h2>
+  </div>
+  <p class="pranchas-intro"><em>Estudos de visualização criados com inteligência artificial. Referência de estética e atmosfera — não representação definitiva da produção.</em></p>
+
+  <table class="pranchas-row">
+    <tr>
+      <td><div class="prancha-item">
+        <img src="images/01-figurino-sael.png" alt="Figurino — Sael">
+        <div class="prancha-title">Figurino — Sael</div>
+        <p class="prancha-desc">A corda não é enfeite — é ferramenta. No linho largo e nos pés descalços, um pescador que virou contador de histórias.</p>
+      </div></td>
+      <td><div class="prancha-item">
+        <img src="images/02-cenografia-palco.png" alt="Cenografia — O Palco">
+        <div class="prancha-title">Cenografia — O Palco</div>
+        <p class="prancha-desc">Painéis de tecido branco prontos para receber luz e projeção. As polias e cordas à vista — a engrenagem do contar não se esconde.</p>
+      </div></td>
+    </tr>
+  </table>
+
+  <table class="pranchas-row">
+    <tr>
+      <td><div class="prancha-item">
+        <img src="images/03-aderecos.png" alt="Adereços — Objetos de Cena">
+        <div class="prancha-title">Adereços — Objetos de Cena</div>
+        <p class="prancha-desc">Cada objeto pertenceu a uma das almas que Sael carrega. A corda é o único que é dele — e é ela que conecta todos os outros.</p>
+      </div></td>
+      <td><div class="prancha-item">
+        <img src="images/04-universos.png" alt="Universos — Projeção Mapeada">
+        <div class="prancha-title">Universos — Projeção Mapeada</div>
+        <p class="prancha-desc">O mesmo palco, quatro realidades. Lar, Elara, Moacir e Ísola coexistem nos mesmos painéis, separados apenas pela luz.</p>
+      </div></td>
+    </tr>
+  </table>
+
+  <table class="pranchas-row">
+    <tr>
+      <td><div class="prancha-item">
+        <img src="images/05-crise.png" alt="A Crise — Colapso Visual">
+        <div class="prancha-title">A Crise — Colapso Visual</div>
+        <p class="prancha-desc">As fronteiras entre as almas colapsam e Sael perde o controle. A desordem visual é a desordem interna.</p>
+      </div></td>
+      <td><div class="prancha-item">
+        <img src="images/06-revelacao.png" alt="A Revelação — Branco Absoluto">
+        <div class="prancha-title">A Revelação — Branco Absoluto</div>
+        <p class="prancha-desc">A corda está no chão. Sael fica. O que resta de um contador depois que todas as histórias foram contadas.</p>
+      </div></td>
+    </tr>
+  </table>
+</div>
+
+<div class="doc-footer">
+  Filipe Duque &nbsp;·&nbsp; Brasília &nbsp;·&nbsp; Junho 2026 &nbsp;·&nbsp; Versão 4.0
+</div>
+
+</body>
+</html>
