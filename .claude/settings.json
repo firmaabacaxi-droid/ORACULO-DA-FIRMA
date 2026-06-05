@@ -4,7 +4,21 @@
       "Bash(powershell -NoProfile -Command \"Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\AppData\\\\Local' -Recurse -ErrorAction SilentlyContinue -Include '*drive*','*gdrive*' -Directory | Select-Object FullName\")",
       "Bash(powershell -NoProfile -Command \"Test-Path 'C:\\\\Users\\\\User\\\\mcp-servers' ; Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\mcp-servers' -ErrorAction SilentlyContinue | Select-Object Name\")",
       "Bash(powershell -NoProfile -Command \"Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\mcp-servers\\\\notebooklm-mcp' | Select-Object Name, FullName\")",
-      "Bash(powershell -NoProfile -Command \"Test-Path 'C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\\\\SKILLS\\\\google-drive-integration\\\\*'; Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\\\\SKILLS\\\\google-drive-integration\\\\' -ErrorAction SilentlyContinue | Select-Object Name\")"
+      "Bash(powershell -NoProfile -Command \"Test-Path 'C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\\\\SKILLS\\\\google-drive-integration\\\\*'; Get-ChildItem -Path 'C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\\\\SKILLS\\\\google-drive-integration\\\\' -ErrorAction SilentlyContinue | Select-Object Name\")",
+      "Skill(watch:watch)",
+      "Skill(watch:watch:*)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\" -Recurse -File | Where-Object { $_.Name -match \"env|config|api|key|credential\" } | Select-Object FullName, LastWriteTime | Head -20)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\User\\\\Documents\\\\ANTIGRAVITY\" -Recurse -File -ErrorAction SilentlyContinue | Where-Object { $_.Name -match \"env|config|api|key\" } | Select-Object FullName, LastWriteTime | Select-Object -First 20)",
+      "Read(//c/Users/User/Documents/ANTIGRAVITY/**)",
+      "PowerShell(pip install openai --quiet)",
+      "PowerShell(rclone copyto \"c:\\\\Users\\\\User\\\\Documents\\\\ORACULO - FIRMA ABACAXI\\\\output\\\\fac2026\\\\teste_sael\\\\teste_Sael_v2.png\" \"gdrive:/FIRMA ABACAXI/PROJETOS/2026/FAC-2026/teste_Sael_v2.png\" -v)",
+      "WebFetch(domain:pin.it)",
+      "PowerShell(explorer.exe \"C:\\\\Users\\\\User\\\\Documents\\\\ORACULO - FIRMA ABACAXI\\\\cerebro\\\\CEREBRO-ORACULO\\\\04-PROJETOS-ATIVOS\\\\FAC-2026\\\\REFERENCIAS-VISUAIS\\\\\")",
+      "mcp__claude_ai_Notion__notion-create-pages",
+      "Bash(git commit -m ' *)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\User\\.claude\\projects\\c--Users-User-Documents-ORACULO---FIRMA-ABACAXI\\memory"
     ]
   }
 }
