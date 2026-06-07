@@ -3,5 +3,7 @@
   "templater-obsidian",
   "obsidian-git",
   "3d-graph",
-  "hangarx"
+  "hangarx",
+  "extended-graph",
+  "advanced-canvas"
 ]
