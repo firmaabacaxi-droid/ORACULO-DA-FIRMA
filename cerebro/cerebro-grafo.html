@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafo - Cérebro Oráculo</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0f0f0f;
+      color: #fff;
+    }
+    #graph {
+      width: 100%;
+      height: 100vh;
+      background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    }
+    .info {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: rgba(0,0,0,0.8);
+      padding: 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      z-index: 100;
+    }
+    .info h2 {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .stat-item {
+      background: rgba(255,255,255,0.1);
+      padding: 8px;
+      border-radius: 4px;
+    }
+    .stat-label {
+      font-size: 11px;
+      opacity: 0.7;
+    }
+    .stat-value {
+      font-size: 16px;
+      font-weight: bold;
+      color: #4ade80;
+    }
+    .tooltip {
+      position: absolute;
+      background: rgba(0,0,0,0.9);
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      pointer-events: none;
+      z-index: 101;
+    }
+  </style>
+</head>
+<body>
+  <div id="graph"></div>
+  <div class="info">
+    <h2>🧠 Cérebro Oráculo</h2>
+    <p>Visualização das conexões entre notas</p>
+    <div class="stats">
+      <div class="stat-item">
+        <div class="stat-label">Nós</div>
+        <div class="stat-value">101</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Conexões</div>
+        <div class="stat-value">38</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const graphData = {"nodes":[{"id":"_como-usar","label":"_COMO-USAR","path":"CEREBRO-ORACULO\\00-INBOX\\_COMO-USAR.md"},{"id":"claude","label":"CLAUDE","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.1-DIRETRIZES-GERAIS\\CLAUDE.md"},{"id":"guia_oraculo","label":"GUIA_ORACULO","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.1-DIRETRIZES-GERAIS\\GUIA_ORACULO.md"},{"id":"manual-oraculo-v1","label":"Manual-Oraculo-v1","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.1-DIRETRIZES-GERAIS\\Manual-Oraculo-v1.md"},{"id":"memoria","label":"MEMORIA","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.1-DIRETRIZES-GERAIS\\MEMORIA.md"},{"id":"proximos-passos","label":"PROXIMOS-PASSOS","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.1-DIRETRIZES-GERAIS\\PROXIMOS-PASSOS.md"},{"id":"status","label":"STATUS","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.1-DIRETRIZES-GERAIS\\STATUS.md"},{"id":"contexto_firma","label":"CONTEXTO_FIRMA","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\CONTEXTO_FIRMA.md"},{"id":"dna-firma","label":"DNA-Firma","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\DNA-Firma.md"},{"id":"fluxo-13-etapas","label":"Fluxo-13-Etapas","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\Fluxo-13-Etapas.md"},{"id":"fluxo_trabalho","label":"FLUXO_TRABALHO","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\FLUXO_TRABALHO.md"},{"id":"regras-de-negocio","label":"Regras-de-Negocio","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\Regras-de-Negocio.md"},{"id":"roadmap","label":"Roadmap","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\Roadmap.md"},{"id":"tabela-precos-referencia","label":"Tabela-Precos-Referencia","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\Tabela-Precos-Referencia.md"},{"id":"tabela_precos","label":"TABELA_PRECOS","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.2-DNA-E-VENDAS\\TABELA_PRECOS.md"},{"id":"arquitetura_notion","label":"ARQUITETURA_NOTION","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.3-ARQUITETURA-TECNICA\\ARQUITETURA_NOTION.md"},{"id":"fase2-implementacao","label":"FASE2-Implementacao","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.3-ARQUITETURA-TECNICA\\FASE2-Implementacao.md"},{"id":"fase2_implementacao","label":"FASE2_IMPLEMENTACAO","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.3-ARQUITETURA-TECNICA\\FASE2_IMPLEMENTACAO.md"},{"id":"subagentes","label":"Subagentes","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\01.3-ARQUITETURA-TECNICA\\Subagentes.md"},{"id":"template-analise-tecnica","label":"Template-Analise-Tecnica","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Analise-Tecnica.md"},{"id":"template-aprendizado","label":"Template-Aprendizado","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Aprendizado.md"},{"id":"template-autorizacoes-contratos","label":"Template-Autorizacoes-Contratos","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Autorizacoes-Contratos.md"},{"id":"template-boletim-camera-som","label":"Template-Boletim-Camera-Som","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Boletim-Camera-Som.md"},{"id":"template-briefing-cliente","label":"Template-Briefing-Cliente","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Briefing-Cliente.md"},{"id":"template-ficha-continuidade","label":"Template-Ficha-Continuidade","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Ficha-Continuidade.md"},{"id":"template-log-filmagem","label":"Template-Log-Filmagem","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Log-Filmagem.md"},{"id":"template-ordem-do-dia","label":"Template-Ordem-do-Dia","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Ordem-do-Dia.md"},{"id":"template-plano-rodagem","label":"Template-Plano-Rodagem","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Plano-Rodagem.md"},{"id":"template-projeto-audiovisual","label":"Template-Projeto-Audiovisual","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Projeto-Audiovisual.md"},{"id":"template-referencia-tecnica","label":"Template-Referencia-Tecnica","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Referencia-Tecnica.md"},{"id":"template-roteiro-literario","label":"Template-Roteiro-Literario","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Roteiro-Literario.md"},{"id":"template-roteiro-tecnico","label":"Template-Roteiro-Tecnico","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\Template-Roteiro-Tecnico.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\TEMPLATES\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\01-OPERACAO-ORACULO\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\02-PROCESSOS-E-MANUAIS\\02.1-ADM-FINANCEIRO\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\02-PROCESSOS-E-MANUAIS\\02.2-PRE-PRODUCAO\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\02-PROCESSOS-E-MANUAIS\\02.3-PRODUCAO-SET\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\02-PROCESSOS-E-MANUAIS\\02.4-POS-PRODUCAO\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\02-PROCESSOS-E-MANUAIS\\02.5-MARKETING-E-CRM\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\02-PROCESSOS-E-MANUAIS\\_INDEX.md"},{"id":"brasil-participativo","label":"brasil-participativo","path":"CEREBRO-ORACULO\\03-CLIENTES\\brasil-participativo\\brasil-participativo.md"},{"id":"historico-clientes-chave","label":"Historico-Clientes-Chave","path":"CEREBRO-ORACULO\\03-CLIENTES\\Historico-Clientes-Chave.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\03-CLIENTES\\_INDEX.md"},{"id":"01-briefing","label":"01-BRIEFING","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\#04 Brasil Participativo\\01-BRIEFING.md"},{"id":"01-briefing","label":"01-BRIEFING","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\#08 RNP Ailton Krenak\\01-BRIEFING.md"},{"id":"01-briefing","label":"01-BRIEFING","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\#10 Simbiose\\01-BRIEFING.md"},{"id":"01-briefing","label":"01-BRIEFING","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\#16 Maranha\\01-BRIEFING.md"},{"id":"02-roteiro-e-decupagem","label":"02-ROTEIRO-E-DECUPAGEM","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\#16 Maranha\\02-ROTEIRO-E-DECUPAGEM.md"},{"id":"03-diario-de-set","label":"03-DIARIO-DE-SET","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\#16 Maranha\\03-DIARIO-DE-SET.md"},{"id":"00-index","label":"00-INDEX","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\00-INDEX.md"},{"id":"01-edital-ampla","label":"01-Edital-Ampla","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\01-Edital-Ampla.md"},{"id":"02-formulario","label":"02-Formulario","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\02-Formulario.md"},{"id":"03-roteiro-memorial-v4","label":"03-Roteiro-Memorial-v4","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\03-Roteiro-Memorial-v4.md"},{"id":"04-modelos","label":"04-Modelos","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\04-Modelos.md"},{"id":"05-checklist","label":"05-Checklist","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\05-Checklist.md"},{"id":"base-conhecimento-fac-2026","label":"BASE-CONHECIMENTO-FAC-2026","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\BASE-CONHECIMENTO-FAC-2026.md"},{"id":"checklist-atualizado-5jun","label":"CHECKLIST-ATUALIZADO-5JUN","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\CHECKLIST-ATUALIZADO-5JUN.md"},{"id":"memoria-sessao-18","label":"MEMORIA-SESSAO-18","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\MEMORIA-SESSAO-18.md"},{"id":"notebooklm-config","label":"NOTEBOOKLM-CONFIG","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\NOTEBOOKLM-CONFIG.md"},{"id":"plano-de-execucao","label":"PLANO-DE-EXECUCAO","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\PLANO-DE-EXECUCAO.md"},{"id":"projetos-antigos-5-atos-escada","label":"PROJETOS-ANTIGOS-5-ATOS-ESCADA","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\PROJETOS-ANTIGOS-5-ATOS-ESCADA.md"},{"id":"projetos-antigos-cinema-documental","label":"PROJETOS-ANTIGOS-CINEMA-DOCUMENTAL","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\PROJETOS-ANTIGOS-CINEMA-DOCUMENTAL.md"},{"id":"projetos-antigos-circolar","label":"PROJETOS-ANTIGOS-CIRCOLAR","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\PROJETOS-ANTIGOS-CIRCOLAR.md"},{"id":"projetos-antigos-filmmaker","label":"PROJETOS-ANTIGOS-FILMMAKER","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\PROJETOS-ANTIGOS-FILMMAKER.md"},{"id":"analise_referencias","label":"ANALISE_REFERENCIAS","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\REFERENCIAS-VISUAIS\\ANALISE_REFERENCIAS.md"},{"id":"readme","label":"README","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\REFERENCIAS-VISUAIS\\README.md"},{"id":"resumo-sessao-18","label":"RESUMO-SESSAO-18","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\RESUMO-SESSAO-18.md"},{"id":"sessao-3jun-bloco-b-orcamento","label":"SESSAO-3JUN-BLOCO-B-ORCAMENTO","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\SESSAO-3JUN-BLOCO-B-ORCAMENTO.md"},{"id":"sessao-3jun-bloco-c-cronograma","label":"SESSAO-3JUN-BLOCO-C-CRONOGRAMA","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\SESSAO-3JUN-BLOCO-C-CRONOGRAMA.md"},{"id":"sumario-preparacao-completa","label":"SUMARIO-PREPARACAO-COMPLETA","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\FAC-2026\\SUMARIO-PREPARACAO-COMPLETA.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\04-PROJETOS-ATIVOS\\_INDEX.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\05-ARQUIVO-HISTORICO\\_INDEX.md"},{"id":"01-fundamentos","label":"01-fundamentos","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.1-CURSOS-E-ESTUDOS\\marketing-digital\\01-fundamentos.md"},{"id":"02-trafego-pago","label":"02-trafego-pago","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.1-CURSOS-E-ESTUDOS\\marketing-digital\\02-trafego-pago.md"},{"id":"03-conteudo-organico","label":"03-conteudo-organico","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.1-CURSOS-E-ESTUDOS\\marketing-digital\\03-conteudo-organico.md"},{"id":"04-copywriting","label":"04-copywriting","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.1-CURSOS-E-ESTUDOS\\marketing-digital\\04-copywriting.md"},{"id":"05-email-marketing","label":"05-email-marketing","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.1-CURSOS-E-ESTUDOS\\marketing-digital\\05-email-marketing.md"},{"id":"06-vendas-conversao","label":"06-vendas-conversao","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.1-CURSOS-E-ESTUDOS\\marketing-digital\\06-vendas-conversao.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.1-CURSOS-E-ESTUDOS\\marketing-digital\\_INDEX.md"},{"id":"diretores-cinematografos","label":"Diretores-Cinematografos","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.2-ESTETICA-E-AUTORES\\Diretores-Cinematografos.md"},{"id":"esteticas-por-nicho","label":"Esteticas-Por-Nicho","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.2-ESTETICA-E-AUTORES\\Esteticas-Por-Nicho.md"},{"id":"filmes-referencias","label":"Filmes-Referencias","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.2-ESTETICA-E-AUTORES\\Filmes-Referencias.md"},{"id":"moodboards","label":"Moodboards","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.2-ESTETICA-E-AUTORES\\Moodboards.md"},{"id":"tecnicas-assinatura-firma","label":"Tecnicas-Assinatura-Firma","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.2-ESTETICA-E-AUTORES\\Tecnicas-Assinatura-Firma.md"},{"id":"tecnicas-visuais-favoritas","label":"Tecnicas-Visuais-Favoritas","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\06.2-ESTETICA-E-AUTORES\\Tecnicas-Visuais-Favoritas.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\06-ESTUDOS-E-REFERENCIAS\\_INDEX.md"},{"id":"2026-05-21-expansao-mcps-arsenal","label":"2026-05-21-Expansao-MCPs-Arsenal","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-21-Expansao-MCPs-Arsenal.md"},{"id":"2026-05-21-setup-mcps","label":"2026-05-21-Setup-MCPs","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-21-Setup-MCPs.md"},{"id":"2026-05-22-base-marketing-digital","label":"2026-05-22-Base-Marketing-Digital","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-22-Base-Marketing-Digital.md"},{"id":"2026-05-22-proposta-narrativa-escopo","label":"2026-05-22-Proposta-Narrativa-Escopo","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-22-Proposta-Narrativa-Escopo.md"},{"id":"2026-05-25-kit-documentos-producao-completo","label":"2026-05-25-Kit-Documentos-Producao-Completo","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-25-Kit-Documentos-Producao-Completo.md"},{"id":"2026-05-25-reorganizacao-skills-sessao7","label":"2026-05-25-Reorganizacao-Skills-Sessao7","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-25-Reorganizacao-Skills-Sessao7.md"},{"id":"2026-05-25-revisao-arquitetura-oraculo-sessao8","label":"2026-05-25-Revisao-Arquitetura-Oraculo-Sessao8","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-25-Revisao-Arquitetura-Oraculo-Sessao8.md"},{"id":"2026-05-25-revisao-documentacao-sessao6","label":"2026-05-25-Revisao-Documentacao-Sessao6","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-25-Revisao-Documentacao-Sessao6.md"},{"id":"2026-05-25-templates-videodesk-sessao8","label":"2026-05-25-Templates-VideoDesk-Sessao8","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-25-Templates-VideoDesk-Sessao8.md"},{"id":"2026-05-27-auditoria-consistencia-sessao-9","label":"2026-05-27-Auditoria-Consistencia-Sessao-9","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-27-Auditoria-Consistencia-Sessao-9.md"},{"id":"2026-05-27-finalizacao-sessao-15","label":"2026-05-27-Finalizacao-Sessao-15","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-27-Finalizacao-Sessao-15.md"},{"id":"2026-05-27-migracao-notion-beta","label":"2026-05-27-Migracao-Notion-Beta","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-27-Migracao-Notion-Beta.md"},{"id":"2026-05-27-sessao-13-bidimensionalidades","label":"2026-05-27-SESSAO-13-Bidimensionalidades","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\2026-05-27-SESSAO-13-Bidimensionalidades.md"},{"id":"_index","label":"_INDEX","path":"CEREBRO-ORACULO\\07-LOGS-DE-SESSAO\\_INDEX.md"},{"id":"home","label":"HOME","path":"CEREBRO-ORACULO\\HOME.md"}],"edges":[{"from":"fase2-implementacao","to":"fase2_implementacao","label":"FASE2_IMPLEMENTACAO"},{"from":"fase2-implementacao","to":"subagentes","label":"SUBAGENTES"},{"from":"fase2-implementacao","to":"contexto_firma","label":"CONTEXTO_FIRMA"},{"from":"fase2-implementacao","to":"fluxo_trabalho","label":"FLUXO_TRABALHO"},{"from":"fase2-implementacao","to":"arquitetura_notion","label":"ARQUITETURA_NOTION"},{"from":"template-aprendizado","to":"01-processos/fluxo-13-etapas","label":"01-PROCESSOS/Fluxo-13-Etapas"},{"from":"template-boletim-camera-som","to":"template-log-filmagem","label":"Template-Log-Filmagem"},{"from":"template-plano-rodagem","to":"template-ordem-do-dia","label":"Template-Ordem-do-Dia"},{"from":"template-projeto-audiovisual","to":"template-roteiro-literario","label":"Template-Roteiro-Literario"},{"from":"template-projeto-audiovisual","to":"template-roteiro-tecnico","label":"Template-Roteiro-Tecnico"},{"from":"template-roteiro-literario","to":"template-roteiro-tecnico","label":"Template-Roteiro-Tecnico"},{"from":"template-roteiro-tecnico","to":"template-roteiro-literario","label":"Template-Roteiro-Literario"},{"from":"_index","to":"template-projeto-audiovisual","label":"Template-Projeto-Audiovisual"},{"from":"_index","to":"template-roteiro-literario","label":"Template-Roteiro-Literario"},{"from":"_index","to":"template-roteiro-tecnico","label":"Template-Roteiro-Tecnico"},{"from":"_index","to":"template-analise-tecnica","label":"Template-Analise-Tecnica"},{"from":"_index","to":"template-plano-rodagem","label":"Template-Plano-Rodagem"},{"from":"_index","to":"template-autorizacoes-contratos","label":"Template-Autorizacoes-Contratos"},{"from":"_index","to":"template-ordem-do-dia","label":"Template-Ordem-do-Dia"},{"from":"_index","to":"template-ficha-continuidade","label":"Template-Ficha-Continuidade"},{"from":"_index","to":"template-boletim-camera-som","label":"Template-Boletim-Camera-Som"},{"from":"_index","to":"template-log-filmagem","label":"Template-Log-Filmagem"},{"from":"_index","to":"template-aprendizado","label":"Template-Aprendizado"},{"from":"_index","to":"template-referencia-tecnica","label":"Template-Referencia-Tecnica"},{"from":"_index","to":"template-briefing-cliente","label":"Template-Briefing-Cliente"},{"from":"01-briefing","to":"03-clientes/brasil-participativo/brasil-participativo|brasil participativo (lablivre/unb)","label":"03-CLIENTES/brasil-participativo/brasil-participativo|Brasil Participativo (LabLivre/UnB)"},{"from":"01-briefing","to":"c:\\users\\user\\documents\\antigravity\\propostas_cobertura_brasil_participativo.md|variantes interact / pororoca","label":"C:\\Users\\User\\Documents\\ANTIGRAVITY\\propostas_cobertura_brasil_participativo.md|Variantes Interact / Pororoca"},{"from":"02-trafego-pago","to":"01-fundamentos","label":"01-fundamentos"},{"from":"06-vendas-conversao","to":"01-fundamentos","label":"01-fundamentos"},{"from":"06-vendas-conversao","to":"04-copywriting","label":"04-copywriting"},{"from":"_index","to":"01-fundamentos","label":"01-fundamentos"},{"from":"_index","to":"02-trafego-pago","label":"02-trafego-pago"},{"from":"_index","to":"03-conteudo-organico","label":"03-conteudo-organico"},{"from":"_index","to":"04-copywriting","label":"04-copywriting"},{"from":"_index","to":"05-email-marketing","label":"05-email-marketing"},{"from":"_index","to":"06-vendas-conversao","label":"06-vendas-conversao"},{"from":"tecnicas-visuais-favoritas","to":"03-conhecimento/tecnicas/tecnicas-assinatura-firma","label":"03-CONHECIMENTO/tecnicas/Tecnicas-Assinatura-Firma"},{"from":"2026-05-22-proposta-narrativa-escopo","to":"skills/proposta/skill","label":"skills/proposta/SKILL.md"}],"metadata":{"total_nodes":101,"total_edges":38,"generated_at":"2026-06-07T13:38:19.386Z"}};
+
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    const svg = d3.select("#graph").append("svg")
+      .attr("width", width)
+      .attr("height", height);
+
+    const g = svg.append("g");
+
+    // Zoom
+    const zoom = d3.zoom()
+      .on("zoom", (event) => {
+        g.attr("transform", event.transform);
+      });
+    svg.call(zoom);
+
+    // Simulação de força
+    const simulation = d3.forceSimulation(graphData.nodes)
+      .force("link", d3.forceLink(graphData.edges)
+        .id(d => d.id)
+        .distance(100)
+        .strength(0.3))
+      .force("charge", d3.forceManyBody().strength(-300))
+      .force("center", d3.forceCenter(width / 2, height / 2))
+      .force("collision", d3.forceCollide().radius(30));
+
+    // Links
+    const link = g.selectAll("line")
+      .data(graphData.edges)
+      .enter()
+      .append("line")
+      .attr("stroke", "#444")
+      .attr("stroke-width", 1.5)
+      .attr("opacity", 0.6);
+
+    // Nós
+    const node = g.selectAll("circle")
+      .data(graphData.nodes)
+      .enter()
+      .append("circle")
+      .attr("r", 8)
+      .attr("fill", () => {
+        const hue = Math.random() * 360;
+        return `hsl(${hue}, 70%, 50%)`;
+      })
+      .attr("opacity", 0.8)
+      .call(d3.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended))
+      .on("mouseover", (event, d) => {
+        d3.select(event.currentTarget).transition().attr("r", 12);
+        link.attr("stroke", l => (l.from === d.id || l.to === d.id) ? "#4ade80" : "#444");
+      })
+      .on("mouseout", (event, d) => {
+        d3.select(event.currentTarget).transition().attr("r", 8);
+        link.attr("stroke", "#444");
+      });
+
+    // Labels
+    const labels = g.selectAll("text")
+      .data(graphData.nodes)
+      .enter()
+      .append("text")
+      .attr("text-anchor", "middle")
+      .attr("dy", ".35em")
+      .attr("font-size", "10px")
+      .attr("fill", "#ccc")
+      .text(d => d.label.substring(0, 15))
+      .style("pointer-events", "none")
+      .style("text-shadow", "0 0 3px rgba(0,0,0,0.8)");
+
+    simulation.on("tick", () => {
+      link
+        .attr("x1", d => d.source.x)
+        .attr("y1", d => d.source.y)
+        .attr("x2", d => d.target.x)
+        .attr("y2", d => d.target.y);
+
+      node
+        .attr("cx", d => d.x)
+        .attr("cy", d => d.y);
+
+      labels
+        .attr("x", d => d.x)
+        .attr("y", d => d.y);
+    });
+
+    function dragstarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+  </script>
+</body>
+</html>

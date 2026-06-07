@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cérebro Oráculo - Grafo Interativo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0a0e27;
+      color: #e0e0e0;
+      overflow: hidden;
+    }
+
+    #container {
+      display: flex;
+      height: 100vh;
+    }
+
+    #sidebar {
+      width: 320px;
+      background: #151a3a;
+      border-right: 1px solid #2d3561;
+      overflow-y: auto;
+      padding: 20px;
+      box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+    }
+
+    #canvas {
+      flex: 1;
+      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 5px;
+      color: #4ade80;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #2d3561;
+      padding-bottom: 15px;
+    }
+
+    .search-box {
+      width: 100%;
+      padding: 10px 12px;
+      background: #0f1425;
+      border: 1px solid #2d3561;
+      border-radius: 6px;
+      color: #e0e0e0;
+      margin-bottom: 20px;
+      font-size: 13px;
+    }
+
+    .search-box::placeholder {
+      color: #666;
+    }
+
+    .section-title {
+      font-size: 12px;
+      font-weight: bold;
+      color: #888;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: #0f1425;
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #2d3561;
+      text-align: center;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: #888;
+      margin-bottom: 5px;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: bold;
+      color: #4ade80;
+    }
+
+    .filter-group {
+      margin-bottom: 15px;
+    }
+
+    .filter-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all 0.2s;
+    }
+
+    .filter-item:hover {
+      background: #2d3561;
+    }
+
+    .filter-checkbox {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+      cursor: pointer;
+      accent-color: #4ade80;
+    }
+
+    .node-info {
+      background: #0f1425;
+      border: 1px solid #2d3561;
+      border-radius: 6px;
+      padding: 12px;
+      margin-top: 20px;
+      display: none;
+    }
+
+    .node-info.active {
+      display: block;
+    }
+
+    .node-info-title {
+      color: #4ade80;
+      font-weight: bold;
+      margin-bottom: 8px;
+      word-break: break-word;
+    }
+
+    .node-info-path {
+      font-size: 11px;
+      color: #888;
+      word-break: break-all;
+      margin-bottom: 10px;
+      font-family: 'Courier New', monospace;
+    }
+
+    .node-info-links {
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .node-info-links-title {
+      color: #aaa;
+      font-weight: bold;
+      margin-bottom: 5px;
+      font-size: 11px;
+    }
+
+    .connection-list {
+      list-style: none;
+      margin-top: 8px;
+      max-height: 150px;
+      overflow-y: auto;
+    }
+
+    .connection-list li {
+      padding: 4px 0;
+      font-size: 11px;
+      color: #999;
+      border-left: 2px solid #4ade80;
+      padding-left: 6px;
+    }
+
+    .controls {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      background: rgba(15, 20, 37, 0.95);
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #2d3561;
+      font-size: 12px;
+      color: #ccc;
+    }
+
+    .control-hint {
+      margin: 4px 0;
+      color: #888;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #0f1425;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #2d3561;
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #3d4571;
+    }
+
+    .legend {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid #2d3561;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      font-size: 11px;
+      margin-bottom: 8px;
+    }
+
+    .legend-color {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <div id="sidebar">
+      <h1>🧠 Cérebro Oráculo</h1>
+      <div class="subtitle">Mapa de conhecimento interativo</div>
+
+      <input type="text" id="search" class="search-box" placeholder="🔍 Buscar nota...">
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Nós</div>
+          <div class="stat-value" id="totalNodes">101</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Conexões</div>
+          <div class="stat-value" id="totalConnections">38</div>
+        </div>
+      </div>
+
+      <div class="section-title">Categorias</div>
+      <div id="filterContainer"></div>
+
+      <div class="legend">
+        <div class="section-title">Legenda</div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #ff6b6b;"></div>
+          <span>Operação</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #4ecdc4;"></div>
+          <span>Projetos</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #ffd93d;"></div>
+          <span>Processos</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #6bcf7f;"></div>
+          <span>Estudos</span>
+        </div>
+        <div class="legend-item">
+          <div class="legend-color" style="background: #a78bfa;"></div>
+          <span>Clientes</span>
+        </div>
+      </div>
+
+      <div class="node-info" id="nodeInfo">
+        <div class="node-info-title" id="nodeTitle"></div>
+        <div class="node-info-path" id="nodePath"></div>
+        <div class="node-info-links">
+          <div class="node-info-links-title">Conexões</div>
+          <ul class="connection-list" id="nodeConnections"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="canvas"></div>
+  </div>
+
+  <div class="controls">
+    <div class="control-hint">🖱️ Arraste para mover</div>
+    <div class="control-hint">🔍 Scroll para zoom</div>
+    <div class="control-hint">Clique em um nó para detalhes</div>
+  </div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script>
+    // Dados do grafo
+    const graphData = {
+      "nodes": [
+        {"id": "guia-oraculo", "label": "GUIA ORÁCULO", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/GUIA_ORACULO.md", "category": "01-OPERACAO"},
+        {"id": "fluxo-13-etapas", "label": "Fluxo 13 Etapas", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Fluxo-13-Etapas.md", "category": "01-OPERACAO"},
+        {"id": "template-aprendizado", "label": "Template Aprendizado", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Aprendizado.md", "category": "01-OPERACAO"},
+        {"id": "template-referencia-tecnica", "label": "Template Ref. Técnica", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Referencia-Tecnica.md", "category": "01-OPERACAO"},
+        {"id": "tecnicas-assinatura-firma", "label": "Técnicas Assinatura", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Assinatura-Firma.md", "category": "06-ESTUDOS"},
+        {"id": "template-briefing-cliente", "label": "Template Briefing", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Briefing-Cliente.md", "category": "01-OPERACAO"},
+        {"id": "setup-mcps", "label": "Setup MCPs 21/05", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-21-Setup-MCPs.md", "category": "07-LOGS"},
+        {"id": "expansao-mcps", "label": "Expansão MCPs", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-21-Expansao-MCPs-Arsenal.md", "category": "07-LOGS"},
+        {"id": "proximos-passos", "label": "Próximos Passos", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/PROXIMOS-PASSOS.md", "category": "01-OPERACAO"},
+        {"id": "marketing-fundamentos", "label": "Marketing Fundamentos", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/01-fundamentos.md", "category": "06-ESTUDOS"},
+        {"id": "trafego-pago", "label": "Tráfego Pago", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/02-trafego-pago.md", "category": "06-ESTUDOS"},
+        {"id": "conteudo-organico", "label": "Conteúdo Orgânico", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/03-conteudo-organico.md", "category": "06-ESTUDOS"},
+        {"id": "copywriting", "label": "Copywriting", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/04-copywriting.md", "category": "06-ESTUDOS"},
+        {"id": "email-marketing", "label": "Email Marketing", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/05-email-marketing.md", "category": "06-ESTUDOS"},
+        {"id": "vendas-conversao", "label": "Vendas & Conversão", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/06-vendas-conversao.md", "category": "06-ESTUDOS"},
+        {"id": "marketing-index", "label": "Marketing Index", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/_INDEX.md", "category": "06-ESTUDOS"},
+        {"id": "base-marketing-digital", "label": "Base Marketing 22/05", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-22-Base-Marketing-Digital.md", "category": "07-LOGS"},
+        {"id": "roadmap", "label": "Roadmap", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Roadmap.md", "category": "01-OPERACAO"},
+        {"id": "historico-clientes", "label": "Histórico Clientes", "path": "CEREBRO-ORACULO/03-CLIENTES/Historico-Clientes-Chave.md", "category": "03-CLIENTES"},
+        {"id": "inbox-como-usar", "label": "Inbox - Como Usar", "path": "CEREBRO-ORACULO/00-INBOX/_COMO-USAR.md", "category": "00-INBOX"},
+        {"id": "proposta-narrativa", "label": "Proposta Narrativa 22/05", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-22-Proposta-Narrativa-Escopo.md", "category": "07-LOGS"},
+        {"id": "fase2-implementacao", "label": "FASE 2 Implementação", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2-Implementacao.md", "category": "01-OPERACAO"},
+        {"id": "manual-oraculo", "label": "Manual Oráculo v1", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/Manual-Oraculo-v1.md", "category": "01-OPERACAO"},
+        {"id": "dna-firma", "label": "DNA Firma", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/DNA-Firma.md", "category": "01-OPERACAO"},
+        {"id": "regras-negocio", "label": "Regras de Negócio", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Regras-de-Negocio.md", "category": "01-OPERACAO"},
+        {"id": "tabela-precos", "label": "Tabela de Preços", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Tabela-Precos-Referencia.md", "category": "01-OPERACAO"},
+        {"id": "revisao-docs-sessao6", "label": "Revisão Docs Sessão 6", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-25-Revisao-Documentacao-Sessao6.md", "category": "07-LOGS"},
+        {"id": "subagentes", "label": "Subagentes", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/Subagentes.md", "category": "01-OPERACAO"},
+        {"id": "reorganizacao-skills", "label": "Reorganização Skills Sessão 7", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-25-Reorganizacao-Skills-Sessao7.md", "category": "07-LOGS"},
+        {"id": "template-log-filmagem", "label": "Template Log Filmagem", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Log-Filmagem.md", "category": "01-OPERACAO"},
+        {"id": "templates-videodesk", "label": "Templates VideoDesk Sessão 8", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-25-Templates-VideoDesk-Sessao8.md", "category": "07-LOGS"},
+        {"id": "template-projeto-audiovisual", "label": "Template Projeto AV", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Projeto-Audiovisual.md", "category": "01-OPERACAO"},
+        {"id": "template-analise-tecnica", "label": "Template Análise Técnica", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Analise-Tecnica.md", "category": "01-OPERACAO"},
+        {"id": "template-plano-rodagem", "label": "Template Plano de Rodagem", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Plano-Rodagem.md", "category": "01-OPERACAO"},
+        {"id": "template-ficha-continuidade", "label": "Template Continuidade", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Ficha-Continuidade.md", "category": "01-OPERACAO"},
+        {"id": "template-boletim-camera", "label": "Template Boletim Camera/Som", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Boletim-Camera-Som.md", "category": "01-OPERACAO"},
+        {"id": "template-autorizacoes", "label": "Template Autorizações", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Autorizacoes-Contratos.md", "category": "01-OPERACAO"},
+        {"id": "template-roteiro-literario", "label": "Template Roteiro Literário", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Roteiro-Literario.md", "category": "01-OPERACAO"},
+        {"id": "template-ordem-dia", "label": "Template Ordem do Dia", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Ordem-do-Dia.md", "category": "01-OPERACAO"},
+        {"id": "template-roteiro-tecnico", "label": "Template Roteiro Técnico", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/Template-Roteiro-Tecnico.md", "category": "01-OPERACAO"},
+        {"id": "kit-documentos", "label": "Kit Documentos Produção 25/05", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-25-Kit-Documentos-Producao-Completo.md", "category": "07-LOGS"},
+        {"id": "contexto-firma", "label": "Contexto Firma", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md", "category": "01-OPERACAO"},
+        {"id": "tabela-precos-2", "label": "Tabela Preços", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/TABELA_PRECOS.md", "category": "01-OPERACAO"},
+        {"id": "revisao-arquitetura", "label": "Revisão Arquitetura 25/05", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-25-Revisao-Arquitetura-Oraculo-Sessao8.md", "category": "07-LOGS"},
+        {"id": "diretores-cinematografos", "label": "Diretores Cinematógrafos", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Diretores-Cinematografos.md", "category": "06-ESTUDOS"},
+        {"id": "filmes-referencias", "label": "Filmes Referências", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Filmes-Referencias.md", "category": "06-ESTUDOS"},
+        {"id": "tecnicas-visuais", "label": "Técnicas Visuais Favoritas", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Visuais-Favoritas.md", "category": "06-ESTUDOS"},
+        {"id": "esteticas-nicho", "label": "Estéticas por Nicho", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Esteticas-Por-Nicho.md", "category": "06-ESTUDOS"},
+        {"id": "moodboards", "label": "Moodboards", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Moodboards.md", "category": "06-ESTUDOS"},
+        {"id": "templates-index", "label": "Templates Index", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/TEMPLATES/_INDEX.md", "category": "01-OPERACAO"},
+        {"id": "fase2-impl", "label": "FASE 2 IMPLEMENTAÇÃO", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2_IMPLEMENTACAO.md", "category": "01-OPERACAO"},
+        {"id": "auditoria-consistencia", "label": "Auditoria Consistência 27/05", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-27-Auditoria-Consistencia-Sessao-9.md", "category": "07-LOGS"},
+        {"id": "migracao-notion", "label": "Migração Notion 27/05", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-27-Migracao-Notion-Beta.md", "category": "07-LOGS"},
+        {"id": "bidimensionalidades", "label": "Bidimensionalidades Sessão 13", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-27-SESSAO-13-Bidimensionalidades.md", "category": "07-LOGS"},
+        {"id": "memoria", "label": "MEMÓRIA", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/MEMORIA.md", "category": "01-OPERACAO"},
+        {"id": "arquitetura-notion", "label": "ARQUITETURA NOTION", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA_NOTION.md", "category": "01-OPERACAO"},
+        {"id": "finalizacao-sessao15", "label": "Finalização Sessão 15", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/2026-05-27-Finalizacao-Sessao-15.md", "category": "07-LOGS"},
+        {"id": "fluxo-trabalho", "label": "FLUXO TRABALHO", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/FLUXO_TRABALHO.md", "category": "01-OPERACAO"},
+        {"id": "fac2026-formulario", "label": "FAC 2026 - Formulário", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/02-Formulario.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-modelos", "label": "FAC 2026 - Modelos", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/04-Modelos.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-checklist", "label": "FAC 2026 - Checklist", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/05-Checklist.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-edital", "label": "FAC 2026 - Edital Ampla", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/01-Edital-Ampla.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-base", "label": "FAC 2026 - Base Conhecimento", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/BASE-CONHECIMENTO-FAC-2026.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-notebooklm", "label": "FAC 2026 - NotebookLM", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/NOTEBOOKLM-CONFIG.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-projetos-antigos-5atos", "label": "FAC 2026 - Projetos Antigos 5 Atos", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/PROJETOS-ANTIGOS-5-ATOS-ESCADA.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-projetos-antigos-circolar", "label": "FAC 2026 - Projetos Antigos Circolar", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/PROJETOS-ANTIGOS-CIRCOLAR.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-projetos-antigos-filmmaker", "label": "FAC 2026 - Projetos Antigos Filmmaker", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/PROJETOS-ANTIGOS-FILMMAKER.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-projetos-antigos-cinema", "label": "FAC 2026 - Projetos Antigos Cinema", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/PROJETOS-ANTIGOS-CINEMA-DOCUMENTAL.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-plano-execucao", "label": "FAC 2026 - Plano de Execução", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/PLANO-DE-EXECUCAO.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-sumario-preparacao", "label": "FAC 2026 - Sumário Preparação", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/SUMARIO-PREPARACAO-COMPLETA.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-resumo-sessao18", "label": "FAC 2026 - Resumo Sessão 18", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/RESUMO-SESSAO-18.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-memoria-sessao18", "label": "FAC 2026 - Memória Sessão 18", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/MEMORIA-SESSAO-18.md", "category": "04-PROJETOS"},
+        {"id": "adm-financeiro-index", "label": "Adm. Financeiro Index", "path": "CEREBRO-ORACULO/02-PROCESSOS-E-MANUAIS/02.1-ADM-FINANCEIRO/_INDEX.md", "category": "02-PROCESSOS"},
+        {"id": "pre-producao-index", "label": "Pré-Produção Index", "path": "CEREBRO-ORACULO/02-PROCESSOS-E-MANUAIS/02.2-PRE-PRODUCAO/_INDEX.md", "category": "02-PROCESSOS"},
+        {"id": "producao-set-index", "label": "Produção Set Index", "path": "CEREBRO-ORACULO/02-PROCESSOS-E-MANUAIS/02.3-PRODUCAO-SET/_INDEX.md", "category": "02-PROCESSOS"},
+        {"id": "pos-producao-index", "label": "Pós-Produção Index", "path": "CEREBRO-ORACULO/02-PROCESSOS-E-MANUAIS/02.4-POS-PRODUCAO/_INDEX.md", "category": "02-PROCESSOS"},
+        {"id": "marketing-crm-index", "label": "Marketing e CRM Index", "path": "CEREBRO-ORACULO/02-PROCESSOS-E-MANUAIS/02.5-MARKETING-E-CRM/_INDEX.md", "category": "02-PROCESSOS"},
+        {"id": "claude", "label": "CLAUDE.md", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/CLAUDE.md", "category": "01-OPERACAO"},
+        {"id": "status", "label": "STATUS", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md", "category": "01-OPERACAO"},
+        {"id": "rnp-ailton-briefing", "label": "#08 RNP Ailton - BRIEFING", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/#08 RNP Ailton Krenak/01-BRIEFING.md", "category": "04-PROJETOS"},
+        {"id": "simbiose-briefing", "label": "#10 Simbiose - BRIEFING", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/#10 Simbiose/01-BRIEFING.md", "category": "04-PROJETOS"},
+        {"id": "maranha-briefing", "label": "#16 Maranha - BRIEFING", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/#16 Maranha/01-BRIEFING.md", "category": "04-PROJETOS"},
+        {"id": "maranha-roteiro", "label": "#16 Maranha - ROTEIRO E DECUPAGEM", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/#16 Maranha/02-ROTEIRO-E-DECUPAGEM.md", "category": "04-PROJETOS"},
+        {"id": "maranha-diario-set", "label": "#16 Maranha - DIÁRIO DE SET", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/#16 Maranha/03-DIARIO-DE-SET.md", "category": "04-PROJETOS"},
+        {"id": "home", "label": "HOME", "path": "CEREBRO-ORACULO/HOME.md", "category": "00-HOME"},
+        {"id": "operacao-index", "label": "Operação Index", "path": "CEREBRO-ORACULO/01-OPERACAO-ORACULO/_INDEX.md", "category": "01-OPERACAO"},
+        {"id": "processos-index", "label": "Processos Index", "path": "CEREBRO-ORACULO/02-PROCESSOS-E-MANUAIS/_INDEX.md", "category": "02-PROCESSOS"},
+        {"id": "clientes-index", "label": "Clientes Index", "path": "CEREBRO-ORACULO/03-CLIENTES/_INDEX.md", "category": "03-CLIENTES"},
+        {"id": "projetos-index", "label": "Projetos Index", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/_INDEX.md", "category": "04-PROJETOS"},
+        {"id": "arquivo-historico-index", "label": "Arquivo Histórico Index", "path": "CEREBRO-ORACULO/05-ARQUIVO-HISTORICO/_INDEX.md", "category": "05-ARQUIVO"},
+        {"id": "estudos-index", "label": "Estudos Index", "path": "CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/_INDEX.md", "category": "06-ESTUDOS"},
+        {"id": "logs-index", "label": "Logs Index", "path": "CEREBRO-ORACULO/07-LOGS-DE-SESSAO/_INDEX.md", "category": "07-LOGS"},
+        {"id": "brasil-participativo-briefing", "label": "#04 Brasil Participativo - BRIEFING", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/#04 Brasil Participativo/01-BRIEFING.md", "category": "04-PROJETOS"},
+        {"id": "brasil-participativo-info", "label": "Brasil Participativo Info", "path": "CEREBRO-ORACULO/03-CLIENTES/brasil-participativo/brasil-participativo.md", "category": "03-CLIENTES"},
+        {"id": "fac2026-bloco-b", "label": "FAC 2026 Sessão 3 Jun - Bloco B", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/SESSAO-3JUN-BLOCO-B-ORCAMENTO.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-bloco-c", "label": "FAC 2026 Sessão 3 Jun - Bloco C", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/SESSAO-3JUN-BLOCO-C-CRONOGRAMA.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-referencias-readme", "label": "FAC 2026 Referências README", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/REFERENCIAS-VISUAIS/README.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-analise-referencias", "label": "FAC 2026 Análise Referências", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/REFERENCIAS-VISUAIS/ANALISE_REFERENCIAS.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-checklist-atualizado", "label": "FAC 2026 Checklist 5 Jun", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/CHECKLIST-ATUALIZADO-5JUN.md", "category": "04-PROJETOS"},
+        {"id": "fac2026-index", "label": "FAC 2026 Index", "path": "CEREBRO-ORACULO/04-PROJETOS-ATIVOS/FAC-2026/00-INDEX.md", "category": "04-PROJETOS"}
+      ],
+      "edges": [
+        {"from": "fluxo-13-etapas", "to": "template-aprendizado", "label": "referencia"},
+        {"from": "roadmap", "to": "fluxo-13-etapas", "label": "conecta"},
+        {"from": "dna-firma", "to": "regras-negocio", "label": "fundamenta"},
+        {"from": "tabela-precos", "to": "regras-negocio", "label": "implementa"},
+        {"from": "template-projeto-audiovisual", "to": "template-plano-rodagem", "label": "estrutura"},
+        {"from": "template-roteiro-literario", "to": "template-roteiro-tecnico", "label": "desdobra"},
+        {"from": "fac2026-base", "to": "fac2026-edital", "label": "fundamenta"},
+        {"from": "fac2026-bloco-b", "to": "fac2026-bloco-c", "label": "sequencia"},
+        {"from": "marketing-fundamentos", "to": "trafego-pago", "label": "fundamenta"},
+        {"from": "trafego-pago", "to": "conteudo-organico", "label": "complementa"},
+        {"from": "copywriting", "to": "vendas-conversao", "label": "aplicacao"},
+        {"from": "email-marketing", "to": "marketing-fundamentos", "label": "tecnica_de"},
+        {"from": "diretores-cinematografos", "to": "filmes-referencias", "label": "estuda"},
+        {"from": "tecnicas-visuais", "to": "moodboards", "label": "evidencia"},
+        {"from": "esteticas-nicho", "to": "tecnicas-assinatura-firma", "label": "especializa"},
+        {"from": "subagentes", "to": "fase2-implementacao", "label": "modulo_de"},
+        {"from": "arquitetura-notion", "to": "memoria", "label": "estrutura"},
+        {"from": "fluxo-trabalho", "to": "regras-negocio", "label": "operacionaliza"},
+        {"from": "contexto-firma", "to": "dna-firma", "label": "contextualiza"},
+        {"from": "template-briefing-cliente", "to": "template-projeto-audiovisual", "label": "antecede"},
+        {"from": "template-log-filmagem", "to": "template-analise-tecnica", "label": "coleta_para"},
+        {"from": "template-boletim-camera", "to": "template-log-filmagem", "label": "alimenta"},
+        {"from": "template-ficha-continuidade", "to": "template-boletim-camera", "label": "coordena"},
+        {"from": "template-autorizacoes", "to": "template-projeto-audiovisual", "label": "requisito_de"},
+        {"from": "template-ordem-dia", "to": "template-boletim-camera", "label": "guia"},
+        {"from": "adm-financeiro-index", "to": "tabela-precos", "label": "referencia"},
+        {"from": "pre-producao-index", "to": "template-briefing-cliente", "label": "inclui"},
+        {"from": "producao-set-index", "to": "template-log-filmagem", "label": "inclui"},
+        {"from": "pos-producao-index", "to": "template-analise-tecnica", "label": "inclui"},
+        {"from": "marketing-crm-index", "to": "conteudo-organico", "label": "referencia"},
+        {"from": "fac2026-plano-execucao", "to": "fac2026-bloco-b", "label": "detalha"},
+        {"from": "fac2026-sumario-preparacao", "to": "fac2026-checklist", "label": "resume"},
+        {"from": "maranha-briefing", "to": "maranha-roteiro", "label": "orienta"},
+        {"from": "maranha-roteiro", "to": "maranha-diario-set", "label": "executa"},
+        {"from": "brasil-participativo-briefing", "to": "brasil-participativo-info", "label": "documenta"},
+        {"from": "rnp-ailton-briefing", "to": "operacao-index", "label": "segue"},
+        {"from": "simbiose-briefing", "to": "operacao-index", "label": "segue"},
+        {"from": "home", "to": "operacao-index", "label": "aponta"}
+      ]
+    };
+
+    // Mapeamento de categorias para cores
+    const categoryColors = {
+      '00-HOME': '#ff6b6b',
+      '00-INBOX': '#ffd93d',
+      '01-OPERACAO': '#ff6b6b',
+      '02-PROCESSOS': '#ffd93d',
+      '03-CLIENTES': '#a78bfa',
+      '04-PROJETOS': '#4ecdc4',
+      '05-ARQUIVO': '#95a5a6',
+      '06-ESTUDOS': '#6bcf7f',
+      '07-LOGS': '#f39c12'
+    };
+
+    // Setup SVG
+    const width = document.getElementById('canvas').clientWidth;
+    const height = document.getElementById('canvas').clientHeight;
+
+    const svg = d3.select('#canvas').append('svg')
+      .attr('width', width)
+      .attr('height', height);
+
+    const g = svg.append('g');
+
+    // Zoom
+    const zoom = d3.zoom().on('zoom', (event) => {
+      g.attr('transform', event.transform);
+    });
+    svg.call(zoom);
+
+    // Simulação
+    const simulation = d3.forceSimulation(graphData.nodes)
+      .force('link', d3.forceLink(graphData.edges)
+        .id(d => d.id)
+        .distance(120)
+        .strength(0.1))
+      .force('charge', d3.forceManyBody().strength(-400))
+      .force('center', d3.forceCenter(width / 2, height / 2))
+      .force('collision', d3.forceCollide().radius(25));
+
+    // Desenhar links
+    const link = g.selectAll('line')
+      .data(graphData.edges)
+      .enter()
+      .append('line')
+      .attr('stroke', '#3d4571')
+      .attr('stroke-width', 1)
+      .attr('opacity', 0.4);
+
+    // Desenhar nós
+    const node = g.selectAll('circle')
+      .data(graphData.nodes)
+      .enter()
+      .append('circle')
+      .attr('r', 10)
+      .attr('fill', d => categoryColors[d.category] || '#888')
+      .attr('opacity', 0.85)
+      .attr('stroke', '#fff')
+      .attr('stroke-width', 2)
+      .call(d3.drag()
+        .on('start', dragstarted)
+        .on('drag', dragged)
+        .on('end', dragended))
+      .on('click', (event, d) => showNodeInfo(d))
+      .on('mouseover', (event, d) => {
+        d3.select(event.currentTarget)
+          .transition()
+          .attr('r', 14)
+          .attr('opacity', 1);
+      })
+      .on('mouseout', (event, d) => {
+        d3.select(event.currentTarget)
+          .transition()
+          .attr('r', 10)
+          .attr('opacity', 0.85);
+      });
+
+    // Desenhar labels
+    const labels = g.selectAll('text')
+      .data(graphData.nodes)
+      .enter()
+      .append('text')
+      .attr('text-anchor', 'middle')
+      .attr('dy', '.35em')
+      .attr('font-size', '9px')
+      .attr('fill', '#ccc')
+      .attr('pointer-events', 'none')
+      .text(d => d.label.substring(0, 12));
+
+    // Simulação tick
+    simulation.on('tick', () => {
+      link
+        .attr('x1', d => d.source.x)
+        .attr('y1', d => d.source.y)
+        .attr('x2', d => d.target.x)
+        .attr('y2', d => d.target.y);
+
+      node
+        .attr('cx', d => d.x)
+        .attr('cy', d => d.y);
+
+      labels
+        .attr('x', d => d.x)
+        .attr('y', d => d.y);
+    });
+
+    // Funções de interação
+    function dragstarted(event, d) {
+      if (!event.active) simulation.alphaTarget(0.3).restart();
+      d.fx = d.x;
+      d.fy = d.y;
+    }
+
+    function dragged(event, d) {
+      d.fx = event.x;
+      d.fy = event.y;
+    }
+
+    function dragended(event, d) {
+      if (!event.active) simulation.alphaTarget(0);
+      d.fx = null;
+      d.fy = null;
+    }
+
+    function showNodeInfo(d) {
+      const nodeInfoDiv = document.getElementById('nodeInfo');
+      document.getElementById('nodeTitle').textContent = d.label;
+      document.getElementById('nodePath').textContent = d.path;
+
+      const connections = graphData.edges.filter(e => e.from === d.id || e.to === d.id);
+      const connectionsList = document.getElementById('nodeConnections');
+      connectionsList.innerHTML = '';
+
+      connections.forEach(conn => {
+        const targetId = conn.from === d.id ? conn.to : conn.from;
+        const targetNode = graphData.nodes.find(n => n.id === targetId);
+        const li = document.createElement('li');
+        li.textContent = `→ ${targetNode.label}`;
+        connectionsList.appendChild(li);
+      });
+
+      nodeInfoDiv.classList.add('active');
+    }
+
+    // Busca
+    document.getElementById('search').addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase();
+      node.attr('opacity', d => {
+        return d.label.toLowerCase().includes(query) || d.id.includes(query) ? 1 : 0.1;
+      });
+      labels.attr('opacity', d => {
+        return d.label.toLowerCase().includes(query) || d.id.includes(query) ? 1 : 0.1;
+      });
+    });
+
+    // Criar filtros
+    const categories = [...new Set(graphData.nodes.map(n => n.category))].sort();
+    const filterContainer = document.getElementById('filterContainer');
+
+    categories.forEach(cat => {
+      const label = document.createElement('label');
+      label.className = 'filter-item';
+
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.className = 'filter-checkbox';
+      checkbox.checked = true;
+      checkbox.value = cat;
+
+      checkbox.addEventListener('change', () => {
+        const checked = Array.from(document.querySelectorAll('.filter-checkbox:checked')).map(c => c.value);
+        node.attr('opacity', d => {
+          return checked.includes(d.category) ? 0.85 : 0.1;
+        });
+        labels.attr('opacity', d => {
+          return checked.includes(d.category) ? 1 : 0.1;
+        });
+      });
+
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(cat.substring(3)));
+      filterContainer.appendChild(label);
+    });
+  </script>
+</body>
+</html>

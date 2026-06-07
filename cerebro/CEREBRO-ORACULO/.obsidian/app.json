@@ -1,1 +1,9 @@
-{}
+{
+  "userIgnoreFilters": [
+    "skills/",
+    "hooks/",
+    "agents/",
+    "scripts/",
+    "WIKI.md"
+  ]
+}

@@ -1,0 +1,13 @@
+﻿{
+    "schema_version":  1,
+    "config":  {
+                   "para":  {
+                                "archives_folder":  "wiki/archives/",
+                                "resources_folder":  "wiki/resources/",
+                                "areas_folder":  "wiki/areas/",
+                                "projects_folder":  "wiki/projects/"
+                            }
+               },
+    "mode":  "para",
+    "configured_at":  "2026-06-07T00:00:00Z"
+}

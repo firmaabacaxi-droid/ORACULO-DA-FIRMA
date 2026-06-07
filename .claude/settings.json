@@ -15,7 +15,18 @@
       "WebFetch(domain:pin.it)",
       "PowerShell(explorer.exe \"C:\\\\Users\\\\User\\\\Documents\\\\ORACULO - FIRMA ABACAXI\\\\cerebro\\\\CEREBRO-ORACULO\\\\04-PROJETOS-ATIVOS\\\\FAC-2026\\\\REFERENCIAS-VISUAIS\\\\\")",
       "mcp__claude_ai_Notion__notion-create-pages",
-      "Bash(git commit -m ' *)"
+      "Bash(git commit -m ' *)",
+      "Read(//home/user/ORACULO-DA-FIRMA/output/fac2026/**)",
+      "Read(//c/home/user/ORACULO-DA-FIRMA/output/fac2026/**)",
+      "PowerShell(git fetch origin claude/visual-prompts-study-panel-EIp5f 2>&1; git show \"origin/claude/visual-prompts-study-panel-EIp5f:output/fac2026/roteiro-para-pdf.html\" | Out-File -Encoding utf8 \"output\\\\fac2026\\\\roteiro-para-pdf.html\"; if \\($?\\) { \"OK: $\\(Get-Item 'output\\\\fac2026\\\\roteiro-para-pdf.html' | Select-Object -ExpandProperty Length\\) bytes\" } else { \"ERRO\" })",
+      "PowerShell(git checkout \"origin/claude/visual-prompts-study-panel-EIp5f\" -- \"output/fac2026/images/\")",
+      "PowerShell(rclone lsd gdrive: --max-depth 2 2>&1)",
+      "PowerShell(rclone ls \"gdrive:1siKUTBMJxXJywPXCAsvZA5G5L8xcoirM\" 2>&1)",
+      "PowerShell(rclone ls \"gdrive:FAC 2026\" 2>&1)",
+      "mcp__notion__API-retrieve-a-page",
+      "mcp__notion__API-get-block-children",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 -c \"import sys; sys.stdout.buffer.write\\(sys.stdin.buffer.read\\(\\)\\)\")"
     ],
     "additionalDirectories": [
       "c:\\Users\\User\\.claude\\projects\\c--Users-User-Documents-ORACULO---FIRMA-ABACAXI\\memory"

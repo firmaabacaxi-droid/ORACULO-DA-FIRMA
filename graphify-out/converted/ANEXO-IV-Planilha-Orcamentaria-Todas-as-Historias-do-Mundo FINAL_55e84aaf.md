@@ -1,0 +1,387 @@
+<!-- converted from ANEXO-IV-Planilha-Orcamentaria-Todas-as-Historias-do-Mundo FINAL.xlsx -->
+
+## Sheet: Plan_Orçamentária
+|  |  | GOVERNO DO DISTRITO FEDERAL |  |  |  |  |  |  |  |  |  |  |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  |  | Secretaria de Estado de Cultura e Economia Criativa |  |  |  |  |  |  |  |  |  |  |
+|  |  | Subsecretaria de Fomento e Incentivo Cultural |  |  |  |  |  |  |  |  |  |  |
+|  |  | Coordenação do Fundo de Apoio à Cultura |  |  |  |  |  |  |  |  |  |  |
+|  |  | Diretoria de Implementação de Modalidades de Fomento Cultural |  |  |  |  |  |  |  |  |  |  |
+| TÍTULO OU NOME DO PROJETO: |  | Todas as Histórias do Mundo |  |  |  |  | Planilha Orçamentária  |  |  |  |  |  |
+| PROPONENTE: |  | Filipe Duque |  |  |  |  | Edital FAC I - 2026 |  |  |  |  |  |
+| RESUMO FINANCEIRO DO PROJETO |  |  |  |  |  |  |  |  |  |  |  |  |
+| SELECIONE AO LADO A CATEGORIA DO PROPONENTE DE ACORDO COM SUA NATUREZA JURÍDICA >>> |  |  |  |  | Pessoa Física | ATENÇÃO - Limites:                                    |  |  | TIPO DE DESPESA |  |  |  |
+| Provimento para Proponente |  |  |  | 0.137 | 27400 | Gastos com divulgação do projeto -5% (mínimo) e 20% (máximo) - Ver item 5.7 do Edital |  |  | Elaboração |  | 0 | 0 |
+| Provimento para Terceiros |  |  |  | 0.863 | 172600 | Limite de gastos com despesas administrativas  - 15% (máximo) - Ver item 5.9 do Edital |  |  | Despesas Administrativas |  | 0.09 | 18000 |
+| Valor Total Solicitado ao FAC |  |  |  | 200000 |  | Gastos com elaboração do projeto - 5% (máximo) -respeitando o limite de R$15.000,00 - Ver item 5.10 do Edital |  |  | Divulgação |  | 0.1 | 20000 |
+| Recursos provenientes de cobrança de ingressos |  |  |  | 0 |  | Recursos destinados ao proponente - Pessoa Física - 30% respeitando o limite de R$45.000,00 |  |  | Outros |  | 0.593 | 118600 |
+| Recursos financeiros de outras fontes |  |  |  | 0 |  | Pessoa Jurídica - 30% - Ver item 5.8 do Edital |  |  | VALOR TOTAL SOLICITADO AO FAC |  |  | 156600 |
+| PLANILHA ORÇAMENTÁRIA |  |  |  |  |  |  |  |  |  |  |  |  |
+|  | Informe em qual etapa do projeto o item será utilizado de acordo com as opções disponíveis. | Descreva a atividade, serviço ou mão-de-obra.  (Ex.: Produtor Executivo; Designer gráfico; etc.).  | Justifique detalhadamente a necessidade do item para o projeto. (Ex.: produtor de objetos - confecciona e/ou pesquisa adereços a pedido da direção de arte; Designer gráfico - elabora o material de divulgação do projeto; etc.). Também devem ser apresentadas justificativas, caso o projeto apresente contratação de funções distintas com as mesmas atribuições. | Informe o parâmetro utilizado para se chegar ao valor solicitado.  (Ex.: orçamento, preço médio de contratos anteriormente realizados, tabela da FGV/MinC, tabela sindical, etc.) |  | Quem será pago? Veja opções. | Indique a natureza do gasto de acordo com o tipo de despesa. Veja as opções e verifique também as restrições de gastos. | Ex.: pessoas, horas, meses, Kg, serviço, metros, etc. | Quantas vezes a unidade se repete? | Quanto custa uma unidade do item? | Custo total do item 
+(Campo com fórmula preenchimento automático) | A opção "Recursos provenientes de cobrança de ingressos" deve ser utilizada nos casos em que houver cobrança de ingressos no âmbito da execução do projeto, devendo ser apresentado nesta planilha orçamentária à previsão de quais itens serão custeados com esse recurso. Os itens identificados na planilha orçamentária como custeados com “Recursos provenientes de cobrança de ingressos” não serão considerados para a soma que defini o “Valor total solicitado ao FAC”. A opção “Recursos financeiros de outras fontes” deve ser utilizada caso o proponente queira detalhar os itens do projeto que serão custeados com recursos não provenientes do FAC. Os itens identificados na planilha orçamentária como custeados com “Recursos financeiros de outras fontes” não serão considerados para a soma que defini o “Valor total solicitado ao FAC” e também não serão considerados para fins de Prestação de Contas. |
+| Nº | Etapa do Projeto | Descrição | Justificativa para o item solicitado | Justificativa para o valor solicitado |  | Provimento | Tipo de Despesa | Unidade de Medida | Quantidade | Valor Unitário | Valor Total | Origem do Recursos que irão custear o projeto |
+| 1 | Pré-Produção | Concepção e criação dramatúrgica | Concepção do espetáculo, construção da dramaturgia e do roteiro cênico do solo, base de toda a criação. | Cachê de artista-criador com 20 anos de carreira; valor de referência de mercado para concepção dramatúrgica de espetáculo solo. |  | Proponente | Outros | projeto | 1 | 9000 | 9000 | FAC |
+| 2 | Pré-Produção | Direção — criação (Eliana Carneiro) | Direção artística na fase de criação: condução da pesquisa, concepção da encenação e integração entre corpo, narrativa e videoprojeção. | Cachê de direção para a etapa de criação; reduzido conforme adequação orçamentária. |  | Terceiros | Outros | projeto | 1 | 7000 | 7000 | FAC |
+| 3 | Pré-Produção | Criação de conteúdo de videoprojeção mapeada | Criação do conteúdo audiovisual projetado (imagens, texturas, mapeamento) sobre a cenografia de tecidos — linguagem constitutiva da obra. Inclui equipamentos e software do profissional. | Serviço especializado de videomapping com equipamentos próprios; valor de referência de mercado. |  | Terceiros | Outros | projeto | 1 | 8000 | 8000 | FAC |
+| 4 | Pré-Produção | Direção de Arte — Concepção Artística | Concepção do sistema visual e estético integrado: cenografia de tecidos, iluminação, videoprojeção e ritmo cênico. | Cachê de diretor/a de arte para concepção artística integrada; referência de mercado. |  | Terceiros | Outros | projeto | 1 | 4000 | 4000 | FAC |
+| 5 | Pré-Produção | Desenho de luz | Concepção do projeto de iluminação cênica integrado à videoprojeção e à dramaturgia. | Cachê de light designer para espetáculo; referência de mercado. |  | Terceiros | Outros | projeto | 1 | 3400 | 3400 | FAC |
+| 6 | Pré-Produção | Trilha sonora original e desenho de som | Composição da trilha original e desenho sonoro completo do espetáculo. | Cachê de compositor/sound designer para criação de trilha original e desenho de som de espetáculo. |  | Terceiros | Outros | projeto | 1 | 8000 | 8000 | FAC |
+| 7 | Pré-Produção | Criação e Confecção de Figurinos | Concepção e execução dos figurinos dos múltiplos personagens habitados pelo intérprete em cena — criação, tecidos, costura e acabamento. | Cachê de figurinista e orçamento de materiais; referência de mercado para processo integrado. |  | Terceiros | Outros | projeto | 1 | 6000 | 6000 | FAC |
+| 8 | Pré-Produção | Operador de cena — ensaios | Operação ao vivo da cenografia de tecidos suspensos durante a fase de ensaios. | 4 semanas de ensaios a R$ 1.500/semana; referência de mercado. |  | Terceiros | Outros | semana | 4 | 1500 | 6000 | FAC |
+| 9 | Produção | Cachê de ensaios e montagem (atuação) | Período de ensaios e montagem do espetáculo pelo ator-criador. | 2 meses de ensaios/montagem a R$ 5.000/mês; cachê de intérprete principal. |  | Proponente | Outros | mês | 2 | 5000 | 10000 | FAC |
+| 10 | Produção | Direção — montagem (Eliana Carneiro) | Direção artística na fase de montagem: ensaios finais, marcação de cena e integração técnica. | Cachê de direção para a etapa de montagem; reduzido conforme adequação orçamentária. |  | Terceiros | Outros | projeto | 1 | 8000 | 8000 | FAC |
+| 11 | Produção | Assistência de direção | Apoio à direção nos ensaios, registro de marcações e organização do processo de montagem. | 2 meses a R$ 2.000/mês; referência de mercado para assistência de direção intensiva. |  | Terceiros | Outros | mês | 2 | 2000 | 4000 | FAC |
+| 12 | Produção | Confecção de Cenografia, Adereços e Planejamento | Material e execução da cenografia de tecidos suspensos, adereços cênicos (saco, corda, diábolo) e planejamento técnico; inclui cordas, polias, estrutura de sustentação. | Orçamento integrado de materiais e mão de obra de confecção da cenografia e adereços cênicos. |  | Terceiros | Material | projeto | 1 | 12000 | 12000 | FAC |
+| 13 | Produção | Aluguel de sala de ensaio | Locação de espaço adequado para ensaios com pé-direito e área para a cenografia suspensa. | 4 semanas a R$ 800/semana; referência de mercado no DF. |  | Terceiros | Aluguel | semana | 4 | 800 | 3200 | FAC |
+| 14 | Produção | Locação de projetor de alta luminosidade | Projetor de alto lúmen para a videoprojeção mapeada nos ensaios técnicos e apresentações. | 3 semanas a R$ 2.200/semana; referência de locação de projetor profissional. |  | Terceiros | Equipamento | semana | 3 | 2200 | 6600 | FAC |
+| 15 | Produção | Locação de iluminação cênica | Equipamento de iluminação cênica para as apresentações. | 6 apresentações a R$ 900 cada; referência de locação de rig de luz. |  | Terceiros | Equipamento | apresentação | 6 | 900 | 5400 | FAC |
+| 16 | Produção | Locação de som (PA e microfonia) | Sistema de PA e microfonia para as apresentações. | 6 apresentações a R$ 700 cada; referência de locação de som. |  | Terceiros | Equipamento | apresentação | 6 | 700 | 4200 | FAC |
+| 17 | Produção | Cachê de apresentação (atuação) | Cachê do ator pelas 6 apresentações presenciais do espetáculo. | 6 apresentações a R$ 1.400 cada; ajuste conforme adequação orçamentária. |  | Proponente | Outros | apresentação | 6 | 1400 | 8400 | FAC |
+| 18 | Produção | Direção — acompanhamento das apresentações | Acompanhamento da direção nas apresentações para manutenção da qualidade da encenação. | 6 apresentações a R$ 700 cada; referência de mercado. |  | Terceiros | Outros | apresentação | 6 | 700 | 4200 | FAC |
+| 19 | Produção | Aluguel de teatro | Locação dos espaços para as 6 apresentações presenciais no DF. | 6 apresentações a R$ 1.600 cada; referência de locação de teatro no DF. |  | Terceiros | Aluguel | apresentação | 6 | 1600 | 9600 | FAC |
+| 20 | Produção | Iluminador — operador técnico de luz | Operador técnico de iluminação cênica durante as apresentações. | 6 apresentações a R$ 600 cada; referência de mercado para técnico especializado. |  | Terceiros | Outros | apresentação | 6 | 600 | 3600 | FAC |
+| 21 | Produção | Operador de som | Operador técnico de som e PA durante as apresentações. | 6 apresentações a R$ 600 cada; referência de mercado para técnico especializado. |  | Terceiros | Outros | apresentação | 6 | 600 | 3600 | FAC |
+| 22 | Produção | Hold — operador de cenografia | Operador ao vivo da cenografia de tecidos e adereços cênicos durante as apresentações. | 6 apresentações a R$ 600 cada; referência de mercado para técnico de operação de cena. |  | Terceiros | Outros | apresentação | 6 | 600 | 3600 | FAC |
+| 23 | Produção | Transporte de cenografia e equipamentos | Transporte de cenografia, figurinos e equipamentos para cada apresentação. | 6 apresentações a R$ 400 cada; referência de frete local. |  | Terceiros | Transporte | apresentação | 6 | 400 | 2400 | FAC |
+| 24 | Produção | Intérprete de Libras | Tradução/interpretação em Libras em 2 apresentações presenciais. | 2 apresentações a R$ 700 cada; referência de mercado para intérprete de Libras. |  | Terceiros | Outros | apresentação | 2 | 700 | 1400 | FAC |
+| 25 | Produção | Audiodescrição (roteiro, narração e transmissão) | Elaboração de roteiro, narração de audiodescrição e sistema de transmissão em 1 sessão presencial completa. | Serviço de audiodescrição (roteiro + narração + equipamento de transmissão) para 1 sessão. |  | Terceiros | Outros | sessão | 1 | 3500 | 3500 | FAC |
+| 26 | Pós-Produção | Produção executiva | Coordenação geral do projeto: contratações, agenda, logística e gestão durante a execução. | 4 meses a R$ 3.000/mês; valor ajustado conforme escopo ampliado. |  | Terceiros | Despesas Administrativas | mês | 4 | 3000 | 12000 | FAC |
+| 27 | Pós-Produção | Assistente de produção | Apoio à produção executiva: logística, contatos, organização de equipe e materiais. | 4 meses a R$ 1.500/mês; referência de mercado para assistência de produção. |  | Terceiros | Despesas Administrativas | mês | 4 | 1500 | 6000 | FAC |
+| 28 | Pós-Produção | Registro audiovisual do espetáculo | Captação multicâmera profissional de uma apresentação para registro e difusão. | Diária de captação multicâmera com equipe e equipamento. |  | Terceiros | Outros | projeto | 1 | 4000 | 4000 | FAC |
+| 29 | Pós-Produção | Edição e finalização do registro | Edição, correção de cor e finalização do registro audiovisual. | Serviço de pós-produção do registro audiovisual. |  | Terceiros | Outros | projeto | 1 | 4000 | 4000 | FAC |
+| 30 | Pós-Produção | Registro de processo (making-of) | Profissional que acompanha e registra o processo de criação e montagem do espetáculo. | 3 semanas a R$ 1.500/semana acompanhando o processo. |  | Terceiros | Outros | semana | 3 | 1500 | 4500 | FAC |
+| 31 | Pós-Produção | Fotografia de cena | Cobertura fotográfica profissional do espetáculo para divulgação e acervo. | 4 diárias a R$ 1.100 cada; ajuste conforme adequação orçamentária. |  | Terceiros | Outros | dia | 4 | 1100 | 4400 | FAC |
+| 32 | Pós-Produção | Design gráfico | Criação de identidade visual, cartaz, programa e materiais de divulgação. | Serviço de design gráfico para o projeto. |  | Terceiros | Divulgação | projeto | 1 | 4000 | 4000 | FAC |
+| 33 | Pós-Produção | Assessoria de imprensa | Assessoria de imprensa para divulgação do espetáculo na mídia local. | 3 meses a R$ 2.000/mês; referência de mercado para assessoria. |  | Terceiros | Divulgação | mês | 3 | 2000 | 6000 | FAC |
+| 34 | Pós-Produção | Gestão de redes sociais e conteúdo | Produção de conteúdo e gestão das redes sociais do projeto. | 3 meses a R$ 2.500/mês; referência de mercado. |  | Terceiros | Divulgação | mês | 3 | 2500 | 7500 | FAC |
+| 35 | Pós-Produção | Tráfego pago e impulsionamento | Impulsionamento de publicações para ampliar o alcance da divulgação. | Verba de mídia para impulsionamento das apresentações. |  | Terceiros | Divulgação | projeto | 1 | 1500 | 1500 | FAC |
+| 36 | Pós-Produção | Material gráfico impresso | Impressão de cartazes e programas para as apresentações. | Lote de impressão de material gráfico otimizado. |  | Terceiros | Divulgação | lote | 1 | 1000 | 1000 | FAC |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |
+|  |  |  |  |  |  |  |  |  |  |  | 0 |  |

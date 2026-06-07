@@ -1,0 +1,78 @@
+/* ============================================================
+   CEREBRO-ORACULO Vault Colors — Firma Abacaxi
+   Color scheme for structured workflow: Projects, Clients, Operations, Studies, Archives, Wiki
+   ============================================================ */
+
+:root {
+  --cb-project:    #ffd700;   /* 04-PROJETOS-ATIVOS — ação imediata        */
+  --cb-client:     #ff8c00;   /* 03-CLIENTES — laranja                     */
+  --cb-study:      #9370db;   /* 06-ESTUDOS — roxo/lavanda                 */
+  --cb-operation:  #1e90ff;   /* 01-OPERACAO — azul-claro                  */
+  --cb-archive:    #808080;   /* 05-ARQUIVO — cinza opaco                  */
+  --cb-wiki:       #4682b4;   /* wiki/ — azul-aço (síntese)                */
+  --cb-dim:        #606060;   /* skills, hooks, .raw — de-enfatizado       */
+}
+
+/* ── Projetos ativos — destaque máximo ── */
+.nav-folder-title[data-path="04-PROJETOS-ATIVOS"]      { color: var(--cb-project); font-weight: 700; }
+.nav-folder-title[data-path^="04-PROJETOS-ATIVOS"]     { color: var(--cb-project); }
+
+/* ── Clientes — laranja ── */
+.nav-folder-title[data-path="03-CLIENTES"]             { color: var(--cb-client); font-weight: 600; }
+.nav-folder-title[data-path^="03-CLIENTES"]            { color: var(--cb-client); }
+
+/* ── Operação — azul-claro ── */
+.nav-folder-title[data-path="01-OPERACAO-ORACULO"]     { color: var(--cb-operation); font-weight: 600; }
+.nav-folder-title[data-path^="01-OPERACAO-ORACULO"]    { color: var(--cb-operation); }
+
+/* ── Estudos & Referências — roxo ── */
+.nav-folder-title[data-path="06-ESTUDOS-E-REFERENCIAS"] { color: var(--cb-study); font-weight: 500; }
+.nav-folder-title[data-path^="06-ESTUDOS-E-REFERENCIAS"] { color: var(--cb-study); }
+
+/* ── Arquivo histórico — cinza opaco ── */
+.nav-folder-title[data-path="05-ARQUIVO-HISTORICO"]    { color: var(--cb-archive); opacity: 0.65; font-weight: 400; }
+.nav-folder-title[data-path^="05-ARQUIVO-HISTORICO"]   { color: var(--cb-archive); opacity: 0.65; }
+
+/* ── Inbox & Logs — neutro ── */
+.nav-folder-title[data-path="00-INBOX"]                { color: var(--cb-dim); opacity: 0.7; }
+.nav-folder-title[data-path="02-PROCESSOS-E-MANUAIS"]  { color: var(--cb-dim); opacity: 0.7; }
+.nav-folder-title[data-path="07-LOGS-DE-SESSAO"]       { color: var(--cb-dim); opacity: 0.7; }
+
+/* ── Wiki — azul-aço (síntese) ── */
+.nav-folder-title[data-path="wiki"]                    { color: var(--cb-wiki); font-weight: 600; text-decoration: underline dotted; }
+.nav-folder-title[data-path^="wiki"]                   { color: var(--cb-wiki); }
+
+/* ── Infraestrutura — de-enfatizada ── */
+.nav-folder-title[data-path=".raw"]                    { color: var(--cb-dim); opacity: 0.45; }
+.nav-folder-title[data-path="_templates"]              { color: var(--cb-dim); opacity: 0.45; }
+.nav-folder-title[data-path="agents"]                  { color: var(--cb-dim); opacity: 0.45; }
+.nav-folder-title[data-path="commands"]                { color: var(--cb-dim); opacity: 0.45; }
+.nav-folder-title[data-path="hooks"]                   { color: var(--cb-dim); opacity: 0.45; }
+.nav-folder-title[data-path="skills"]                  { color: var(--cb-dim); opacity: 0.45; }
+.nav-folder-title[data-path="scripts"]                 { color: var(--cb-dim); opacity: 0.45; }
+
+/* ── Custom callouts ── */
+.callout[data-callout='decision'] {
+  --callout-color: 255, 215, 0;
+  --callout-icon: lucide-check-circle-2;
+}
+.callout[data-callout='action'] {
+  --callout-color: 255, 140, 0;
+  --callout-icon: lucide-clipboard-list;
+}
+.callout[data-callout='project'] {
+  --callout-color: 30, 144, 255;
+  --callout-icon: lucide-briefcase;
+}
+.callout[data-callout='insight'] {
+  --callout-color: 147, 112, 219;
+  --callout-icon: lucide-lightbulb;
+}
+.callout[data-callout='contradiction'] {
+  --callout-color: 220, 80, 80;
+  --callout-icon: lucide-alert-triangle;
+}
+.callout[data-callout='gap'] {
+  --callout-color: 220, 220, 170;
+  --callout-icon: lucide-help-circle;
+}

@@ -17,6 +17,8 @@
 - [ ] **Etapa 9** — Formulário preenchido online
 - [ ] **Etapa 10** — Envio e confirmação
 
+**⏰ ATUALIZADO 5 JUN:** Checklist prático atualizado em `CHECKLIST-ATUALIZADO-5JUN.md` — 2 dias para deadline!
+
 ---
 
 ## 📚 Documentação

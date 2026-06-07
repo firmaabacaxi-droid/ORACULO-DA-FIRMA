@@ -1,0 +1,41 @@
+
+======================================================================
+[OK] RELATORIO DE GERACAO - FAC 2026 PAINEL VISUAL
+======================================================================
+
+Total gerado: 0 imagens
+
+[CURADORIA] Selecione 1 por cena:
+
+
+[01_Sael_apresentacao] Sael: apresentação do personagem
+  Arquivos: 0 variações
+
+[02_Cenografia_palco] A Cenografia: o palco vivo
+  Arquivos: 0 variações
+
+[03_Aderecos_flat_lay] Os Adereços: objetos de cena
+  Arquivos: 0 variações
+
+[04_Prologo_lar] Prólogo: O Lar
+  Arquivos: 0 variações
+
+[05_Elara_torre_vidro] Elara: a torre de vidro
+  Arquivos: 0 variações
+
+[06_Moacir_floresta_pedra] Moacir: a floresta e a pedra
+  Arquivos: 0 variações
+
+[07_Isola_fios_destino] Ísola: os fios do destino
+  Arquivos: 0 variações
+
+[08_Crise_colapso_visual] A Crise: o colapso visual
+  Arquivos: 0 variações
+
+[09_Revelacao_branco_absoluto] A Revelação: o branco absoluto
+  Arquivos: 0 variações
+
+======================================================================
+Próximo passo: Selecione a melhor variação de cada cena
+Renomear para: THM_img01_Sael.jpg, THM_img02_Cenografia.jpg, etc.
+======================================================================
