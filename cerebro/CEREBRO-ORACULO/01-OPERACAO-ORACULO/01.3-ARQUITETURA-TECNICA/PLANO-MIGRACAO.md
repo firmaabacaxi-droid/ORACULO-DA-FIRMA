@@ -13,40 +13,20 @@
 
 ---
 
-## Bloco 1 — Backup e segurança 🔴 (FAZER PRIMEIRO)
+## Bloco 1 — Backup e segurança 🔴 (FAZER PRIMEIRO) — ✅ EXECUTADO 07/jun/2026
 
-- [ ] **1.1** Commit de tudo no Git, nos dois repositórios, antes de mexer em qualquer arquivo
-  (snapshot de segurança). Se algum não for repo Git ainda, fazer `git init` + commit inicial.
-- [ ] **1.2** Criar `C:\Users\User\.secrets\` e **mover** para lá:
-  - `C:\Users\User\Documents\ANTIGRAVITY\google_service_account.json`
-  - `C:\Users\User\Documents\ANTIGRAVITY\.env`
-- [ ] **1.3** Ajustar os scripts que leem essas credenciais para apontar para `.secrets\`
-  (via variável de ambiente). 🟡 *requer testar um script depois.*
-- [ ] **1.4** Revisar/criar `.gitignore` no ANTIGRAVITY bloqueando:
-  `*.env`, `*service_account*.json`, `.next/`, `node_modules/`.
-- [ ] **1.5** 🔴 **Se as credenciais já foram commitadas** em algum repositório/histórico:
-  rotacionar (gerar novas chaves no Google Cloud) — o segredo antigo deve ser considerado comprometido.
+- [x] **1.1** Commit snapshot do ORACULO feito (commit `ac1debe`). **ANTIGRAVITY não é repositório git** → não há commit/histórico, logo nada a rotacionar.
+- [x] **1.4** Criado `.gitignore` no ANTIGRAVITY bloqueando `*.env`, `*service_account*.json`, `.next/`, `node_modules/`, `__pycache__/`.
+- [~] **1.2 / 1.3 — ADIADO para o Bloco 6.** Descoberta: **58 scripts `.py`** têm o caminho de `google_service_account.json` fixo no código, e o `.env` é carregado por caminho relativo. Mover os arquivos agora quebraria os 58 scripts. Como o ANTIGRAVITY não é repo git, o `.gitignore` já remove o risco de vazamento. O *move* para `.secrets\` + ajuste dos scripts será feito junto da reorganização dos scripts (Bloco 6), para não quebrar o pipeline.
+- [—] **1.5 Não se aplica:** credenciais nunca foram commitadas (ANTIGRAVITY sem git).
 
 ---
 
-## Bloco 2 — Eliminar duplicatas (limpeza assertiva) 🔴
+## Bloco 2 — Eliminar duplicatas 🔴 — ✅ EXECUTADO 08/jun/2026
 
-Itens que são cópias confirmadas — a fonte verdadeira existe em outro lugar.
-
-- [ ] **2.1** 🔴 Apagar o app espelhado:
-  `C:\Users\User\Documents\ORACULO - FIRMA ABACAXI\PROJETO ORACULO APP ANTIGRAVITY\`
-  → fonte real: `C:\Users\User\Documents\ANTIGRAVITY\oraculo-app\`
-- [ ] **2.2** 🔴 Apagar as skills copiadas:
-  `...\ORACULO - FIRMA ABACAXI\DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR\skills DO ANTIGRAVITY\`
-  → fonte real: `C:\Users\User\Documents\ANTIGRAVITY\SKILLS\`
-  *(antes: confirmar que toda skill ali também existe na fonte; as que não existirem, mover para a fonte em vez de apagar.)* 🟡
-- [ ] **2.3** 🔴 Apagar as cópias `(1).md` de docs já versionados em `docs/`:
-  `...\DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR\ARQUITETURA_NOTION (1).md`,
-  `CLAUDE (1).md`, `CONTEXTO_FIRMA (1).md`, `FLUXO_TRABALHO (1).md`
-  *(antes: `diff` rápido contra o original para garantir que não há conteúdo único.)* 🟡
-- [ ] **2.4** 🔴 Apagar a pasta vazia/órfã:
-  `C:\Users\User\Documents\ORACULO - FIRMA ABACAXI\ORACULO-DA-FIRMA\`
-  *(antes: confirmar que está realmente vazia.)*
+- [x] **2.1** App espelhado **APAGADO** em definitivo (`PROJETO ORACULO APP ANTIGRAVITY/`). Confirmado redundante: sem git próprio, fonte real em `ANTIGRAVITY/oraculo-app/`.
+- [x] **2.2 / 2.3** As cópias `(1).md` **não eram idênticas** (versões antigas, divergem dos atuais) e as skills copiadas → tudo **ARQUIVADO** (decisão do usuário: arquivar, não apagar). Foram para `archive/2026-06/DOCUMENTOS-ANTIGOS/` junto da pasta inteira de legado.
+- [—] **2.4 NÃO executado — pasta mantida.** `ORACULO-DA-FIRMA/` **não está vazia**: é um **clone git** do GitHub (o próprio `.gitignore` a trata como clone local). Preservada.
 
 ---
 
@@ -55,52 +35,30 @@ Itens que são cópias confirmadas — a fonte verdadeira existe em outro lugar.
 Objetivo: cada projeto vira **uma pasta única** em `04-PROJETOS-ATIVOS/`, com a subestrutura
 padrão. Começar pelo FAC 2026 (projeto-foco atual).
 
-- [ ] **3.1** Renomear a pasta do projeto FAC para o padrão (§6 do blueprint):
-  `cerebro\...\04-PROJETOS-ATIVOS\FIRMA-FAC-2026\` → `FIRMA-19-FAC-2026-Todas-as-Historias\`
-  *(confirmar o número sequencial correto no `_INDEX.md`.)*
-- [ ] **3.2** Criar dentro dela as subpastas padrão:
-  `01-BRIEFING/` · `02-DOCUMENTACAO/` · `03-ORCAMENTO-CRONOGRAMA/` · `04-REFERENCIAS/` · `05-ENTREGAS/`
-- [ ] **3.3** **Mover** os arquivos do edital (hoje soltos) para dentro do projeto:
-  - De: `...\ORACULO - FIRMA ABACAXI\PROJETOS - EDITAIS\EDITAL FAC 2026\` (todos os `.xlsx/.docx/.pdf/.ods`)
-  - Para: `...\FIRMA-19-FAC-2026-Todas-as-Historias\03-ORCAMENTO-CRONOGRAMA\` (planilhas/cronogramas)
-    e `02-DOCUMENTACAO\` (anexos, declarações, editais SEI).
-- [ ] **3.4** Mover os `.md` de referência já existentes na pasta do projeto para as subpastas
-  certas (ex.: `REFERENCIAS-VISUAIS/` → `04-REFERENCIAS/`; `03-Roteiro-Memorial-v4.md` → `02-DOCUMENTACAO/`).
-- [ ] **3.5** Atualizar/ criar `00-INDEX.md` do projeto apontando para tudo (com wikilinks).
-- [ ] **3.6** Repetir o padrão (renomear + subpastas) para os demais ativos:
-  `FIRMA-#04-Brasil-Participativo`, `FIRMA-#08-RNP-Ailton-Krenak`, `FIRMA-#10-Simbiose`,
-  `FIRMA-#16-Maranha` → remover o `#` e padronizar. 🟢
+- [—] **3.1 Adiado.** Pasta FAC **mantida como `FIRMA-FAC-2026`** (nome reconhecível, projeto ativo). Renomear para `FIRMA-19-...` fica opcional para depois, para não desorientar no meio do trabalho do edital.
+- [x] **3.3** Anexos oficiais do edital **MOVIDOS** para dentro do projeto:
+  `...\FIRMA-FAC-2026\EDITAL-ANEXOS-OFICIAIS\` (planilhas, cronogramas, declarações, editais SEI). A pasta-raiz `PROJETOS - EDITAIS\` foi **removida** (esvaziada).
+- [~] **3.2 / 3.4 Parcial / adiado.** Criada a subpasta `EDITAL-ANEXOS-OFICIAIS/`. A reorganização completa dos ~25 `.md` da FAC em `01-BRIEFING`..`05-ENTREGAS` foi **adiada** — é invasiva num projeto ativo; fazer numa sessão dedicada quando o edital estiver entregue.
+- [x] **3.5** `_INDEX.md` **corrigido** (os links antigos estavam quebrados) e atualizado com a nova convenção.
+- [x] **3.6** Pastas dos demais ativos **renomeadas** (sem `#`): `FIRMA-04-Brasil-Participativo`, `FIRMA-08-RNP-Ailton-Krenak`, `FIRMA-10-Simbiose`, `FIRMA-16-Maranha`.
 
 ---
 
-## Bloco 4 — Pasta institucional `00-EMPRESA` 🟢
+## Bloco 4 — Pasta institucional `00-EMPRESA` 🟢 — ✅ EXECUTADO 08/jun/2026
 
-- [ ] **4.1** Criar `cerebro\CEREBRO-ORACULO\00-EMPRESA\` com as subpastas:
-  `socios/` · `juridico/` · `contratos-modelo/` · `financeiro-empresa/` · `portfolio/`
-- [ ] **4.2** **Mover** o currículo solto:
-  `...\ORACULO - FIRMA ABACAXI\CV-Filipe-Duque-2026.docx` → `00-EMPRESA\socios\`
-- [ ] **4.3** Reunir aqui outros institucionais que aparecerem (CNPJ, contrato social,
-  declarações reutilizáveis, dados bancários/PIX, apresentação comercial). 🟡
+- [x] **4.1** Criada `cerebro\CEREBRO-ORACULO\00-EMPRESA\` com `socios/`, `juridico/`, `contratos-modelo/`, `financeiro-empresa/`, `portfolio/`.
+- [x] **4.2** Currículo **movido**: `CV-Filipe-Duque-2026.docx` → `00-EMPRESA\socios\`.
+- [ ] **4.3** Reunir aqui outros institucionais conforme aparecerem (CNPJ, contrato social, declarações, dados bancários/PIX, apresentação comercial). 🟡 *contínuo.*
 
 ---
 
-## Bloco 5 — Arquivar legado com valor histórico 🟡
+## Bloco 5 — Arquivar legado com valor histórico 🟡 — ✅ EXECUTADO 08/jun/2026
 
-Nada se apaga aqui — só se move para um arquivo datado e documentado.
-
-- [ ] **5.1** Criar `cerebro\CEREBRO-ORACULO\05-ARQUIVO-HISTORICO\` (se faltar subestrutura) e
-  `C:\Users\User\Documents\ORACULO - FIRMA ABACAXI\archive\2026-06\`.
-- [ ] **5.2** Mover os **projetos FAC antigos** para o arquivo histórico:
-  `...\PROJETOS - EDITAIS\PROJETOS FAC ANTIGOS\` (5 ATOS DA ESCADA, CIRCO E ESTRADA, CIRCOLAR,
-  FILMMAKER INDEPENDENTE, OFICINAS DOCUMENTAL) → `05-ARQUIVO-HISTORICO\editais-fac-anteriores\`
-- [ ] **5.3** Mover os **orçamentos antigos** (≈50 `.docx/.xlsx`):
-  `...\DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR\Orçamentos\` → `archive\2026-06\orcamentos-historicos\`
-- [ ] **5.4** Mover o backup do Notion antigo e a documentação antiga:
-  `...\DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR\NOTION FIRMA ANTIGO\` e
-  `...\DOCUMENTAÇAO DO NOTION ANTIGO\` → `archive\2026-06\notion-antigo\`
-- [ ] **5.5** Após esvaziar, 🔴 apagar a pasta-limbo `DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR\`
-  e a `PROJETOS - EDITAIS\` (já consolidadas).
-- [ ] **5.6** Criar `archive\2026-06\README.md` explicando o que há ali e de onde veio.
+- [x] **5.1** Criados `cerebro\...\05-ARQUIVO-HISTORICO\` e `archive\2026-06\`.
+- [x] **5.2** Projetos FAC antigos **movidos** (via robocopy) → `05-ARQUIVO-HISTORICO\editais-fac-anteriores\` (5 projetos, 17 itens).
+- [x] **5.3 / 5.4** Orçamentos antigos + Notion antigo + documentação antiga **arquivados** dentro de `archive\2026-06\DOCUMENTOS-ANTIGOS\` (a pasta de legado inteira foi movida de uma vez, em vez de fatiada — mais simples e igualmente reversível).
+- [x] **5.5** `PROJETOS - EDITAIS\` **removida** (esvaziada). `DOCUMENTOS ANTIGOS\` **arquivada** (não apagada — exclusão definitiva pendente de revisão).
+- [x] **5.6** Criado `archive\2026-06\README.md`.
 
 ---
 
@@ -121,7 +79,7 @@ Pode ficar para uma sessão dedicada — não bloqueia o resto.
 
 (Detalhe e prioridades na §9 de [[ARQUITETURA-SISTEMA]].)
 
-- [ ] **7.1** 🔴 prioridade — `docs\MAPA-MESTRE.md` (onde mora cada coisa).
+- [x] **7.1** ✅ `docs\MAPA-MESTRE.md` criado (onde mora cada coisa).
 - [ ] **7.2** `ANTIGRAVITY\README.md` (coberto no Bloco 6).
 - [ ] **7.3** Política de credenciais e backup.
 - [ ] **7.4** Contratos-modelo + bios dos sócios em `00-EMPRESA\`.

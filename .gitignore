@@ -6,6 +6,10 @@
 # Documentos antigos com dados sensíveis — NUNCA commitar
 "DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR/"
 DOCUMENTOS ANTIGOS*
+DOCUMENTOS-ANTIGOS*
+
+# Archive (legado local, reversível, caminhos longos) — não versionar
+archive/
 
 # Pastas do sistema
 .claude/settings.local.json
