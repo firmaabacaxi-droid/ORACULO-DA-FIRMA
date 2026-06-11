@@ -1073,3 +1073,35 @@ O painel de 9 imagens diferencia-se de concorrentes FAC porque:
 - ✅ Mostra **domínio de linguagem visual** do projeto (da projeção mapeada em tecido)
 
 *Atualizado ao final da Sessão 19 — 04 Jun 2026 · Oráculo v2.2*
+
+---
+
+## SESSÃO 20 — Piloto Cérebro-Central + Captura Mobile (10 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+**Tema:** Estratégia de arquitetura de dados — vale sair do Notion e centralizar no cérebro?
+
+**Decisão:** Piloto de 2–4 semanas migrando CRM + TAREFAS para Obsidian Bases. Notion permanece ativo. Revisão em **01/07/2026**.
+
+**Implementado:**
+1. ✅ `docs/DECISAO_ARQUITETURA_DADOS.md` — análise completa, critérios do piloto, decisão registrada
+2. ✅ `cerebro/CEREBRO-ORACULO/08-BASES/` — nova seção do vault com piloto
+   - `CRM.base` (kanban + tabela) + 6 registros CRM migrados do Notion
+   - `TAREFAS.base` (3 views) + 18 registros TAREFAS migrados do Notion
+   - `_COMO-USAR.md` — guia de uso e templates
+3. ✅ `docs/GUIA_MOBILE_ANDROID.md` — passo a passo Android (Termux + obsidian-git)
+4. ✅ `docs/workflows/captura_telegram_n8n.md` + `.json` — blueprint captura rápida via Telegram + n8n
+5. ✅ CLAUDE.md e STATUS.md atualizados
+
+**Importante:** Nada foi alterado/deletado no Notion. Leitura via MCP, somente.
+
+### 🔴 Próximos passos
+
+1. **Lipe instala Obsidian no Android** → seguir `docs/GUIA_MOBILE_ANDROID.md`
+2. **Instalar plugin:** Kanban Bases View (Community plugins)
+3. **Usar 08-BASES** durante 2–4 semanas (CRM e TAREFAS)
+4. **01/07/2026 — Revisão do piloto:** ampliar migração? Manter híbrido? Voltar 100% Notion?
+5. **Fase 3 (futuro):** Deploy n8n → bot Telegram → captura automática no 00-INBOX
+
+*Atualizado ao final da Sessão 20 — 10 Jun 2026 · Oráculo v2.3*
