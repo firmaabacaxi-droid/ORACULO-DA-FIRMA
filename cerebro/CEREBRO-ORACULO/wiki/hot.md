@@ -9,7 +9,8 @@ updated: 2026-06-11
 ---
 
 ## Última atualização
-**Sessão 21-22 (11 jun 2026):** Monorepo consolidado completo + vault limpo + fluxo de reuniões projetado
+**Sessão 23 (11 jun 2026):** Integração agency-agents — 4 agentes web/produto + 8 skills novas, verificadas e commitadas (branch já no GitHub)
+*(Sessão 21-22: Monorepo consolidado + vault limpo + fluxo de reuniões projetado)*
 
 ## Estado atual da Firma
 
@@ -90,6 +91,28 @@ Branch `consolidacao-monorepo` concluída (Blocos 1-8). Monorepo unificado em `O
 - Novo fluxo: reuniões de voz → Telegram → n8n → Groq Whisper → 00-INBOX/reunioes/
 - Arquivos de trabalho (XLSX, DOCX, PDF) movidos para `FIRMA-ABACAXI-DOCS/`
 - Credenciais em `~/.secrets/`
+
+---
+
+## Integração agency-agents (11 jun 2026 — Sessão 23)
+
+Curadoria da biblioteca open-source `msitarzewski/agency-agents` (MIT, ~230 agentes),
+adaptada ao Oráculo sem sobrepor o que já existe. Commit `8560422` na branch
+`consolidacao-monorepo` (já no GitHub).
+
+**4 agentes de produto web** (`.claude/agents/firma-*`) — para o site da Firma + plataforma
+`oraculo-app` (Next.js): `firma-product-strategist` → `firma-ux-designer` →
+`firma-backend-architect` → `firma-web-builder`.
+
+**8 skills novas** (`.claude/skills/firma/*`), cada uma com seção "não sobrepõe":
+- `editais` (FAC/AFD/incentivo, orquestra budget-planner)
+- `narrativa-documental` (4 lentes p/ documentário, alimenta cinematic-script-writer)
+- `youtube-estrategia`, `trafego-pago` (Meta Ads, Fase 5), `assessoria-imprensa`
+- `juridico-audiovisual` (1ª passada, não é advogado), `atas-reuniao` (alimenta gestao),
+  `prompts-imagem-ia`
+
+Verificado pelo `firma-verifier`: SHIP (0 blocker/high/medium). Routing integrado em
+`CLAUDE.md` + `rules/skills-routing.md`. **A validar nesta semana** junto com o resto do monorepo.
 
 ---
 
