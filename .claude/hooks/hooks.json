@@ -120,6 +120,17 @@
         ],
         "description": "Load previous context and detect package manager on new session",
         "id": "session:start"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "HOT=cerebro/CEREBRO-ORACULO/wiki/hot.md; [ -f \"$HOT\" ] && head -200 \"$HOT\" || true"
+          }
+        ],
+        "description": "Restaurar hot cache do wiki (contexto recente da Firma Abacaxi)",
+        "id": "wiki:session-start:hot-cache"
       }
     ],
     "PostToolUse": [
@@ -243,6 +254,17 @@
         ],
         "description": "Inject agent warnings on context exhaustion, high cost, scope creep, or tool loops",
         "id": "post:ecc-context-monitor"
+      },
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "[ -d .git ] && git add -- cerebro/CEREBRO-ORACULO/wiki/ 2>/dev/null && (git diff --cached --quiet -- cerebro/CEREBRO-ORACULO/wiki/ || git commit -m \"wiki: auto-commit $(date '+%Y-%m-%d %H:%M')\" -- cerebro/CEREBRO-ORACULO/wiki/ 2>/dev/null) || true"
+          }
+        ],
+        "description": "Auto-commit de mudancas na wiki da Firma Abacaxi apos cada escrita",
+        "id": "wiki:post-write:auto-commit"
       }
     ],
     "PostToolUseFailure": [
@@ -333,6 +355,17 @@
         ],
         "description": "Send desktop notification (macOS/WSL) with task summary when Claude responds",
         "id": "stop:desktop-notify"
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git diff --name-only HEAD 2>/dev/null | grep -q '^cerebro/CEREBRO-ORACULO/wiki/' && printf '\\nWIKI MODIFICADA esta sessao. Atualize cerebro/CEREBRO-ORACULO/wiki/hot.md com um resumo do que mudou (< 500 palavras). Use o formato: Atualizado em, Contexto Recente, Mudancas, Proximos Passos.\\n' || true"
+          }
+        ],
+        "description": "Lembrar de atualizar wiki/hot.md se a wiki foi modificada nesta sessao",
+        "id": "wiki:stop:remind-hot-cache"
       }
     ],
     "SessionEnd": [

@@ -24,6 +24,11 @@ output/conteudo/*.docx
 # Obsidian — estado de janela muda a cada abertura, não faz sentido versionar
 cerebro/**/workspace.json
 
+# Plugins Obsidian instalados como source (têm .git/ próprio — evitar conflito)
+cerebro/**/.obsidian/plugins/hangarx/
+cerebro/**/.obsidian/plugins/obsidian-3d-graph/
+cerebro/**/.obsidian/plugins/advanced-canvas/
+
 # Clone local do GitHub — não versionar dentro do repo
 ORACULO-DA-FIRMA/
 
