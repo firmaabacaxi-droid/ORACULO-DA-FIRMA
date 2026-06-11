@@ -9,7 +9,7 @@ updated: 2026-06-11
 ---
 
 ## Última atualização
-**Sessão 20 (07 jun 2026):** Implementação claude-obsidian + wiki PARA + arquitetura 4 sistemas
+**Sessão 21-22 (11 jun 2026):** Monorepo consolidado completo + vault limpo + fluxo de reuniões projetado
 
 ## Estado atual da Firma
 
@@ -49,41 +49,32 @@ updated: 2026-06-11
   - `areas/` (captação, financeiro)
   - `resources/` (pessoas, editais, referências)
 
-## Active threads (pendências urgentes — S20)
+## Próximos passos (ver docs/PLANO-DE-ACAO.md)
 
-1. **FAC-2026 "Todas as Histórias do Mundo":** 
-   - ✅ Conceito + Orçamento (38 itens, R$ 199.300) + Cronograma (6 meses, 26 atividades) — prontos
-   - ✅ Painel visual (9 prompts DALL-E, impressionístico teatral) — página Notion criada (S19)
-   - 🟡 Roteiro v3 final + 9 imagens inseridas (pendente você gerar no ChatGPT)
-   - 🟡 Ficha técnica, documentação final
-   - ⏳ **Status atual:** Documentação 100% redigida, pronta para blocos B–E da FAC
-   - **Próximo:** Render final para PDF + envio
+🔴 **Esta semana:**
+- Maranhã: entregar pós-produção (~15 jun)
+- SOBRE2026: confirmar proposta R$ 58.124 com UnB
+- Usar monorepo novo por 1 semana (validar antes de merge)
 
-2. **Visite mon Agence (AFD Brasília):** 
-   - 📝 Documentário 5–6 min, francês, pré-produção
-   - 💰 R$ 15.871,52 (proposta validada)
-   - ⏳ Scouting + produtor
+⭐ **Próxima sessão — Revisão do Cérebro:**
+- Popular `wiki/projects/` (FAC-2026, VMA, SOBRE2026) via `/wiki-ingest`
+- Revisar estrutura dos projetos ativos em `04-PROJETOS-ATIVOS/`
+- Testar fluxo de reunião: voz → Telegram → `00-INBOX/reunioes/`
 
-3. **Maranhã (#16):** 
-   - ✅ Filmagem concluída (28-29 mai)
-   - 🟡 Pós-produção (edição bruta em andamento)
-   - ⏳ Entrega finalizada: ~15 jun
+🟡 **Infraestrutura pendente:**
+- Montar workflow n8n (blueprint em `automacoes/reuniao-transcricao-wiki.md`)
+- Merge `consolidacao-monorepo` → master (após validação)
+- Arquivar ANTIGRAVITY
 
-4. **SOBRE2026 (Conferência UnB 27-31 jul):** 
-   - 📝 Proposta em negociação (R$ 58.124,08)
-   - ⏳ Confirmação cliente
+## Status dos projetos ativos
 
-5. **Cérebro-Setup (S20):** 
-   - ✅ Estrutura PARA completa
-   - ✅ 4 documentações de automação criadas
-   - ✅ Wiki base + hot.md + logs (S17–20)
-   - ⏳ Próximas: renomear pastas (FIRMA-, ORACULO-), fechar logs 17–19
-   - ⏳ Testar primeira absorção completa
-
-6. **Notion Dashboard (S17):**
-   - ✅ 12 bancos mapeados e sincroni­zados
-   - ✅ Dashboard web premium criado (output/dashboard/)
-   - ✅ Budget vs. Actual ativo (variância automática)
+| Projeto | Status | Próxima ação |
+|---|---|---|
+| **FAC-2026** "Todas as Histórias do Mundo" | ⚠️ Deadline vencida (05 jun) | Verificar situação com FAC |
+| **Visite mon Agence** (AFD, R$ 15.871) | Pré-produção | Scouting + contratar produtor |
+| **Maranhã** (#16, R$ 10.573) | Pós-produção | Entrega ~15 jun |
+| **SOBRE2026** (UnB, R$ 58.124) | Proposta em negociação | Confirmar com cliente |
+| **Brasil Participativo** (#04) | Briefing | Definir escopo |
 
 ## Reuniões recentes
 
