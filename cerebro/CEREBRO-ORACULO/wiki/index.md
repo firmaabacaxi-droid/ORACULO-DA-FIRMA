@@ -18,7 +18,7 @@ Projetos em execução que precisam de entrega imediata.
 - [[Visite-mon-Agence]] — Documentário AFD Brasília · 5-6 min · Francês · R$ 15.871,52
 - [[Maranha]] — Documentário/Ficcional · Finalizado
 - [[SOBRE2026]] — Conferência Brasileira de Restauração Ecológica · UnB 27-31 jul
-- [[Brasil-Participativo]] — Série de micro-documentários
+- [[Brasil-Participativo]] — Documentário principal + 10 vídeos instrucionais (ENAP) · R$ 66.117,00
 
 ### 🟩 Áreas Contínuas (Areas)
 

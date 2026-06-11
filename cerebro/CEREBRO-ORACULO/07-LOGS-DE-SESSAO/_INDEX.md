@@ -6,6 +6,16 @@ Histórico cronológico de logs de sessões de trabalho realizadas com o Orácul
 
 ## Logs de Sessão Cronológicos
 
+### Junho 2026
+
+*   **Sessão 17:** [Notion V3 e Dashboard](2026-06-01-Sessao-17-NotionV3-Dashboard.md)
+*   **Sessão 18:** [FAC 2026 e Pipeline NotebookLM](2026-06-01-Sessao-18-FAC2026-NotebookLM.md)
+*   **Sessão 19:** [Painel de Estudo Visual FAC](2026-06-04-Sessao-19-Painel-Visual-FAC.md)
+*   **Sessão 20:** [Integração Cérebro, Claude e Obsidian](2026-06-07-Sessao-20-Cerebro-claude-obsidian.md)
+*   **Sessão 21/22:** [Consolidação de Monorepo e Fluxo de Reuniões](2026-06-11-Consolidacao-Monorepo-e-Fluxo-Reunioes.md)
+*   **Sessão 23:** [Integração agency-agents e Novas Skills](2026-06-11-Sessao-23-Integracao-Agency-Agents.md)
+*   **Sessão 24:** [Consolidação BP v7 e Generalização Oráculo Sync](2026-06-11-Sessao-24-Consolidacao-Proposta-v7-Expansao-Oraculo-Sync.md)
+
 ### Maio 2026
 
 *   **Sessão 6:** [Revisão de Documentação Base](2026-05-25-Revisao-Documentacao-Sessao6.md)

@@ -278,3 +278,98 @@ AO GERAR
 [ ] Arquivo salvo em output/propostas/ com nome correto
 [ ] Abrir o .docx e confirmar que logo e assinatura aparecem
 ```
+
+## Procedimento de Sincronização Automatizada (Oráculo Sync)
+
+Para garantir integridade absoluta em todas as frentes (Notion, Cérebro e Google Drive), o Oráculo possui uma ferramenta de sincronização unificada em `scripts/sync_proposal.py`. Ela suporta três modos de operação:
+
+### 1. Modo Proposta (`--mode proposal`)
+Use este modo quando houver atualizações em valores, versões ou itens individuais do orçamento de uma proposta.
+
+**Funcionamento:**
+- Lê os dados antigos diretamente da API do Notion (versão e total).
+- Faz as substituições correspondentes no Cérebro (briefing, nota do projeto em `wiki/projects/`, `wiki/hot.md` e `wiki/index.md`).
+- Atualiza a versão e o valor total na página de Propostas no Notion.
+- Atualiza itens de orçamento individuais no Notion e nas tabelas markdown do Cérebro.
+- Copia a proposta (.docx e .pdf) para a pasta correspondente no Google Drive (se fornecidos).
+
+**Sintaxe de Uso Geral (com atualização genérica de orçamento):**
+```bash
+python scripts/sync_proposal.py \
+  --mode proposal \
+  --project-name "<NOME_DO_PROJETO>" \
+  --version <VERSAO> \
+  --total-val <VALOR_TOTAL> \
+  --items-json '{"Nome do Item 1": {"unit": 1000, "qty": 5, "total": 5000}, "NF 7,28%%": {"total": 364}}' \
+  --docx-src "output/propostas/NomeCliente_proposta_v<VERSAO>.docx"
+```
+*Dica:* O script resolve automaticamente o `proposal-id` e a pasta do Google Drive a partir do `--project-name`. Se desejar, você pode omitir `--gdrive-dest-dir` e `--proposal-id` e deixar o Oráculo localizá-los. O `%` no JSON deve ser escapado como `%%` no console/PowerShell.
+
+**Exemplo Prático (Retrocompatibilidade Brasil Participativo v7):**
+```bash
+python scripts/sync_proposal.py \
+  --mode proposal \
+  --project-name "Brasil-Participativo" \
+  --version 7 \
+  --total-val 66117 \
+  --nf-val 4487 \
+  --video-total 15000 \
+  --video-unit 1500 \
+  --docx-src "output/propostas/BrasilParticipativo_proposta_v7.docx"
+```
+
+---
+
+### 2. Modo Projeto (`--mode project`)
+Use este modo para atualizar o status e o valor contratado de um projeto no Notion e no Cérebro de forma síncrona.
+
+**Funcionamento:**
+- Atualiza o campo `Status` e `Valor contratado` na página do projeto no Notion.
+- Atualiza o campo `status` e `value` na frontmatter da nota do projeto no Cérebro (`wiki/projects/{projeto}.md`).
+- Atualiza a linha de status no arquivo de briefing em `04-PROJETOS-ATIVOS`.
+
+**Sintaxe de Uso:**
+```bash
+python scripts/sync_proposal.py \
+  --mode project \
+  --project-name "<NOME_DO_PROJETO>" \
+  --status "<Novo Status>" \
+  --total-val <Valor Contratado>
+```
+*Exemplo prático:*
+```bash
+python scripts/sync_proposal.py \
+  --mode project \
+  --project-name "Brasil-Participativo" \
+  --status "Pré-produção" \
+  --total-val 66117
+```
+
+---
+
+### 3. Modo Roteiro (`--mode script`)
+Use este modo para copiar novos roteiros físicos (.docx e .pdf) para a pasta organizada do projeto no Google Drive.
+
+**Funcionamento:**
+- Localiza a pasta do projeto no Drive.
+- Procura por subdiretórios que contenham "ROTEIRO", "BRIEFING" ou "02". Se não existirem, cria a pasta `02_BRIEFINGS` automaticamente.
+- Copia o arquivo DOCX e o PDF (se disponível) para a subpasta finalizada.
+
+**Sintaxe de Uso:**
+```bash
+python scripts/sync_proposal.py \
+  --mode script \
+  --project-name "<NOME_DO_PROJETO>" \
+  --docx-src "output/roteiros/Nome_Roteiro.docx"
+```
+*Exemplo prático:*
+```bash
+python scripts/sync_proposal.py \
+  --mode script \
+  --project-name "Brasil-Participativo" \
+  --docx-src "output/roteiros/Roteiro_Brasil_Participativo_v1.docx"
+```
+
+### 4. Verificar o Alinhamento (Propostas)
+- Execute `python scratch/check_notion_sum.py` para garantir que a soma dos itens de orçamento no Notion bate com o total consolidado.
+- Verifique se as notas markdown do cérebro refletem os mesmos totais nas tabelas e no frontmatter.

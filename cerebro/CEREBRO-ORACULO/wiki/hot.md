@@ -29,7 +29,7 @@ updated: 2026-06-11
 | **Visite mon Agence** (AFD Brasília) | Produção set: 2026 | Pré-produção | R$ 15.871,52 |
 | **Maranhã** (#16) | Filmagem: 28-29 mai | ✅ Finalizado | R$ 10.573,86 |
 | **SOBRE2026** (Ecologia UnB) | 27-31 jul | Prospecção ativa | R$ 58.124,08 |
-| **Brasil Participativo** (#04) | TBD | Briefing | TBD |
+| **Brasil Participativo** (#04) | TBD | Proposta v7 | R$ 66.117 |
 | **Simbiose** (#10), **RNP** (#08) | TBD | Prospecção | TBD |
 
 ## Integrações operacionais (S20)
@@ -75,7 +75,7 @@ updated: 2026-06-11
 | **Visite mon Agence** (AFD, R$ 15.871) | Pré-produção | Scouting + contratar produtor |
 | **Maranhã** (#16, R$ 10.573) | Pós-produção | Entrega ~15 jun |
 | **SOBRE2026** (UnB, R$ 58.124) | Proposta em negociação | Confirmar com cliente |
-| **Brasil Participativo** (#04) | Briefing | Definir escopo |
+| **Brasil Participativo** (#04, R$ 66.117) | Proposta v7 enviada | Aguardar retorno Finatec |
 
 ## Reuniões recentes
 

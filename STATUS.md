@@ -1,5 +1,5 @@
 # STATUS DO ORÁCULO — Handoff de Sessão
-## Firma Abacaxi · atualizado 01 Jun 2026 · Sessão 17
+## Firma Abacaxi · atualizado 11 Jun 2026 · Sessão 24
 
 ---
 
@@ -1073,3 +1073,47 @@ O painel de 9 imagens diferencia-se de concorrentes FAC porque:
 - ✅ Mostra **domínio de linguagem visual** do projeto (da projeção mapeada em tecido)
 
 *Atualizado ao final da Sessão 19 — 04 Jun 2026 · Oráculo v2.2*
+
+---
+
+## SESSÃO 24 — Consolidação da Proposta v7 (Brasil Participativo) + Expansão do Oráculo Sync (11 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+#### 1. **Consolidação da Proposta v7 (Brasil Participativo)**
+- **Ajuste Técnico de Orçamento:** Atualizamos o orçamento no escopo de vídeo-aulas ENAP para R$ 1.500,00 unitário (Subtotal R$ 15.000,00 | Total com imposto de 7,28% R$ 16.092,00). O total consolidado da parceria subiu para R$ 66.117,00.
+- **Divisão de Parcelas:** Corrigimos o faturamento do Escopo 1 (Documentário) para 2 parcelas exatas de R$ 25.012,50 (50%) para manter a exatidão matemática do subtotal de R$ 50.025,00.
+- **Sincronização:** Sincronizamos os valores e a versão 7 em todas as frentes:
+  - **Notion:** Atualizamos a proposta (PRP-5) e os itens individuais do banco de orçamentos (NF a R$ 4.487,00 e Vídeos ENAP a R$ 15.000,00).
+  - **Cérebro:** Atualizamos o briefing (`01-BRIEFING.md`), a nota do projeto (`wiki/projects/Brasil-Participativo.md`), o cache (`wiki/hot.md`) e o índice (`wiki/index.md`).
+  - **Google Drive:** Copiamos a proposta final em DOCX para o Drive local.
+
+#### 2. **Generalização do Script de Sincronização (`scripts/sync_proposal.py`)**
+- **Arquitetura Unificada:** Expandimos o script para suportar três modos dinâmicos, desacoplando-o de Brasil Participativo:
+  - `--mode proposal`: Sincroniza versão, totais e itens do orçamento de qualquer proposta comercial.
+  - `--mode project`: Atualiza status e valores contratados de projetos no Notion e no Cérebro (Wiki e briefings).
+  - `--mode script`: Copia e organiza roteiros e PDFs nas pastas do Google Drive.
+- **Buscas Inteligentes e Resoluções de IDs:**
+  - O script agora consulta a API do Notion e descobre dinamicamente os IDs do projeto e da proposta com base em `--project-name` ou `--proposal-id`.
+  - Encontra automaticamente arquivos wiki (`wiki/projects/{projeto}.md`) e arquivos de briefing (`04-PROJETOS-ATIVOS/*{projeto}*/01-BRIEFING.md`) com base em correspondência de palavras-chave.
+  - Deduz e localiza dinamicamente as pastas do Google Drive localizadas em `C:\Users\User\Meu Drive\...`.
+- **Customização de Orçamento:** O novo parâmetro `--items-json` aceita um dicionário de itens de orçamento em formato JSON para atualizar qualquer linha do banco no Notion e nas tabelas markdown correspondentes.
+
+#### 3. **Documentação e Guias**
+- **Atualização da Skill:** Revisamos e expandimos a seção final de [SKILL.md](file:///c:/Users/User/Documents/ORACULO%20-%20FIRMA%20ABACAXI/skills/proposta/SKILL.md) para detalhar a sintaxe de uso do script expandido em todos os três modos (`proposal`, `project`, `script`) com exemplos reais de terminal.
+
+### 📊 Totais desta Sessão
+
+| Item | Quantidade | Status |
+|------|-----------|--------|
+| Propostas atualizadas (v7) | 1 (Brasil Participativo) | ✅ |
+| Script de sincronização expandido | 1 (`scripts/sync_proposal.py`) | ✅ |
+| Arquivos markdown do Cérebro atualizados | 4 | ✅ |
+| Páginas atualizadas no Notion | 3 (1 Proposta + 2 Itens de Custo) | ✅ |
+| Documentações de Skill revisadas | 1 (`skills/proposta/SKILL.md`) | ✅ |
+
+### 🔄 Próximos passos
+
+1. **Utilizar o Oráculo Sync em novos projetos:** Ao criar novas propostas, roteiros ou alterar status, invocar o script `scripts/sync_proposal.py` no terminal utilizando os parâmetros genéricos (ex: `--project-name`, `--status`, `--items-json`).
+
+*Atualizado ao final da Sessão 24 — 11 Jun 2026 · Oráculo v2.3*
