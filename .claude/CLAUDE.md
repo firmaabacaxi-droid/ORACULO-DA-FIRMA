@@ -51,6 +51,30 @@ POSTS / REDES SOCIAIS / CALENDÁRIO EDITORIAL
 → .claude/skills/firma/social-media-strategy/SKILL.md
 → ao finalizar texto externo: .claude/skills/firma/idiomas/SKILL.md (humanização)
 
+EDITAL / CHAMADA PÚBLICA / FAC / AFD / LEI DE INCENTIVO
+→ .claude/skills/firma/editais/SKILL.md  (orquestra budget-planner + narrativa-documental + idiomas)
+
+DOCUMENTÁRIO / PESQUISA / ESTRUTURA NARRATIVA / CONTEXTO HISTÓRICO-CULTURAL
+→ .claude/skills/firma/narrativa-documental/SKILL.md  (alimenta o cinematic-script-writer)
+
+YOUTUBE / VÍDEO LONGO / RETENÇÃO / THUMBNAIL / SEO DE VÍDEO
+→ .claude/skills/firma/youtube-estrategia/SKILL.md
+
+TRÁFEGO PAGO / META ADS / ANÚNCIO / CAMPANHA PAGA  (Fase 5)
+→ .claude/skills/firma/trafego-pago/SKILL.md
+
+ASSESSORIA DE IMPRENSA / RELEASE / LANÇAMENTO / CRISE / PORTA-VOZ
+→ .claude/skills/firma/assessoria-imprensa/SKILL.md
+
+CONTRATO / DIREITO DE IMAGEM / CESSÃO DE DIREITOS / LGPD  (primeira passada, não é advogado)
+→ .claude/skills/firma/juridico-audiovisual/SKILL.md
+
+ATA / REUNIÃO / DECISÕES / ITENS DE AÇÃO
+→ .claude/skills/firma/atas-reuniao/SKILL.md  (alimenta a gestao com tarefas)
+
+MOODBOARD / STORYBOARD / REFERÊNCIA VISUAL / PROMPT DE IMAGEM IA
+→ .claude/skills/firma/prompts-imagem-ia/SKILL.md
+
 ORÇAMENTO / PRECIFICAÇÃO / CONTROLE FINANCEIRO
 → .claude/skills/firma/budget-planner/SKILL.md
 
@@ -185,6 +209,14 @@ Nome padrão: `NomeCliente_tipodoc_v1.docx` (ex: `SuperHost_proposta_v1.docx`)
 | `verifier` | "verifique antes de commitar" | Auditoria pré-commit em 4 tiers (BLOCKER/HIGH/MEDIUM/LOW) |
 | `wiki-ingest` | "ingerir em batch" / múltiplos arquivos | Ingestão paralela no wiki |
 | `wiki-lint` | "lint do wiki" | Verifica consistência das páginas wiki |
+| `firma-product-strategist` | "roadmap", "priorizar feature", "o que construir" | Decide o quê e em que ordem no site/plataforma |
+| `firma-ux-designer` | "identidade visual do site", "design system", "fluxo de tela" | Fundação visual: tokens, componentes, UX |
+| `firma-web-builder` | "site da Firma", "tela", "componente", "Next.js" | Constrói o front do site e da plataforma |
+| `firma-backend-architect` | "schema", "Supabase", "API da plataforma", "auth" | Projeta dados, backend e integrações |
+
+**Time de produto web** (`firma-product-strategist` → `firma-ux-designer` →
+`firma-backend-architect` → `firma-web-builder`): constrói o site da Firma e a plataforma
+própria (`oraculo-app`). Roteamento detalhado em `.claude/rules/skills-routing.md`.
 
 Agentes ECC disponíveis em `.claude/agents/` (ver lista completa com `/agents`).
 
