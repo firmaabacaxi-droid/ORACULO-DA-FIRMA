@@ -56,14 +56,14 @@ These ship with Obsidian. Enable them in Settings > Core Plugins:
 
 Install via Settings > Community Plugins > Turn off Restricted Mode > Browse.
 
-| Plugin | Purpose |
-|--------|---------|
-| **Templater** | Auto-populate frontmatter on note creation from `_templates/`. |
-| **Obsidian Git** | Auto-commit every 15 minutes. Protects against bad writes. |
-| **Calendar** | Right-sidebar calendar with word count, task, and link indicators. Pre-installed in this vault via `.obsidian/plugins/calendar/`. |
-| **Thino** | Quick memo capture panel in right sidebar. Pre-installed via `.obsidian/plugins/thino/`. |
-| **Iconize** | Visual folder icons for navigation. |
-| **Minimal Theme** | Best dark theme for dense information display. |
+| Plugin                           | Purpose                                                                                                                            |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Templater**                    | Auto-populate frontmatter on note creation from `_templates/`.                                                                     |
+| **Obsidian Git**                 | Auto-commit every 15 minutes. Protects against bad writes.                                                                         |
+| **Calendar**                     | Right-sidebar calendar with word count, task, and link indicators. Pre-installed in this vault via `.obsidian/plugins/calendar/`.  |
+| **Thino**                        | Quick memo capture panel in right sidebar. Pre-installed via `.obsidian/plugins/thino/`.                                           |
+| **Iconize**                      | Visual folder icons for navigation.                                                                                                |
+| **Minimal Theme**                | Best dark theme for dense information display.                                                                                     |
 | **Dataview** *(optional/legacy)* | Only needed if you're on Obsidian < 1.9.10 or want to use the legacy `dashboard.md` queries. The primary dashboard now uses Bases. |
 
 **Calendar and Thino are pre-installed**. They ship with this vault. Enable them in Settings → Community Plugins → toggle on. No download needed.

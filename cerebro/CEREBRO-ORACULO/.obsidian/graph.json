@@ -3,70 +3,20 @@
   "search": "path:wiki OR path:04-PROJETOS-ATIVOS OR path:03-CLIENTES",
   "showTags": true,
   "showAttachments": true,
-  "hideUnresolved": true,
+  "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": true,
-  "colorGroups": [
-    {
-      "query": "path:04-PROJETOS-ATIVOS",
-      "color": {
-        "a": 1,
-        "rgb": 16776960
-      }
-    },
-    {
-      "query": "path:03-CLIENTES",
-      "color": {
-        "a": 1,
-        "rgb": 16744576
-      }
-    },
-    {
-      "query": "path:06-ESTUDOS-E-REFERENCIAS",
-      "color": {
-        "a": 1,
-        "rgb": 12883905
-      }
-    },
-    {
-      "query": "path:01-OPERACAO-ORACULO",
-      "color": {
-        "a": 1,
-        "rgb": 3381759
-      }
-    },
-    {
-      "query": "path:05-ARQUIVO-HISTORICO",
-      "color": {
-        "a": 1,
-        "rgb": 8421504
-      }
-    },
-    {
-      "query": "path:wiki/projects",
-      "color": {
-        "a": 1,
-        "rgb": 16776960
-      }
-    },
-    {
-      "query": "path:wiki",
-      "color": {
-        "a": 1,
-        "rgb": 6579567
-      }
-    }
-  ],
+  "collapse-color-groups": false,
+  "colorGroups": [],
   "collapse-display": false,
-  "showArrow": true,
-  "textFadeMultiplier": -1,
-  "nodeSizeMultiplier": 1.20530145530146,
-  "lineSizeMultiplier": 1.83690228690229,
+  "showArrow": false,
+  "textFadeMultiplier": -0.8,
+  "nodeSizeMultiplier": 1.08305613305613,
+  "lineSizeMultiplier": 1.57203742203742,
   "collapse-forces": false,
-  "centerStrength": 0.645530145530146,
-  "repelStrength": 13.6590436590437,
-  "linkStrength": 0.691268191268191,
-  "linkDistance": 30,
-  "scale": 0.3213363860503574,
+  "centerStrength": 0.379417879417879,
+  "repelStrength": 10.6652806652807,
+  "linkStrength": 0.712058212058212,
+  "linkDistance": 181,
+  "scale": 0.16348370567220435,
   "close": true
 }
