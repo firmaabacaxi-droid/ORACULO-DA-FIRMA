@@ -117,6 +117,23 @@ Referência: skills/antigravity/negotiation-voss/SKILL.md (método Voss)
          - Há gaps (orçamento sem edição, edição sem filmagem)?
          Isso previne cacos de informação espalhados — cada projeto é uma célula
          conectada, não um silo.
+
+2026-06 | Escape de Taxas no Argparse (Python): Ao passar help strings ou strings de ajuda
+         contendo o símbolo %, o Python argparse interpreta como formatação de string e
+         falha. Sempre escapar o símbolo como %%.
+
+2026-06 | Busca por Proximidade e Limpeza de Tokens: Para sincronizar dados entre Notion,
+         Drive e Cérebro, limpar hífens (-) e sublinhados (_) substituindo-os por espaços
+         para as queries do Notion API aumenta drasticamente a taxa de acerto e consistência
+         (ex: "Brasil-Participativo" vs "Brasil Participativo").
+
+2026-06 | Edição Dinâmica de Tabelas Markdown: O uso de regex flexíveis permite localizar
+         linhas de tabela pelo nome do item e atualizar colunas mantendo negritos (**)
+         originais, eliminando a necessidade de substituições literais hardcoded por projeto.
+
+2026-06 | Resolução Dinâmica de IDs em Cascata: Fazer a API do Notion buscar project_id e
+         proposal_id a partir do Nome do Projeto torna os scripts mais independentes e
+         reduz a fricção operacional de copiar IDs longos.
 ```
 
 ---
@@ -138,5 +155,5 @@ Empresas / eventos (ex: SuperHost, Cerrado Experience)
 
 ---
 
-*Última atualização: Mai 2026 — Sessão 13*
-*Total de aprendizados: 16 registros*
+*Última atualização: Junho 2026 — Sessão 24*
+*Total de aprendizados: 20 registros*
