@@ -42,6 +42,19 @@ oraculo-app/node_modules/
 .claude/ecc/metrics/
 .claude/ecc/session-aliases.json
 
+# Vault — arquivos de trabalho nao sao versionados (usar Google Drive)
+cerebro/**/*.xlsx
+cerebro/**/*.ods
+cerebro/**/*.docx
+cerebro/**/*.doc
+cerebro/**/*.odp
+cerebro/**/*.bak
+cerebro/**/*.pdf
+
+# Vault — artifacts gerados por plugins Obsidian
+cerebro/**/graphify-out/
+cerebro/**/*.html
+
 # Temporários
 *.tmp
 *.log
