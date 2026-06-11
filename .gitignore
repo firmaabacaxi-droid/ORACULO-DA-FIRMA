@@ -27,6 +27,12 @@ cerebro/**/workspace.json
 # Clone local do GitHub — não versionar dentro do repo
 ORACULO-DA-FIRMA/
 
+# ECC — arquivos de runtime (não versionar)
+.claude/scheduled_tasks.lock
+.claude/ecc/session-data/
+.claude/ecc/metrics/
+.claude/ecc/session-aliases.json
+
 # Temporários
 *.tmp
 *.log
