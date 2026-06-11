@@ -2,6 +2,10 @@
 .mcp.json
 *.env
 .env.*
+google_service_account.json
+*service_account*.json
+*.pem
+*.key
 
 # Documentos antigos com dados sensíveis — NUNCA commitar
 "DOCUMENTOS ANTIGOS - AVALIAR E MIGRAR/"
