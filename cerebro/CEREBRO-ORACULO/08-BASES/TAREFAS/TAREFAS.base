@@ -1,0 +1,44 @@
+{
+  "filters": {
+    "operator": "and",
+    "conditions": [
+      { "field": "feito", "operator": "eq", "value": false }
+    ]
+  },
+  "order": [
+    { "field": "prioridade_ordem", "direction": "asc" },
+    { "field": "prazo", "direction": "asc" }
+  ],
+  "fields": {
+    "tar_id":            { "type": "text",    "label": "ID" },
+    "tarefa":            { "type": "text",    "label": "Tarefa" },
+    "status":            { "type": "text",    "label": "Status" },
+    "prioridade":        { "type": "text",    "label": "Prioridade" },
+    "etapa":             { "type": "text",    "label": "Etapa" },
+    "prazo":             { "type": "date",    "label": "Prazo" },
+    "projeto":           { "type": "text",    "label": "Projeto" },
+    "feito":             { "type": "boolean", "label": "Feito?" },
+    "observacoes":       { "type": "text",    "label": "Observações" },
+    "estimativa_horas":  { "type": "number",  "label": "Est. (h)" },
+    "responsavel":       { "type": "text",    "label": "Responsável" }
+  },
+  "views": [
+    {
+      "name": "Ativas (não concluídas)",
+      "type": "table",
+      "columns": ["tar_id", "tarefa", "status", "prioridade", "projeto", "etapa", "prazo", "responsavel"]
+    },
+    {
+      "name": "Kanban por Status",
+      "type": "board",
+      "groupBy": "status",
+      "cardFields": ["tarefa", "projeto", "prioridade", "prazo"]
+    },
+    {
+      "name": "Por Projeto",
+      "type": "table",
+      "columns": ["tar_id", "tarefa", "status", "prioridade", "etapa", "prazo"],
+      "groupBy": "projeto"
+    }
+  ]
+}

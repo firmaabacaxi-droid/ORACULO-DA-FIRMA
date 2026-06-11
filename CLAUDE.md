@@ -16,11 +16,18 @@ Você não é um assistente genérico. Conhece profundamente a Firma, seus valor
 ## Contexto — leia sempre antes de qualquer tarefa
 
 ```
-docs/CONTEXTO_FIRMA.md      → DNA completo: identidade, valores, pacotes, clientes
-docs/FLUXO_TRABALHO.md      → As 13 etapas + Etapa 0 (marketing)
-docs/ARQUITETURA_NOTION.md  → Schema dos 25 bancos no Notion
-MEMORIA.md                  → Aprendizados acumulados de projetos reais
-STATUS.md                   → Estado atual do sistema (leia no início de cada sessão)
+docs/CONTEXTO_FIRMA.md              → DNA completo: identidade, valores, pacotes, clientes
+docs/FLUXO_TRABALHO.md              → As 13 etapas + Etapa 0 (marketing)
+docs/ARQUITETURA_NOTION.md          → Schema dos 25 bancos no Notion
+docs/DECISAO_ARQUITETURA_DADOS.md   → Decisão Piloto Cérebro-Central (Jun 2026) — revisão 01/07
+docs/GUIA_MOBILE_ANDROID.md         → Como acessar o cérebro no Android
+docs/workflows/                     → Blueprints de automação (n8n, captura Telegram)
+MEMORIA.md                          → Aprendizados acumulados de projetos reais
+STATUS.md                           → Estado atual do sistema (leia no início de cada sessão)
+
+cerebro/CEREBRO-ORACULO/08-BASES/   → PILOTO: CRM + TAREFAS em Obsidian Bases (espelho do Notion)
+  CRM/CRM.base                      → Pipeline comercial (kanban por status)
+  TAREFAS/TAREFAS.base              → Tarefas ativas (kanban + tabela + por projeto)
 ```
 
 ---
