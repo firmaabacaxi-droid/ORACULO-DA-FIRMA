@@ -1,6 +1,6 @@
 ---
 type: hot-cache
-updated: 2026-06-07
+updated: 2026-06-11
 ---
 # Hot Cache — Firma Abacaxi
 
@@ -85,6 +85,21 @@ updated: 2026-06-07
    - ✅ Dashboard web premium criado (output/dashboard/)
    - ✅ Budget vs. Actual ativo (variância automática)
 
+## Reuniões recentes
+
+*Nenhuma reunião processada ainda. As próximas aparecerão aqui após ingestão via `/wiki-ingest`.*
+
 ---
 
-*Leia `wiki/index.md` para o catálogo completo. Leia `CLAUDE.md` para o schema do vault.*
+## Consolidação monorepo (11 jun 2026)
+
+Branch `consolidacao-monorepo` concluída (Blocos 1-8). Monorepo unificado em `ORACULO - FIRMA ABACAXI/` com:
+- ECC research (526 arq) + 31 skills Firma + 3 agentes (.claude/)
+- Vault Obsidian limpo: só markdown + .canvas + .base + scripts/
+- Novo fluxo: reuniões de voz → Telegram → n8n → Groq Whisper → 00-INBOX/reunioes/
+- Arquivos de trabalho (XLSX, DOCX, PDF) movidos para `FIRMA-ABACAXI-DOCS/`
+- Credenciais em `~/.secrets/`
+
+---
+
+*Leia `wiki/index.md` para o catálogo completo. Leia `.claude/CLAUDE.md` para identidade e routing do Oráculo.*

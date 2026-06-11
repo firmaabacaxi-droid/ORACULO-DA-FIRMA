@@ -359,3 +359,95 @@ When working on this skill, apply the 10-principle loop. See [`skills/think/SKIL
 | 8 | ACCEPT | Not every claim is wiki-worthy. Editorial judgment is part of ingest, not a bug to remove. |
 | 9 | CREATE | Source + entity + concept pages with full frontmatter; cross-references; contradiction callouts where needed. |
 | 10 | GROW | Contradictions found mid-ingest are the most valuable wiki signal. File them as questions for follow-up, not silently. |
+
+---
+
+## Reunião / Meeting Transcript Ingest (Firma Abacaxi)
+
+Trigger: usuário diz "processar reuniões do inbox", "ingerir reunião", ou há arquivos em `00-INBOX/reunioes/` com `status: pendente`.
+
+### Passo 1 — Descobrir transcrições pendentes
+
+```bash
+# Listar arquivos pendentes no inbox
+ls cerebro/CEREBRO-ORACULO/00-INBOX/reunioes/*.md 2>/dev/null | grep -v README
+```
+
+Ler cada arquivo. Se `status: pendente`, processar. Se `status: processado`, pular.
+
+### Passo 2 — Extrair estrutura da reunião
+
+Para cada transcrição, extrair:
+- **Data e hora** (do frontmatter `data:` e `hora:`)
+- **Projeto** (se mencionado na transcrição — procurar por nomes de projetos do wiki)
+- **Participantes** (extrair nomes mencionados)
+- **Decisões** (frases que indicam resolução: "decidimos", "ficou combinado", "vamos")
+- **Ações / tarefas** (frases que indicam trabalho a fazer: "preciso", "você fica com", "até [data]")
+- **Contexto geral** (sobre o que foi a reunião em 2-3 frases)
+
+### Passo 3 — Criar página em wiki/meetings/
+
+Criar `wiki/meetings/AAAA-MM-DD-slug.md`:
+
+```markdown
+---
+type: meeting
+data: AAAA-MM-DD
+projeto: [[wiki/projects/Nome-Projeto]]
+participantes:
+  - [[wiki/resources/pessoas/Nome]]
+status: processado
+source: 00-INBOX/reunioes/AAAA-MM-DD-*.md
+---
+
+## Contexto
+
+[2-3 frases sobre o que foi a reunião]
+
+## Decisões
+
+- [decisão 1]
+- [decisão 2]
+
+## Ações
+
+- [ ] [ação 1] — responsável: [nome]
+- [ ] [ação 2] — responsável: [nome]
+
+## Transcrição resumida
+
+[versão editada/resumida da transcrição bruta, removendo ruídos]
+
+> [!note] Transcrição bruta
+> Arquivo original: `00-INBOX/reunioes/AAAA-MM-DD-*.md`
+```
+
+### Passo 4 — Criar tarefas no Notion (com autorização)
+
+Perguntar: "Encontrei N ações nesta reunião. Quer que eu crie tarefas no Notion?"
+
+Se sim: criar via MCP Notion em TAREFAS com:
+- `Título`: a ação
+- `Projeto`: linkar com PRJ correspondente
+- `Responsável`: quem foi mencionado
+- `Prazo`: se mencionado
+
+### Passo 5 — Atualizar páginas de participantes e projeto
+
+- Para cada participante: adicionar menção em `wiki/resources/pessoas/Nome.md` (criar se não existir)
+- Para o projeto: adicionar entrada na seção "Histórico de reuniões" de `wiki/projects/Nome.md`
+
+### Passo 6 — Atualizar hot.md
+
+Adicionar na seção `## Reuniões recentes` (criar se não existir):
+```markdown
+## Reuniões recentes
+
+- [[wiki/meetings/AAAA-MM-DD-slug]] — [projeto] — [contexto 1 linha]
+```
+Manter só as 5 reuniões mais recentes nesta seção.
+
+### Passo 7 — Marcar como processado e mover
+
+Atualizar o frontmatter do arquivo em `00-INBOX/reunioes/`: `status: processado`
+Mover o arquivo para `00-INBOX/reunioes/processados/AAAA-MM-DD-*.md` (ou deletar após confirmar com o usuário).
