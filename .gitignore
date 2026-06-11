@@ -32,6 +32,10 @@ cerebro/**/.obsidian/plugins/advanced-canvas/
 # Clone local do GitHub — não versionar dentro do repo
 ORACULO-DA-FIRMA/
 
+# Next.js — cache e build (não versionar)
+oraculo-app/.next/
+oraculo-app/node_modules/
+
 # ECC — arquivos de runtime (não versionar)
 .claude/scheduled_tasks.lock
 .claude/ecc/session-data/

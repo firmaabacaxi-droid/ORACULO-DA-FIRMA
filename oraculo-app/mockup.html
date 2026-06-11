@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORÁCULO — Sistema de Gestão</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --gold: #f5c518;
+    --gold-dim: #c9a614;
+    --text: #e8e8e8;
+    --text-dim: #888;
+    --text-muted: #555;
+    --green: #22c55e;
+    --orange: #f97316;
+    --red: #ef4444;
+    --blue: #3b82f6;
+    --purple: #a855f7;
+    --cyan: #06b6d4;
+    --radius: 10px;
+    --sidebar: 220px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; display: flex; height: 100vh; overflow: hidden; }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: var(--sidebar); background: var(--surface); border-right: 1px solid var(--border);
+    display: flex; flex-direction: column; flex-shrink: 0;
+  }
+  .sidebar-logo {
+    padding: 20px 16px 16px; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .logo-icon { width: 32px; height: 32px; background: var(--gold); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+  .logo-text { font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--text); }
+  .logo-sub { font-size: 10px; color: var(--text-dim); letter-spacing: 1px; text-transform: uppercase; }
+  .sidebar-nav { flex: 1; padding: 12px 8px; overflow-y: auto; }
+  .nav-section { font-size: 10px; color: var(--text-muted); letter-spacing: 1.5px; text-transform: uppercase; padding: 12px 8px 6px; }
+  .nav-item {
+    display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 8px;
+    cursor: pointer; color: var(--text-dim); font-size: 13px; transition: all 0.15s; margin-bottom: 2px;
+  }
+  .nav-item:hover { background: var(--surface2); color: var(--text); }
+  .nav-item.active { background: rgba(245,197,24,0.12); color: var(--gold); }
+  .nav-item .icon { width: 18px; text-align: center; font-size: 14px; }
+  .nav-badge { margin-left: auto; background: var(--red); color: #fff; font-size: 10px; padding: 1px 6px; border-radius: 10px; font-weight: 600; }
+  .sidebar-footer { padding: 12px 8px; border-top: 1px solid var(--border); }
+  .user-info { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; }
+  .user-avatar { width: 28px; height: 28px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #000; }
+  .user-name { font-size: 12px; font-weight: 600; }
+  .user-role { font-size: 10px; color: var(--text-dim); }
+
+  /* MAIN */
+  .main { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+  .topbar {
+    height: 56px; background: var(--surface); border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; padding: 0 24px; gap: 16px; flex-shrink: 0;
+  }
+  .topbar-title { font-size: 18px; font-weight: 700; letter-spacing: 0.5px; flex: 1; }
+  .topbar-search {
+    background: var(--surface2); border: 1px solid var(--border); border-radius: 8px;
+    padding: 7px 14px; color: var(--text); font-size: 13px; width: 220px; outline: none;
+  }
+  .topbar-search::placeholder { color: var(--text-muted); }
+  .btn { padding: 7px 14px; border-radius: 8px; border: none; cursor: pointer; font-size: 13px; font-weight: 600; transition: all 0.15s; }
+  .btn-gold { background: var(--gold); color: #000; }
+  .btn-gold:hover { background: var(--gold-dim); }
+  .btn-ghost { background: transparent; color: var(--text-dim); border: 1px solid var(--border); }
+  .btn-ghost:hover { background: var(--surface2); color: var(--text); }
+
+  .content { flex: 1; overflow-y: auto; padding: 24px; }
+
+  /* SCREENS */
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  /* CARDS */
+  .kpi-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; margin-bottom: 24px; }
+  .kpi-card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 16px; position: relative; overflow: hidden;
+  }
+  .kpi-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .kpi-card.gold::before { background: var(--gold); }
+  .kpi-card.green::before { background: var(--green); }
+  .kpi-card.orange::before { background: var(--orange); }
+  .kpi-card.blue::before { background: var(--blue); }
+  .kpi-card.red::before { background: var(--red); }
+  .kpi-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+  .kpi-value { font-size: 28px; font-weight: 700; line-height: 1; margin-bottom: 4px; }
+  .kpi-sub { font-size: 11px; color: var(--text-dim); }
+  .kpi-icon { position: absolute; top: 14px; right: 14px; font-size: 20px; opacity: 0.4; }
+
+  /* SECTION */
+  .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); }
+  .section-link { font-size: 12px; color: var(--gold); cursor: pointer; text-decoration: none; }
+  .section-link:hover { text-decoration: underline; }
+
+  /* TABLE */
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; }
+  thead th { padding: 10px 14px; text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); border-bottom: 1px solid var(--border); background: var(--surface2); }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; cursor: pointer; }
+  tbody tr:last-child { border-bottom: none; }
+  tbody tr:hover { background: var(--surface2); }
+  tbody td { padding: 12px 14px; font-size: 13px; }
+  .progress-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 4px; }
+  .progress-fill { height: 100%; background: var(--gold); border-radius: 2px; }
+
+  /* BADGE */
+  .badge { display: inline-flex; align-items: center; padding: 3px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .badge-green { background: rgba(34,197,94,0.15); color: var(--green); }
+  .badge-orange { background: rgba(249,115,22,0.15); color: var(--orange); }
+  .badge-gold { background: rgba(245,197,24,0.15); color: var(--gold); }
+  .badge-red { background: rgba(239,68,68,0.15); color: var(--red); }
+  .badge-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+  .badge-purple { background: rgba(168,85,247,0.15); color: var(--purple); }
+  .badge-gray { background: rgba(136,136,136,0.15); color: var(--text-dim); }
+  .badge-cyan { background: rgba(6,182,212,0.15); color: var(--cyan); }
+
+  /* GRID 2 COL */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 24px; }
+  .grid-65-35 { display: grid; grid-template-columns: 65fr 35fr; gap: 16px; margin-bottom: 24px; }
+
+  /* CARD */
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; }
+  .card-title { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 14px; }
+
+  /* PROJECT DETAIL */
+  .project-header { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 20px; }
+  .project-name { font-size: 22px; font-weight: 700; margin-bottom: 6px; }
+  .project-meta { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+  .project-meta-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-dim); }
+
+  /* WORKFLOW */
+  .workflow { display: flex; gap: 0; margin-bottom: 24px; }
+  .workflow-step {
+    flex: 1; text-align: center; padding: 12px 8px; background: var(--surface);
+    border: 1px solid var(--border); position: relative; font-size: 11px;
+  }
+  .workflow-step:not(:last-child)::after {
+    content: '›'; position: absolute; right: -8px; top: 50%; transform: translateY(-50%);
+    color: var(--border); font-size: 18px; z-index: 1;
+  }
+  .workflow-step:first-child { border-radius: var(--radius) 0 0 var(--radius); }
+  .workflow-step:last-child { border-radius: 0 var(--radius) var(--radius) 0; }
+  .workflow-step.done { background: rgba(34,197,94,0.08); border-color: rgba(34,197,94,0.3); }
+  .workflow-step.active { background: rgba(245,197,24,0.1); border-color: rgba(245,197,24,0.4); }
+  .workflow-step.pending { opacity: 0.5; }
+  .workflow-icon { font-size: 16px; margin-bottom: 4px; }
+  .workflow-label { font-weight: 600; color: var(--text); }
+  .workflow-status { font-size: 10px; color: var(--text-dim); margin-top: 2px; }
+
+  /* TABS */
+  .tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 0; }
+  .tab { padding: 10px 16px; cursor: pointer; font-size: 13px; color: var(--text-dim); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; }
+  .tab:hover { color: var(--text); }
+  .tab.active { color: var(--gold); border-bottom-color: var(--gold); font-weight: 600; }
+
+  /* PIPELINE */
+  .pipeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-bottom: 24px; }
+  .pipeline-col { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; }
+  .pipeline-col-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 10px; display: flex; justify-content: space-between; }
+  .pipeline-card { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 8px; cursor: pointer; }
+  .pipeline-card:hover { border-color: var(--gold); }
+  .pipeline-card-name { font-size: 12px; font-weight: 600; margin-bottom: 4px; }
+  .pipeline-card-meta { font-size: 11px; color: var(--text-dim); }
+
+  /* FINANCE */
+  .finance-summary { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+  .finance-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .finance-label { font-size: 10px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .finance-value { font-size: 22px; font-weight: 700; }
+  .finance-value.positive { color: var(--green); }
+  .finance-value.negative { color: var(--red); }
+  .finance-value.neutral { color: var(--gold); }
+
+  /* TASK */
+  .task-item { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .task-item:last-child { border-bottom: none; }
+  .task-check { width: 16px; height: 16px; border-radius: 4px; border: 2px solid var(--border); flex-shrink: 0; }
+  .task-check.done { background: var(--green); border-color: var(--green); }
+  .task-name { flex: 1; font-size: 13px; }
+  .task-name.done { text-decoration: line-through; color: var(--text-dim); }
+  .task-project { font-size: 11px; color: var(--text-dim); }
+  .task-date { font-size: 11px; color: var(--text-dim); white-space: nowrap; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* HAMBURGER */
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 6px; color: var(--text); font-size: 20px; }
+  .sidebar-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 99; }
+  .sidebar-overlay.open { display: block; }
+
+  /* ═══════════════════════════════════
+     RESPONSIVE — MOBILE
+  ═══════════════════════════════════ */
+  @media (max-width: 768px) {
+    body { overflow: hidden; }
+
+    /* Sidebar vira drawer */
+    .sidebar {
+      position: fixed; left: -100%; top: 0; bottom: 0; z-index: 100;
+      width: 260px; transition: left 0.25s ease; box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+    }
+    .sidebar.open { left: 0; }
+
+    /* Topbar mobile */
+    .hamburger { display: flex; align-items: center; justify-content: center; }
+    .topbar { padding: 0 14px; gap: 10px; }
+    .topbar-title { font-size: 15px; }
+    .topbar-search { display: none; }
+    .btn-gold { font-size: 12px; padding: 6px 10px; white-space: nowrap; }
+
+    /* Content */
+    .content { padding: 14px; }
+
+    /* KPI grids — 2 colunas no mobile */
+    .kpi-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+    .finance-summary { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
+
+    /* Grids viram coluna única */
+    .grid-2, .grid-3, .grid-65-35 { grid-template-columns: 1fr !important; gap: 12px; }
+
+    /* Pipeline — scroll horizontal */
+    .pipeline { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 8px; }
+    .pipeline-col { min-width: 180px; flex-shrink: 0; }
+
+    /* Workflow — scroll horizontal */
+    .workflow { overflow-x: auto; padding-bottom: 6px; }
+    .workflow-step { min-width: 90px; flex-shrink: 0; }
+
+    /* Tabs — scroll horizontal */
+    .tabs { overflow-x: auto; flex-wrap: nowrap; gap: 0; }
+    .tab { white-space: nowrap; padding: 10px 12px; font-size: 12px; }
+
+    /* Tables — scroll horizontal */
+    .table-wrap { overflow-x: auto; }
+    table { min-width: 500px; }
+
+    /* Project header */
+    .project-header { padding: 14px; }
+    .project-name { font-size: 17px; }
+    .project-meta { gap: 10px; }
+
+    /* KPI values menores */
+    .kpi-value { font-size: 22px; }
+
+    /* Notas */
+    .grid-3 .nota-card { margin-bottom: 0; }
+  }
+
+  @media (max-width: 400px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr !important; }
+    .kpi-value { font-size: 18px; }
+    .btn-gold { display: none; }
+  }
+
+  /* DIVIDER */
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+
+  /* EMPTY */
+  .empty { text-align: center; padding: 40px; color: var(--text-muted); font-size: 13px; }
+
+  /* DETAIL ROW */
+  .detail-row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .detail-label { font-size: 12px; color: var(--text-dim); min-width: 140px; }
+  .detail-value { font-size: 12px; color: var(--text); }
+
+  /* ANOTAÇÃO */
+  .nota-card { background: var(--surface2); border-left: 3px solid var(--gold); border-radius: 0 8px 8px 0; padding: 12px 14px; margin-bottom: 10px; }
+  .nota-title { font-size: 13px; font-weight: 600; margin-bottom: 4px; }
+  .nota-text { font-size: 12px; color: var(--text-dim); line-height: 1.5; }
+  .nota-meta { font-size: 11px; color: var(--text-muted); margin-top: 6px; }
+
+  /* BACK BTN */
+  .back-btn { display: inline-flex; align-items: center; gap: 6px; color: var(--text-dim); font-size: 13px; cursor: pointer; margin-bottom: 16px; }
+  .back-btn:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-logo">
+    <div class="logo-icon">🔮</div>
+    <div>
+      <div class="logo-text">ORÁCULO</div>
+      <div class="logo-sub">Painel Interno</div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-section">Principal</div>
+    <div class="nav-item active" onclick="showScreen('dashboard')">
+      <span class="icon">⊞</span> Dashboard
+    </div>
+    <div class="nav-item" onclick="showScreen('projetos')">
+      <span class="icon">🎬</span> Projetos
+    </div>
+    <div class="nav-item" onclick="showScreen('pipeline')">
+      <span class="icon">📊</span> Pipeline
+    </div>
+    <div class="nav-item" onclick="showScreen('tarefas')">
+      <span class="icon">✅</span> Tarefas
+      <span class="nav-badge">4</span>
+    </div>
+    <div class="nav-section">Financeiro</div>
+    <div class="nav-item" onclick="showScreen('financeiro')">
+      <span class="icon">💰</span> Financeiro
+    </div>
+    <div class="nav-item" onclick="showScreen('orcamento')">
+      <span class="icon">📋</span> Orçamentos
+    </div>
+    <div class="nav-section">Produção</div>
+    <div class="nav-item" onclick="showScreen('producao')">
+      <span class="icon">🎥</span> Produção
+    </div>
+    <div class="nav-item" onclick="showScreen('equipamentos')">
+      <span class="icon">⚙️</span> Equipamentos
+    </div>
+    <div class="nav-section">Relacionamentos</div>
+    <div class="nav-item" onclick="showScreen('clientes')">
+      <span class="icon">🏢</span> Clientes
+    </div>
+    <div class="nav-item" onclick="showScreen('crm')">
+      <span class="icon">💼</span> CRM
+    </div>
+    <div class="nav-item" onclick="showScreen('contatos')">
+      <span class="icon">👤</span> Contatos
+    </div>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="user-info">
+      <div class="user-avatar">F</div>
+      <div>
+        <div class="user-name">Fê</div>
+        <div class="user-role">Administrador</div>
+      </div>
+    </div>
+  </div>
+</aside>
+<div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu">☰</button>
+    <div class="topbar-title" id="topbar-title">Dashboard</div>
+    <input class="topbar-search" placeholder="🔍  Buscar projeto..." readonly>
+    <button class="btn btn-gold" onclick="showScreen('projeto-detalhe')">+ Novo Projeto</button>
+  </div>
+
+  <div class="content">
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: DASHBOARD
+    ═══════════════════════════════════════════════ -->
+    <div class="screen active" id="screen-dashboard">
+      <div class="kpi-grid">
+        <div class="kpi-card gold">
+          <div class="kpi-label">Projetos Ativos</div>
+          <div class="kpi-value">1</div>
+          <div class="kpi-sub">em andamento</div>
+          <div class="kpi-icon">🎬</div>
+        </div>
+        <div class="kpi-card blue">
+          <div class="kpi-label">Leads no Funil</div>
+          <div class="kpi-value">3</div>
+          <div class="kpi-sub">em negociação</div>
+          <div class="kpi-icon">🔍</div>
+        </div>
+        <div class="kpi-card green">
+          <div class="kpi-label">Faturamento Mês</div>
+          <div class="kpi-value">R$&nbsp;4.250</div>
+          <div class="kpi-sub">sinal recebido</div>
+          <div class="kpi-icon">💰</div>
+        </div>
+        <div class="kpi-card orange">
+          <div class="kpi-label">Meta Mensal</div>
+          <div class="kpi-value">R$&nbsp;15k</div>
+          <div class="kpi-sub">28% atingido</div>
+          <div class="kpi-icon">📈</div>
+        </div>
+        <div class="kpi-card red">
+          <div class="kpi-label">Tarefas Urgentes</div>
+          <div class="kpi-value">4</div>
+          <div class="kpi-sub">com prazo próximo</div>
+          <div class="kpi-icon">⚠️</div>
+        </div>
+      </div>
+
+      <div class="grid-65-35">
+        <div>
+          <div class="section-header">
+            <div class="section-title">Projetos em Andamento</div>
+            <span class="section-link" onclick="showScreen('projetos')">Ver todos →</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Projeto</th><th>Cliente</th><th>Status</th><th>Etapa</th><th>Entrega</th><th>Valor</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr onclick="showScreen('projeto-detalhe')">
+                  <td>
+                    <div style="font-weight:600">#00 MODELO — Café Horizonte</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+                  </td>
+                  <td style="color:var(--text-dim)">Café Horizonte Ltda</td>
+                  <td><span class="badge badge-orange">Trabalhando</span></td>
+                  <td><span class="badge badge-gold">Pré-Produção</span></td>
+                  <td style="color:var(--text-dim)">30/04/26</td>
+                  <td style="font-weight:600">R$ 8.500</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="section-header">
+            <div class="section-title">Pipeline de Vendas</div>
+            <span class="section-link" onclick="showScreen('pipeline')">Ver funil →</span>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Lead</th><th>Empresa</th><th>Etapa</th><th>Valor Est.</th><th>Data</th></tr></thead>
+              <tbody>
+                <tr onclick="showScreen('pipeline')">
+                  <td style="font-weight:600">Vídeo Institucional</td>
+                  <td style="color:var(--text-dim)">Café Horizonte Ltda</td>
+                  <td><span class="badge badge-green">Fechado</span></td>
+                  <td>R$ 8.500</td>
+                  <td style="color:var(--text-dim)">10/03/26</td>
+                </tr>
+                <tr onclick="showScreen('pipeline')">
+                  <td style="font-weight:600">Campanha Redes Sociais</td>
+                  <td style="color:var(--text-dim)">Banco Verde S.A.</td>
+                  <td><span class="badge badge-blue">Proposta</span></td>
+                  <td>R$ 12.000</td>
+                  <td style="color:var(--text-dim)">15/03/26</td>
+                </tr>
+                <tr onclick="showScreen('pipeline')">
+                  <td style="font-weight:600">Documentário Corporativo</td>
+                  <td style="color:var(--text-dim)">Raízes do Cerrado</td>
+                  <td><span class="badge badge-orange">Contato</span></td>
+                  <td>R$ 25.000</td>
+                  <td style="color:var(--text-dim)">18/03/26</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-header">
+            <div class="section-title">Tarefas Urgentes</div>
+            <span class="section-link" onclick="showScreen('tarefas')">Ver todas →</span>
+          </div>
+          <div class="card" style="padding:0">
+            <div class="task-item">
+              <div class="task-check"></div>
+              <div style="flex:1">
+                <div class="task-name">Confirmar locação — loja principal</div>
+                <div class="task-project">Café Horizonte</div>
+              </div>
+              <span class="badge badge-red">Hoje</span>
+            </div>
+            <div class="task-item">
+              <div class="task-check"></div>
+              <div style="flex:1">
+                <div class="task-name">Enviar roteiro para aprovação</div>
+                <div class="task-project">Café Horizonte</div>
+              </div>
+              <span class="badge badge-orange">Amanhã</span>
+            </div>
+            <div class="task-item">
+              <div class="task-check"></div>
+              <div style="flex:1">
+                <div class="task-name">Fechar proposta — Banco Verde</div>
+                <div class="task-project">Pipeline</div>
+              </div>
+              <span class="badge badge-orange">22/03</span>
+            </div>
+            <div class="task-item">
+              <div class="task-check done"></div>
+              <div style="flex:1">
+                <div class="task-name done">Reunião de briefing</div>
+                <div class="task-project">Café Horizonte</div>
+              </div>
+              <span class="badge badge-gray">Feito</span>
+            </div>
+          </div>
+
+          <div style="margin-top:16px">
+            <div class="section-header">
+              <div class="section-title">Resumo Financeiro</div>
+            </div>
+            <div class="card">
+              <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+                <span style="font-size:12px;color:var(--text-dim)">Entradas (Mar)</span>
+                <span style="font-size:13px;font-weight:700;color:var(--green)">+ R$ 4.250</span>
+              </div>
+              <div style="display:flex;justify-content:space-between;margin-bottom:10px">
+                <span style="font-size:12px;color:var(--text-dim)">Saídas (Mar)</span>
+                <span style="font-size:13px;font-weight:700;color:var(--red)">− R$ 1.890</span>
+              </div>
+              <div style="height:1px;background:var(--border);margin:10px 0"></div>
+              <div style="display:flex;justify-content:space-between">
+                <span style="font-size:12px;color:var(--text-dim)">Saldo</span>
+                <span style="font-size:15px;font-weight:700;color:var(--gold)">R$ 2.360</span>
+              </div>
+              <div style="margin-top:12px">
+                <div style="display:flex;justify-content:space-between;margin-bottom:4px">
+                  <span style="font-size:11px;color:var(--text-dim)">A receber</span>
+                  <span style="font-size:11px;color:var(--text-dim)">R$ 4.250</span>
+                </div>
+                <div class="progress-bar" style="height:5px"><div class="progress-fill" style="width:28%"></div></div>
+                <div style="font-size:10px;color:var(--text-muted);margin-top:4px">28% da meta mensal</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Anotações Recentes</div>
+      </div>
+      <div class="grid-3">
+        <div class="nota-card">
+          <div class="nota-title">📋 Reunião de Briefing — Café Horizonte</div>
+          <div class="nota-text">Cliente quer foco no storytelling da origem dos grãos. Aprovado tom mais intimista e trilha ambiente. Entrega em 30/04.</div>
+          <div class="nota-meta">19/03/2026 · Café Horizonte</div>
+        </div>
+        <div class="nota-card" style="border-left-color:var(--blue)">
+          <div class="nota-title">💡 Ideia Criativa — Drone na Fazenda</div>
+          <div class="nota-text">Propor cena aérea da fazenda fornecedora de grãos como abertura do vídeo. Verificar viabilidade de deslocamento.</div>
+          <div class="nota-meta">19/03/2026 · Café Horizonte</div>
+        </div>
+        <div class="nota-card" style="border-left-color:var(--purple)">
+          <div class="nota-title">📞 Follow-up — Banco Verde</div>
+          <div class="nota-text">Proposta enviada em 15/03. Aguardando retorno do departamento de marketing. Ligar na sexta.</div>
+          <div class="nota-meta">18/03/2026 · Pipeline</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: PROJETOS
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-projetos">
+      <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="kpi-card gold"><div class="kpi-label">Total de Projetos</div><div class="kpi-value">1</div><div class="kpi-sub">no sistema</div><div class="kpi-icon">🎬</div></div>
+        <div class="kpi-card orange"><div class="kpi-label">Em Andamento</div><div class="kpi-value">1</div><div class="kpi-sub">trabalhando</div><div class="kpi-icon">⚡</div></div>
+        <div class="kpi-card green"><div class="kpi-label">Finalizados</div><div class="kpi-value">0</div><div class="kpi-sub">este ano</div><div class="kpi-icon">✅</div></div>
+        <div class="kpi-card blue"><div class="kpi-label">Valor Total</div><div class="kpi-value">R$&nbsp;8,5k</div><div class="kpi-sub">em contratos</div><div class="kpi-icon">💰</div></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#ID</th><th>Projeto</th><th>Cliente</th><th>Atividade</th><th>Status</th><th>Etapa</th><th>Entrega</th><th>Valor</th><th>Fin.</th></tr></thead>
+          <tbody>
+            <tr onclick="showScreen('projeto-detalhe')">
+              <td style="color:var(--text-muted);font-size:12px">PRJ-2</td>
+              <td>
+                <div style="font-weight:600">#00 MODELO — Café Horizonte</div>
+                <div style="font-size:11px;color:var(--text-dim)">Vídeo Institucional</div>
+                <div class="progress-bar"><div class="progress-fill" style="width:35%"></div></div>
+              </td>
+              <td style="color:var(--text-dim)">Café Horizonte Ltda</td>
+              <td><span class="badge badge-cyan">Filmagem</span></td>
+              <td><span class="badge badge-orange">Trabalhando</span></td>
+              <td><span class="badge badge-gold">Pré-Produção</span></td>
+              <td style="color:var(--text-dim)">30/04/26</td>
+              <td style="font-weight:600">R$ 8.500</td>
+              <td><span class="badge badge-blue">Pago Parcial</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: PROJETO DETALHE
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-projeto-detalhe">
+      <div class="back-btn" onclick="showScreen('projetos')">← Voltar para Projetos</div>
+      <div class="project-header">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start">
+          <div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px">PRJ-2 · Filmagem</div>
+            <div class="project-name">☕ #00 MODELO — Café Horizonte</div>
+            <div class="project-meta">
+              <div class="project-meta-item">🏢 Café Horizonte Ltda</div>
+              <div class="project-meta-item">👤 Ana Lima</div>
+              <div class="project-meta-item">📅 Início: 25/03/26</div>
+              <div class="project-meta-item">🏁 Entrega: 30/04/26</div>
+              <div class="project-meta-item">💰 R$ 8.500</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:center">
+            <span class="badge badge-orange" style="font-size:13px;padding:6px 14px">Trabalhando</span>
+            <span class="badge badge-blue" style="font-size:13px;padding:6px 14px">Pago Parcial</span>
+          </div>
+        </div>
+        <div style="margin-top:14px;padding-top:14px;border-top:1px solid var(--border)">
+          <div style="font-size:11px;color:var(--text-dim);margin-bottom:6px">BRIEFING</div>
+          <div style="font-size:13px;color:var(--text-dim);line-height:1.6">Vídeo institucional de 3–5 minutos para a Café Horizonte Ltda. Apresentação da nova linha de cafés especiais com foco em storytelling da origem dos grãos, processo de torra artesanal e experiência do cliente.</div>
+        </div>
+      </div>
+
+      <div class="workflow">
+        <div class="workflow-step done"><div class="workflow-icon">✅</div><div class="workflow-label">Prospecção</div><div class="workflow-status">Concluído</div></div>
+        <div class="workflow-step done"><div class="workflow-icon">✅</div><div class="workflow-label">CRM</div><div class="workflow-status">Fechado</div></div>
+        <div class="workflow-step done"><div class="workflow-icon">✅</div><div class="workflow-label">Proposta</div><div class="workflow-status">Aprovada</div></div>
+        <div class="workflow-step active"><div class="workflow-icon">🟡</div><div class="workflow-label">Pré-Produção</div><div class="workflow-status">Em andamento</div></div>
+        <div class="workflow-step pending"><div class="workflow-icon">⬜</div><div class="workflow-label">Filmagem</div><div class="workflow-status">01/04/26</div></div>
+        <div class="workflow-step pending"><div class="workflow-icon">⬜</div><div class="workflow-label">Edição</div><div class="workflow-status">Pendente</div></div>
+        <div class="workflow-step pending"><div class="workflow-icon">⬜</div><div class="workflow-label">Entrega</div><div class="workflow-status">30/04/26</div></div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" onclick="showTab(this,'tab-visao')">Visão Geral</div>
+        <div class="tab" onclick="showTab(this,'tab-tarefas')">Tarefas</div>
+        <div class="tab" onclick="showTab(this,'tab-financeiro')">Financeiro</div>
+        <div class="tab" onclick="showTab(this,'tab-producao')">Produção</div>
+        <div class="tab" onclick="showTab(this,'tab-anotacoes')">Anotações</div>
+      </div>
+
+      <div id="tab-visao">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-title">📄 Proposta</div>
+            <div class="detail-row"><div class="detail-label">Número</div><div class="detail-value">PRP-001</div></div>
+            <div class="detail-row"><div class="detail-label">Valor</div><div class="detail-value" style="color:var(--gold);font-weight:700">R$ 8.500</div></div>
+            <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-green">Aprovada</span></div></div>
+            <div class="detail-row"><div class="detail-label">Validade</div><div class="detail-value">31/03/2026</div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">🎬 Produção</div>
+            <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-orange">Em Andamento</span></div></div>
+            <div class="detail-row"><div class="detail-label">Diretor</div><div class="detail-value">Fê (Diretor)</div></div>
+            <div class="detail-row"><div class="detail-label">Data Filmagem</div><div class="detail-value">01/04/2026</div></div>
+            <div class="detail-row"><div class="detail-label">Local</div><div class="detail-value">Loja Principal + Fachada</div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">🎨 Criativo</div>
+            <div class="detail-row"><div class="detail-label">Título</div><div class="detail-value">#00 Café Horizonte — Direção Criativa</div></div>
+            <div class="detail-row"><div class="detail-label">Formato</div><div class="detail-value">16:9 + 9:16 (Reels)</div></div>
+            <div class="detail-row"><div class="detail-label">Duração</div><div class="detail-value">3–5 minutos</div></div>
+            <div class="detail-row"><div class="detail-label">Roteiro</div><div class="detail-value"><span class="badge badge-green">Aprovado</span></div></div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">📍 Locações</div>
+            <div class="table-wrap" style="margin:0">
+              <table>
+                <thead><tr><th>Local</th><th>Endereço</th><th>Autorização</th></tr></thead>
+                <tbody>
+                  <tr><td style="font-weight:600">Loja Principal</td><td style="color:var(--text-dim)">Rua das Flores, 123 — SP</td><td><span class="badge badge-green">Confirmada</span></td></tr>
+                  <tr><td style="font-weight:600">Fachada Externa</td><td style="color:var(--text-dim)">Rua das Flores, 123 — SP</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-title">🔬 Análise Técnica</div>
+            <div class="table-wrap" style="margin:0">
+              <table>
+                <thead><tr><th>Cena</th><th>Duração</th><th>Equipamento</th></tr></thead>
+                <tbody>
+                  <tr><td>Abertura — Café sendo preparado</td><td>30s</td><td>Sony A7IV + 50mm</td></tr>
+                  <tr><td>Processo de preparo</td><td>60s</td><td>Sony A7IV + Macro</td></tr>
+                  <tr><td>Ambiente do café</td><td>45s</td><td>Sony A7IV + 24mm</td></tr>
+                  <tr><td>Encerramento — Logo</td><td>15s</td><td>Motion Graphics</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-tarefas" style="display:none">
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Status</th><th>Tarefa</th><th>Prioridade</th><th>Responsável</th><th>Prazo</th></tr></thead>
+            <tbody>
+              <tr><td><span class="badge badge-green">Concluída</span></td><td>Reunião de briefing com cliente</td><td><span class="badge badge-gray">Baixa</span></td><td>Fê</td><td style="color:var(--text-dim)">15/03/26</td></tr>
+              <tr><td><span class="badge badge-orange">Em Andamento</span></td><td>Confirmar locação — loja principal</td><td><span class="badge badge-red">Alta</span></td><td>Fê</td><td style="color:var(--red)">Hoje</td></tr>
+              <tr><td><span class="badge badge-orange">Em Andamento</span></td><td>Enviar roteiro para aprovação</td><td><span class="badge badge-red">Alta</span></td><td>Fê</td><td style="color:var(--orange)">Amanhã</td></tr>
+              <tr><td><span class="badge badge-gray">Pendente</span></td><td>Contratar assistente de câmera</td><td><span class="badge badge-orange">Média</span></td><td>Fê</td><td style="color:var(--text-dim)">28/03/26</td></tr>
+              <tr><td><span class="badge badge-gray">Pendente</span></td><td>Preparar equipamentos para filmagem</td><td><span class="badge badge-orange">Média</span></td><td>Fê</td><td style="color:var(--text-dim)">31/03/26</td></tr>
+              <tr><td><span class="badge badge-gray">Pendente</span></td><td>Exportar e entregar arquivo final</td><td><span class="badge badge-gray">Baixa</span></td><td>Fê</td><td style="color:var(--text-dim)">30/04/26</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="tab-financeiro" style="display:none">
+        <div class="finance-summary">
+          <div class="finance-card"><div class="finance-label">Valor do Contrato</div><div class="finance-value neutral">R$ 8.500</div></div>
+          <div class="finance-card"><div class="finance-label">Recebido</div><div class="finance-value positive">R$ 4.250</div></div>
+          <div class="finance-card"><div class="finance-label">A Receber</div><div class="finance-value" style="color:var(--text-dim)">R$ 4.250</div></div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Descrição</th><th>Tipo</th><th>Valor</th><th>Data</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td style="color:var(--text-muted)">FIN-1</td><td>Sinal 50% — Café Horizonte</td><td><span class="badge badge-green">Entrada</span></td><td style="color:var(--green);font-weight:700">+ R$ 4.250</td><td style="color:var(--text-dim)">02/04/26</td><td><span class="badge badge-green">Recebido</span></td></tr>
+              <tr><td style="color:var(--text-muted)">FIN-2</td><td>Saldo 50% — Café Horizonte</td><td><span class="badge badge-green">Entrada</span></td><td style="color:var(--green);font-weight:700">+ R$ 4.250</td><td style="color:var(--text-dim)">30/04/26</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+              <tr><td style="color:var(--text-muted)">FIN-3</td><td>Aluguel de equipamentos</td><td><span class="badge badge-red">Saída</span></td><td style="color:var(--red);font-weight:700">− R$ 800</td><td style="color:var(--text-dim)">01/04/26</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+              <tr><td style="color:var(--text-muted)">FIN-4</td><td>Assistente de câmera (diária)</td><td><span class="badge badge-red">Saída</span></td><td style="color:var(--red);font-weight:700">− R$ 400</td><td style="color:var(--text-dim)">01/04/26</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="tab-producao" style="display:none">
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-title">🎥 Filmagem</div>
+            <div class="detail-row"><div class="detail-label">Data</div><div class="detail-value">01/04/2026</div></div>
+            <div class="detail-row"><div class="detail-label">Local</div><div class="detail-value">Loja Principal + Fachada</div></div>
+            <div class="detail-row"><div class="detail-label">Diretor</div><div class="detail-value">Fê</div></div>
+            <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-gray">Agendado</span></div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">✂️ Edição</div>
+            <div class="detail-row"><div class="detail-label">Editor</div><div class="detail-value">Fê</div></div>
+            <div class="detail-row"><div class="detail-label">Software</div><div class="detail-value">Premiere Pro + After Effects</div></div>
+            <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-gray">Não Iniciado</span></div></div>
+            <div class="detail-row"><div class="detail-label">Prazo Edição</div><div class="detail-value">20/04/2026</div></div>
+          </div>
+          <div class="card">
+            <div class="card-title">📦 Entrega</div>
+            <div class="detail-row"><div class="detail-label">Formato</div><div class="detail-value">MP4 4K + Reels 9:16</div></div>
+            <div class="detail-row"><div class="detail-label">Plataforma</div><div class="detail-value">Google Drive</div></div>
+            <div class="detail-row"><div class="detail-label">Prazo</div><div class="detail-value">30/04/2026</div></div>
+            <div class="detail-row"><div class="detail-label">Status</div><div class="detail-value"><span class="badge badge-gray">Pendente</span></div></div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">⚙️ Equipamentos Alocados</div>
+          <div class="table-wrap" style="margin:0">
+            <table>
+              <thead><tr><th>Equipamento</th><th>Categoria</th><th>Patrimônio</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td style="font-weight:600">Sony A7 IV</td><td>Câmera</td><td>EQP-001</td><td><span class="badge badge-orange">Em Uso</span></td></tr>
+                <tr><td style="font-weight:600">Lente Sony 24-70mm f/2.8</td><td>Lente</td><td>EQP-002</td><td><span class="badge badge-orange">Em Uso</span></td></tr>
+                <tr><td style="font-weight:600">Kit Iluminação LED Aputure</td><td>Iluminação</td><td>EQP-003</td><td><span class="badge badge-green">Disponível</span></td></tr>
+                <tr><td style="font-weight:600">Tripé Manfrotto 055</td><td>Suporte</td><td>EQP-004</td><td><span class="badge badge-green">Disponível</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div id="tab-anotacoes" style="display:none">
+        <div class="nota-card">
+          <div class="nota-title">📋 Reunião de Briefing — 19/03/2026</div>
+          <div class="nota-text">Cliente quer foco no storytelling da origem dos grãos. Aprovado tom mais intimista e trilha ambiente. Sem narração, apenas texto na tela. Entrega prevista para 30/04/2026. Cliente muito receptivo e aberto a sugestões criativas.</div>
+          <div class="nota-meta">19/03/2026 · Fê · Reunião</div>
+        </div>
+        <div class="nota-card" style="border-left-color:var(--blue)">
+          <div class="nota-title">💡 Ideia Criativa — Drone na Fazenda</div>
+          <div class="nota-text">Propor cena aérea da fazenda fornecedora de grãos como abertura do vídeo. Verificar viabilidade de deslocamento até a fazenda em Minas Gerais. Pode agregar muito ao storytelling.</div>
+          <div class="nota-meta">19/03/2026 · Fê · Ideia</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: PIPELINE
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-pipeline">
+      <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="kpi-card blue"><div class="kpi-label">Leads Ativos</div><div class="kpi-value">3</div><div class="kpi-sub">no funil</div><div class="kpi-icon">🔍</div></div>
+        <div class="kpi-card gold"><div class="kpi-label">Valor em Negociação</div><div class="kpi-value">R$&nbsp;37k</div><div class="kpi-sub">potencial</div><div class="kpi-icon">💰</div></div>
+        <div class="kpi-card green"><div class="kpi-label">Fechados (Mês)</div><div class="kpi-value">1</div><div class="kpi-sub">R$ 8.500</div><div class="kpi-icon">🤝</div></div>
+        <div class="kpi-card orange"><div class="kpi-label">Taxa de Conversão</div><div class="kpi-value">33%</div><div class="kpi-sub">leads → projetos</div><div class="kpi-icon">📈</div></div>
+      </div>
+      <div class="pipeline">
+        <div class="pipeline-col">
+          <div class="pipeline-col-title">Prospecção <span class="badge badge-gray">1</span></div>
+          <div class="pipeline-card">
+            <div class="pipeline-card-name">Websérie Corporativa</div>
+            <div class="pipeline-card-meta">Sertão Vivo Prod. · R$ 18.000</div>
+          </div>
+        </div>
+        <div class="pipeline-col">
+          <div class="pipeline-col-title">Contato <span class="badge badge-orange">1</span></div>
+          <div class="pipeline-card">
+            <div class="pipeline-card-name">Documentário Corporativo</div>
+            <div class="pipeline-card-meta">Raízes do Cerrado · R$ 25.000</div>
+          </div>
+        </div>
+        <div class="pipeline-col">
+          <div class="pipeline-col-title">Proposta <span class="badge badge-blue">1</span></div>
+          <div class="pipeline-card">
+            <div class="pipeline-card-name">Campanha Redes Sociais</div>
+            <div class="pipeline-card-meta">Banco Verde S.A. · R$ 12.000</div>
+          </div>
+        </div>
+        <div class="pipeline-col">
+          <div class="pipeline-col-title">Fechado <span class="badge badge-green">1</span></div>
+          <div class="pipeline-card" style="border-color:rgba(34,197,94,0.3)">
+            <div class="pipeline-card-name">Vídeo Institucional</div>
+            <div class="pipeline-card-meta">Café Horizonte · R$ 8.500</div>
+          </div>
+        </div>
+        <div class="pipeline-col">
+          <div class="pipeline-col-title">Perdido <span class="badge badge-red">0</span></div>
+          <div class="empty" style="padding:20px;font-size:12px">Nenhum</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: TAREFAS
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-tarefas">
+      <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="kpi-card red"><div class="kpi-label">Urgentes</div><div class="kpi-value">2</div><div class="kpi-sub">prazo hoje/amanhã</div><div class="kpi-icon">🔥</div></div>
+        <div class="kpi-card orange"><div class="kpi-label">Em Andamento</div><div class="kpi-value">2</div><div class="kpi-sub">sendo executadas</div><div class="kpi-icon">⚡</div></div>
+        <div class="kpi-card gold"><div class="kpi-label">Pendentes</div><div class="kpi-value">3</div><div class="kpi-sub">a iniciar</div><div class="kpi-icon">📋</div></div>
+        <div class="kpi-card green"><div class="kpi-label">Concluídas</div><div class="kpi-value">1</div><div class="kpi-sub">este mês</div><div class="kpi-icon">✅</div></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Status</th><th>Tarefa</th><th>Projeto</th><th>Prioridade</th><th>Responsável</th><th>Prazo</th></tr></thead>
+          <tbody>
+            <tr><td><span class="badge badge-orange">Em Andamento</span></td><td style="font-weight:600">Confirmar locação — loja principal</td><td style="color:var(--text-dim)">Café Horizonte</td><td><span class="badge badge-red">Alta</span></td><td>Fê</td><td style="color:var(--red);font-weight:600">Hoje</td></tr>
+            <tr><td><span class="badge badge-orange">Em Andamento</span></td><td style="font-weight:600">Enviar roteiro para aprovação</td><td style="color:var(--text-dim)">Café Horizonte</td><td><span class="badge badge-red">Alta</span></td><td>Fê</td><td style="color:var(--orange);font-weight:600">Amanhã</td></tr>
+            <tr><td><span class="badge badge-gray">Pendente</span></td><td>Contratar assistente de câmera</td><td style="color:var(--text-dim)">Café Horizonte</td><td><span class="badge badge-orange">Média</span></td><td>Fê</td><td style="color:var(--text-dim)">28/03/26</td></tr>
+            <tr><td><span class="badge badge-gray">Pendente</span></td><td>Preparar equipamentos para filmagem</td><td style="color:var(--text-dim)">Café Horizonte</td><td><span class="badge badge-orange">Média</span></td><td>Fê</td><td style="color:var(--text-dim)">31/03/26</td></tr>
+            <tr><td><span class="badge badge-gray">Pendente</span></td><td>Fechar proposta — Banco Verde</td><td style="color:var(--text-dim)">Pipeline</td><td><span class="badge badge-orange">Média</span></td><td>Fê</td><td style="color:var(--text-dim)">22/03/26</td></tr>
+            <tr><td><span class="badge badge-gray">Pendente</span></td><td>Exportar e entregar arquivo final</td><td style="color:var(--text-dim)">Café Horizonte</td><td><span class="badge badge-gray">Baixa</span></td><td>Fê</td><td style="color:var(--text-dim)">30/04/26</td></tr>
+            <tr><td><span class="badge badge-green">Concluída</span></td><td style="text-decoration:line-through;color:var(--text-dim)">Reunião de briefing com cliente</td><td style="color:var(--text-dim)">Café Horizonte</td><td><span class="badge badge-gray">Baixa</span></td><td>Fê</td><td style="color:var(--text-dim)">15/03/26</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: FINANCEIRO
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-financeiro">
+      <div class="finance-summary" style="grid-template-columns:repeat(6,1fr)">
+        <div class="finance-card"><div class="finance-label">Entradas (Mar)</div><div class="finance-value positive">R$ 4.250</div></div>
+        <div class="finance-card"><div class="finance-label">Saídas (Mar)</div><div class="finance-value negative">R$ 1.890</div></div>
+        <div class="finance-card"><div class="finance-label">Saldo do Mês</div><div class="finance-value neutral">R$ 2.360</div></div>
+        <div class="finance-card"><div class="finance-label">A Receber</div><div class="finance-value" style="color:var(--blue)">R$ 4.250</div></div>
+        <div class="finance-card"><div class="finance-label">Custos Fixos</div><div class="finance-value negative">R$ 890</div></div>
+        <div class="finance-card"><div class="finance-label">Margem Média</div><div class="finance-value neutral">72%</div></div>
+      </div>
+      <div class="section-header"><div class="section-title">Gestão Financeira — Empresa</div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Descrição</th><th>Categoria</th><th>Tipo</th><th>Valor</th><th>Data</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text-muted)">GFE-1</td><td style="font-weight:600">Sinal — Café Horizonte</td><td style="color:var(--text-dim)">Projeto</td><td><span class="badge badge-green">Entrada</span></td><td style="color:var(--green);font-weight:700">+ R$ 4.250</td><td style="color:var(--text-dim)">02/04/26</td><td><span class="badge badge-green">Recebido</span></td></tr>
+            <tr><td style="color:var(--text-muted)">GFE-2</td><td style="font-weight:600">Adobe Creative Cloud</td><td style="color:var(--text-dim)">Software</td><td><span class="badge badge-red">Saída</span></td><td style="color:var(--red);font-weight:700">− R$ 290</td><td style="color:var(--text-dim)">01/03/26</td><td><span class="badge badge-green">Pago</span></td></tr>
+            <tr><td style="color:var(--text-muted)">GFE-3</td><td style="font-weight:600">Aluguel do Estúdio</td><td style="color:var(--text-dim)">Infraestrutura</td><td><span class="badge badge-red">Saída</span></td><td style="color:var(--red);font-weight:700">− R$ 1.200</td><td style="color:var(--text-dim)">01/03/26</td><td><span class="badge badge-green">Pago</span></td></tr>
+            <tr><td style="color:var(--text-muted)">GFE-4</td><td style="font-weight:600">Internet + Telefone</td><td style="color:var(--text-dim)">Infraestrutura</td><td><span class="badge badge-red">Saída</span></td><td style="color:var(--red);font-weight:700">− R$ 400</td><td style="color:var(--text-dim)">05/03/26</td><td><span class="badge badge-green">Pago</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: ORÇAMENTO
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-orcamento">
+      <div class="section-header"><div class="section-title">Orçamento — Café Horizonte (PRJ-2)</div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Item</th><th>Categoria</th><th>Qtd</th><th>Valor Unit.</th><th>Total</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text-muted)">ORC-1</td><td style="font-weight:600">Câmera Sony A7 IV (diária)</td><td style="color:var(--text-dim)">Câmera</td><td>1</td><td>R$ 400</td><td style="font-weight:700">R$ 400</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+            <tr><td style="color:var(--text-muted)">ORC-2</td><td style="font-weight:600">Kit Lentes (diária)</td><td style="color:var(--text-dim)">Lente</td><td>1</td><td>R$ 200</td><td style="font-weight:700">R$ 200</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+            <tr><td style="color:var(--text-muted)">ORC-3</td><td style="font-weight:600">Kit Iluminação LED</td><td style="color:var(--text-dim)">Iluminação</td><td>1</td><td>R$ 200</td><td style="font-weight:700">R$ 200</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+            <tr><td style="color:var(--text-muted)">ORC-4</td><td style="font-weight:600">Trilha Sonora (licença)</td><td style="color:var(--text-dim)">Áudio</td><td>3</td><td>R$ 150</td><td style="font-weight:700">R$ 450</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+            <tr><td style="color:var(--text-muted)">ORC-5</td><td style="font-weight:600">Direção e Câmera (diária)</td><td style="color:var(--text-dim)">Equipe</td><td>1</td><td>R$ 1.200</td><td style="font-weight:700">R$ 1.200</td><td><span class="badge badge-green">Aprovado</span></td></tr>
+            <tr><td style="color:var(--text-muted)">ORC-6</td><td style="font-weight:600">Assistente de Câmera</td><td style="color:var(--text-dim)">Equipe</td><td>1</td><td>R$ 400</td><td style="font-weight:700">R$ 400</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+            <tr><td style="color:var(--text-muted)">ORC-7</td><td style="font-weight:600">Transporte e Deslocamento</td><td style="color:var(--text-dim)">Logística</td><td>1</td><td>R$ 300</td><td style="font-weight:700">R$ 300</td><td><span class="badge badge-orange">Pendente</span></td></tr>
+            <tr><td style="color:var(--text-muted)">ORC-8</td><td style="font-weight:600">Edição e Pós-produção</td><td style="color:var(--text-dim)">Edição</td><td>1</td><td>R$ 1.800</td><td style="font-weight:700">R$ 1.800</td><td><span class="badge badge-green">Aprovado</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card" style="max-width:320px;margin-left:auto">
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--text-dim)">Custo Total</span><span style="font-weight:700">R$ 4.950</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px"><span style="color:var(--text-dim)">Valor do Contrato</span><span style="font-weight:700;color:var(--gold)">R$ 8.500</span></div>
+        <div style="height:1px;background:var(--border);margin:8px 0"></div>
+        <div style="display:flex;justify-content:space-between"><span style="color:var(--text-dim)">Margem Bruta</span><span style="font-weight:700;color:var(--green)">R$ 3.550 (42%)</span></div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: PRODUÇÃO
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-producao">
+      <div class="section-header"><div class="section-title">Produção em Andamento</div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Projeto</th><th>Status</th><th>Diretor</th><th>Data Filmagem</th><th>Local</th><th>Edição</th><th>Entrega</th></tr></thead>
+          <tbody>
+            <tr onclick="showScreen('projeto-detalhe')">
+              <td style="font-weight:600">Café Horizonte — Vídeo Institucional</td>
+              <td><span class="badge badge-orange">Em Andamento</span></td>
+              <td>Fê</td>
+              <td>01/04/26</td>
+              <td style="color:var(--text-dim)">Loja Principal + Fachada</td>
+              <td><span class="badge badge-gray">Não Iniciado</span></td>
+              <td style="color:var(--text-dim)">30/04/26</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: EQUIPAMENTOS
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-equipamentos">
+      <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+        <div class="kpi-card gold"><div class="kpi-label">Total Equipamentos</div><div class="kpi-value">6</div><div class="kpi-sub">no patrimônio</div><div class="kpi-icon">⚙️</div></div>
+        <div class="kpi-card orange"><div class="kpi-label">Em Uso</div><div class="kpi-value">2</div><div class="kpi-sub">alocados</div><div class="kpi-icon">🎬</div></div>
+        <div class="kpi-card green"><div class="kpi-label">Disponíveis</div><div class="kpi-value">4</div><div class="kpi-sub">prontos para uso</div><div class="kpi-icon">✅</div></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Equipamento</th><th>Categoria</th><th>Marca/Modelo</th><th>Valor</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text-muted)">EQP-001</td><td style="font-weight:600">Sony A7 IV</td><td><span class="badge badge-cyan">Câmera</span></td><td style="color:var(--text-dim)">Sony / A7 IV</td><td>R$ 18.000</td><td><span class="badge badge-orange">Em Uso</span></td></tr>
+            <tr><td style="color:var(--text-muted)">EQP-002</td><td style="font-weight:600">Lente Sony 24-70mm f/2.8</td><td><span class="badge badge-blue">Lente</span></td><td style="color:var(--text-dim)">Sony / 24-70mm</td><td>R$ 8.500</td><td><span class="badge badge-orange">Em Uso</span></td></tr>
+            <tr><td style="color:var(--text-muted)">EQP-003</td><td style="font-weight:600">Kit Iluminação LED Aputure</td><td><span class="badge badge-gold">Iluminação</span></td><td style="color:var(--text-dim)">Aputure / 120D II</td><td>R$ 4.200</td><td><span class="badge badge-green">Disponível</span></td></tr>
+            <tr><td style="color:var(--text-muted)">EQP-004</td><td style="font-weight:600">Tripé Manfrotto 055</td><td><span class="badge badge-purple">Suporte</span></td><td style="color:var(--text-dim)">Manfrotto / 055</td><td>R$ 1.800</td><td><span class="badge badge-green">Disponível</span></td></tr>
+            <tr><td style="color:var(--text-muted)">EQP-005</td><td style="font-weight:600">DJI Ronin RS3 Pro</td><td><span class="badge badge-purple">Suporte</span></td><td style="color:var(--text-dim)">DJI / Ronin RS3</td><td>R$ 3.200</td><td><span class="badge badge-green">Disponível</span></td></tr>
+            <tr><td style="color:var(--text-muted)">EQP-006</td><td style="font-weight:600">Rode NTG5 (microfone)</td><td><span class="badge badge-orange">Áudio</span></td><td style="color:var(--text-dim)">Rode / NTG5</td><td>R$ 2.100</td><td><span class="badge badge-green">Disponível</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: CLIENTES
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-clientes">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Cliente</th><th>Segmento</th><th>CNPJ</th><th>Contato</th><th>Projetos</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr onclick="showScreen('projeto-detalhe')">
+              <td style="color:var(--text-muted)">CLI-1</td>
+              <td>
+                <div style="font-weight:600">☕ Café Horizonte Ltda</div>
+                <div style="font-size:11px;color:var(--text-dim)">São Paulo — SP</div>
+              </td>
+              <td><span class="badge badge-orange">Alimentação</span></td>
+              <td style="color:var(--text-dim);font-size:12px">12.345.678/0001-90</td>
+              <td style="color:var(--text-dim)">Ana Lima</td>
+              <td><span class="badge badge-gold">1 ativo</span></td>
+              <td><span class="badge badge-green">Ativo</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: CRM
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-crm">
+      <div class="kpi-grid" style="grid-template-columns:repeat(4,1fr)">
+        <div class="kpi-card blue"><div class="kpi-label">Oportunidades</div><div class="kpi-value">4</div><div class="kpi-sub">no funil</div><div class="kpi-icon">💼</div></div>
+        <div class="kpi-card gold"><div class="kpi-label">Valor Potencial</div><div class="kpi-value">R$&nbsp;63k</div><div class="kpi-sub">total no funil</div><div class="kpi-icon">💰</div></div>
+        <div class="kpi-card green"><div class="kpi-label">Fechados</div><div class="kpi-value">1</div><div class="kpi-sub">este mês</div><div class="kpi-icon">🤝</div></div>
+        <div class="kpi-card orange"><div class="kpi-label">Follow-ups</div><div class="kpi-value">2</div><div class="kpi-sub">pendentes</div><div class="kpi-icon">📞</div></div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Oportunidade</th><th>Empresa</th><th>Etapa</th><th>Valor Est.</th><th>Data Contato</th><th>Próximo Passo</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text-muted)">CRM-1</td><td style="font-weight:600">Vídeo Institucional 2026</td><td style="color:var(--text-dim)">Café Horizonte Ltda</td><td><span class="badge badge-green">Fechado</span></td><td style="font-weight:700;color:var(--green)">R$ 8.500</td><td style="color:var(--text-dim)">10/03/26</td><td style="color:var(--text-dim)">Projeto iniciado</td></tr>
+            <tr><td style="color:var(--text-muted)">CRM-2</td><td style="font-weight:600">Campanha Redes Sociais</td><td style="color:var(--text-dim)">Banco Verde S.A.</td><td><span class="badge badge-blue">Proposta</span></td><td style="font-weight:700">R$ 12.000</td><td style="color:var(--text-dim)">15/03/26</td><td style="color:var(--orange)">Aguardar retorno</td></tr>
+            <tr><td style="color:var(--text-muted)">CRM-3</td><td style="font-weight:600">Documentário Corporativo</td><td style="color:var(--text-dim)">Raízes do Cerrado</td><td><span class="badge badge-orange">Contato</span></td><td style="font-weight:700">R$ 25.000</td><td style="color:var(--text-dim)">18/03/26</td><td style="color:var(--orange)">Reunião 25/03</td></tr>
+            <tr><td style="color:var(--text-muted)">CRM-4</td><td style="font-weight:600">Websérie Corporativa</td><td style="color:var(--text-dim)">Sertão Vivo Prod.</td><td><span class="badge badge-gray">Prospecção</span></td><td style="font-weight:700">R$ 18.000</td><td style="color:var(--text-dim)">19/03/26</td><td style="color:var(--text-dim)">Enviar proposta</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════
+         SCREEN: CONTATOS
+    ═══════════════════════════════════════════════ -->
+    <div class="screen" id="screen-contatos">
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Nome</th><th>Empresa</th><th>Cargo</th><th>Email</th><th>Telefone</th><th>Tipo</th></tr></thead>
+          <tbody>
+            <tr><td style="color:var(--text-muted)">CTT-1</td><td style="font-weight:600">Ana Lima</td><td style="color:var(--text-dim)">Café Horizonte Ltda</td><td style="color:var(--text-dim)">Gerente de Marketing</td><td style="color:var(--text-dim)">ana@cafehorizonte.com.br</td><td style="color:var(--text-dim)">(11) 98765-4321</td><td><span class="badge badge-blue">Cliente</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script>
+const screens = ['dashboard','projetos','projeto-detalhe','pipeline','tarefas','financeiro','orcamento','producao','equipamentos','clientes','crm','contatos'];
+const titles = {
+  'dashboard': 'Dashboard',
+  'projetos': 'Projetos',
+  'projeto-detalhe': 'Projeto — Café Horizonte',
+  'pipeline': 'Pipeline de Vendas',
+  'tarefas': 'Tarefas',
+  'financeiro': 'Financeiro',
+  'orcamento': 'Orçamentos',
+  'producao': 'Produção',
+  'equipamentos': 'Equipamentos',
+  'clientes': 'Clientes',
+  'crm': 'CRM',
+  'contatos': 'Contatos',
+};
+
+function showScreen(id) {
+  screens.forEach(s => {
+    const el = document.getElementById('screen-' + s);
+    if (el) el.classList.remove('active');
+  });
+  const target = document.getElementById('screen-' + id);
+  if (target) target.classList.add('active');
+
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + id + "'")) {
+      n.classList.add('active');
+    }
+  });
+
+  document.getElementById('topbar-title').textContent = titles[id] || id;
+
+  // Fechar sidebar no mobile após navegar
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  if (sidebar.classList.contains('open')) {
+    sidebar.classList.remove('open');
+    overlay.classList.remove('open');
+  }
+}
+
+function toggleSidebar() {
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.getElementById('sidebar-overlay');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('open');
+}
+
+function showTab(el, tabId) {
+  const tabs = el.parentElement.querySelectorAll('.tab');
+  tabs.forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+
+  const tabIds = ['tab-visao','tab-tarefas','tab-financeiro','tab-producao','tab-anotacoes'];
+  tabIds.forEach(t => {
+    const el2 = document.getElementById(t);
+    if (el2) el2.style.display = 'none';
+  });
+  const target = document.getElementById(tabId);
+  if (target) target.style.display = 'block';
+}
+</script>
+</body>
+</html>
