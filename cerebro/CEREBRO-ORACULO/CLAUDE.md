@@ -10,15 +10,18 @@ O vault é dividido em duas camadas:
 Documentos operacionais da Firma — projetos, processos, clientes, histórico, estudos. Estas pastas são o "dia a dia". Quando você precisa editar um roteiro, adicionar um cliente, ou registrar uma filmagem, é aqui.
 
 ```
-00-INBOX/               Rascunhos rápidos, notas temporárias
+00-INBOX/               Rascunhos rápidos, notas temporárias, capturas do Telegram
 01-OPERACAO-ORACULO/    DNA, diretrizes, templates de produção
 02-PROCESSOS-E-MANUAIS/ SOPs por departamento
 03-CLIENTES/            Dossiês permanentes
 04-PROJETOS-ATIVOS/     Projetos em andamento
 05-ARQUIVO-HISTORICO/   Projetos finalizados
-06-ESTUDOS-E-REFERENCIAS/ Biblioteca de estética e conhecimento
+06-ESTUDOS-E-REFERENCIAS/ Biblioteca de estética e conhecimento (aplicável à Firma)
 07-LOGS-DE-SESSAO/      Notas de trabalho com o Oráculo
+08-FELIPE/              Casa pessoal: visão de mundo, biblioteca, história e narrativa
 ```
+
+**Fronteira 06/08:** conhecimento aplicável à Firma → 06; o que constrói o olhar pessoal do Felipe → 08. Na dúvida → 06, com link a partir do 08. Visão completa em `docs/VISAO-ORACULO.md`.
 
 ### Camada de Síntese (pasta wiki/)
 Base de conhecimento gerada pelo Oráculo através de `/wiki-ingest`. Quando você quer que o Claude **entenda** a estrutura e extrai aprendizados, o conhecimento vai aqui.

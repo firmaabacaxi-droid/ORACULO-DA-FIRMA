@@ -17,7 +17,7 @@
 
 ## O que é este vault
 
-Repositório de conhecimento vivo da Firma. Tudo que aprendemos, desenvolvemos e refinamos fica aqui — para que o Oráculo seja cada vez mais preciso e para que Lipe e Jaya não reinventem a roda a cada projeto.
+Repositório de conhecimento vivo da Firma — e da vida de quem a constrói. Tudo que aprendemos, desenvolvemos e refinamos fica aqui — para que o Oráculo seja cada vez mais preciso e para que Lipe e Jaya não reinventem a roda a cada projeto. A visão completa: [VISÃO-ORÁCULO](../../docs/VISAO-ORACULO.md).
 
 **Duas camadas:**
 - **Trabalho (pastas 00–07):** os documentos reais do dia a dia.
@@ -47,6 +47,7 @@ Projeto finalizado → Oráculo extrai aprendizados → salva aqui → git sincr
 | [05 · ARQUIVO HISTÓRICO](05-ARQUIVO-HISTORICO/_INDEX.md) | Projetos finalizados e editais passados |
 | [06 · ESTUDOS E REFERÊNCIAS](06-ESTUDOS-E-REFERENCIAS/_INDEX.md) | Biblioteca de estudos, cursos, estética e referências criativas |
 | [07 · SESSÕES E APRENDIZADOS](07-LOGS-DE-SESSAO/_INDEX.md) | Notas cronológicas de sessões e aprendizados com o Oráculo |
+| [08 · FELIPE](08-FELIPE/_INDEX.md) | 🜍 Casa pessoal: visão de mundo (Jung, tarô, arquétipos), biblioteca de livros, história e narrativa |
 
 ## Navegação — Camada de Síntese (wiki/)
 

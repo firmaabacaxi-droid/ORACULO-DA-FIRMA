@@ -2,6 +2,8 @@
 
 Seu banco de dados de conhecimento geral, inspirações visuais, técnicas e estudos aplicáveis tanto à Firma quanto aos clientes.
 
+> **Fronteira com o 08:** aqui mora o conhecimento aplicável à Firma. O que constrói o olhar pessoal do Felipe (Jung, tarô, arquétipos, livros, história) mora em [[08-FELIPE/_INDEX|08-FELIPE]]. Na dúvida → aqui, com link a partir de lá.
+
 ---
 
 ## 06.1 · Cursos e Estudos Gerais

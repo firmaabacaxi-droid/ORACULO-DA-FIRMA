@@ -32,14 +32,15 @@
 └── hooks/hooks.json      Hooks: hot.md, auto-commit wiki, lembrete sessão
 
 cerebro/CEREBRO-ORACULO/  Vault Obsidian (segundo cérebro)
-├── 00-INBOX/             Rascunhos e entradas temporárias
+├── 00-INBOX/             Rascunhos, entradas temporárias e capturas/ do Telegram
 ├── 01-OPERACAO-ORACULO/  DNA, diretrizes, templates
 ├── 02-PROCESSOS-E-MANUAIS/ SOPs por departamento
 ├── 03-CLIENTES/          Dossiês permanentes de clientes
 ├── 04-PROJETOS-ATIVOS/   Projetos em andamento (só markdown)
 ├── 05-ARQUIVO-HISTORICO/ Projetos finalizados
-├── 06-ESTUDOS-E-REFERENCIAS/ Biblioteca de estética e conhecimento
+├── 06-ESTUDOS-E-REFERENCIAS/ Biblioteca de estética e conhecimento (Firma)
 ├── 07-LOGS-DE-SESSAO/    Logs datados de cada sessão
+├── 08-FELIPE/            Casa pessoal: visão de mundo, biblioteca, narrativa
 ├── wiki/                 Base de conhecimento gerada pelo Oráculo
 │   ├── hot.md            Contexto recente (lido a cada sessão pelo hook)
 │   ├── index.md          Catálogo mestre
@@ -70,6 +71,10 @@ output/                   Deliverables gerados (propostas, roteiros, relatórios
 | **DNA, valores, diretrizes, templates** | `cerebro/.../01-OPERACAO-ORACULO/` |
 | **Log do que foi feito numa sessão** | `cerebro/.../07-LOGS-DE-SESSAO/AAAA-MM-DD-Titulo.md` |
 | **Rascunho rápido / coisa sem lar ainda** | `cerebro/.../00-INBOX/` |
+| **Captura do Telegram** (vídeo, artigo, voz, ideia) | `cerebro/.../00-INBOX/capturas/` → triagem via "processar inbox" |
+| **Estudo pessoal do Felipe** (Jung, tarô, livros, narrativa) | `cerebro/.../08-FELIPE/` (fronteira: aplicável à Firma → 06) |
+| **Visão macro do Oráculo** (o quê e porquê) | `docs/VISAO-ORACULO.md` |
+| **Modos de uso do Oráculo no dia a dia** | `docs/FLUXO_ORACULO.md` |
 | **Proposta / roteiro / relatório gerado** | `output/` (no monorepo) |
 | **Status / valor / prazo de projeto** | Notion → PROJETO_2026 |
 | **CRM / contatos / tarefas** | Notion → CRM / CONTATOS / TAREFAS |
