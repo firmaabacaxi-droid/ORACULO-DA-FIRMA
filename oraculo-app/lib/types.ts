@@ -50,6 +50,7 @@ export interface Project {
   auto_id: number;
   diretor: string;
   clientes: ClientShort | null;
+  drive_folder_url?: string;
 }
 
 export interface Client {

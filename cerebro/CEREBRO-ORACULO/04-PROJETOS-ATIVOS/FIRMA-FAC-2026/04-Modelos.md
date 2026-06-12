@@ -242,3 +242,4 @@ Ao desenvolver o projeto FAC 2026, use este modelo como **referência de tom, es
 - Plano de Curso Oficina
 
 **Status:** Projeto aprovado e executado
+[FAC]

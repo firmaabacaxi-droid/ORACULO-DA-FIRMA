@@ -17,6 +17,11 @@ Projetos em andamento físico, pós-produção ou editais em andamento na Firma.
 *   **RNP Ailton Krenak** (Planejamento e pré-produção)
     *   [Briefing](FIRMA-08-RNP-Ailton-Krenak/01-BRIEFING.md)
 
+### Meta-projeto (o próprio sistema)
+
+*   **ORÁCULO — Cérebro** (construção e manutenção do vault/sistema)
+    *   [Briefing do Setup](ORACULO-Cerebro-Setup/01-BRIEFING.md) · síntese em [wiki/projects/ORACULO-Cerebro](../wiki/projects/ORACULO-Cerebro.md)
+
 ---
 
 ## Diretrizes de Uso

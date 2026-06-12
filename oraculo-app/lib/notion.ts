@@ -29,6 +29,11 @@ export const DBS = {
   TAREFAS: process.env.NOTION_DB_TAREFAS || "6c3ccf72-5539-43f6-9fbb-7906142a246d",
   CRM: process.env.NOTION_DB_CRM || "5240a3c2-d0d1-4726-b23b-96463f5cc615",
   PROPOSTAS: process.env.NOTION_DB_PROPOSTAS || "3548a525-91f3-80e6-b542-e2e651ed5dfc",
+  ORCAMENTO: "0652762f-bac3-4a0b-ad3c-2b7223132a2b",
+  FILMAGEM: "2a5f9302-689f-440e-985c-c3b16362a4fe",
+  EDICAO: "7f7422fc-cf76-4196-80de-c60c6a49df55",
+  FINANCEIRO_PROJETO: "a263e225-a5e4-427d-a887-d2e56ba12fb5",
+  GFE: "6b663765-f604-405b-a6eb-d9a5cba008af"
 };
 
 /**
@@ -201,10 +206,20 @@ export async function getActiveProjects(): Promise<any[]> {
     const clientesMap = await getClientesMap();
     const data = await queryNotionDatabase(DBS.PROJECTS, {
       filter: {
-        property: 'Status',
-        select: {
-          does_not_equal: 'Concluído',
-        },
+        and: [
+          {
+            property: 'Status',
+            select: {
+              does_not_equal: 'Concluído',
+            },
+          },
+          {
+            property: 'Status',
+            select: {
+              does_not_equal: 'Cancelado',
+            },
+          },
+        ]
       },
     });
 
@@ -226,6 +241,8 @@ export async function getActiveProjects(): Promise<any[]> {
       const clienteId = clienteRelation.length > 0 ? clienteRelation[0].id : null;
       const clienteData = clienteId ? clientesMap.get(clienteId) : null;
 
+      const drive_folder_url = props['Pasta no Drive']?.type === 'url' ? props['Pasta no Drive'].url || '' : '';
+
       return {
         id: page.id,
         titulo,
@@ -237,6 +254,7 @@ export async function getActiveProjects(): Promise<any[]> {
           id: clienteId,
           nome: clienteData?.nome || '--',
         },
+        drive_folder_url,
       };
     }).filter(Boolean);
   } catch (error) {
@@ -311,6 +329,8 @@ export async function getProjectDetail(id: string): Promise<Project | null> {
     // ID numérico para layout
     const auto_id = props['PRJ-ID']?.type === 'unique_id' ? props['PRJ-ID'].unique_id?.number || 1 : 1;
 
+    const drive_folder_url = props['Pasta no Drive']?.type === 'url' ? props['Pasta no Drive'].url || '' : '';
+
     // Cliente relacionado
     const clienteRelation = props['Cliente']?.type === 'relation' ? props['Cliente'].relation : [];
     let clienteDetails = null;
@@ -362,6 +382,7 @@ export async function getProjectDetail(id: string): Promise<Project | null> {
       auto_id,
       diretor,
       clientes: clienteDetails,
+      drive_folder_url,
     };
   } catch (error) {
     console.error("Erro ao carregar detalhes do projeto:", error);
@@ -551,6 +572,7 @@ export async function getAllTasks(): Promise<Task[]> {
  */
 export async function getProjectTasks(projectId: string) {
   try {
+    const contatosMap = await getContatosMap();
     const data = await queryNotionDatabase(DBS.TAREFAS, {
       filter: {
         property: 'Projeto',
@@ -570,13 +592,17 @@ export async function getProjectTasks(projectId: string) {
       const prioridade = props['Prioridade']?.type === 'select' ? props['Prioridade'].select?.name || 'Média' : 'Média';
       const data_limite = props['Prazo']?.type === 'date' ? props['Prazo'].date?.start || '' : '';
 
+      const respRelation = props['Responsável']?.type === 'relation' ? props['Responsável'].relation : [];
+      const responsavelId = respRelation.length > 0 ? respRelation[0].id : null;
+      const responsavelNome = responsavelId ? contatosMap.get(responsavelId) || 'Membro' : '--';
+
       return {
         id: page.id,
         titulo,
         status,
         prioridade,
         data_limite,
-        responsavel: '',
+        responsavel: responsavelNome,
       };
     }).filter(Boolean);
   } catch (error) {
@@ -1063,3 +1089,598 @@ export async function getContactDetail(id: string): Promise<Contact | null> {
     return null;
   }
 }
+
+/**
+ * Cria um novo projeto no Notion.
+ */
+export async function createProject(data: {
+  titulo: string;
+  clienteId?: string;
+  tipoProjeto: string;
+  dataInicio?: string;
+  dataEntrega?: string;
+  valorContrato?: number;
+  pastaDriveUrl?: string;
+}): Promise<any> {
+  const url = "https://api.notion.com/v1/pages";
+  
+  const properties: any = {
+    "Nome do projeto": {
+      "title": [
+        {
+          "text": {
+            "content": data.titulo
+          }
+        }
+      ]
+    },
+    "Status": {
+      "select": {
+        "name": "Briefing"
+      }
+    },
+    "Etapa atual": {
+      "select": {
+        "name": "Briefing"
+      }
+    },
+    "Tipo de projeto": {
+      "select": {
+        "name": data.tipoProjeto || "Outro"
+      }
+    }
+  };
+
+  if (data.clienteId) {
+    properties["Cliente"] = {
+      "relation": [
+        {
+          "id": data.clienteId
+        }
+      ]
+    };
+  }
+
+  if (data.dataInicio || data.dataEntrega) {
+    properties["Data de entrega"] = {
+      "date": {
+        "start": data.dataEntrega || data.dataInicio
+      }
+    };
+  }
+
+  if (data.valorContrato !== undefined) {
+    properties["Valor contratado"] = {
+      "number": data.valorContrato
+    };
+  }
+
+  if (data.pastaDriveUrl) {
+    properties["Pasta no Drive"] = {
+      "url": data.pastaDriveUrl
+    };
+  }
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      parent: { database_id: DBS.PROJECTS },
+      properties
+    }),
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Erro ao criar projeto no Notion:", errText);
+    throw new Error(`Notion API createProject error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Cria uma nova tarefa vinculada a um projeto no Notion.
+ */
+export async function createTask(data: {
+  projetoId: string;
+  titulo: string;
+  prioridade?: string;
+  prazo?: string;
+  responsavelId?: string;
+}): Promise<any> {
+  const url = "https://api.notion.com/v1/pages";
+
+  const properties: any = {
+    "Tarefa": {
+      "title": [
+        {
+          "text": {
+            "content": data.titulo
+          }
+        }
+      ]
+    },
+    "Projeto": {
+      "relation": [
+        {
+          "id": data.projetoId
+        }
+      ]
+    },
+    "Status": {
+      "select": {
+        "name": "A fazer"
+      }
+    },
+    "Prioridade": {
+      "select": {
+        "name": data.prioridade || "Média"
+      }
+    }
+  };
+
+  if (data.prazo) {
+    properties["Prazo"] = {
+      "date": {
+        "start": data.prazo
+      }
+    };
+  }
+
+  if (data.responsavelId) {
+    properties["Responsável"] = {
+      "relation": [
+        {
+          "id": data.responsavelId
+        }
+      ]
+    };
+  }
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({
+      parent: { database_id: DBS.TAREFAS },
+      properties
+    }),
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Erro ao criar tarefa no Notion:", errText);
+    throw new Error(`Notion API createTask error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Atualiza o status de uma tarefa no Notion.
+ */
+export async function updateTaskStatus(taskId: string, status: string): Promise<any> {
+  const url = `https://api.notion.com/v1/pages/${taskId}`;
+
+  const response = await fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({
+      properties: {
+        "Status": {
+          "select": {
+            "name": status
+          }
+        }
+      }
+    }),
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Erro ao atualizar status da tarefa no Notion:", errText);
+    throw new Error(`Notion API updateTaskStatus error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Atualiza o status e etapa de um projeto no Notion.
+ */
+export async function updateProjectStatus(projectId: string, status: string, etapa?: string): Promise<any> {
+  const url = `https://api.notion.com/v1/pages/${projectId}`;
+
+  const properties: any = {
+    "Status": {
+      "select": {
+        "name": status
+      }
+    }
+  };
+
+  if (etapa) {
+    properties["Etapa atual"] = {
+      "select": {
+        "name": etapa
+      }
+    };
+  }
+
+  const response = await fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({ properties }),
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Erro ao atualizar status do projeto no Notion:", errText);
+    throw new Error(`Notion API updateProjectStatus error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Atualiza o link do Google Drive do projeto.
+ */
+export async function updateProjectDriveFolder(projectId: string, folderUrl: string): Promise<any> {
+  const url = `https://api.notion.com/v1/pages/${projectId}`;
+
+  const response = await fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({
+      properties: {
+        "Pasta no Drive": {
+          "url": folderUrl
+        }
+      }
+    }),
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Erro ao atualizar pasta do Drive do projeto no Notion:", errText);
+    throw new Error(`Notion API updateProjectDriveFolder error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Atualiza as Observações (Briefing) de um projeto no Notion.
+ */
+export async function updateProjectObservations(projectId: string, observations: string): Promise<any> {
+  const url = `https://api.notion.com/v1/pages/${projectId}`;
+
+  const response = await fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify({
+      properties: {
+        "Observações": {
+          "rich_text": [
+            {
+              "text": {
+                "content": observations
+              }
+            }
+          ]
+        }
+      }
+    }),
+    cache: "no-store"
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    console.error("Erro ao atualizar Observações do projeto no Notion:", errText);
+    throw new Error(`Notion API updateProjectObservations error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Atualiza o Valor Contratado de um projeto no Notion.
+ */
+export async function updateProjectValue(projectId: string, value: number): Promise<any> {
+  const url = `https://api.notion.com/v1/pages/${projectId}`;
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({
+      properties: {
+        'Valor contratado': {
+          number: value,
+        },
+      },
+    }),
+    cache: 'no-store',
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`Erro ao atualizar valor do projeto no Notion (${projectId}):`, errorText);
+    throw new Error(`Notion API updateProjectValue error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Atualiza o Status (etapa) de um Lead do CRM no Notion.
+ */
+export async function updateLeadStatus(leadId: string, status: string): Promise<any> {
+  const url = `https://api.notion.com/v1/pages/${leadId}`;
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({
+      properties: {
+        'Status': {
+          select: { name: status }
+        },
+      },
+    }),
+    cache: 'no-store',
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`Erro ao atualizar status do lead no Notion (${leadId}):`, errorText);
+    throw new Error(`Notion API updateLeadStatus error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Atualiza a prioridade de uma tarefa no Notion.
+ */
+export async function updateTaskPriority(taskId: string, priority: string): Promise<any> {
+  const url = `https://api.notion.com/v1/pages/${taskId}`;
+  const response = await fetch(url, {
+    method: 'PATCH',
+    headers,
+    body: JSON.stringify({
+      properties: {
+        'Prioridade': {
+          select: { name: priority }
+        },
+      },
+    }),
+    cache: 'no-store',
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    console.error(`Erro ao atualizar prioridade da tarefa no Notion (${taskId}):`, errorText);
+    throw new Error(`Notion API updateTaskPriority error: ${response.status}`);
+  }
+
+  return response.json();
+}
+
+/**
+ * Obtém os itens da tabela ORÇAMENTO vinculados a um projeto.
+ */
+export async function getProjectBudgetItems(projectId: string): Promise<any[]> {
+  try {
+    const data = await queryNotionDatabase(DBS.ORCAMENTO, {
+      filter: {
+        property: 'Projeto',
+        relation: {
+          contains: projectId,
+        },
+      },
+    });
+
+    return data.results.map((page: any) => {
+      const props = page.properties;
+      if (!props) return null;
+
+      const item = props['Item']?.type === 'title' && props['Item'].title.length > 0 
+        ? props['Item'].title[0].plain_text 
+        : 'Sem item';
+      
+      const categoria = props['Categoria']?.type === 'select' ? props['Categoria'].select?.name || '' : '';
+      const tipo = props['Tipo']?.type === 'select' ? props['Tipo'].select?.name || 'Custo' : 'Custo';
+      const valor_unitario = props['Valor unitário']?.type === 'number' ? props['Valor unitário'].number || 0 : 0;
+      const quantidade = props['Quantidade']?.type === 'number' ? props['Quantidade'].number || 1 : 1;
+      const total = props['Total']?.type === 'number' ? props['Total'].number || (valor_unitario * quantidade) : (valor_unitario * quantidade);
+      const status = props['Status']?.type === 'select' ? props['Status'].select?.name || 'Estimado' : 'Estimado';
+      const versao = props['Versão']?.type === 'select' ? props['Versão'].select?.name || 'Original' : 'Original';
+      const fase = props['Fase']?.type === 'select' ? props['Fase'].select?.name || 'Proposta' : 'Proposta';
+
+      let valor_real = 0;
+      const rollupReal = props['Valor Real'];
+      if (rollupReal && rollupReal.type === 'rollup' && rollupReal.rollup.type === 'number') {
+        valor_real = rollupReal.rollup.number || 0;
+      }
+
+      return {
+        id: page.id,
+        item,
+        categoria,
+        tipo,
+        valor_unitario,
+        quantidade,
+        total,
+        status,
+        versao,
+        fase,
+        valor_real,
+        variancia: total - valor_real
+      };
+    }).filter(Boolean);
+  } catch (error) {
+    console.error("Erro ao carregar itens de orçamento:", error);
+    return [];
+  }
+}
+
+/**
+ * Obtém os itens da tabela FILMAGEM vinculados a um projeto.
+ */
+export async function getProjectFilmagens(projectId: string): Promise<any[]> {
+  try {
+    const data = await queryNotionDatabase(DBS.FILMAGEM, {
+      filter: {
+        property: 'Projeto',
+        relation: {
+          contains: projectId,
+        },
+      },
+    });
+
+    return data.results.map((page: any) => {
+      const props = page.properties;
+      if (!props) return null;
+
+      const nome = props['Nome da filmagem']?.type === 'title' && props['Nome da filmagem'].title.length > 0 
+        ? props['Nome da filmagem'].title[0].plain_text 
+        : 'Sem título';
+      
+      const local = props['Local']?.type === 'rich_text' && props['Local'].rich_text.length > 0 
+        ? props['Local'].rich_text[0].plain_text 
+        : '';
+      
+      const data_filmagem = props['Data']?.type === 'date' ? props['Data'].date?.start || '' : '';
+      const equipamentos = props['Equipamentos']?.type === 'rich_text' && props['Equipamentos'].rich_text.length > 0 
+        ? props['Equipamentos'].rich_text[0].plain_text 
+        : '';
+      
+      const status = props['Status']?.type === 'select' ? props['Status'].select?.name || 'Pré-filmagem' : 'Pré-filmagem';
+      const roteiro = props['Roteiro']?.type === 'url' ? props['Roteiro'].url || '' : '';
+      const ordem_dia = props['Ordem do dia']?.type === 'url' ? props['Ordem do dia'].url || '' : '';
+
+      return {
+        id: page.id,
+        nome,
+        local,
+        data: data_filmagem,
+        equipamentos,
+        status,
+        roteiro,
+        ordem_dia
+      };
+    }).filter(Boolean);
+  } catch (error) {
+    console.error("Erro ao carregar filmagens do projeto:", error);
+    return [];
+  }
+}
+
+/**
+ * Obtém os itens da tabela EDIÇÃO vinculados a um projeto.
+ */
+export async function getProjectEdicoes(projectId: string): Promise<any[]> {
+  try {
+    const data = await queryNotionDatabase(DBS.EDICAO, {
+      filter: {
+        property: 'Projeto',
+        relation: {
+          contains: projectId,
+        },
+      },
+    });
+
+    return data.results.map((page: any) => {
+      const props = page.properties;
+      if (!props) return null;
+
+      const nome = props['Nome da edição']?.type === 'title' && props['Nome da edição'].title.length > 0 
+        ? props['Nome da edição'].title[0].plain_text 
+        : 'Sem título';
+      
+      const etapa = props['Etapa de edição']?.type === 'select' ? props['Etapa de edição'].select?.name || '' : '';
+      const status = props['Status']?.type === 'select' ? props['Status'].select?.name || 'Em andamento' : 'Em andamento';
+      const aprova_status = props['Status de aprovação']?.type === 'select' ? props['Status de aprovação'].select?.name || 'Aguardando envio' : 'Aguardando envio';
+      const editor = props['Editor']?.type === 'rich_text' && props['Editor'].rich_text.length > 0 
+        ? props['Editor'].rich_text[0].plain_text 
+        : '';
+      
+      const software = props['Software']?.type === 'select' ? props['Software'].select?.name || '' : '';
+      const pasta_edicao = props['Pasta de edição']?.type === 'url' ? props['Pasta de edição'].url || '' : '';
+      const link_entrega = props['Link de entrega']?.type === 'url' ? props['Link de entrega'].url || '' : '';
+      const tipo_entrega = props['Tipo de entrega']?.type === 'select' ? props['Tipo de entrega'].select?.name || '' : '';
+      const versao = props['Versão (entrega)']?.type === 'number' ? props['Versão (entrega)'].number || 1 : 1;
+      const data_envio = props['Data de envio']?.type === 'date' ? props['Data de envio'].date?.start || '' : '';
+
+      return {
+        id: page.id,
+        nome,
+        etapa,
+        status,
+        aprova_status,
+        editor,
+        software,
+        pasta_edicao,
+        link_entrega,
+        tipo_entrega,
+        versao,
+        data_envio
+      };
+    }).filter(Boolean);
+  } catch (error) {
+    console.error("Erro ao carregar edições do projeto:", error);
+    return [];
+  }
+}
+
+/**
+ * Obtém as transações de FINANCEIRO_PROJETO vinculadas a um projeto.
+ */
+export async function getProjectTransactions(projectId: string): Promise<any[]> {
+  try {
+    const data = await queryNotionDatabase(DBS.FINANCEIRO_PROJETO, {
+      filter: {
+        property: 'Projeto',
+        relation: {
+          contains: projectId,
+        },
+      },
+    });
+
+    return data.results.map((page: any) => {
+      const props = page.properties;
+      if (!props) return null;
+
+      const descricao = props['Descrição']?.type === 'title' && props['Descrição'].title.length > 0 
+        ? props['Descrição'].title[0].plain_text 
+        : 'Sem descrição';
+      
+      const tipo = props['Tipo']?.type === 'select' ? props['Tipo'].select?.name || 'Despesa' : 'Despesa';
+      const categoria = props['Categoria']?.type === 'select' ? props['Categoria'].select?.name || '' : '';
+      const valor = props['Valor']?.type === 'number' ? props['Valor'].number || 0 : 0;
+      const data_real = props['Data real']?.type === 'date' ? props['Data real'].date?.start || '' : '';
+      const status = props['Status']?.type === 'select' ? props['Status'].select?.name || 'Pendente' : 'Pendente';
+      const forma_pagamento = props['Forma de pagamento']?.type === 'select' ? props['Forma de pagamento'].select?.name || '' : '';
+      const comprovante = props['Comprovante']?.type === 'url' ? props['Comprovante'].url || '' : '';
+
+      return {
+        id: page.id,
+        descricao,
+        tipo,
+        categoria,
+        valor,
+        data: data_real,
+        status,
+        forma_pagamento,
+        comprovante
+      };
+    }).filter(Boolean);
+  } catch (error) {
+    console.error("Erro ao carregar transações financeiras:", error);
+    return [];
+  }
+}
+

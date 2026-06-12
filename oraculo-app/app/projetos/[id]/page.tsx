@@ -1,4 +1,13 @@
-import { getProjectDetail, getProjectTasks, getProjectProposal, getNotionPageBody } from '@/lib/notion';
+import { 
+  getProjectDetail, 
+  getProjectTasks, 
+  getProjectProposal, 
+  getNotionPageBody,
+  getProjectBudgetItems,
+  getProjectFilmagens,
+  getProjectEdicoes,
+  getProjectTransactions
+} from '@/lib/notion';
 import ClientProjectDetails from './ClientProjectDetails';
 
 export const dynamic = 'force-dynamic';
@@ -16,22 +25,26 @@ export default async function ProjectDetailPage({ params }: { params: Promise<{ 
   }
 
   // Fetch related records from active Notion databases in parallel
-  const [tarefas, orcamento, corpoNotion] = await Promise.all([
+  const [tarefas, orcamento, corpoNotion, orcamentoItens, filmagens, edicoes, transacoes] = await Promise.all([
     getProjectTasks(id),
     getProjectProposal(id),
     getNotionPageBody(id),
+    getProjectBudgetItems(id),
+    getProjectFilmagens(id),
+    getProjectEdicoes(id),
+    getProjectTransactions(id)
   ]);
 
-  // Clean data structure representing active Phase 1 records
   return (
     <ClientProjectDetails
       project={project}
       tarefas={tarefas}
       orcamento={orcamento}
       corpoNotion={corpoNotion}
-      financeiro={[]} // Removido por ser da Fase 2/3 (para visualização limpa)
-      anotacoes={[]} // Removido por ser da Fase 2/3 (para visualização limpa)
-      equipamentos={[]} // Removido por ser da Fase 2/3 (para visualização limpa)
+      orcamentoItens={orcamentoItens}
+      filmagens={filmagens}
+      edicoes={edicoes}
+      transacoes={transacoes}
     />
   );
 }

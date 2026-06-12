@@ -1,11 +1,70 @@
 # STATUS DO ORÁCULO — Handoff de Sessão
-## Firma Abacaxi · atualizado 11 Jun 2026 · Sessão 24
+## Firma Abacaxi · atualizado 12 Jun 2026 · Sessão 24
 
 ---
 
 ## ESTADO ATUAL DO SISTEMA
 
 > Leia este arquivo no início de toda sessão. Captura onde paramos, o que funciona e o que vem a seguir.
+
+---
+
+## SESSÃO 24 — Saúde do Cérebro + Integração de 3 Sistemas (12 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+**P1 — Linkização Projetos ↔ Clientes (10 min)**
+- 4 projetos linkados a clientes (bidirecionais)
+- 3 novos perfis de cliente criados (RNP, Simbiose, Maranhã)
+- Health Score: 28 → 50 (+78%)
+
+**P2 — Sínteses Wiki + Templates (15 min)**
+- 3 sínteses wiki novas (Maranhã, RNP, Simbiose)
+- 4 briefs com links para sínteses + templates
+- wiki/index.md atualizado (7 projetos com sínteses)
+- Health Score: 50 → ~70 (+40%)
+
+**P3 — Documentação Institucional + SOPs (45 min)**
+- 5 SOPs operacionais criados (1 por departamento):
+  - 02.1: Emissão de Nota Fiscal (8 seções, checklist)
+  - 02.2: Cessão de Direitos de Imagem (9 seções, protocolo)
+  - 02.3: Checklist de Equipamentos (12 seções, pré/pós)
+  - 02.4: Nomenclatura de Projetos (8 seções, estrutura Premiere/DaVinci)
+  - 02.5: Prospecção B2B (11 seções, funil completo)
+- 2 perfis de sócios criados (Filipe Duque, Jaya)
+- Health Score: ~70 → 85 (+21%)
+
+**Integração de 3 Sistemas (60 min)**
+- Bloco 1: REGRAS-INTEGRACAO.md documentado (20 seções)
+- Bloco 2: Projetos cegos incorporados (SOBRE2026 R$58k, AGO, FIOCRUZ)
+- Bloco 3: Links genéricos do Notion corrigidos (Maranhã, RNP, Simbiose)
+- Bloco 4: FAC-2026 linkado ao Google Drive
+- Bloco 5: wiki/index.md e hot.md atualizados (10 sínteses, 0 🟡 para projetos existentes)
+
+**Arquivos criados:**
+- REGRAS-INTEGRACAO.md (lei clara dos 3 sistemas)
+- 6 briefings novos/atualizados
+- 3 sínteses wiki (SOBRE2026, AGO, FIOCRUZ)
+- 5 SOPs
+- 2 perfis de sócios
+- 4 documentos de sessão (P1/P2/P3/Resumo)
+
+### 📊 Métricas finais
+
+| Métrica | Antes | Depois | Delta |
+|---------|-------|--------|-------|
+| Health Score | 28 | 85 | +203% |
+| Projetos no vault | 7 | 10 | +3 |
+| Sínteses wiki | 7 | 10 | +3 |
+| SOPs documentados | 0 | 5 | +5 |
+| Regras documentadas | 0 | 1 | +1 |
+
+### 🔮 Próximas etapas
+
+1. Filipe preencher detalhes de AGO e FIOCRUZ (valor, escopo, status)
+2. Manter notion_url + drive_url atualizados em novos projetos
+3. Cada novo projeto usa REGRAS-INTEGRACAO.md como referência
+4. Não popular 00-EMPRESA antecipadamente (apenas quando precisar)
 
 ---
 

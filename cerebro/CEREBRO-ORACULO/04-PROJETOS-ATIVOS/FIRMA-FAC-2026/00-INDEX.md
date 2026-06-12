@@ -1,5 +1,8 @@
 # FAC 2026 — Edital FAC I/2026 — Firma Abacaxi
 
+- **notion_url:** https://app.notion.com/p/PRJ-34-FAC-2026
+- **drive_url:** https://drive.google.com/open?id=19nWNoAsqDaUCCTVhU1weY810JEjWjpha
+
 **Status:** Em Preparação | **Proponente:** PF | **Prazo:** 5 jun 2026 (23h59)
 
 ---
@@ -30,9 +33,26 @@
 | **02-Formulario.md**   | Formulário de inscrição (JotForm) — campo a campo              | ✅ No NotebookLM |
 | **04-Modelos.md**      | Projetos aprovados como referência (Videomaker FAC 2021)      | ✅ No NotebookLM |
 | **05-Checklist.md**    | 60+ documentos obrigatórios, cronograma, dicas               | ✅ No NotebookLM |
+| **[03-Roteiro-Memorial-v4.md](03-Roteiro-Memorial-v4.md)** | 🎬 Roteiro-memorial completo (v4) — documento criativo central | ✅ Final |
 | **SESSAO-3JUN-BLOCO-B-ORCAMENTO.md** | Aprendizados, workflow, números finais (Bloco B) | ✅ 3 jun 2026 |
 | **SESSAO-3JUN-BLOCO-C-CRONOGRAMA.md** | Estrutura 6 meses, 26 atividades, coerência com orçamento (Bloco C) | ✅ 3 jun 2026 |
 | **MEMORIA-SESSAO-18.md** | Memória da sessão 18 (preparação inicial) | ✅ Referência |
+
+### Planejamento e acompanhamento
+
+- [PLANO-DE-EXECUCAO.md](PLANO-DE-EXECUCAO.md) — Plano de execução artística
+- [CHECKLIST-ATUALIZADO-5JUN.md](CHECKLIST-ATUALIZADO-5JUN.md) — Checklist prático atualizado na reta final (5 jun)
+- [SUMARIO-PREPARACAO-COMPLETA.md](SUMARIO-PREPARACAO-COMPLETA.md) — Sumário consolidado da preparação
+- [RESUMO-SESSAO-18.md](RESUMO-SESSAO-18.md) — Resumo da sessão 18
+- [NOTEBOOKLM-CONFIG.md](NOTEBOOKLM-CONFIG.md) — Configuração do NotebookLM do projeto
+
+### Projetos FAC antigos (referência de escrita aprovada)
+
+- [PROJETOS-ANTIGOS-5-ATOS-ESCADA.md](PROJETOS-ANTIGOS-5-ATOS-ESCADA.md) · [PROJETOS-ANTIGOS-CINEMA-DOCUMENTAL.md](PROJETOS-ANTIGOS-CINEMA-DOCUMENTAL.md) · [PROJETOS-ANTIGOS-CIRCOLAR.md](PROJETOS-ANTIGOS-CIRCOLAR.md) · [PROJETOS-ANTIGOS-FILMMAKER.md](PROJETOS-ANTIGOS-FILMMAKER.md)
+
+### Referências visuais
+
+- [REFERENCIAS-VISUAIS/ANALISE_REFERENCIAS.md](REFERENCIAS-VISUAIS/ANALISE_REFERENCIAS.md) · [README](REFERENCIAS-VISUAIS/README.md)
 
 ---
 
@@ -104,10 +124,10 @@ Se optar por cota de cotas, precisa cumprir requisitos de autodeclaração (art.
 
 ## 📖 Recursos Internos
 
-- **Template-Projeto-Audiovisual.md** — template base (cerebro/01-FIRMA/TEMPLATES/)
-- **DNA-Firma.md** — identidade institucional (cerebro/01-FIRMA/)
-- **CONTEXTO_FIRMA.md** — DNA expandido (docs/)
-- **Projetos FAC antigos** — `ORACULO - FIRMA ABACAXI/PROJETOS - EDITAIS/PROJETOS FAC ANTIGOS/`
+- [Template-Projeto-Audiovisual](../../01-OPERACAO-ORACULO/TEMPLATES/Template-Projeto-Audiovisual.md) — template base
+- [DNA-Firma](../../01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/DNA-Firma.md) — identidade institucional (resumo)
+- [CONTEXTO_FIRMA](../../01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md) — DNA expandido (completo)
+- **Projetos FAC antigos** — ver seção "Projetos FAC antigos" na Documentação acima
 
 ---
 

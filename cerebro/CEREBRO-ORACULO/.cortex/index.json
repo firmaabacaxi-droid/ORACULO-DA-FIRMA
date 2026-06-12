@@ -1,0 +1,1290 @@
+{
+  "hashes": {
+    "wiki/projects/ORACULO-Cerebro.md": "d8ab8fa1436b212ccdafa26390d94c7c02a31c3c93425fcbf82453b920d98901",
+    "wiki/projects/Visite-mon-Agence.md": "a67c0cbea089d1dbc19ee2834c167fda9c0b47e8080966eea412a98f8b13e42a",
+    "wiki/overview.md": "d9e1ac27f1904bfe33890d1ae7868f5ee89cac895be8cd1c12942f7d97e7cd8a",
+    "WIKI.md": "2b8c19ae031d7257a6578fe98954b628194699a99cc9cd59f200d891fdd189d5",
+    "HOME.md": "8fca73035b006e9869bd214747588645d9817a8c1792e6eee2b499d20fb17780",
+    "wiki/projects/Brasil-Participativo.md": "ef95478b08311fddd62bf2a2b7717ad07bb3200cf6f5da0c4ce72b13d61ea59a",
+    "wiki/projects/FAC-2026.md": "ce040e6b655ab1406d7c42a63ca90f078b38226086bbabde1133ba6cb0012cb0",
+    "wiki/log.md": "9c827e8f3f32f26c0fdcb87c47bc16242d0eb55cac5e3d03be1eb78ee63c8376",
+    "wiki/index.md": "1802a89d38ff74d78409864ae4fc75333f914bc68ab9229ca3956112990ef135",
+    "CLAUDE.md": "9b724af32f29ffd53d7dae3844abfc4212fdb4b389fbe576b3ace9cf15ee01d2",
+    "wiki/hot.md": "0885b5f0b2fbc6f536c0d645cc00afdfc7b12aa0c822b7eba106d5edd76b1f3a",
+    "wiki/areas/Captacao.md": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",
+    "skills/wiki-retrieve/SKILL.md": "56378e239d37d2ee6ac1ba5d1bfec296827b0e7da19c25a2ea9fa13df1ce9384",
+    "skills/wiki-lint/SKILL.md": "3b6cb1d2be85a64f92415eaada18ecb213f9fc9d54f42e1fb4629b6e7fdcab01",
+    "skills/wiki-query/SKILL.md": "d9fc16589eab004e55455ec9d4161dacb5ed0d979dc9f3634797b7904c9942e0",
+    "skills/save/SKILL.md": "be2e00222783f6c584c86bcf817082a4950675417c78961167e2e8d02246103a",
+    "skills/wiki-ingest/SKILL.md": "7db6459269eebbfb10688fb3efd4dc9ea741af4d2ef46d40a6c0fe2e4a17c613",
+    "skills/wiki-mode/templates/zettel/atomic-template.md": "5518e6a755f2d608ac7c3a8bc6ca1cb8978eda8af786dc16a9823edccd11b0a3",
+    "skills/wiki-mode/templates/lyt/moc-template.md": "4057201cffda4bbf41e31c7a541ff7685804092cbd73d17c8bf44a90cc691c71",
+    "skills/wiki-mode/templates/lyt/atomic-template.md": "9e32b06b6b9275b535b2a3027ed48fe4f7730fe2bf353c051d3ae0fdf8d088da",
+    "skills/wiki-mode/templates/para/area-template.md": "7818e818695f2439c86e78a7decda26a9b1772698ceab514e73163cc4cd859f5",
+    "skills/wiki-mode/templates/para/project-template.md": "b9935b658361765f457479838ea59d57f1b380f50cc1fa2a57ac1782b908d432",
+    "skills/wiki-mode/templates/para/resource-template.md": "fbe08ea1cb9e80d3dd6d6847e58e57f9f4061623a16a3656573c966806da76c8",
+    "skills/wiki-mode/SKILL.md": "7a78528a240d0272f9bef48469442fac4c7c6598fa34f70f9547904681cdd2fc",
+    "skills/wiki-fold/SKILL.md": "94505883e0adce3776f6260ab8973f963ee002df5b0b3f4b744b00b810a4482f",
+    "skills/wiki-fold/references/fold-template.md": "d062dc3967286da5621d58bc503eb23449937b660ddebfc81307c53f6b34fd75",
+    "skills/think/SKILL.md": "eec7f849420beeab258c081531a65a2ee36a116ea824f14b5375e384a77e2d0c",
+    "skills/wiki/references/rest-api.md": "e6357e24e5fcf76884f817d9c48d29d8668e72c6fb984f7ccf485831993b3a73",
+    "skills/wiki/references/modes.md": "6f3be8975b3dd88ee1282743ae6cf404f1d89b5348e30cb13bbbf4f0bafb8817",
+    "skills/wiki/references/plugins.md": "1f0086f18ace99e6fafc28dfda1fe432f3b7db7f073fe5dca9a2b63e6f0953ca",
+    "skills/wiki/references/mcp-setup.md": "6754d2fda5de3681a047140bf674ae321d1c5d22673a19f7cc361e757aec72d7",
+    "skills/wiki-cli/SKILL.md": "204d37ed5b642d14e2177dcc76358dab52ba32aca8943da8113f34844cc888b2",
+    "skills/wiki/references/git-setup.md": "0fcb25dac3b418445633f573894af5702e5167bd677e5541c9bdaf53bafc0ac5",
+    "skills/wiki/references/frontmatter.md": "1a7ce01cb1430aab66a94d3b179bd6861ea030b693b7ec35e314dfe1f4b7e180",
+    "skills/wiki/references/css-snippets.md": "261cee15fdaac3722de844093f8f077e274a1301bad361632d5b20c76297b40b",
+    "skills/wiki/SKILL.md": "72bcd6045bba63762b784819e4fadcf4566405ffd3dc4ebe1ffcf437a5ad380c",
+    "skills/obsidian-bases/SKILL.md": "0daed81783a550bf1128d5e27fea00d0b1b6148ab343513ff087a7b1c25e9828",
+    "skills/defuddle/SKILL.md": "e476045c7a178b1017c66fcc64d6df54882de5ecaf4888dba8de1c984ac3c7cf",
+    "skills/obsidian-markdown/SKILL.md": "5e5352d74d7afe8f1c393041d82d0860f8c715c0a0d071554069b01df22d1485",
+    "skills/canvas/SKILL.md": "64ebc467200603060bb9d5137e6f6d1858390ef02176d58d12c8d628647d0fc0",
+    "skills/canvas/references/canvas-spec.md": "49498a13f76d33810ee39e54cf36589ed20f649ab8408032a589db8894d5df96",
+    "skills/autoresearch/SKILL.md": "7a11f8629ea1750424797e8ddaa7f6bb4fe3287b0bb3f8070860e112f4779b5e",
+    "skills/autoresearch/references/program.md": "c90077b0707419fa39d39be717230684c4e280c07ae48fd45106844118fae568",
+    "agents/wiki-ingest.md": "659b3a86707164d372d79bd6b843c64d2de25d6eb3313bfc3bdfd848fe8d6570",
+    "agents/wiki-lint.md": "49d3ff9f856d1d0492bb8c396b136e70c9f48b3bfb7e1690fbfcf2339b2aedfb",
+    "agents/verifier.md": "527413e6cab65580dbb54182154a6e62e557cb04234c2ccbeddf7749a3a96f14",
+    "06-ESTUDOS-E-REFERENCIAS/_INDEX.md": "52e35569feda1c5c3b367383bddf07bbb2aa212612246578508d1de883d09c52",
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Filmes-Referencias.md": "2cfcfd0c63c23a79118b5c2d6c4ade3a3eded5476f3c3ba592e61305334ad394",
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Visuais-Favoritas.md": "b1ebb9798fd97267cba74976fc4ac6246dbbcc1935ea9f7d5fbc8e362439a5a0",
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Assinatura-Firma.md": "1a5d0111773cb9af63746abb51defeea88803cf121ec889d3cd2f1871ddcaeb6",
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Moodboards.md": "9cc2fa46d69cb7c9d0197a3805fdef6dd4e6878d8b95e3b8982f4d21ead50f3e",
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Esteticas-Por-Nicho.md": "012a49a24081d1709e6d5b0d6f0d4f45bd205d4c6be161ba678958cbe683ec91",
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Diretores-Cinematografos.md": "752f09c4baef3ea088f47cf656d1dcb208825f8d86171b64e6f4cefe7af7de99",
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/05-email-marketing.md": "054fa3026231ccc51b7487cce61c3a8d7f170a99cfc4d4893081927b3ceea709",
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/_INDEX.md": "44f71863e5a041f1b1d7fa82147fa149a763974e84b8796d837cd26ed2bf5c91",
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/06-vendas-conversao.md": "bb1cd1896de00626a6daf0904a3d9198bd49ee571bcb448b1545097ba231a9fa",
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/04-copywriting.md": "62cd1efb411a25b56de6fdf4e452856c5673e7bab72868db13257a73c1194e7d",
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/03-conteudo-organico.md": "dd3d2f887e3a4fb5bb60ccf0198adb8f4bd46059d837e5a44279730f1445986b",
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/02-trafego-pago.md": "73d8cdcf6bd2c594e15498eebb302e199612d2d21f972005030eae5763449e0f",
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/01-fundamentos.md": "8af3bfe43d9d2370d9c33f72a622fb7d762e749778554fddf39fec67cf87a099",
+    "07-LOGS-DE-SESSAO/2026-06-11-Consolidacao-Monorepo-e-Fluxo-Reunioes.md": "9540f502d15ffd56fb2fe3c347f9664e64824536897c6ebf4ce42c4c236bd999",
+    "07-LOGS-DE-SESSAO/_INDEX.md": "1ac033deff5dc33a8646b332ec2edf2caf8564c16de0f349167d3454b0965c1c",
+    "07-LOGS-DE-SESSAO/2026-06-11-Sessao-23-Integracao-Agency-Agents.md": "9ece7915f6fda8a20d6b34bf366d83cd1cd27599ecbdc8a5debfba428fef3360",
+    "07-LOGS-DE-SESSAO/2026-06-04-Sessao-19-Painel-Visual-FAC.md": "0d26010fe4bc8f67abb97755a82dc9e3751e6bd8e1274b4f9f5c5f1d899254b3",
+    "07-LOGS-DE-SESSAO/2026-06-11-Sessao-24-Consolidacao-Proposta-v7-Expansao-Oraculo-Sync.md": "d0cb9c501fe2e2f058ff1b35144d6d23e2e23cc6482fe51dde11654cee1d9dc2",
+    "07-LOGS-DE-SESSAO/2026-06-07-Sessao-20-Cerebro-claude-obsidian.md": "d0ccc84e8990dbc190b04d6e64b019f97b58603fd33d77b07cfa1cbf218215e5",
+    "07-LOGS-DE-SESSAO/2026-05-27-Auditoria-Consistencia-Sessao-9.md": "4f3c6b025100f8fc6ee23e631ab4bd04154d2a2b8300b95564f49bead9b7da9b",
+    "07-LOGS-DE-SESSAO/2026-05-25-Revisao-Arquitetura-Oraculo-Sessao8.md": "a08f730141baeb50fe602831881f765acd0677555256da64c36edcbea49848bc",
+    "07-LOGS-DE-SESSAO/2026-06-01-Sessao-18-FAC2026-NotebookLM.md": "19c84ab31decc276a3ffe71c863a428a6959432ec2d9c0316272dba1fc691d2a",
+    "07-LOGS-DE-SESSAO/2026-06-01-Sessao-17-NotionV3-Dashboard.md": "50189cf4be5eb35d12f451a075d0e93a20518bd9ebdd2bfc7dedf59047301458",
+    "07-LOGS-DE-SESSAO/2026-05-27-SESSAO-13-Bidimensionalidades.md": "aa45b37c9930207332e5fa292c70462ef6c5d1488454dacc6f0af54511fa3a07",
+    "07-LOGS-DE-SESSAO/2026-05-27-Migracao-Notion-Beta.md": "4593df371f9546e8109dc505e8abb1267a3fedcad9f5d4c5854e88878089db94",
+    "07-LOGS-DE-SESSAO/2026-05-27-Finalizacao-Sessao-15.md": "1acfd0986b90438f5b5815acf5bf6de929a967c0899665bf7edf691da5dd3d0c",
+    "07-LOGS-DE-SESSAO/2026-05-21-Expansao-MCPs-Arsenal.md": "0954c6249a9b23ac84063b6f6a50001c1f024a0883651dfc7cb9f52e56908d0c",
+    "07-LOGS-DE-SESSAO/2026-05-21-Setup-MCPs.md": "a8f38b3012c0fc02a64c027482c5e80b7e3c7628bbbaccb8950d4063bf9cdabe",
+    "07-LOGS-DE-SESSAO/2026-05-25-Templates-VideoDesk-Sessao8.md": "def53dc8e5cdf34374585627244d41669e45ea8a844ab3e63a7726e21b3fb055",
+    "07-LOGS-DE-SESSAO/2026-05-25-Revisao-Documentacao-Sessao6.md": "bac322c876c68d69dd9748afcde6d3f7e5fd79eee098313ee796c0f7d7b5af91",
+    "07-LOGS-DE-SESSAO/2026-05-25-Kit-Documentos-Producao-Completo.md": "ec2a1a0a734c13f539386d4717d656edf8348c56aab714c286e864080e195f9f",
+    "07-LOGS-DE-SESSAO/2026-05-22-Base-Marketing-Digital.md": "c8d5bfff36c27789556c24aa3c2887a4fcc800a243bdf79841b1c9bf5525c224",
+    "07-LOGS-DE-SESSAO/2026-05-22-Proposta-Narrativa-Escopo.md": "5f910415a49441def9986c890aafaff0bbbf2fef7a87df2999cb3c5f5515a805",
+    "05-ARQUIVO-HISTORICO/_INDEX.md": "34fde9142516122825b65bc1d8ceace62a817a2fd135363a438fdacd94bb3d9f",
+    "04-PROJETOS-ATIVOS/_INDEX.md": "6698925e361271b99ef1b50e6ea1698b8a62a23dd9e7b457419fc7e415f0acbd",
+    "07-LOGS-DE-SESSAO/2026-05-25-Reorganizacao-Skills-Sessao7.md": "31e13a880197552b3c6717342aba4ca96db0ea30fe9b0626df071d02411733ba",
+    "04-PROJETOS-ATIVOS/ORACULO-Cerebro-Setup/01-BRIEFING.md": "37e8da8d5f1dd47adb191c4feef5ca05bad31011919b7f9b2c1d4ed763858928",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/SUMARIO-PREPARACAO-COMPLETA.md": "42b7979b92efa5c49f118e259c924d7249c243f14f708d666306e924beae4b92",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-CINEMA-DOCUMENTAL.md": "dc4de8e5c1795b011925ab209c1d9ab08798fd5e4f293f3bdddacdf1492296fb",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/SESSAO-3JUN-BLOCO-B-ORCAMENTO.md": "dc55a3441f88df4a2e267db41cecc105598bfe124801a7a0906c6e8ec67d8e86",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-FILMMAKER.md": "b9c0bf4a830c393e3478964f681328e4d8aa7f2e1b1ebf8370b0a6820f38e3ed",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/SESSAO-3JUN-BLOCO-C-CRONOGRAMA.md": "b4e5c8024879ee1a5ef5e09c6b596b8c56b713315e254265d0e5a43e12046368",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/RESUMO-SESSAO-18.md": "91fe31dfbb8f4e7e502ddd75985c83bda47fa0a35036264127ce2cda586bdcad",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/REFERENCIAS-VISUAIS/ANALISE_REFERENCIAS.md": "22f21e57db6cdb0531b2d85bbfb9d29ffac9100993fd5d0e924b0d57e7bc104c",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-CIRCOLAR.md": "2e8d45ec17cc219d6c3afa5c63dabe9dde2f5e8bdf2bfd9464ac7cc6cdd7ba27",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/REFERENCIAS-VISUAIS/README.md": "48376761871f72191d2bf8535738d685e4fe41797ed45f6b34eb67531c2dd986",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-5-ATOS-ESCADA.md": "b9197d60396e161aa50abd1bc9cd66a65ad7e77502f3eccbee8c2e36effbe93c",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PLANO-DE-EXECUCAO.md": "d2fe4175d621b88f2c3bfb7bb4684dee00406a6d961f8845ccb6d9616f5b29e2",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/NOTEBOOKLM-CONFIG.md": "c01c6c12b592c846be06592c4e528199d828d18f56b14db649fc023f6d11cf4d",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/CHECKLIST-ATUALIZADO-5JUN.md": "09c8137aeedde08d133bd8af66c08e1ab30d28fd057b091cfaf800f5e18d6f77",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/05-Checklist.md": "ea44d200ab41ec4244701bb589aefaa387c79ee8ad8abced2a9c5efbc04dade8",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/MEMORIA-SESSAO-18.md": "6755773754acecfe11b1997fa8350e209a7dec45e5eefe5d60e909c3efe3b73f",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/02-Formulario.md": "2de47dd31a2cc0b2bf6b12ec1a583bfef6f41af2ca0d7597e51b12b0158a0a29",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/03-Roteiro-Memorial-v4.md": "40bb07983fc9b8af1da325f37a0bbab08944e48147b143a020f756f8f0092ae8",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/04-Modelos.md": "e2899daf9ac4e97eeb53ef843946a1d4a100f67189e7b9b31d8969a8eecdc30b",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/BASE-CONHECIMENTO-FAC-2026.md": "135942f3e4173248638ebec3ef6cf31ae2b2489929af76b3e58617d85c8a75ab",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/00-INDEX.md": "eb586921da0354768ce3b8cbf307d7a54bbf9a66c3013630de9d09ef164577a8",
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/01-Edital-Ampla.md": "8ccfb81c506b302e57f34a299f9ebe8ec54a8c033b109f953f8dbe053d6f20f5",
+    "04-PROJETOS-ATIVOS/FIRMA-10-Simbiose/01-BRIEFING.md": "c0ea5b3e51adeea2792c1e9adc35e08b32b7caa78ba0d719e2bf06890ce4ec4b",
+    "04-PROJETOS-ATIVOS/FIRMA-16-Maranha/02-ROTEIRO-E-DECUPAGEM.md": "8e9e7e110022f81e46610acacfcc3c8ef004de2e35aa72885e4bbb3f3a198d37",
+    "04-PROJETOS-ATIVOS/FIRMA-16-Maranha/03-DIARIO-DE-SET.md": "9b465273fe4b807ea343d6a0b9b59382ba713fda71d7db941ee7e980b52c730d",
+    "04-PROJETOS-ATIVOS/FIRMA-16-Maranha/01-BRIEFING.md": "b129daa3068958af2a63a18368721112c82af9ffd8e38ba323514811ed46be1e",
+    "04-PROJETOS-ATIVOS/FIRMA-04-Brasil-Participativo/01-BRIEFING.md": "8962fdc65ba8c67b5f5ca0fa16cece599471d8229c5a89a489ff7c020c32dd79",
+    "04-PROJETOS-ATIVOS/FIRMA-08-RNP-Ailton-Krenak/01-BRIEFING.md": "a85be9373cd6a7c79a5452097846130cd10866cd10b61ce9649bc7ce08ed7fd2",
+    "03-CLIENTES/_INDEX.md": "c3a46dfcac3d6d0685381875b4fbb249a07fca8521e6a563eedf040414c3d252",
+    "03-CLIENTES/brasil-participativo/brasil-participativo.md": "515b5d97247feca760b601240bbd9158b2d35fe582f84cf2a54e766aed1a0684",
+    "03-CLIENTES/Historico-Clientes-Chave.md": "2b4512f5fcdbca2c5922b1b6e2ec87d95c4381f578a398cc0261ea442f8f695b",
+    "02-PROCESSOS-E-MANUAIS/02.4-POS-PRODUCAO/_INDEX.md": "012fbdcc32ac39f1747329fca0a23251b7046a2c13f2cee4b8d789c1d260b3aa",
+    "02-PROCESSOS-E-MANUAIS/_INDEX.md": "c6c2e398095c2ca8147600a1edc786d55e7c6fc42bf196f8e90c831e435a0c61",
+    "02-PROCESSOS-E-MANUAIS/02.5-MARKETING-E-CRM/_INDEX.md": "650c9b07c1315890134da8d562c241672f5b73e7081954d0c0a2282813157fb2",
+    "02-PROCESSOS-E-MANUAIS/02.3-PRODUCAO-SET/_INDEX.md": "6e15f1802308b92531c434f9bd8bed0a905d07b325041c72c65c2f1189a95556",
+    "02-PROCESSOS-E-MANUAIS/02.2-PRE-PRODUCAO/_INDEX.md": "9e714e5c7c63b5dde5dae2a668ea1e6bab3f5278a11965ac408b839dc255a02f",
+    "02-PROCESSOS-E-MANUAIS/02.1-ADM-FINANCEIRO/_INDEX.md": "09561d3d6533116658a6849ea80b37cf56aa1852291a19033ac42524c849f907",
+    "01-OPERACAO-ORACULO/_INDEX.md": "a3da3e6c2c889dda662762c0181c1fb5d0d44f73d8a47848b3b0fd69d91491b2",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Roteiro-Literario.md": "a8db13f1e1509235ae03f76ab167254b18328cf69e4bc574d30fa8e6d8cec8a0",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Referencia-Tecnica.md": "13a5ef8ce9805b9229643b7d4a83c529fade2282411cb6bb2ed4e17577342f8a",
+    "01-OPERACAO-ORACULO/TEMPLATES/_INDEX.md": "4501eabeeba0ea3951940753f697b8b5204d5f9aaea2c7edd8dea21badc4fdcb",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Roteiro-Tecnico.md": "03d9d51afcdd075bbd488d6bf0ed4e60f5e34730c5d8a384327e9a8bde1885d8",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Autorizacoes-Contratos.md": "db0c2d3b621201e5e721d100ecd84d67255e29679fc89e9964517400f3cda1ea",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Projeto-Audiovisual.md": "c51a9cb2ca3eb1a0d8e305f49a3f18890f963fa47494939c24d082f6c0215752",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Plano-Rodagem.md": "35aedde3f22c93aa2a1e29029b65449a735b25e5c2f9989fef8c729394a4a7a4",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Ordem-do-Dia.md": "3cb8a539897d67c478d6bce064c761196ce035fa8ed99fd8c7b874729fe90f32",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Ficha-Continuidade.md": "ac30da1afbd0b69b33dbdcda2a7bafa26d2c54ef1d9084807398b53448a10566",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Log-Filmagem.md": "ef38036b6d851de7012ff699d0c31a97964c5af2cc1ec0a2c468c858cdf971d6",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Briefing-Cliente.md": "88d7f687996fd6228dae9176a823bff96ddf058a63f9251ecc8e14f410745c9b",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Boletim-Camera-Som.md": "51fccada296b8af03a3943425def11a8dc414daa4b620ad7eaf5d1c53b6fc7bb",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Analise-Tecnica.md": "cf8320cd33587394e549c76f7283bbe7abfaf3784c532ea3f2e05a77e40e51cf",
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Aprendizado.md": "3f3d714dd1eef827b0efb987d4bd389cfa136d4d843eee0b91a69c5457a98196",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2_IMPLEMENTACAO.md": "609da0d9a6c1944412c93dde3b865e46eed58131b673c43345fad00f872c7cd7",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA_NOTION.md": "f0f7184fe5dbfc7c7dd5fcfcaa87143a04148aaea1c81fafba841950b8a6a005",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/PLANO-MIGRACAO.md": "ac56fb05574186fe8b94c98016161c2331af23771a823e3d42acd175222a1f6a",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/Subagentes.md": "808e2697677f053f39b6e4c3656336433e123350a5acbaedb22f347fa284b1b6",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2-Implementacao.md": "491da39e2e0eda06e4a977453b4fffd7918b14fd2eee2b041d6ae66b2c93b22f",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA-SISTEMA.md": "800ffbadd611851b14db2cf30ff690ffebd1ee57b22017a6890996d2e9449828",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/TABELA_PRECOS.md": "7a49ed4179e3c8dfac116050a2d2ba82eba646bef1db0b5ad4ce46e19e62f51a",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/DNA-Firma.md": "26746917262093380fb271eea7ff4b02a2a35a7e1eb4a80c754922259e2b1ed2",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Tabela-Precos-Referencia.md": "45ce6dbd036ff706b75976edb421ad4a96e6f6aae2002e9e72ed48a255ac9396",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Roadmap.md": "0d817ade8d72136ccd4b8d82e4ace20c08a79b90128e8bf2b433e0d6382de6b6",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Regras-de-Negocio.md": "bdf40f9a893bbd2696524c6b1ef6e1df0c535bccb6206f637a2e592b758f95c1",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/FLUXO_TRABALHO.md": "61d19de9bccc9a09d4820ccc4be61f5f87ab26dca2b410aa87fb46cf499dc07b",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Fluxo-13-Etapas.md": "ac3af06161b20ebb69e0b37fe1e01ea2d6086a431e69beb0e8a12853dea2fe5e",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md": "ef4c33914027bfab14dc3a7c0b594a2967e0ccb218b2722bdbbfd3f07170fef3",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md": "f84f647bbbeabcd7d5e6965a51bb37bc8800ca55cdcf5a87a51048021746b023",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/NOTEBOOKLM-SINCRONIZACAO.md": "d59afd4de370db7064052ec733158862ebaa8ce4b72c4b037d10b12f2e464dee",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/PROXIMOS-PASSOS.md": "132879ca71920583976c4fa96faaf6184b754523e90ed67575945fa1bf8c70dd",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/MEMORIA.md": "5f2f555be35ed0f0c1c27b616daa476850018c3f112feb8a16cecd09fd5aea09",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/Manual-Oraculo-v1.md": "05de89e034425d3cf2e87956cd6b44649426eee9f384abb100dd481a72edb175",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/GUIA_ORACULO.md": "8443e7b8559882fbb689ecb4bd514cc6eece8344b6812c2bc9815eb463162af5",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/GUIA-SESSOES-AUTOMATIZADAS.md": "f78a46e165bc8fda08b1072468a9b917dc5e78c086d4cf3bfcf7b9848aa5a375",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/CLAUDE.md": "b68e2aab1ff26edae0a6676fc26988648f82ce0c78e631712763002c53a18722",
+    "00-INBOX/_COMO-USAR.md": "ffe644ca9185a4c093059fcbccecdbc0f1a913802f3cd5d59a0060daeed2519e",
+    "00-INBOX/reunioes/README.md": "bcfa08df64f9fe5fff00c1673ed04f978b06289c04818e379201488780a0a038",
+    "00-INBOX/CHECKLIST-PRIMEIRA-SESSAO.md": "506ae83ed91134a0da414d02c46bf73bce50282e9cebc888a07fc881f24e9d72",
+    "00-EMPRESA/_INDEX.md": "bcf1d03d5c1ca9d42c992658fb472a8b03a42d9045b775fa993f3c6d8563e127",
+    "CEREBRO-CAPACIDADES.md": "4870e026911330c0f7fcac82678f3cda6aa1cbecca5019abea7faf076a7238d8",
+    "04-PROJETOS-ATIVOS/FIRMA-04-Brasil-Participativo/teste.md": "ed51bc134c94b9bd261b22e68446b16ebd34a2d745b8ff9927f135e6da595f5d",
+    "03-CLIENTES/rnp.md": "797d6a13e9adc999e374707cb2f37b2828dcc25de180df803ced926a185d47cd",
+    "03-CLIENTES/simbiose.md": "49521eddbadddddb19c3bf39bcbe9739bf07b6c8f512552dae4408167d0955d1",
+    "03-CLIENTES/maranha.md": "981d83ad0231c3128fafac22deb0a09394f0eb7df1442b14abba29f0df3f20f4",
+    "wiki/projects/Maranha.md": "92b914b2da863bfc108f94cca4402d19ae6499eeb330ae4983f567b17193b52b",
+    "wiki/projects/RNP.md": "c43e95a4398f7ff8e72a1e22c98e230cdf62a53fa160d73e4ffda5fb0262c140",
+    "wiki/projects/Simbiose.md": "bb5d2a63f293d1da0277cdd64008348f819f2ff3e5ea8b454d3382d79d2a631a",
+    "02-PROCESSOS-E-MANUAIS/02.1-ADM-FINANCEIRO/SOP-Nota-Fiscal.md": "0aed99341456f7427251154a65775b811aeaa99e8a146be58c6a755bb4a0cd4b",
+    "02-PROCESSOS-E-MANUAIS/02.2-PRE-PRODUCAO/SOP-Cessao-Imagem.md": "3ff58e647c2d7861ea95a7a0878d1f065729a4f5b827b5bf3911621bf75d7b05",
+    "02-PROCESSOS-E-MANUAIS/02.3-PRODUCAO-SET/SOP-Checklist-Equipamentos.md": "fa2e8f304e1fbe778b0a6e01a62eee77a1ba7a13fc95bd256f617b335681fa43",
+    "02-PROCESSOS-E-MANUAIS/02.4-POS-PRODUCAO/SOP-Nomenclatura-Projetos.md": "0b2f732c83ae3e3f750eeaf6ad209722a43dddd8ee8b32d468c669041f2ed8e0",
+    "02-PROCESSOS-E-MANUAIS/02.5-MARKETING-E-CRM/SOP-Prospecccao-Primeiro-Contato.md": "93ebc1ecbc8ce206d223f579f5f2b208e4814281ddba92550a04b2d5b4a010c5",
+    "00-EMPRESA/socios/Filipe-Duque.md": "dbca1a9b8963a62155b9f7ef4b2763750599c5fe69b033f7d2d8ddc97f67b05f",
+    "00-EMPRESA/socios/Jaya.md": "42f4a91da5cb1b6ddc0008ab41701586ba889f9e900597f0ee699e2fe7141498",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/REGRAS-INTEGRACAO.md": "b9f19bc69a9382d2178aad885151d35fe2fd6827d44ce9b014a33bc164b1541c",
+    "04-PROJETOS-ATIVOS/FIRMA-AGO/01-BRIEFING.md": "7138968848dd64904a80648e568f53f68d3555536ecf74896dbd07eb75c6f0d1",
+    "04-PROJETOS-ATIVOS/FIRMA-SOBRE2026/01-BRIEFING.md": "6542eda729ef1b76735424352a2c48ddce78d09e61a26a56fc6c48bf03f6e599",
+    "04-PROJETOS-ATIVOS/FIRMA-FIOCRUZ/01-BRIEFING.md": "d83993e7b8e1f3066701cd361e453e2ee2d0dd5951c1b55c070a3606ab8aece2",
+    "wiki/projects/SOBRE2026.md": "fc14a7d310a2fc3fc551ca14550853d111742588128e43aa8e4c495e47a2b3fc",
+    "wiki/projects/AGO.md": "1c26fa378dcbdaae0d6500a44c4e2f20d4754f7b51ffe0cb2381fabfe9b98e3a",
+    "wiki/projects/FIOCRUZ.md": "98e0cf7096d171996de6ee726d18ead94cad4d935c4c1a56119a3a62ae17175e"
+  },
+  "files": {
+    "wiki/projects/ORACULO-Cerebro.md": {
+      "hash": "d8ab8fa1436b212ccdafa26390d94c7c02a31c3c93425fcbf82453b920d98901",
+      "hashedAt": 1781294244634,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294244634
+    },
+    "wiki/projects/Visite-mon-Agence.md": {
+      "hash": "a67c0cbea089d1dbc19ee2834c167fda9c0b47e8080966eea412a98f8b13e42a",
+      "hashedAt": 1781294244640,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294244640
+    },
+    "wiki/overview.md": {
+      "hash": "d9e1ac27f1904bfe33890d1ae7868f5ee89cac895be8cd1c12942f7d97e7cd8a",
+      "hashedAt": 1781294244736,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294244736
+    },
+    "WIKI.md": {
+      "hash": "2b8c19ae031d7257a6578fe98954b628194699a99cc9cd59f200d891fdd189d5",
+      "hashedAt": 1781294244799,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294244799
+    },
+    "HOME.md": {
+      "hash": "8fca73035b006e9869bd214747588645d9817a8c1792e6eee2b499d20fb17780",
+      "hashedAt": 1781298320895,
+      "ingestCount": 2,
+      "lastIngestAt": 1781298320895
+    },
+    "wiki/projects/Brasil-Participativo.md": {
+      "hash": "ef95478b08311fddd62bf2a2b7717ad07bb3200cf6f5da0c4ce72b13d61ea59a",
+      "hashedAt": 1781294244923,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294244923
+    },
+    "wiki/projects/FAC-2026.md": {
+      "hash": "ce040e6b655ab1406d7c42a63ca90f078b38226086bbabde1133ba6cb0012cb0",
+      "hashedAt": 1781294244930,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294244930
+    },
+    "wiki/log.md": {
+      "hash": "9c827e8f3f32f26c0fdcb87c47bc16242d0eb55cac5e3d03be1eb78ee63c8376",
+      "hashedAt": 1781294244967,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294244967
+    },
+    "wiki/index.md": {
+      "hash": "1802a89d38ff74d78409864ae4fc75333f914bc68ab9229ca3956112990ef135",
+      "hashedAt": 1781300463132,
+      "ingestCount": 3,
+      "lastIngestAt": 1781300463132
+    },
+    "CLAUDE.md": {
+      "hash": "9b724af32f29ffd53d7dae3844abfc4212fdb4b389fbe576b3ace9cf15ee01d2",
+      "hashedAt": 1781294245069,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245069
+    },
+    "wiki/hot.md": {
+      "hash": "0885b5f0b2fbc6f536c0d645cc00afdfc7b12aa0c822b7eba106d5edd76b1f3a",
+      "hashedAt": 1781300477606,
+      "ingestCount": 2,
+      "lastIngestAt": 1781300477606
+    },
+    "wiki/areas/Captacao.md": {
+      "hash": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",
+      "hashedAt": 1781294245170,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245170
+    },
+    "skills/wiki-retrieve/SKILL.md": {
+      "hash": "56378e239d37d2ee6ac1ba5d1bfec296827b0e7da19c25a2ea9fa13df1ce9384",
+      "hashedAt": 1781294245190,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245190
+    },
+    "skills/wiki-lint/SKILL.md": {
+      "hash": "3b6cb1d2be85a64f92415eaada18ecb213f9fc9d54f42e1fb4629b6e7fdcab01",
+      "hashedAt": 1781294245223,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245223
+    },
+    "skills/wiki-query/SKILL.md": {
+      "hash": "d9fc16589eab004e55455ec9d4161dacb5ed0d979dc9f3634797b7904c9942e0",
+      "hashedAt": 1781294245298,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245298
+    },
+    "skills/save/SKILL.md": {
+      "hash": "be2e00222783f6c584c86bcf817082a4950675417c78961167e2e8d02246103a",
+      "hashedAt": 1781294245320,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245320
+    },
+    "skills/wiki-ingest/SKILL.md": {
+      "hash": "7db6459269eebbfb10688fb3efd4dc9ea741af4d2ef46d40a6c0fe2e4a17c613",
+      "hashedAt": 1781294245403,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245403
+    },
+    "skills/wiki-mode/templates/zettel/atomic-template.md": {
+      "hash": "5518e6a755f2d608ac7c3a8bc6ca1cb8978eda8af786dc16a9823edccd11b0a3",
+      "hashedAt": 1781294245412,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245412
+    },
+    "skills/wiki-mode/templates/lyt/moc-template.md": {
+      "hash": "4057201cffda4bbf41e31c7a541ff7685804092cbd73d17c8bf44a90cc691c71",
+      "hashedAt": 1781294245422,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245422
+    },
+    "skills/wiki-mode/templates/lyt/atomic-template.md": {
+      "hash": "9e32b06b6b9275b535b2a3027ed48fe4f7730fe2bf353c051d3ae0fdf8d088da",
+      "hashedAt": 1781294245458,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245458
+    },
+    "skills/wiki-mode/templates/para/area-template.md": {
+      "hash": "7818e818695f2439c86e78a7decda26a9b1772698ceab514e73163cc4cd859f5",
+      "hashedAt": 1781294245536,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245536
+    },
+    "skills/wiki-mode/templates/para/project-template.md": {
+      "hash": "b9935b658361765f457479838ea59d57f1b380f50cc1fa2a57ac1782b908d432",
+      "hashedAt": 1781294245572,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245572
+    },
+    "skills/wiki-mode/templates/para/resource-template.md": {
+      "hash": "fbe08ea1cb9e80d3dd6d6847e58e57f9f4061623a16a3656573c966806da76c8",
+      "hashedAt": 1781294245653,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245653
+    },
+    "skills/wiki-mode/SKILL.md": {
+      "hash": "7a78528a240d0272f9bef48469442fac4c7c6598fa34f70f9547904681cdd2fc",
+      "hashedAt": 1781294245674,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245674
+    },
+    "skills/wiki-fold/SKILL.md": {
+      "hash": "94505883e0adce3776f6260ab8973f963ee002df5b0b3f4b744b00b810a4482f",
+      "hashedAt": 1781294245680,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245680
+    },
+    "skills/wiki-fold/references/fold-template.md": {
+      "hash": "d062dc3967286da5621d58bc503eb23449937b660ddebfc81307c53f6b34fd75",
+      "hashedAt": 1781294245692,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245692
+    },
+    "skills/think/SKILL.md": {
+      "hash": "eec7f849420beeab258c081531a65a2ee36a116ea824f14b5375e384a77e2d0c",
+      "hashedAt": 1781294245780,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245780
+    },
+    "skills/wiki/references/rest-api.md": {
+      "hash": "e6357e24e5fcf76884f817d9c48d29d8668e72c6fb984f7ccf485831993b3a73",
+      "hashedAt": 1781294245887,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245887
+    },
+    "skills/wiki/references/modes.md": {
+      "hash": "6f3be8975b3dd88ee1282743ae6cf404f1d89b5348e30cb13bbbf4f0bafb8817",
+      "hashedAt": 1781294245911,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245911
+    },
+    "skills/wiki/references/plugins.md": {
+      "hash": "1f0086f18ace99e6fafc28dfda1fe432f3b7db7f073fe5dca9a2b63e6f0953ca",
+      "hashedAt": 1781294245921,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245921
+    },
+    "skills/wiki/references/mcp-setup.md": {
+      "hash": "6754d2fda5de3681a047140bf674ae321d1c5d22673a19f7cc361e757aec72d7",
+      "hashedAt": 1781294245924,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245924
+    },
+    "skills/wiki-cli/SKILL.md": {
+      "hash": "204d37ed5b642d14e2177dcc76358dab52ba32aca8943da8113f34844cc888b2",
+      "hashedAt": 1781294245998,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294245998
+    },
+    "skills/wiki/references/git-setup.md": {
+      "hash": "0fcb25dac3b418445633f573894af5702e5167bd677e5541c9bdaf53bafc0ac5",
+      "hashedAt": 1781294246018,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246018
+    },
+    "skills/wiki/references/frontmatter.md": {
+      "hash": "1a7ce01cb1430aab66a94d3b179bd6861ea030b693b7ec35e314dfe1f4b7e180",
+      "hashedAt": 1781294246115,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246115
+    },
+    "skills/wiki/references/css-snippets.md": {
+      "hash": "261cee15fdaac3722de844093f8f077e274a1301bad361632d5b20c76297b40b",
+      "hashedAt": 1781294246148,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246148
+    },
+    "skills/wiki/SKILL.md": {
+      "hash": "72bcd6045bba63762b784819e4fadcf4566405ffd3dc4ebe1ffcf437a5ad380c",
+      "hashedAt": 1781294246164,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246164
+    },
+    "skills/obsidian-bases/SKILL.md": {
+      "hash": "0daed81783a550bf1128d5e27fea00d0b1b6148ab343513ff087a7b1c25e9828",
+      "hashedAt": 1781294246227,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246227
+    },
+    "skills/defuddle/SKILL.md": {
+      "hash": "e476045c7a178b1017c66fcc64d6df54882de5ecaf4888dba8de1c984ac3c7cf",
+      "hashedAt": 1781294246256,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246256
+    },
+    "skills/obsidian-markdown/SKILL.md": {
+      "hash": "5e5352d74d7afe8f1c393041d82d0860f8c715c0a0d071554069b01df22d1485",
+      "hashedAt": 1781294246353,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246353
+    },
+    "skills/canvas/SKILL.md": {
+      "hash": "64ebc467200603060bb9d5137e6f6d1858390ef02176d58d12c8d628647d0fc0",
+      "hashedAt": 1781294246355,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246355
+    },
+    "skills/canvas/references/canvas-spec.md": {
+      "hash": "49498a13f76d33810ee39e54cf36589ed20f649ab8408032a589db8894d5df96",
+      "hashedAt": 1781294246391,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246391
+    },
+    "skills/autoresearch/SKILL.md": {
+      "hash": "7a11f8629ea1750424797e8ddaa7f6bb4fe3287b0bb3f8070860e112f4779b5e",
+      "hashedAt": 1781294246408,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246408
+    },
+    "skills/autoresearch/references/program.md": {
+      "hash": "c90077b0707419fa39d39be717230684c4e280c07ae48fd45106844118fae568",
+      "hashedAt": 1781294246463,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246463
+    },
+    "agents/wiki-ingest.md": {
+      "hash": "659b3a86707164d372d79bd6b843c64d2de25d6eb3313bfc3bdfd848fe8d6570",
+      "hashedAt": 1781294246503,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246503
+    },
+    "agents/wiki-lint.md": {
+      "hash": "49d3ff9f856d1d0492bb8c396b136e70c9f48b3bfb7e1690fbfcf2339b2aedfb",
+      "hashedAt": 1781294246589,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246589
+    },
+    "agents/verifier.md": {
+      "hash": "527413e6cab65580dbb54182154a6e62e557cb04234c2ccbeddf7749a3a96f14",
+      "hashedAt": 1781294246604,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246604
+    },
+    "06-ESTUDOS-E-REFERENCIAS/_INDEX.md": {
+      "hash": "52e35569feda1c5c3b367383bddf07bbb2aa212612246578508d1de883d09c52",
+      "hashedAt": 1781294246625,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246625
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Filmes-Referencias.md": {
+      "hash": "2cfcfd0c63c23a79118b5c2d6c4ade3a3eded5476f3c3ba592e61305334ad394",
+      "hashedAt": 1781294246640,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246640
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Visuais-Favoritas.md": {
+      "hash": "b1ebb9798fd97267cba74976fc4ac6246dbbcc1935ea9f7d5fbc8e362439a5a0",
+      "hashedAt": 1781294246705,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246705
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Assinatura-Firma.md": {
+      "hash": "1a5d0111773cb9af63746abb51defeea88803cf121ec889d3cd2f1871ddcaeb6",
+      "hashedAt": 1781294246754,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246754
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Moodboards.md": {
+      "hash": "9cc2fa46d69cb7c9d0197a3805fdef6dd4e6878d8b95e3b8982f4d21ead50f3e",
+      "hashedAt": 1781294246830,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246830
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Esteticas-Por-Nicho.md": {
+      "hash": "012a49a24081d1709e6d5b0d6f0d4f45bd205d4c6be161ba678958cbe683ec91",
+      "hashedAt": 1781294246838,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246838
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Diretores-Cinematografos.md": {
+      "hash": "752f09c4baef3ea088f47cf656d1dcb208825f8d86171b64e6f4cefe7af7de99",
+      "hashedAt": 1781294246865,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246865
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/05-email-marketing.md": {
+      "hash": "054fa3026231ccc51b7487cce61c3a8d7f170a99cfc4d4893081927b3ceea709",
+      "hashedAt": 1781294246880,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246880
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/_INDEX.md": {
+      "hash": "44f71863e5a041f1b1d7fa82147fa149a763974e84b8796d837cd26ed2bf5c91",
+      "hashedAt": 1781294246945,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246945
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/06-vendas-conversao.md": {
+      "hash": "bb1cd1896de00626a6daf0904a3d9198bd49ee571bcb448b1545097ba231a9fa",
+      "hashedAt": 1781294246997,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294246997
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/04-copywriting.md": {
+      "hash": "62cd1efb411a25b56de6fdf4e452856c5673e7bab72868db13257a73c1194e7d",
+      "hashedAt": 1781294247075,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247075
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/03-conteudo-organico.md": {
+      "hash": "dd3d2f887e3a4fb5bb60ccf0198adb8f4bd46059d837e5a44279730f1445986b",
+      "hashedAt": 1781294247080,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247080
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/02-trafego-pago.md": {
+      "hash": "73d8cdcf6bd2c594e15498eebb302e199612d2d21f972005030eae5763449e0f",
+      "hashedAt": 1781294247102,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247102
+    },
+    "06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/01-fundamentos.md": {
+      "hash": "8af3bfe43d9d2370d9c33f72a622fb7d762e749778554fddf39fec67cf87a099",
+      "hashedAt": 1781294247120,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247120
+    },
+    "07-LOGS-DE-SESSAO/2026-06-11-Consolidacao-Monorepo-e-Fluxo-Reunioes.md": {
+      "hash": "9540f502d15ffd56fb2fe3c347f9664e64824536897c6ebf4ce42c4c236bd999",
+      "hashedAt": 1781294247183,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247183
+    },
+    "07-LOGS-DE-SESSAO/_INDEX.md": {
+      "hash": "1ac033deff5dc33a8646b332ec2edf2caf8564c16de0f349167d3454b0965c1c",
+      "hashedAt": 1781294247245,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247245
+    },
+    "07-LOGS-DE-SESSAO/2026-06-11-Sessao-23-Integracao-Agency-Agents.md": {
+      "hash": "9ece7915f6fda8a20d6b34bf366d83cd1cd27599ecbdc8a5debfba428fef3360",
+      "hashedAt": 1781294247323,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247323
+    },
+    "07-LOGS-DE-SESSAO/2026-06-04-Sessao-19-Painel-Visual-FAC.md": {
+      "hash": "0d26010fe4bc8f67abb97755a82dc9e3751e6bd8e1274b4f9f5c5f1d899254b3",
+      "hashedAt": 1781294247326,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247326
+    },
+    "07-LOGS-DE-SESSAO/2026-06-11-Sessao-24-Consolidacao-Proposta-v7-Expansao-Oraculo-Sync.md": {
+      "hash": "d0cb9c501fe2e2f058ff1b35144d6d23e2e23cc6482fe51dde11654cee1d9dc2",
+      "hashedAt": 1781294247344,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247344
+    },
+    "07-LOGS-DE-SESSAO/2026-06-07-Sessao-20-Cerebro-claude-obsidian.md": {
+      "hash": "d0ccc84e8990dbc190b04d6e64b019f97b58603fd33d77b07cfa1cbf218215e5",
+      "hashedAt": 1781294247366,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247366
+    },
+    "07-LOGS-DE-SESSAO/2026-05-27-Auditoria-Consistencia-Sessao-9.md": {
+      "hash": "4f3c6b025100f8fc6ee23e631ab4bd04154d2a2b8300b95564f49bead9b7da9b",
+      "hashedAt": 1781294247415,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247415
+    },
+    "07-LOGS-DE-SESSAO/2026-05-25-Revisao-Arquitetura-Oraculo-Sessao8.md": {
+      "hash": "a08f730141baeb50fe602831881f765acd0677555256da64c36edcbea49848bc",
+      "hashedAt": 1781294247485,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247485
+    },
+    "07-LOGS-DE-SESSAO/2026-06-01-Sessao-18-FAC2026-NotebookLM.md": {
+      "hash": "19c84ab31decc276a3ffe71c863a428a6959432ec2d9c0316272dba1fc691d2a",
+      "hashedAt": 1781294247561,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247561
+    },
+    "07-LOGS-DE-SESSAO/2026-06-01-Sessao-17-NotionV3-Dashboard.md": {
+      "hash": "50189cf4be5eb35d12f451a075d0e93a20518bd9ebdd2bfc7dedf59047301458",
+      "hashedAt": 1781294247565,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247565
+    },
+    "07-LOGS-DE-SESSAO/2026-05-27-SESSAO-13-Bidimensionalidades.md": {
+      "hash": "aa45b37c9930207332e5fa292c70462ef6c5d1488454dacc6f0af54511fa3a07",
+      "hashedAt": 1781294247589,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247589
+    },
+    "07-LOGS-DE-SESSAO/2026-05-27-Migracao-Notion-Beta.md": {
+      "hash": "4593df371f9546e8109dc505e8abb1267a3fedcad9f5d4c5854e88878089db94",
+      "hashedAt": 1781294247600,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247600
+    },
+    "07-LOGS-DE-SESSAO/2026-05-27-Finalizacao-Sessao-15.md": {
+      "hash": "1acfd0986b90438f5b5815acf5bf6de929a967c0899665bf7edf691da5dd3d0c",
+      "hashedAt": 1781294247658,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247658
+    },
+    "07-LOGS-DE-SESSAO/2026-05-21-Expansao-MCPs-Arsenal.md": {
+      "hash": "0954c6249a9b23ac84063b6f6a50001c1f024a0883651dfc7cb9f52e56908d0c",
+      "hashedAt": 1781294247743,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247743
+    },
+    "07-LOGS-DE-SESSAO/2026-05-21-Setup-MCPs.md": {
+      "hash": "a8f38b3012c0fc02a64c027482c5e80b7e3c7628bbbaccb8950d4063bf9cdabe",
+      "hashedAt": 1781294247796,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247796
+    },
+    "07-LOGS-DE-SESSAO/2026-05-25-Templates-VideoDesk-Sessao8.md": {
+      "hash": "def53dc8e5cdf34374585627244d41669e45ea8a844ab3e63a7726e21b3fb055",
+      "hashedAt": 1781294247803,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247803
+    },
+    "07-LOGS-DE-SESSAO/2026-05-25-Revisao-Documentacao-Sessao6.md": {
+      "hash": "bac322c876c68d69dd9748afcde6d3f7e5fd79eee098313ee796c0f7d7b5af91",
+      "hashedAt": 1781294247835,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247835
+    },
+    "07-LOGS-DE-SESSAO/2026-05-25-Kit-Documentos-Producao-Completo.md": {
+      "hash": "ec2a1a0a734c13f539386d4717d656edf8348c56aab714c286e864080e195f9f",
+      "hashedAt": 1781294247899,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247899
+    },
+    "07-LOGS-DE-SESSAO/2026-05-22-Base-Marketing-Digital.md": {
+      "hash": "c8d5bfff36c27789556c24aa3c2887a4fcc800a243bdf79841b1c9bf5525c224",
+      "hashedAt": 1781294247979,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294247979
+    },
+    "07-LOGS-DE-SESSAO/2026-05-22-Proposta-Narrativa-Escopo.md": {
+      "hash": "5f910415a49441def9986c890aafaff0bbbf2fef7a87df2999cb3c5f5515a805",
+      "hashedAt": 1781294248032,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248032
+    },
+    "05-ARQUIVO-HISTORICO/_INDEX.md": {
+      "hash": "34fde9142516122825b65bc1d8ceace62a817a2fd135363a438fdacd94bb3d9f",
+      "hashedAt": 1781294248042,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248042
+    },
+    "04-PROJETOS-ATIVOS/_INDEX.md": {
+      "hash": "6698925e361271b99ef1b50e6ea1698b8a62a23dd9e7b457419fc7e415f0acbd",
+      "hashedAt": 1781294248070,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248070
+    },
+    "07-LOGS-DE-SESSAO/2026-05-25-Reorganizacao-Skills-Sessao7.md": {
+      "hash": "31e13a880197552b3c6717342aba4ca96db0ea30fe9b0626df071d02411733ba",
+      "hashedAt": 1781294248086,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248086
+    },
+    "04-PROJETOS-ATIVOS/ORACULO-Cerebro-Setup/01-BRIEFING.md": {
+      "hash": "37e8da8d5f1dd47adb191c4feef5ca05bad31011919b7f9b2c1d4ed763858928",
+      "hashedAt": 1781294248142,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248142
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/SUMARIO-PREPARACAO-COMPLETA.md": {
+      "hash": "42b7979b92efa5c49f118e259c924d7249c243f14f708d666306e924beae4b92",
+      "hashedAt": 1781294248229,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248229
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-CINEMA-DOCUMENTAL.md": {
+      "hash": "dc4de8e5c1795b011925ab209c1d9ab08798fd5e4f293f3bdddacdf1492296fb",
+      "hashedAt": 1781294248277,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248277
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/SESSAO-3JUN-BLOCO-B-ORCAMENTO.md": {
+      "hash": "dc55a3441f88df4a2e267db41cecc105598bfe124801a7a0906c6e8ec67d8e86",
+      "hashedAt": 1781294248278,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248278
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-FILMMAKER.md": {
+      "hash": "b9c0bf4a830c393e3478964f681328e4d8aa7f2e1b1ebf8370b0a6820f38e3ed",
+      "hashedAt": 1781294248319,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248319
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/SESSAO-3JUN-BLOCO-C-CRONOGRAMA.md": {
+      "hash": "b4e5c8024879ee1a5ef5e09c6b596b8c56b713315e254265d0e5a43e12046368",
+      "hashedAt": 1781294248336,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248336
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/RESUMO-SESSAO-18.md": {
+      "hash": "91fe31dfbb8f4e7e502ddd75985c83bda47fa0a35036264127ce2cda586bdcad",
+      "hashedAt": 1781294248376,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248376
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/REFERENCIAS-VISUAIS/ANALISE_REFERENCIAS.md": {
+      "hash": "22f21e57db6cdb0531b2d85bbfb9d29ffac9100993fd5d0e924b0d57e7bc104c",
+      "hashedAt": 1781294248473,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248473
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-CIRCOLAR.md": {
+      "hash": "2e8d45ec17cc219d6c3afa5c63dabe9dde2f5e8bdf2bfd9464ac7cc6cdd7ba27",
+      "hashedAt": 1781294248525,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248525
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/REFERENCIAS-VISUAIS/README.md": {
+      "hash": "48376761871f72191d2bf8535738d685e4fe41797ed45f6b34eb67531c2dd986",
+      "hashedAt": 1781294248529,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248529
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PROJETOS-ANTIGOS-5-ATOS-ESCADA.md": {
+      "hash": "b9197d60396e161aa50abd1bc9cd66a65ad7e77502f3eccbee8c2e36effbe93c",
+      "hashedAt": 1781294248558,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248558
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/PLANO-DE-EXECUCAO.md": {
+      "hash": "d2fe4175d621b88f2c3bfb7bb4684dee00406a6d961f8845ccb6d9616f5b29e2",
+      "hashedAt": 1781294248584,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248584
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/NOTEBOOKLM-CONFIG.md": {
+      "hash": "c01c6c12b592c846be06592c4e528199d828d18f56b14db649fc023f6d11cf4d",
+      "hashedAt": 1781294248621,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248621
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/CHECKLIST-ATUALIZADO-5JUN.md": {
+      "hash": "09c8137aeedde08d133bd8af66c08e1ab30d28fd057b091cfaf800f5e18d6f77",
+      "hashedAt": 1781294248713,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248713
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/05-Checklist.md": {
+      "hash": "ea44d200ab41ec4244701bb589aefaa387c79ee8ad8abced2a9c5efbc04dade8",
+      "hashedAt": 1781294248761,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248761
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/MEMORIA-SESSAO-18.md": {
+      "hash": "6755773754acecfe11b1997fa8350e209a7dec45e5eefe5d60e909c3efe3b73f",
+      "hashedAt": 1781294248772,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248772
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/02-Formulario.md": {
+      "hash": "2de47dd31a2cc0b2bf6b12ec1a583bfef6f41af2ca0d7597e51b12b0158a0a29",
+      "hashedAt": 1781294248831,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248831
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/03-Roteiro-Memorial-v4.md": {
+      "hash": "40bb07983fc9b8af1da325f37a0bbab08944e48147b143a020f756f8f0092ae8",
+      "hashedAt": 1781294248896,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248896
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/04-Modelos.md": {
+      "hash": "e2899daf9ac4e97eeb53ef843946a1d4a100f67189e7b9b31d8969a8eecdc30b",
+      "hashedAt": 1781294248953,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294248953
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/BASE-CONHECIMENTO-FAC-2026.md": {
+      "hash": "135942f3e4173248638ebec3ef6cf31ae2b2489929af76b3e58617d85c8a75ab",
+      "hashedAt": 1781294249000,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249000
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/00-INDEX.md": {
+      "hash": "eb586921da0354768ce3b8cbf307d7a54bbf9a66c3013630de9d09ef164577a8",
+      "hashedAt": 1781300450657,
+      "ingestCount": 2,
+      "lastIngestAt": 1781300450657
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FAC-2026/01-Edital-Ampla.md": {
+      "hash": "8ccfb81c506b302e57f34a299f9ebe8ec54a8c033b109f953f8dbe053d6f20f5",
+      "hashedAt": 1781294249009,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249009
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-10-Simbiose/01-BRIEFING.md": {
+      "hash": "c0ea5b3e51adeea2792c1e9adc35e08b32b7caa78ba0d719e2bf06890ce4ec4b",
+      "hashedAt": 1781300440039,
+      "ingestCount": 4,
+      "lastIngestAt": 1781300440039
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-16-Maranha/02-ROTEIRO-E-DECUPAGEM.md": {
+      "hash": "8e9e7e110022f81e46610acacfcc3c8ef004de2e35aa72885e4bbb3f3a198d37",
+      "hashedAt": 1781294249139,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249139
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-16-Maranha/03-DIARIO-DE-SET.md": {
+      "hash": "9b465273fe4b807ea343d6a0b9b59382ba713fda71d7db941ee7e980b52c730d",
+      "hashedAt": 1781294249188,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249188
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-16-Maranha/01-BRIEFING.md": {
+      "hash": "b129daa3068958af2a63a18368721112c82af9ffd8e38ba323514811ed46be1e",
+      "hashedAt": 1781300437977,
+      "ingestCount": 4,
+      "lastIngestAt": 1781300437977
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-04-Brasil-Participativo/01-BRIEFING.md": {
+      "hash": "8962fdc65ba8c67b5f5ca0fa16cece599471d8229c5a89a489ff7c020c32dd79",
+      "hashedAt": 1781298906922,
+      "ingestCount": 2,
+      "lastIngestAt": 1781298906922
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-08-RNP-Ailton-Krenak/01-BRIEFING.md": {
+      "hash": "a85be9373cd6a7c79a5452097846130cd10866cd10b61ce9649bc7ce08ed7fd2",
+      "hashedAt": 1781300437637,
+      "ingestCount": 4,
+      "lastIngestAt": 1781300437637
+    },
+    "03-CLIENTES/_INDEX.md": {
+      "hash": "c3a46dfcac3d6d0685381875b4fbb249a07fca8521e6a563eedf040414c3d252",
+      "hashedAt": 1781298316172,
+      "ingestCount": 2,
+      "lastIngestAt": 1781298316172
+    },
+    "03-CLIENTES/brasil-participativo/brasil-participativo.md": {
+      "hash": "515b5d97247feca760b601240bbd9158b2d35fe582f84cf2a54e766aed1a0684",
+      "hashedAt": 1781298302387,
+      "ingestCount": 2,
+      "lastIngestAt": 1781298302387
+    },
+    "03-CLIENTES/Historico-Clientes-Chave.md": {
+      "hash": "2b4512f5fcdbca2c5922b1b6e2ec87d95c4381f578a398cc0261ea442f8f695b",
+      "hashedAt": 1781294249419,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249419
+    },
+    "02-PROCESSOS-E-MANUAIS/02.4-POS-PRODUCAO/_INDEX.md": {
+      "hash": "012fbdcc32ac39f1747329fca0a23251b7046a2c13f2cee4b8d789c1d260b3aa",
+      "hashedAt": 1781294249491,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249491
+    },
+    "02-PROCESSOS-E-MANUAIS/_INDEX.md": {
+      "hash": "c6c2e398095c2ca8147600a1edc786d55e7c6fc42bf196f8e90c831e435a0c61",
+      "hashedAt": 1781294249495,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249495
+    },
+    "02-PROCESSOS-E-MANUAIS/02.5-MARKETING-E-CRM/_INDEX.md": {
+      "hash": "650c9b07c1315890134da8d562c241672f5b73e7081954d0c0a2282813157fb2",
+      "hashedAt": 1781294249507,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249507
+    },
+    "02-PROCESSOS-E-MANUAIS/02.3-PRODUCAO-SET/_INDEX.md": {
+      "hash": "6e15f1802308b92531c434f9bd8bed0a905d07b325041c72c65c2f1189a95556",
+      "hashedAt": 1781294249547,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249547
+    },
+    "02-PROCESSOS-E-MANUAIS/02.2-PRE-PRODUCAO/_INDEX.md": {
+      "hash": "9e714e5c7c63b5dde5dae2a668ea1e6bab3f5278a11965ac408b839dc255a02f",
+      "hashedAt": 1781294249610,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249610
+    },
+    "02-PROCESSOS-E-MANUAIS/02.1-ADM-FINANCEIRO/_INDEX.md": {
+      "hash": "09561d3d6533116658a6849ea80b37cf56aa1852291a19033ac42524c849f907",
+      "hashedAt": 1781294249656,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249656
+    },
+    "01-OPERACAO-ORACULO/_INDEX.md": {
+      "hash": "a3da3e6c2c889dda662762c0181c1fb5d0d44f73d8a47848b3b0fd69d91491b2",
+      "hashedAt": 1781294249726,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249726
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Roteiro-Literario.md": {
+      "hash": "a8db13f1e1509235ae03f76ab167254b18328cf69e4bc574d30fa8e6d8cec8a0",
+      "hashedAt": 1781294249736,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249736
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Referencia-Tecnica.md": {
+      "hash": "13a5ef8ce9805b9229643b7d4a83c529fade2282411cb6bb2ed4e17577342f8a",
+      "hashedAt": 1781294249744,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249744
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/_INDEX.md": {
+      "hash": "4501eabeeba0ea3951940753f697b8b5204d5f9aaea2c7edd8dea21badc4fdcb",
+      "hashedAt": 1781294249790,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249790
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Roteiro-Tecnico.md": {
+      "hash": "03d9d51afcdd075bbd488d6bf0ed4e60f5e34730c5d8a384327e9a8bde1885d8",
+      "hashedAt": 1781294249846,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249846
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Autorizacoes-Contratos.md": {
+      "hash": "db0c2d3b621201e5e721d100ecd84d67255e29679fc89e9964517400f3cda1ea",
+      "hashedAt": 1781294249894,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249894
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Projeto-Audiovisual.md": {
+      "hash": "c51a9cb2ca3eb1a0d8e305f49a3f18890f963fa47494939c24d082f6c0215752",
+      "hashedAt": 1781294249961,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249961
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Plano-Rodagem.md": {
+      "hash": "35aedde3f22c93aa2a1e29029b65449a735b25e5c2f9989fef8c729394a4a7a4",
+      "hashedAt": 1781294249975,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249975
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Ordem-do-Dia.md": {
+      "hash": "3cb8a539897d67c478d6bce064c761196ce035fa8ed99fd8c7b874729fe90f32",
+      "hashedAt": 1781294249986,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294249986
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Ficha-Continuidade.md": {
+      "hash": "ac30da1afbd0b69b33dbdcda2a7bafa26d2c54ef1d9084807398b53448a10566",
+      "hashedAt": 1781294250019,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250019
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Log-Filmagem.md": {
+      "hash": "ef38036b6d851de7012ff699d0c31a97964c5af2cc1ec0a2c468c858cdf971d6",
+      "hashedAt": 1781294250086,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250086
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Briefing-Cliente.md": {
+      "hash": "88d7f687996fd6228dae9176a823bff96ddf058a63f9251ecc8e14f410745c9b",
+      "hashedAt": 1781294250137,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250137
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Boletim-Camera-Som.md": {
+      "hash": "51fccada296b8af03a3943425def11a8dc414daa4b620ad7eaf5d1c53b6fc7bb",
+      "hashedAt": 1781294250205,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250205
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Analise-Tecnica.md": {
+      "hash": "cf8320cd33587394e549c76f7283bbe7abfaf3784c532ea3f2e05a77e40e51cf",
+      "hashedAt": 1781294250215,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250215
+    },
+    "01-OPERACAO-ORACULO/TEMPLATES/Template-Aprendizado.md": {
+      "hash": "3f3d714dd1eef827b0efb987d4bd389cfa136d4d843eee0b91a69c5457a98196",
+      "hashedAt": 1781294250217,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250217
+    },
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2_IMPLEMENTACAO.md": {
+      "hash": "609da0d9a6c1944412c93dde3b865e46eed58131b673c43345fad00f872c7cd7",
+      "hashedAt": 1781294250269,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250269
+    },
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA_NOTION.md": {
+      "hash": "f0f7184fe5dbfc7c7dd5fcfcaa87143a04148aaea1c81fafba841950b8a6a005",
+      "hashedAt": 1781294250348,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250348
+    },
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/PLANO-MIGRACAO.md": {
+      "hash": "ac56fb05574186fe8b94c98016161c2331af23771a823e3d42acd175222a1f6a",
+      "hashedAt": 1781294250377,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250377
+    },
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/Subagentes.md": {
+      "hash": "808e2697677f053f39b6e4c3656336433e123350a5acbaedb22f347fa284b1b6",
+      "hashedAt": 1781294250440,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250440
+    },
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2-Implementacao.md": {
+      "hash": "491da39e2e0eda06e4a977453b4fffd7918b14fd2eee2b041d6ae66b2c93b22f",
+      "hashedAt": 1781294250460,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250460
+    },
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA-SISTEMA.md": {
+      "hash": "800ffbadd611851b14db2cf30ff690ffebd1ee57b22017a6890996d2e9449828",
+      "hashedAt": 1781294250465,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250465
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/TABELA_PRECOS.md": {
+      "hash": "7a49ed4179e3c8dfac116050a2d2ba82eba646bef1db0b5ad4ce46e19e62f51a",
+      "hashedAt": 1781294250504,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250504
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/DNA-Firma.md": {
+      "hash": "26746917262093380fb271eea7ff4b02a2a35a7e1eb4a80c754922259e2b1ed2",
+      "hashedAt": 1781294250581,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250581
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Tabela-Precos-Referencia.md": {
+      "hash": "45ce6dbd036ff706b75976edb421ad4a96e6f6aae2002e9e72ed48a255ac9396",
+      "hashedAt": 1781294250626,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250626
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Roadmap.md": {
+      "hash": "0d817ade8d72136ccd4b8d82e4ace20c08a79b90128e8bf2b433e0d6382de6b6",
+      "hashedAt": 1781294250675,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250675
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Regras-de-Negocio.md": {
+      "hash": "bdf40f9a893bbd2696524c6b1ef6e1df0c535bccb6206f637a2e592b758f95c1",
+      "hashedAt": 1781294250697,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250697
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/FLUXO_TRABALHO.md": {
+      "hash": "61d19de9bccc9a09d4820ccc4be61f5f87ab26dca2b410aa87fb46cf499dc07b",
+      "hashedAt": 1781294250706,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250706
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Fluxo-13-Etapas.md": {
+      "hash": "ac3af06161b20ebb69e0b37fe1e01ea2d6086a431e69beb0e8a12853dea2fe5e",
+      "hashedAt": 1781294250744,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250744
+    },
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md": {
+      "hash": "ef4c33914027bfab14dc3a7c0b594a2967e0ccb218b2722bdbbfd3f07170fef3",
+      "hashedAt": 1781294250832,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250832
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md": {
+      "hash": "f84f647bbbeabcd7d5e6965a51bb37bc8800ca55cdcf5a87a51048021746b023",
+      "hashedAt": 1781294250895,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250895
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/NOTEBOOKLM-SINCRONIZACAO.md": {
+      "hash": "d59afd4de370db7064052ec733158862ebaa8ce4b72c4b037d10b12f2e464dee",
+      "hashedAt": 1781294250919,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250919
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/PROXIMOS-PASSOS.md": {
+      "hash": "132879ca71920583976c4fa96faaf6184b754523e90ed67575945fa1bf8c70dd",
+      "hashedAt": 1781294250942,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250942
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/MEMORIA.md": {
+      "hash": "5f2f555be35ed0f0c1c27b616daa476850018c3f112feb8a16cecd09fd5aea09",
+      "hashedAt": 1781294250948,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294250948
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/Manual-Oraculo-v1.md": {
+      "hash": "05de89e034425d3cf2e87956cd6b44649426eee9f384abb100dd481a72edb175",
+      "hashedAt": 1781294251002,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251002
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/GUIA_ORACULO.md": {
+      "hash": "8443e7b8559882fbb689ecb4bd514cc6eece8344b6812c2bc9815eb463162af5",
+      "hashedAt": 1781294251074,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251074
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/GUIA-SESSOES-AUTOMATIZADAS.md": {
+      "hash": "f78a46e165bc8fda08b1072468a9b917dc5e78c086d4cf3bfcf7b9848aa5a375",
+      "hashedAt": 1781294251144,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251144
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/CLAUDE.md": {
+      "hash": "b68e2aab1ff26edae0a6676fc26988648f82ce0c78e631712763002c53a18722",
+      "hashedAt": 1781294251159,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251159
+    },
+    "00-INBOX/_COMO-USAR.md": {
+      "hash": "ffe644ca9185a4c093059fcbccecdbc0f1a913802f3cd5d59a0060daeed2519e",
+      "hashedAt": 1781294251181,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251181
+    },
+    "00-INBOX/reunioes/README.md": {
+      "hash": "bcfa08df64f9fe5fff00c1673ed04f978b06289c04818e379201488780a0a038",
+      "hashedAt": 1781294251185,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251185
+    },
+    "00-INBOX/CHECKLIST-PRIMEIRA-SESSAO.md": {
+      "hash": "506ae83ed91134a0da414d02c46bf73bce50282e9cebc888a07fc881f24e9d72",
+      "hashedAt": 1781294251244,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251244
+    },
+    "00-EMPRESA/_INDEX.md": {
+      "hash": "bcf1d03d5c1ca9d42c992658fb472a8b03a42d9045b775fa993f3c6d8563e127",
+      "hashedAt": 1781294251305,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294251305
+    },
+    "CEREBRO-CAPACIDADES.md": {
+      "hash": "4870e026911330c0f7fcac82678f3cda6aa1cbecca5019abea7faf076a7238d8",
+      "hashedAt": 1781294970532,
+      "ingestCount": 1,
+      "lastIngestAt": 1781294970532
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-04-Brasil-Participativo/teste.md": {
+      "hash": "ed51bc134c94b9bd261b22e68446b16ebd34a2d745b8ff9927f135e6da595f5d",
+      "hashedAt": 1781296593487,
+      "ingestCount": 1,
+      "lastIngestAt": 1781296593487
+    },
+    "03-CLIENTES/rnp.md": {
+      "hash": "797d6a13e9adc999e374707cb2f37b2828dcc25de180df803ced926a185d47cd",
+      "hashedAt": 1781298296218,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298296218
+    },
+    "03-CLIENTES/simbiose.md": {
+      "hash": "49521eddbadddddb19c3bf39bcbe9739bf07b6c8f512552dae4408167d0955d1",
+      "hashedAt": 1781298297556,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298297556
+    },
+    "03-CLIENTES/maranha.md": {
+      "hash": "981d83ad0231c3128fafac22deb0a09394f0eb7df1442b14abba29f0df3f20f4",
+      "hashedAt": 1781298300084,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298300084
+    },
+    "wiki/projects/Maranha.md": {
+      "hash": "92b914b2da863bfc108f94cca4402d19ae6499eeb330ae4983f567b17193b52b",
+      "hashedAt": 1781298863721,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298863721
+    },
+    "wiki/projects/RNP.md": {
+      "hash": "c43e95a4398f7ff8e72a1e22c98e230cdf62a53fa160d73e4ffda5fb0262c140",
+      "hashedAt": 1781298869045,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298869045
+    },
+    "wiki/projects/Simbiose.md": {
+      "hash": "bb5d2a63f293d1da0277cdd64008348f819f2ff3e5ea8b454d3382d79d2a631a",
+      "hashedAt": 1781298870401,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298870401
+    },
+    "02-PROCESSOS-E-MANUAIS/02.1-ADM-FINANCEIRO/SOP-Nota-Fiscal.md": {
+      "hash": "0aed99341456f7427251154a65775b811aeaa99e8a146be58c6a755bb4a0cd4b",
+      "hashedAt": 1781298958796,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298958796
+    },
+    "02-PROCESSOS-E-MANUAIS/02.2-PRE-PRODUCAO/SOP-Cessao-Imagem.md": {
+      "hash": "3ff58e647c2d7861ea95a7a0878d1f065729a4f5b827b5bf3911621bf75d7b05",
+      "hashedAt": 1781298980947,
+      "ingestCount": 1,
+      "lastIngestAt": 1781298980947
+    },
+    "02-PROCESSOS-E-MANUAIS/02.3-PRODUCAO-SET/SOP-Checklist-Equipamentos.md": {
+      "hash": "fa2e8f304e1fbe778b0a6e01a62eee77a1ba7a13fc95bd256f617b335681fa43",
+      "hashedAt": 1781299005306,
+      "ingestCount": 1,
+      "lastIngestAt": 1781299005306
+    },
+    "02-PROCESSOS-E-MANUAIS/02.4-POS-PRODUCAO/SOP-Nomenclatura-Projetos.md": {
+      "hash": "0b2f732c83ae3e3f750eeaf6ad209722a43dddd8ee8b32d468c669041f2ed8e0",
+      "hashedAt": 1781299036114,
+      "ingestCount": 1,
+      "lastIngestAt": 1781299036114
+    },
+    "02-PROCESSOS-E-MANUAIS/02.5-MARKETING-E-CRM/SOP-Prospecccao-Primeiro-Contato.md": {
+      "hash": "93ebc1ecbc8ce206d223f579f5f2b208e4814281ddba92550a04b2d5b4a010c5",
+      "hashedAt": 1781299061331,
+      "ingestCount": 1,
+      "lastIngestAt": 1781299061331
+    },
+    "00-EMPRESA/socios/Filipe-Duque.md": {
+      "hash": "dbca1a9b8963a62155b9f7ef4b2763750599c5fe69b033f7d2d8ddc97f67b05f",
+      "hashedAt": 1781299073917,
+      "ingestCount": 1,
+      "lastIngestAt": 1781299073917
+    },
+    "00-EMPRESA/socios/Jaya.md": {
+      "hash": "42f4a91da5cb1b6ddc0008ab41701586ba889f9e900597f0ee699e2fe7141498",
+      "hashedAt": 1781299075619,
+      "ingestCount": 1,
+      "lastIngestAt": 1781299075619
+    },
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/REGRAS-INTEGRACAO.md": {
+      "hash": "b9f19bc69a9382d2178aad885151d35fe2fd6827d44ce9b014a33bc164b1541c",
+      "hashedAt": 1781300401678,
+      "ingestCount": 1,
+      "lastIngestAt": 1781300401678
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-AGO/01-BRIEFING.md": {
+      "hash": "7138968848dd64904a80648e568f53f68d3555536ecf74896dbd07eb75c6f0d1",
+      "hashedAt": 1781300405732,
+      "ingestCount": 1,
+      "lastIngestAt": 1781300405732
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-SOBRE2026/01-BRIEFING.md": {
+      "hash": "6542eda729ef1b76735424352a2c48ddce78d09e61a26a56fc6c48bf03f6e599",
+      "hashedAt": 1781300408572,
+      "ingestCount": 1,
+      "lastIngestAt": 1781300408572
+    },
+    "04-PROJETOS-ATIVOS/FIRMA-FIOCRUZ/01-BRIEFING.md": {
+      "hash": "d83993e7b8e1f3066701cd361e453e2ee2d0dd5951c1b55c070a3606ab8aece2",
+      "hashedAt": 1781300410627,
+      "ingestCount": 1,
+      "lastIngestAt": 1781300410627
+    },
+    "wiki/projects/SOBRE2026.md": {
+      "hash": "fc14a7d310a2fc3fc551ca14550853d111742588128e43aa8e4c495e47a2b3fc",
+      "hashedAt": 1781300413567,
+      "ingestCount": 1,
+      "lastIngestAt": 1781300413567
+    },
+    "wiki/projects/AGO.md": {
+      "hash": "1c26fa378dcbdaae0d6500a44c4e2f20d4754f7b51ffe0cb2381fabfe9b98e3a",
+      "hashedAt": 1781300416389,
+      "ingestCount": 1,
+      "lastIngestAt": 1781300416389
+    },
+    "wiki/projects/FIOCRUZ.md": {
+      "hash": "98e0cf7096d171996de6ee726d18ead94cad4d935c4c1a56119a3a62ae17175e",
+      "hashedAt": 1781300417004,
+      "ingestCount": 1,
+      "lastIngestAt": 1781300417004
+    }
+  },
+  "attachments": {},
+  "vaultId": "dc2abd6b-522e-4383-9555-714da84ac0b2",
+  "lastFullSyncAt": 1781296355702
+}

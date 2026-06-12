@@ -1,0 +1,149 @@
+{
+  "nodes": [
+    {
+      "id": "node-project",
+      "type": "project",
+      "position": {
+        "x": 250,
+        "y": 250
+      },
+      "data": {
+        "id": "3618a525-91f3-804d-89f0-e9928c95c41b"
+      }
+    },
+    {
+      "id": "node-client",
+      "type": "client",
+      "position": {
+        "x": -103.58375634517768,
+        "y": 139.13705583756345
+      },
+      "data": {
+        "id": "3568a525-91f3-80b3-b2d7-c974730f70a9"
+      }
+    },
+    {
+      "id": "node-tasks",
+      "type": "tasks",
+      "position": {
+        "x": 600,
+        "y": 150
+      },
+      "data": {}
+    },
+    {
+      "id": "node-budget",
+      "type": "budget",
+      "position": {
+        "x": 632.9498307119858,
+        "y": -402.52555024850335
+      },
+      "data": {}
+    },
+    {
+      "id": "node-transactions",
+      "type": "transaction",
+      "position": {
+        "x": 1084.7987520596096,
+        "y": -299.4175352007126
+      },
+      "data": {}
+    },
+    {
+      "id": "node-shoots",
+      "type": "shoot",
+      "position": {
+        "x": 204.58883248730967,
+        "y": -83.95939086294418
+      },
+      "data": {}
+    },
+    {
+      "id": "node-edits",
+      "type": "edit",
+      "position": {
+        "x": 243.5612401300931,
+        "y": -348.10826423178753
+      },
+      "data": {}
+    },
+    {
+      "id": "node-ai-study",
+      "type": "aiStudy",
+      "position": {
+        "x": 641.493342205447,
+        "y": 546.2727441997065
+      },
+      "data": {}
+    },
+    {
+      "id": "node-doc-01-BRIEFING",
+      "type": "doc",
+      "position": {
+        "x": -121.13705583756347,
+        "y": 377.8274111675127
+      },
+      "data": {
+        "name": "01-BRIEFING"
+      }
+    },
+    {
+      "id": "node-doc-teste",
+      "type": "doc",
+      "position": {
+        "x": -111.89173063639208,
+        "y": 550.6916809133105
+      },
+      "data": {
+        "name": "teste"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-client-project",
+      "source": "node-client",
+      "target": "node-project"
+    },
+    {
+      "id": "edge-project-tasks",
+      "source": "node-project",
+      "target": "node-tasks"
+    },
+    {
+      "id": "edge-project-budget",
+      "source": "node-project",
+      "target": "node-budget"
+    },
+    {
+      "id": "edge-budget-transactions",
+      "source": "node-budget",
+      "target": "node-transactions"
+    },
+    {
+      "id": "edge-project-shoots",
+      "source": "node-project",
+      "target": "node-shoots"
+    },
+    {
+      "id": "edge-shoots-edits",
+      "source": "node-shoots",
+      "target": "node-edits"
+    },
+    {
+      "id": "edge-project-ai-study",
+      "source": "node-project",
+      "target": "node-ai-study"
+    },
+    {
+      "id": "edge-doc-01-BRIEFING",
+      "source": "node-doc-01-BRIEFING",
+      "target": "node-project"
+    },
+    {
+      "id": "edge-doc-teste",
+      "source": "node-doc-teste",
+      "target": "node-project"
+    }
+  ]
+}

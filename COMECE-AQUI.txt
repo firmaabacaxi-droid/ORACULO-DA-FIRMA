@@ -1,0 +1,124 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                           🚀 COMECE AQUI                                     ║
+║                   Seu Cérebro está 100% Pronto                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+ESCOLHA UMA AÇÃO (clique ou copie):
+
+┌──────────────────────────────────────────────────────────────────────────────┐
+│                                                                              │
+│  1️⃣  ENTENDER O QUE FOI FEITO                                               │
+│     Arquivo: RESUMO-VISUAL.txt                                              │
+│     Tempo: 2 min                                                             │
+│     O quê: Status completo do Cérebro hoje                                  │
+│                                                                              │
+│  2️⃣  APRENDER AS CAPACIDADES                                                │
+│     Arquivo: CEREBRO-CAPACIDADES.md                                         │
+│     Tempo: 10 min                                                            │
+│     O quê: Como usar as 20 ferramentas Cortex                               │
+│                                                                              │
+│  3️⃣  FAZER 3 TESTES PRÁTICOS                                                │
+│     Arquivo: TESTE-CEREBRO-AGORA.md                                         │
+│     Tempo: 5 min                                                             │
+│     O quê: Confirmar que tudo funciona                                      │
+│                                                                              │
+│  4️⃣  VER O GRAFO 3D                                                          │
+│     Tutorial: COMO-USAR-3D-GRAPH.md                                         │
+│     Tempo: 2 min                                                             │
+│     O quê: Visualizar seu conhecimento em 3D                                │
+│                                                                              │
+└──────────────────────────────────────────────────────────────────────────────┘
+
+RECOMENDAÇÃO:
+
+  Comece pelo Teste 3 (TESTE-CEREBRO-AGORA.md)
+  → Tempo total: 5 minutos
+  → Você vai ver funcionando
+  → Depois lê a documentação se quiser entender mais
+
+
+ESTRUTURA DE ARQUIVOS:
+
+  c:\Users\User\Documents\ORACULO - FIRMA ABACAXI\
+  │
+  ├─ COMECE-AQUI.txt ..................... Este arquivo
+  ├─ RESUMO-VISUAL.txt ................... Resumo visual do status
+  ├─ CEREBRO-STATUS-HOJE.md .............. O que melhoramos
+  ├─ CEREBRO-CAPACIDADES.md .............. Guia das 20 ferramentas ⭐
+  ├─ TESTE-CEREBRO-AGORA.md .............. 3 testes práticos ⭐
+  ├─ COMO-USAR-3D-GRAPH.md ............... Tutorial 3D Graph
+  │
+  └─ cerebro\
+     └─ CEREBRO-ORACULO\
+        ├─ (seu vault com 2709 nós)
+        └─ .obsidian\plugins\hangarx\ ... HangarX ativo em :7474
+
+
+🔥 COMECE AGORA:
+
+  Opção A — Ler rápido:
+    1. Abra RESUMO-VISUAL.txt (2 min)
+    2. Execute TESTE-CEREBRO-AGORA.md (5 min)
+    3. Pronto! Você entendeu
+
+  Opção B — Aprender completo:
+    1. Leia CEREBRO-CAPACIDADES.md (10 min)
+    2. Execute os 3 testes (5 min)
+    3. Use conforme precisar
+
+  Opção C — Só testar:
+    1. Abra TESTE-CEREBRO-AGORA.md
+    2. Faça Teste 1 (perguntar no Obsidian)
+    3. Faça Teste 2 (3D Graph)
+    4. Faça Teste 3 (Claude Code)
+
+
+ATALHOS RÁPIDOS:
+
+  Obsidian:
+    • Ctrl+P → "3D Graph: Open" ........... Ver grafo 3D
+    • Ctrl+P → "HangarX: Sync" ........... Sincronizar novas notas
+    • Painel direito → "Ask your vault" . Perguntar ao Cérebro
+
+  Claude Code:
+    • @claude [pergunta sobre o vault] ... Claude busca em HangarX
+
+
+STATUS TÉCNICO:
+
+  ✅ HangarX MCP: localhost:7474 (ativo)
+  ✅ Cloud Mode: conectado
+  ✅ Sincronização: 2709 nós indexados
+  ✅ Plugins: 7 ativos (Dataview, Templater, Git, 3D Graph, Extended Graph, Advanced Canvas, HangarX)
+  ✅ Ferramentas: 20 disponíveis
+
+
+PRÓXIMA ETAPA:
+
+  Depois de testar, você pode:
+    → Adicionar mais notas ao vault
+    → Usar cortex_remember para guardar decisões
+    → Explorar as 20 ferramentas Cortex
+    → Integrar com outras ferramentas (Frame.io, NotebookLM, etc.)
+
+
+❓ DÚVIDAS?
+
+  Veja os arquivos .md correspondentes:
+  • "Como usar...?" → CEREBRO-CAPACIDADES.md
+  • "Como fazer...?" → TESTE-CEREBRO-AGORA.md
+  • "Por que não funciona?" → TESTE-CEREBRO-AGORA.md (seção ⚠️)
+
+
+🎯 OBJETIVO FINAL:
+
+  Seu Cérebro = Sistema que entende tudo sobre a Firma
+  → Consulte ele antes de tomar decisões
+  → Ele cita as fontes (notas no vault)
+  → Funciona em Obsidian, Claude Code, Cursor, Cline
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Pronto? Abra RESUMO-VISUAL.txt ou TESTE-CEREBRO-AGORA.md agora mesmo! 🚀
+
+═══════════════════════════════════════════════════════════════════════════════

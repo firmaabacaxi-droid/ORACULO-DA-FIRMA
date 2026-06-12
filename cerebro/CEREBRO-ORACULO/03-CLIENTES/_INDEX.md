@@ -6,9 +6,14 @@ Perfis dos clientes da Firma: contatos, histórico, pesquisa, perfis DISC e hist
 
 ## Clientes ativos / recentes
 
-| Cliente | Pasta | Status |
-|---|---|---|
-| Brasil Participativo (LabLivre/UnB) | [Brasil Participativo](brasil-participativo/brasil-participativo.md) | Ativo |
+| Cliente | Pasta | Status | Projeto |
+|---|---|---|---|
+| Brasil Participativo (LabLivre/UnB) | [[brasil-participativo]] | Ativo | Documentário + Vídeos ENAP |
+| Maranhã | [[maranha]] | Pós-produção | Documentário 28-29/05 |
+| RNP | [[rnp]] | Pré-produção | Documentário Ailton Krenak |
+| Simbiose | [[simbiose]] | Edição | Vídeo 1min30s |
+
+📌 **Visão consolidada:** [Histórico de Clientes-Chave](Historico-Clientes-Chave.md) — relacionamento, aprendizados e padrões dos principais clientes.
 
 ---
 
@@ -18,7 +23,6 @@ Cadastrar aqui quando houver novo projeto ou captação:
 - CNV
 - SuperHost
 - Cerrado Experience (Thiago)
-- RNP
 - INESC
 - Mighty Earth
 - ENAP

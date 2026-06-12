@@ -9,7 +9,8 @@ updated: 2026-06-11
 ---
 
 ## Última atualização
-**Sessão 23 (11 jun 2026):** Integração agency-agents — 4 agentes web/produto + 8 skills novas, verificadas e commitadas (branch já no GitHub)
+**Sessão 24 (12 jun 2026):** Integração de 3 sistemas — Notion / Cérebro / Drive documentada com regras claras. Projetos cegos (SOBRE2026, AGO, FIOCRUZ) incorporados ao vault. Links entre sistemas corrigidos. Arquivo REGRAS-INTEGRACAO.md criado.
+*(Sessão 23: Integração agency-agents — 4 agentes web/produto + 8 skills novas, verificadas e commitadas)*
 *(Sessão 21-22: Monorepo consolidado + vault limpo + fluxo de reuniões projetado)*
 
 ## Estado atual da Firma
@@ -23,14 +24,17 @@ updated: 2026-06-11
 
 ## Projetos ativos (status crítico)
 
-| Projeto | Deadline | Status | Valor |
-|---------|----------|--------|-------|
-| **FAC-2026** "Todas as Histórias do Mundo" | ⚠️ VENCIDO (05 jun) | Conceito + Orçamento + Cronograma prontos | R$ 199.300 |
-| **Visite mon Agence** (AFD Brasília) | Produção set: 2026 | Pré-produção | R$ 15.871,52 |
-| **Maranhã** (#16) | Filmagem: 28-29 mai | ✅ Finalizado | R$ 10.573,86 |
-| **SOBRE2026** (Ecologia UnB) | 27-31 jul | Prospecção ativa | R$ 58.124,08 |
-| **Brasil Participativo** (#04) | TBD | Proposta v7 | R$ 66.117 |
-| **Simbiose** (#10), **RNP** (#08) | TBD | Prospecção | TBD |
+| Projeto | Deadline | Status | Valor | Vault |
+|---------|----------|--------|-------|-------|
+| **FAC-2026** "Todas as Histórias do Mundo" | ⚠️ VENCIDO (05 jun) | Conceito + Orçamento + Cronograma prontos | R$ 199.300 | ✅ Integrado |
+| **Visite mon Agence** (AFD Brasília) | Produção set: 2026 | Pré-produção | R$ 15.871,52 | ✅ Síntese |
+| **Maranhã** (#16) | Gravação: 28-29 mai | ✅ Pós-produção | R$ 10.573,86 | ✅ Integrado |
+| **SOBRE2026** (Ecologia UnB) | 27-31 jul | Prospecção ativa | R$ 58.124,08 | ✅ **NOVO (S24)** |
+| **Brasil Participativo** (#04) | TBD | Proposta v7 | R$ 66.117 | ✅ Integrado |
+| **RNP** (#08) | TBD | Pré-produção | TBD | ✅ Integrado |
+| **Simbiose** (#10) | TBD | Edição | R$ 800 | ✅ Integrado |
+| **AGO** | TBD | Aprovado/Produção | TBD | ✅ **NOVO (S24)** |
+| **FIOCRUZ** | TBD | Aprovado/Produção | TBD | ✅ **NOVO (S24)** |
 
 ## Integrações operacionais (S20)
 

@@ -1,0 +1,88 @@
+# HangarX Cortex — Local Stack (Gerado automaticamente)
+# Data: 2026-06-12
+# Modo: LOCAL (totalmente privado, sem cloud)
+#
+# Inicie com:  docker compose -f docker-compose.cortex.yml up -d
+# Parar com:   docker compose -f docker-compose.cortex.yml down
+#
+# Health check: docker compose -f docker-compose.cortex.yml ps
+
+version: '3.8'
+
+services:
+  falkordb:
+    image: falkordb/falkordb:latest
+    container_name: cortex-falkordb
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - falkordb_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  postgres:
+    image: pgvector/pgvector:pg16
+    container_name: cortex-postgres
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: cortex
+      POSTGRES_PASSWORD: cortex
+      POSTGRES_DB: cortex
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U cortex -d cortex"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  cortex-api:
+    image: hangarx/cortex-api:1.0.3
+    container_name: cortex-api
+    restart: unless-stopped
+    ports:
+      - "3400:3400"
+    environment:
+      PORT: 3400
+      GRAPH_STORE_TYPE: falkordb
+      VECTOR_STORE_TYPE: pgvector
+      FALKORDB_HOST: falkordb
+      FALKORDB_PORT: 6379
+      DATABASE_URL: postgres://cortex:cortex@postgres:5432/cortex
+      AUTO_MIGRATE: "true"
+      STORAGE_TYPE: postgres
+      ANALYTICS_STORE_TYPE: memory
+
+      # LLM — usando Google Gemini
+      LLM_PROVIDER: gemini
+      LLM_MODEL: gemini-2.0-flash
+      EMBEDDING_PROVIDER: gemini
+      EMBEDDING_MODEL: gemini-embedding-001
+
+      # API Keys
+      GEMINI_API_KEY: AIzaSyCJP6kf4G8CDaSQskncMT_N8NuMxoHCF5E
+
+      # MCP — habilitado sem autenticação para modo local
+      MCP_ALLOW_UNAUTHENTICATED: "true"
+      MCP_PORT: 7474
+
+      # Segurança local
+      BOOTSTRAP_SECRET: cortex-local
+      LOCAL_API_KEY: cortex-local-firma-abacaxi-2026
+      CONNECTOR_ENCRYPTION_KEY: 5f7f79f9e40321ece0f528ec6bf974055f7f79f9e40321ece0f528ec6bf9740
+
+    depends_on:
+      falkordb:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+
+volumes:
+  falkordb_data:
+  postgres_data:

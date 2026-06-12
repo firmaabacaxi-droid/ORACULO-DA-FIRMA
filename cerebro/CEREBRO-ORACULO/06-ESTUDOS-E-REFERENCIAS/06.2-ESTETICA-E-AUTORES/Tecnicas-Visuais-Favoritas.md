@@ -6,7 +6,7 @@ Técnicas que já uso como assinatura e as que quero dominar. Para consultar no 
 
 ## Técnicas da Assinatura da Firma
 
-Ver também: [[03-CONHECIMENTO/tecnicas/Tecnicas-Assinatura-Firma]]
+Ver também: [[Tecnicas-Assinatura-Firma]]
 
 As 6 técnicas que definem o visual da Firma:
 1. **Low-angle** — grandiosidade e perspectiva

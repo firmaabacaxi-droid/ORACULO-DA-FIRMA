@@ -25,11 +25,27 @@ STATUS.md                   → Estado atual do sistema (leia no início de cada
 
 ---
 
+## Sistema & Ferramentas
+
+| Comando | Função |
+|---------|--------|
+| `/graphify` | Abre visualização 3D do grafo do Cérebro (2709 nós, 98 comunidades) |
+| `/wiki` | Iniciar sessão no vault (lê `wiki/hot.md` automaticamente) |
+| `/wiki-ingest [arquivo]` | Absorver documento na base de conhecimento |
+
+---
+
 ## Routing de skills
+
+> **⚡ PASSO ZERO:** Antes de qualquer tarefa especializada, leia `skills/SKILLS-INDEX.md` para identificar a skill correta. O índice centraliza todos os roteamentos.
 
 Identifique a tarefa e carregue a skill correspondente **antes de executar**.
 
 ```
+DECISÃO TÉCNICA / ARQUITETURA / UX / TRADE-OFF IMPORTANTE
+→ ative skills/antigravity/llm-council/SKILL.md (Conselho Multipersona)
+→ debate entre Arquiteto, UX, Produtor e Moderador antes de agir
+
 MARKETING DIGITAL / GERAÇÃO DE LEADS / FUNIL / ESTRATÉGIA DE CAPTAÇÃO (Etapa 0)
 → leia skills/prospeccao/MARKETING_CAPTACAO.md + skills/conteudo/SKILL.md
 → base de conhecimento: cerebro/CEREBRO-ORACULO/06-ESTUDOS-E-REFERENCIAS/06.1-CURSOS-E-ESTUDOS/marketing-digital/
@@ -56,6 +72,15 @@ POSTS / CONTEÚDO / REDES SOCIAIS / CALENDÁRIO EDITORIAL
 ORDEM DO DIA / TAREFAS / FINANCEIRO / GESTÃO / RELATÓRIO
 → leia skills/gestao/SKILL.md
 
+CONVERTER PDF / PPTX / XLSX / DOCX PARA MARKDOWN
+→ leia skills/antigravity/markitdown-parser/SKILL.md
+→ execute: markitdown "[arquivo]" > cerebro/docs/[nome].md
+→ endpoint no app: POST /api/skills/markitdown
+
+GERAR VÍDEO / VINHETA / MOTION GRAPHIC / BUMPER
+→ leia skills/antigravity/remotion-video-studio/SKILL.md
+→ escreva componente React/Remotion e renderize com CLI
+
 QUALQUER TEXTO PARA CLIENTE EXTERNO (e-mail, proposta, post)
 → ao finalizar, aplique skills/humanizador/SKILL.md
 ```
@@ -64,25 +89,30 @@ QUALQUER TEXTO PARA CLIENTE EXTERNO (e-mail, proposta, post)
 
 ## Skills Antigravity — referências técnicas
 
+> **Hub:** `skills/SKILLS-INDEX.md` — leia sempre primeiro para roteamento rápido.
+
 Disponíveis em `skills/antigravity/` (copiadas) e `C:\Users\User\Documents\ANTIGRAVITY\SKILLS\` (biblioteca completa).
 
-| Trigger | Skill |
-|---|---|
-| Técnicas cinematográficas (175+) | `skills/antigravity/cinematic-script-writer/SKILL.md` |
-| Câmera / exposição / hiperfocal | `skills/antigravity/photography-settings/SKILL.md` |
-| Negociação (método Voss) | `skills/antigravity/negotiation-voss/SKILL.md` |
-| Psicologia de marketing / gatilhos | `skills/antigravity/marketing-psychology/SKILL.md` |
-| Cálculo financeiro / markup / margem | `skills/antigravity/financial-calculator-pro/SKILL.md` |
-| Ordem do dia / priorização | `skills/antigravity/exec-admin/SKILL.md` |
-| Automações Make / Zapier / n8n | `skills/antigravity/automation-workflows/SKILL.md` |
-| Controle orçamentário / variância | `skills/antigravity/budget-planner/SKILL.md` |
-| Perfil DISC / adaptação de tom | `ANTIGRAVITY\SKILLS\personality-profiler\SKILL.md` |
-| Transcrição de áudio (Whisper CLI) | `ANTIGRAVITY\SKILLS\whisper-transcription\SKILL.md` |
-| Voice-over (ElevenLabs) | `ANTIGRAVITY\SKILLS\elevenlabs\SKILL.md` |
-| Geração de leads / scraping (Apify) | `ANTIGRAVITY\SKILLS\apify-lead-generation\SKILL.md` |
-| Publicação automática redes | `ANTIGRAVITY\SKILLS\upload-post\SKILL.md` |
-| Google Drive (gdrive / rclone) | `ANTIGRAVITY\SKILLS\google-drive-integration\SKILL.md` |
-| n8n — expressões / nodos | `ANTIGRAVITY\SKILLS\n8n-skills\` (7 sub-skills) |
+| Trigger | Skill | Modo |
+|---|---|---|
+| **🆕 Decisão arquitetural importante** | `skills/antigravity/llm-council/SKILL.md` | `agent` |
+| **🆕 Converter PDF/PPTX/XLSX para MD** | `skills/antigravity/markitdown-parser/SKILL.md` | `cli`+`app` |
+| **🆕 Gerar vídeo / vinheta / motion** | `skills/antigravity/remotion-video-studio/SKILL.md` | `cli` |
+| Técnicas cinematográficas (175+) | `skills/antigravity/cinematic-script-writer/SKILL.md` | `agent` |
+| Câmera / exposição / hiperfocal | `skills/antigravity/photography-settings/SKILL.md` | `agent` |
+| Negociação (método Voss) | `skills/antigravity/negotiation-voss/SKILL.md` | `agent` |
+| Psicologia de marketing / gatilhos | `skills/antigravity/marketing-psychology/SKILL.md` | `agent` |
+| Cálculo financeiro / markup / margem | `skills/antigravity/financial-calculator-pro/SKILL.md` | `agent` |
+| Ordem do dia / priorização | `skills/antigravity/exec-admin/SKILL.md` | `agent` |
+| Automações Make / Zapier / n8n | `skills/antigravity/automation-workflows/SKILL.md` | `agent` |
+| Controle orçamentário / variância | `skills/antigravity/budget-planner/SKILL.md` | `agent` |
+| Perfil DISC / adaptação de tom | `ANTIGRAVITY\SKILLS\personality-profiler\SKILL.md` | `agent` |
+| Transcrição de áudio (Whisper CLI) | `ANTIGRAVITY\SKILLS\whisper-transcription\SKILL.md` | `cli` |
+| Voice-over (ElevenLabs) | `ANTIGRAVITY\SKILLS\elevenlabs\SKILL.md` | `app` |
+| Geração de leads / scraping (Apify) | `ANTIGRAVITY\SKILLS\apify-lead-generation\SKILL.md` | `app` |
+| Publicação automática redes | `ANTIGRAVITY\SKILLS\upload-post\SKILL.md` | `app` |
+| Google Drive (gdrive / rclone) | `ANTIGRAVITY\SKILLS\google-drive-integration\SKILL.md` | `cli` |
+| n8n — expressões / nodos | `ANTIGRAVITY\SKILLS\n8n-skills\` (7 sub-skills) | `app` |
 
 ---
 

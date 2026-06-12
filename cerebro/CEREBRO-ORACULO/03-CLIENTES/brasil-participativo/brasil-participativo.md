@@ -1,5 +1,8 @@
 # Brasil Participativo / LabLivre (UnB) — Perfil de Cliente
 
+## Projetos Ativos
+- [[04-PROJETOS-ATIVOS/FIRMA-04-Brasil-Participativo|Documentário LabLivre + Vídeos ENAP (2026)]]
+
 **Fonte:** Relatório PPA 2024-2027 + Reunião de briefing (áudio)
 **Processado em:** 2026-05-22
 **NotebookLM:** `664e45e8-bf15-45b2-8d02-0cf5d0d415a8` (notebook "Brasil Participativo — Cliente")

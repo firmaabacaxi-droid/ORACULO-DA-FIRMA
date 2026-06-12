@@ -22,4 +22,8 @@
   - Documentário (R$ 50.025): 50% na entrega da primeira versão do roteiro e 50% na entrega do produto final.
   - Vídeos ENAP (R$ 15.000): 50% na entrega do 1º vídeo instrucional e 50% na entrega do 10º (último) vídeo.
 
+---
+
+**Síntese wiki:** [[wiki/projects/Brasil-Participativo|Brasil Participativo — Documentário + Vídeos ENAP]]  
+**Template:** [[01-OPERACAO-ORACULO/TEMPLATES/Template-Projeto-Audiovisual|Template Projeto Audiovisual]]
 

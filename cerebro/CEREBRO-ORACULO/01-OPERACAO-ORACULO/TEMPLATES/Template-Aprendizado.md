@@ -45,7 +45,7 @@
 
 ## Regra ou processo novo
 
-(Se este aprendizado gera uma nova regra ou mudança de processo, registre aqui e atualize [[01-PROCESSOS/Fluxo-13-Etapas]] se necessário)
+(Se este aprendizado gera uma nova regra ou mudança de processo, registre aqui e atualize [[Fluxo-13-Etapas]] se necessário)
 
 ---
 

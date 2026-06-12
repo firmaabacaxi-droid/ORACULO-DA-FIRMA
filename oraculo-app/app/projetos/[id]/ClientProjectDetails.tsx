@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 // ── Helpers ──────────────────────────────────────────────────────────
 function R$(val: number) {
@@ -30,6 +31,62 @@ const STATUS_COLOR: Record<string, string> = {
 // ── Sub-components ─────────────────────────────────────────────────────
 function Pill({ label, color = "gray" }: { label: string; color?: string }) {
   return <span className={`badge badge-${color}`}>{label}</span>;
+}
+
+// ── UX Hooks (baseados na skill ux-interface-design) ──────────────────
+function useAutoSave(value: string, saveFn: (v: string) => Promise<void>, delay = 1500) {
+  const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() => {
+    if (!initialized) { setInitialized(true); return; }
+    setStatus('saving');
+    const timer = setTimeout(async () => {
+      try {
+        await saveFn(value);
+        setStatus('saved');
+        toast.success('Salvo no Notion ✓');
+        setTimeout(() => setStatus('idle'), 2500);
+      } catch {
+        setStatus('error');
+        toast.error('Erro ao salvar. Tente novamente.');
+      }
+    }, delay);
+    return () => clearTimeout(timer);
+  }, [value]);
+
+  const indicator = {
+    idle:   null,
+    saving: <span style={{color:'var(--text-muted)',fontSize:'11px',transition:'opacity 0.3s'}}>⟳ Salvando...</span>,
+    saved:  <span style={{color:'#6dbf6d',fontSize:'11px',transition:'opacity 0.3s'}}>✓ Salvo</span>,
+    error:  <span style={{color:'var(--red)',fontSize:'11px'}}>✕ Erro</span>,
+  }[status];
+
+  return { status, indicator };
+}
+
+function useInlineEdit<T extends string>(initial: T, saveFn: (v: T) => Promise<void>) {
+  const [value, setValue] = useState<T>(initial);
+  const [editing, setEditing] = useState(false);
+  const [saving, setSaving] = useState(false);
+
+  const save = useCallback(async (newVal: T) => {
+    setSaving(true);
+    setEditing(false);
+    const prev = value;
+    setValue(newVal);
+    try {
+      await saveFn(newVal);
+      toast.success('Salvo no Notion ✓');
+    } catch {
+      setValue(prev);
+      toast.error('Erro ao salvar.');
+    } finally {
+      setSaving(false);
+    }
+  }, [value, saveFn]);
+
+  return { value, setValue, editing, setEditing, saving, save };
 }
 
 function StatCard({ label, value, sub, color = "", icon }: any) {
@@ -139,8 +196,110 @@ function renderNotionBody(text: string) {
   );
 }
 
-export default function ClientProjectDetails({ project, tarefas, orcamento, corpoNotion }: any) {
-  const [tab, setTab] = useState("overview");
+export default function ClientProjectDetails({
+  project,
+  tarefas,
+  orcamento,
+  corpoNotion,
+  orcamentoItens = [],
+  filmagens = [],
+  edicoes = [],
+  transacoes = []
+}: any) {
+  const [tab, setTab] = useState("overview"); // Abre direto na Visão Geral (Canvas suspenso)
+  const [briefing, setBriefing] = useState(project.briefing || "");
+  const [cerebroFiles, setCerebroFiles] = useState<any[]>([]);
+  const [activeNote, setActiveNote] = useState<any | null>(null);
+
+  // Inline edit hooks para campos do Notion
+  const statusEdit = useInlineEdit<string>(project.status || '', async (v) => {
+    await fetch('/api/notion', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ action: 'updateProjectStatus', projectId: project.id, status: v })
+    });
+  });
+
+  const workflowEdit = useInlineEdit<string>(project.workflow_step || '', async (v) => {
+    await fetch('/api/notion', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ action: 'updateProjectStatus', projectId: project.id, status: statusEdit.value, etapa: v })
+    });
+  });
+
+  // Auto-save de briefing com debounce 1.5s
+  const briefingSave = useAutoSave(briefing, async (v) => {
+    const res = await fetch('/api/notion', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ action: 'updateProjectObservations', projectId: project.id, observations: v })
+    });
+    if (!res.ok) throw new Error('Falha ao salvar');
+  }, 1500);
+
+
+  useEffect(() => {
+    const fetchCerebroData = async () => {
+      try {
+        const res = await fetch(`/api/cerebro?projectNumber=${project.auto_id}&projectTitle=${project.titulo}`);
+        if (res.ok) {
+          const data = await res.json();
+          setCerebroFiles(data.notes || []);
+        }
+      } catch (e) {
+        console.error('Erro ao buscar dados do Cérebro:', e);
+      }
+    };
+    fetchCerebroData();
+  }, [project.auto_id, project.titulo]);
+
+  // handleSaveBriefing removido — substituido pelo useAutoSave acima
+
+
+  const handleSaveNote = async (fileName: string, content: string) => {
+    try {
+      const res = await fetch('/api/cerebro', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          projectNumber: project.auto_id,
+          projectTitle: project.titulo,
+          fileName,
+          content
+        })
+      });
+      if (res.ok) {
+        setCerebroFiles(prev => prev.map(f => f.name === fileName ? { ...f, content } : f));
+        if (activeNote && activeNote.name === fileName) setActiveNote({ ...activeNote, content });
+        toast.success('Nota salva no Cérebro ✓');
+      } else {
+        toast.error('Erro ao salvar nota.');
+      }
+    } catch (e) {
+      console.error('Erro ao salvar nota:', e);
+      toast.error('Erro ao salvar nota.');
+    }
+  };
+
+  const handleCreateNote = async () => {
+    const title = prompt('Nome do novo documento markdown (sem .md)?');
+    if (!title) return;
+    const defaultContent = `# ${title}\n\nDocumentação criada em ${new Date().toLocaleDateString('pt-BR')}.\n`;
+    try {
+      const res = await fetch('/api/cerebro', {
+        method: 'POST', headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ projectNumber: project.auto_id, projectTitle: project.titulo, fileName: title, content: defaultContent })
+      });
+      if (res.ok) {
+        const newNote = { name: title, fileName: `${title}.md`, content: defaultContent };
+        setCerebroFiles(prev => [...prev, newNote]);
+        setActiveNote(newNote);
+        toast.success('Documento criado no Cérebro ✓');
+      }
+    } catch (e) {
+      console.error('Erro ao criar nota:', e);
+      toast.error('Erro ao criar nota.');
+    }
+  };
+
 
   // Cálculo financeiro dinâmico a partir dos status reais do projeto
   let recebido = 0;
@@ -164,6 +323,8 @@ export default function ClientProjectDetails({ project, tarefas, orcamento, corp
     { id: "tarefas",     label: `Tarefas (${tarefas.length})` },
     { id: "equipe",      label: "Equipe & Contato" },
   ];
+
+  // Canvas suspenso desta versão — CanvasContainer não é mais importado
 
   return (
     <div>
@@ -304,13 +465,86 @@ export default function ClientProjectDetails({ project, tarefas, orcamento, corp
 
             <div className="card">
               <div className="card-title">🎬 Detalhes de Produção</div>
-              <div className="detail-row"><div className="detail-label">Responsável</div><div className="detail-value" style={{ fontWeight: 600 }}>{project.diretor || "Firma Abacaxi"}</div></div>
-              <div className="detail-row"><div className="detail-label">Formato/Tipo</div><div className="detail-value">{project.tipo_projeto || "—"}</div></div>
-              <div className="detail-row"><div className="detail-label">Data de Entrega</div><div className="detail-value">{dt(project.data_entrega)}</div></div>
-              <div className="detail-row"><div className="detail-label">Status Geral</div><div className="detail-value"><Pill label={project.status} color="orange" /></div></div>
+              <div className="detail-row">
+                <div className="detail-label">Responsável</div>
+                <div className="detail-value" style={{ fontWeight: 600 }}>{project.diretor || 'Firma Abacaxi'}</div>
+              </div>
+              <div className="detail-row">
+                <div className="detail-label">Formato/Tipo</div>
+                <div className="detail-value">{project.tipo_projeto || '—'}</div>
+              </div>
+              <div className="detail-row">
+                <div className="detail-label">Data de Entrega</div>
+                <div className="detail-value">{dt(project.data_entrega)}</div>
+              </div>
+
+              {/* Status — INLINE EDIT */}
+              <div className="detail-row">
+                <div className="detail-label">Status Geral</div>
+                <div className="detail-value">
+                  {statusEdit.editing ? (
+                    <select
+                      autoFocus
+                      value={statusEdit.value}
+                      onChange={e => statusEdit.save(e.target.value as string)}
+                      onBlur={() => statusEdit.setEditing(false)}
+                      style={{ background: 'var(--surface2)', border: '1px solid var(--gold)', borderRadius: '4px', color: 'var(--text)', fontSize: '12px', padding: '2px 6px' }}
+                    >
+                      {['Briefing','Proposta','Aprovado','Pré-produção','Filmagem','Edição','Em produção','Trabalhando','Entrega','Concluído','Cancelado'].map(s => (
+                        <option key={s} value={s}>{s}</option>
+                      ))}
+                    </select>
+                  ) : (
+                    <span
+                      onClick={() => statusEdit.setEditing(true)}
+                      title="Clique para editar"
+                      style={{
+                        cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '6px',
+                        padding: '2px 8px', borderRadius: '4px', border: '1px solid transparent',
+                        transition: 'all 0.15s',
+                        background: statusEdit.saving ? 'rgba(212,154,106,0.1)' : 'transparent'
+                      }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,154,106,0.3)'; (e.currentTarget as HTMLElement).style.background = 'rgba(212,154,106,0.06)'; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'transparent'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+                    >
+                      <Pill label={statusEdit.value || project.status} color={STATUS_COLOR[statusEdit.value] ?? 'gray'} />
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', opacity: 0.6 }}>✏️</span>
+                    </span>
+                  )}
+                </div>
+              </div>
+
+              {/* Etapa Workflow — INLINE EDIT */}
               <div className="detail-row">
                 <div className="detail-label">Etapa Workflow</div>
-                <div className="detail-value"><Pill label={project.workflow_step ?? "—"} color="gold" /></div>
+                <div className="detail-value">
+                  {workflowEdit.editing ? (
+                    <select
+                      autoFocus
+                      value={workflowEdit.value}
+                      onChange={e => workflowEdit.save(e.target.value as string)}
+                      onBlur={() => workflowEdit.setEditing(false)}
+                      style={{ background: 'var(--surface2)', border: '1px solid var(--gold)', borderRadius: '4px', color: 'var(--text)', fontSize: '12px', padding: '2px 6px' }}
+                    >
+                      {WORKFLOW.map(s => <option key={s} value={s}>{WF_ICON[s]} {s}</option>)}
+                    </select>
+                  ) : (
+                    <span
+                      onClick={() => workflowEdit.setEditing(true)}
+                      title="Clique para editar etapa"
+                      style={{
+                        cursor: 'pointer', display: 'inline-flex', alignItems: 'center', gap: '6px',
+                        padding: '2px 8px', borderRadius: '4px', border: '1px solid transparent',
+                        transition: 'all 0.15s'
+                      }}
+                      onMouseEnter={e => { (e.currentTarget as HTMLElement).style.borderColor = 'rgba(212,154,106,0.3)'; (e.currentTarget as HTMLElement).style.background = 'rgba(212,154,106,0.06)'; }}
+                      onMouseLeave={e => { (e.currentTarget as HTMLElement).style.borderColor = 'transparent'; (e.currentTarget as HTMLElement).style.background = 'transparent'; }}
+                    >
+                      <Pill label={workflowEdit.value || project.workflow_step || '—'} color="gold" />
+                      <span style={{ fontSize: '10px', color: 'var(--text-muted)', opacity: 0.6 }}>✏️</span>
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -327,6 +561,144 @@ export default function ClientProjectDetails({ project, tarefas, orcamento, corp
               <div style={{ maxHeight: "400px", overflowY: "auto", paddingRight: "8px" }} className="custom-scrollbar">
                 {renderNotionBody(corpoNotion)}
               </div>
+            </div>
+          </div>
+
+          {/* Observações com Auto-Save */}
+          <div style={{ marginBottom: "24px" }}>
+            <div className="card" style={{ borderTop: "3px solid var(--gold)", padding: "20px 24px" }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                <div className="card-title" style={{ margin: 0 }}>📝 Observações & Briefing do Projeto</div>
+                {briefingSave.indicator}
+              </div>
+              <p style={{ fontSize: "11px", color: "var(--text-muted)", marginBottom: "12px" }}>
+                Auto-salvo no Notion após 1.5s de inatividade.
+              </p>
+              <textarea
+                value={briefing}
+                onChange={(e) => setBriefing(e.target.value)}
+                style={{
+                  width: "100%",
+                  height: "120px",
+                  background: "var(--surface2)",
+                  border: `1px solid ${briefingSave.status === 'saving' ? 'var(--gold)' : 'var(--border)'}`,
+                  borderRadius: "6px",
+                  color: "var(--text)",
+                  padding: "12px",
+                  fontSize: "13px",
+                  fontFamily: "inherit",
+                  resize: "vertical",
+                  outline: "none",
+                  transition: 'border-color 0.2s',
+                }}
+                placeholder="Observações sobre o projeto... (salva automaticamente no Notion)"
+              />
+            </div>
+          </div>
+
+          {/* Documentos do Cérebro (Obsidian) */}
+          <div style={{ marginBottom: "24px" }}>
+            <SectionHeader 
+              title="🧠 Documentos do Cérebro (Obsidian)" 
+              action={
+                <button onClick={handleCreateNote} className="btn btn-ghost" style={{ fontSize: "11px", padding: "4px 10px" }}>
+                  + Novo Documento
+                </button>
+              } 
+            />
+            <div style={{ display: "flex", gap: "16px", minHeight: "300px" }}>
+              {/* List card */}
+              <div className="card" style={{ flex: 1, padding: "16px", display: "flex", flexDirection: "column", gap: "8px", maxHeight: "400px", overflowY: "auto" }}>
+                {cerebroFiles.map((file) => (
+                  <div 
+                    key={file.name}
+                    onClick={() => setActiveNote(file)}
+                    style={{
+                      padding: "10px 12px",
+                      background: activeNote?.name === file.name ? "rgba(212,154,106,0.15)" : "var(--surface2)",
+                      border: activeNote?.name === file.name ? "1px solid var(--gold)" : "1px solid var(--border)",
+                      borderRadius: "6px",
+                      cursor: "pointer",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      alignItems: "center",
+                      transition: "all 0.2s"
+                    }}
+                  >
+                    <div>
+                      <div style={{ fontWeight: 600, fontSize: "13px", color: activeNote?.name === file.name ? "var(--gold)" : "var(--text)" }}>
+                        📄 {file.name}.md
+                      </div>
+                      <div style={{ fontSize: "10px", color: "var(--text-muted)", marginTop: "2px" }}>
+                        Markdown Local Obsidian
+                      </div>
+                    </div>
+                    <span style={{ color: "var(--text-muted)", fontSize: "12px" }}>✏️</span>
+                  </div>
+                ))}
+                {cerebroFiles.length === 0 && (
+                  <div style={{ textAlign: "center", color: "var(--text-dim)", padding: "20px", fontSize: "12px" }}>
+                    Nenhuma nota local encontrada no Obsidian Vault. Crie uma nova nota acima!
+                  </div>
+                )}
+              </div>
+
+              {/* Editor area */}
+              {activeNote ? (
+                <div style={{ width: "55%", display: "flex", flexDirection: "column", border: "1px solid var(--border)", borderRadius: "var(--radius)", overflow: "hidden" }}>
+                  <div style={{
+                    padding: "10px 16px",
+                    background: "var(--surface)",
+                    borderBottom: "1px solid var(--border)",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center"
+                  }}>
+                    <span style={{ fontSize: "12px", fontWeight: 700, color: "var(--gold)" }}>
+                      ✏️ Editando: {activeNote.name}.md
+                    </span>
+                    <button 
+                      onClick={() => setActiveNote(null)}
+                      style={{ background: "transparent", border: "none", color: "var(--text-muted)", cursor: "pointer", fontSize: "13px" }}
+                    >
+                      Fechar
+                    </button>
+                  </div>
+                  <textarea
+                    value={activeNote.content}
+                    onChange={(e) => {
+                      const updated = { ...activeNote, content: e.target.value };
+                      setActiveNote(updated);
+                      setCerebroFiles(prev => prev.map(f => f.name === activeNote.name ? updated : f));
+                    }}
+                    style={{
+                      flex: 1,
+                      minHeight: "220px",
+                      background: "#0a0908",
+                      border: "none",
+                      color: "var(--text)",
+                      padding: "16px",
+                      fontSize: "13px",
+                      fontFamily: "'Courier New', Courier, monospace",
+                      resize: "none",
+                      outline: "none"
+                    }}
+                  />
+                  <div style={{ padding: "8px 16px", background: "var(--surface2)", borderTop: "1px solid var(--border)", display: "flex", justifyContent: "flex-end" }}>
+                    <button
+                      onClick={() => handleSaveNote(activeNote.name, activeNote.content)}
+                      className="btn btn-gold"
+                      style={{ fontSize: "11px", padding: "4px 12px" }}
+                    >
+                      💾 Salvar Alterações
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="card" style={{ width: "55%", display: "flex", alignItems: "center", justifyContent: "center", color: "var(--text-dim)", fontSize: "12px", padding: "20px" }}>
+                  Selecione um arquivo da lista ao lado para editá-lo inline.
+                </div>
+              )}
             </div>
           </div>
 
