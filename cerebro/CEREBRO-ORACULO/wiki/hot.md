@@ -1,6 +1,6 @@
 ---
 type: hot-cache
-updated: 2026-06-11
+updated: 2026-06-12
 ---
 # Hot Cache — Firma Abacaxi
 
@@ -9,8 +9,9 @@ updated: 2026-06-11
 ---
 
 ## Última atualização
-**Sessão 24 (12 jun 2026):** Integração de 3 sistemas — Notion / Cérebro / Drive documentada com regras claras. Projetos cegos (SOBRE2026, AGO, FIOCRUZ) incorporados ao vault. Links entre sistemas corrigidos. Arquivo REGRAS-INTEGRACAO.md criado.
-*(Sessão 23: Integração agency-agents — 4 agentes web/produto + 8 skills novas, verificadas e commitadas)*
+**Sessão 25 (12 jun 2026) — Expansão Vida Pessoal:** Oráculo expandido para além da Firma. Nova área `08-FELIPE/` (visão de mundo, biblioteca, história); inbox universal via Telegram (blueprint n8n + skill `processar-inbox`); `docs/VISAO-ORACULO.md` (constituição — 4 domínios, 9 princípios); `docs/FLUXO_ORACULO.md` (5 modos de uso); `llm-council` ganhou 5ª persona (Guardião da Narrativa 🜍); identidade dupla: terceiro sócio da Firma + parceiro de vida do Felipe. **Próximo passo operacional:** montar workflow n8n (blueprint pronto em `automacoes/inbox-universal.md`).
+*(Sessão 24: Integração de 3 sistemas documentada — Notion/Cérebro/Drive + projetos SOBRE2026, AGO, FIOCRUZ)*
+*(Sessão 23: Integração agency-agents — 4 agentes web/produto + 8 skills novas)*
 *(Sessão 21-22: Monorepo consolidado + vault limpo + fluxo de reuniões projetado)*
 
 ## Estado atual da Firma

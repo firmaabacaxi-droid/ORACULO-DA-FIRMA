@@ -1,5 +1,5 @@
 # Plano de Ação — Firma Abacaxi
-*Atualizado: 11 jun 2026 — Sessão 21-22*
+*Atualizado: 12 jun 2026 — Sessão 25*
 
 > Documento vivo. Atualizar no início/fim de cada sessão.
 
@@ -15,24 +15,22 @@
 
 ---
 
-## 🟡 Esta semana / próximas sessões
-
-### Infraestrutura do Oráculo
+## 🟡 Próximas sessões — Infraestrutura
 
 | # | Tarefa | Detalhe |
 |---|---|---|
-| 4 | **Montar workflow n8n** | Seguir `automacoes/reuniao-transcricao-wiki.md`; precisar Groq API key (console.groq.com) |
-| 5 | **Revisão do cérebro** | ⭐ Prioridade para próximas etapas — ver seção abaixo |
+| 4 | **Montar workflow n8n — inbox universal** | ⭐ Seguir `automacoes/inbox-universal.md`; precisa: bot Telegram (token em `~/.secrets/`), Groq API key, n8n com acesso ao vault |
+| 5 | **Montar workflow n8n — reuniões** | Seguir `automacoes/reuniao-transcricao-wiki.md` (pode ser o mesmo bot, ramo separado) |
 | 6 | **Popular wiki/projects/** | Rodar `/wiki-ingest` para FAC-2026, VMA, Maranhã, SOBRE2026 |
-| 7 | **Testar fluxo completo de reunião** | Enviar voz no Telegram → verificar `00-INBOX/reunioes/` → `/wiki-ingest` |
+| 7 | **Testar inbox ponta a ponta** | Criar 3 capturas em `00-INBOX/capturas/` → "processar inbox" → verificar notas + wiki |
 
 ### Projetos ativos
 
 | # | Projeto | Status | Próxima ação |
 |---|---|---|---|
 | 8 | **Visite mon Agence** (AFD) | Pré-produção | Scouting de locações + contratar produtor local |
-| 9 | **Brasil Participativo** (#04) | Briefing | Definir escopo e proposta |
-| 10 | **Simbiose** (#10), **RNP** (#08) | Prospecção | Retomar contato |
+| 9 | **Brasil Participativo** (#04) | Proposta v7 | Aguardar Finatec |
+| 10 | **Simbiose** (#10), **RNP** (#08) | Em andamento | Acompanhar |
 
 ---
 
@@ -46,41 +44,38 @@
 
 ---
 
-## ⭐ Revisão do Cérebro (sessão dedicada)
+## ⭐ Oráculo — dimensão pessoal (Sessão 25)
 
-O usuário identificou que a revisão do cérebro é crítica para as próximas etapas. Pontos a trabalhar:
+Nova dimensão ativa: o Oráculo agora serve também à vida pessoal do Felipe. Estrutura criada; próximos passos:
 
-**1. Revisar estrutura das pastas de projetos**
-- Cada projeto em `04-PROJETOS-ATIVOS/FIRMA-NN-Nome/` deve ter subestrutura clara
-- Arquivos markdown organizados (briefing, roteiro, log de produção)
+**1. Montar o bot Telegram + n8n** (o mais impactante — destrava o hábito de captura)
+- Blueprint completo em `automacoes/inbox-universal.md`
+- Testar com: 1 link YouTube + 1 artigo + 1 áudio + 1 texto
+- Verificar `00-INBOX/capturas/` com 4 arquivos `.md`
 
-**2. Popular o wiki com projetos ativos**
-- `wiki/projects/FAC-2026.md`
-- `wiki/projects/Visite-mon-Agence.md`
-- `wiki/projects/SOBRE2026.md`
-- `wiki/areas/captacao.md`, `wiki/areas/financeiro.md`
+**2. Piloto da biblioteca** (livro 1)
+- Felipe escolhe o primeiro livro (sugestão: Jung/arquétipos ou Vogler)
+- Criar notebook no NotebookLM → sumário estruturado → nota em `08.2-BIBLIOTECA/`
+- Pipeline documentado em `08.2-BIBLIOTECA/_COMO-FUNCIONA.md`
 
-**3. Sincronizar NotebookLM**
-- Verificar que as 9 fontes estão atualizadas
-- Adicionar novos editais relevantes 2026
-- Testar geração de áudio para briefing de projetos
+**3. Inventário do acervo pessoal**
+- Felipe aponta: espetáculo de circo, escritos sobre "Oráculo", outros projetos fora do vault
+- O Oráculo ingere em batch (agente `firma-wiki-ingest`)
+- Fechar com `/wiki-lint` para órfãos
 
-**4. Revisar `wiki/hot.md`**
-- Atualizar status dos projetos (alguns dados de junho precisam de revisão)
-- Simplificar: manter só o que muda sessão a sessão
-
-**5. Criar wiki/resources/pessoas/** para contatos-chave
-- Contatos AFD (VMA), SEC-DF (FAC), UnB (SOBRE2026)
+**4. Revisão do Cérebro (já planejada)**
+- Popular `wiki/projects/` (FAC-2026, VMA, SOBRE2026) via `/wiki-ingest`
+- Criar `wiki/resources/pessoas/` para contatos-chave (AFD, SEC-DF, UnB)
 
 ---
 
 ## Backlog (sem prioridade definida)
 
 - Skill de "contexto pré-reunião" no n8n (inverso do fluxo de transcrição)
-- Criar subagentes no claude.ai (Proposta, Pré-produção, Gestão, Conteúdo, Prospecção)
 - Site Framer + Frame.io (Fase 2 do Oráculo — R$ 160/mês adicional)
-- Bot Telegram para captura rápida de notas (além de reuniões)
 - Ordem do Dia automática às 8h (Fase 4)
+- Espaço da Jaya no vault (quando ela quiser — princípio da simetria com 08-FELIPE)
+- Responder os 5 questionamentos abertos de `docs/VISAO-ORACULO.md` (ritual de retorno, sucesso no domínio pessoal, etc.)
 
 ---
 
@@ -88,20 +83,21 @@ O usuário identificou que a revisão do cérebro é crítica para as próximas 
 
 ```
 FASE 1 · ✅ CONCLUÍDA (Mai-Jun 2026)
-  Documentação, skills, MCPs, Obsidian, propostas reais, monorepo consolidado
+  Documentação, skills, MCPs, Obsidian, propostas reais, monorepo consolidado,
+  agentes web/produto, inbox universal (blueprint), visão pessoal, área 08-FELIPE
 
-FASE 2 · Próxima
-  Google Drive MCP · Frame.io · Site Framer
+FASE 2 · Em andamento
+  Inbox Telegram em produção · Google Drive MCP · Frame.io
 
 FASE 3
   ElevenLabs · Whisper local · n8n automações A1–A5
 
 FASE 4
-  LinkedIn Sales Nav · Bot Telegram · Ordem do Dia às 8h
+  LinkedIn Sales Nav · Ordem do Dia às 8h
 
 FASE 5 · Escala
   Meta Ads + Apify · Curso Videomaker · Produtor júnior
 ```
 
 ---
-*Próxima sessão: revisar cérebro + popular wiki + testar fluxo de reunião*
+*Próxima sessão: montar n8n (inbox) + piloto de livro + testar inbox ponta a ponta*
