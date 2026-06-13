@@ -4,13 +4,13 @@
     "wiki/projects/Visite-mon-Agence.md": "a67c0cbea089d1dbc19ee2834c167fda9c0b47e8080966eea412a98f8b13e42a",
     "wiki/overview.md": "d9e1ac27f1904bfe33890d1ae7868f5ee89cac895be8cd1c12942f7d97e7cd8a",
     "WIKI.md": "2b8c19ae031d7257a6578fe98954b628194699a99cc9cd59f200d891fdd189d5",
-    "HOME.md": "8fca73035b006e9869bd214747588645d9817a8c1792e6eee2b499d20fb17780",
-    "wiki/projects/Brasil-Participativo.md": "ef95478b08311fddd62bf2a2b7717ad07bb3200cf6f5da0c4ce72b13d61ea59a",
+    "HOME.md": "3550ac9bd28e8a951c27ce67373cf0fc48799c6721d041bc5735acef4f49a79f",
+    "wiki/projects/Brasil-Participativo.md": "2bd0a633d2a9f18e5cae923b9650134d7526dbbc1f27f928e8d4fcf6a81179c8",
     "wiki/projects/FAC-2026.md": "ce040e6b655ab1406d7c42a63ca90f078b38226086bbabde1133ba6cb0012cb0",
-    "wiki/log.md": "9c827e8f3f32f26c0fdcb87c47bc16242d0eb55cac5e3d03be1eb78ee63c8376",
+    "wiki/log.md": "f0d262741f3a11ce2032163bbbc5c4ff8d39ed8769a659e26d9753931a073eb2",
     "wiki/index.md": "1802a89d38ff74d78409864ae4fc75333f914bc68ab9229ca3956112990ef135",
-    "CLAUDE.md": "9b724af32f29ffd53d7dae3844abfc4212fdb4b389fbe576b3ace9cf15ee01d2",
-    "wiki/hot.md": "0885b5f0b2fbc6f536c0d645cc00afdfc7b12aa0c822b7eba106d5edd76b1f3a",
+    "CLAUDE.md": "aed3833c6049d47e19e0705f6e6331b9733531e0ba87ae07ed07953b99a08f59",
+    "wiki/hot.md": "741ea9aff6f2771232a4d833a53d43e0306304decc882a22e196ae5a5958758e",
     "wiki/areas/Captacao.md": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",
     "skills/wiki-retrieve/SKILL.md": "56378e239d37d2ee6ac1ba5d1bfec296827b0e7da19c25a2ea9fa13df1ce9384",
     "skills/wiki-lint/SKILL.md": "3b6cb1d2be85a64f92415eaada18ecb213f9fc9d54f42e1fb4629b6e7fdcab01",
@@ -44,9 +44,9 @@
     "skills/autoresearch/SKILL.md": "7a11f8629ea1750424797e8ddaa7f6bb4fe3287b0bb3f8070860e112f4779b5e",
     "skills/autoresearch/references/program.md": "c90077b0707419fa39d39be717230684c4e280c07ae48fd45106844118fae568",
     "agents/wiki-ingest.md": "659b3a86707164d372d79bd6b843c64d2de25d6eb3313bfc3bdfd848fe8d6570",
-    "agents/wiki-lint.md": "49d3ff9f856d1d0492bb8c396b136e70c9f48b3bfb7e1690fbfcf2339b2aedfb",
-    "agents/verifier.md": "527413e6cab65580dbb54182154a6e62e557cb04234c2ccbeddf7749a3a96f14",
-    "06-ESTUDOS-E-REFERENCIAS/_INDEX.md": "52e35569feda1c5c3b367383bddf07bbb2aa212612246578508d1de883d09c52",
+    "agents/wiki-lint.md": "ac0c7fa5c9ca212d5d2155af0410374f9bec2b41e84f10e7aba4f8622223a456",
+    "agents/verifier.md": "c4808be1a46cc0a6c73cd4f1f3d4dc31699cb3b618b4aea38f29f956f53e8d20",
+    "06-ESTUDOS-E-REFERENCIAS/_INDEX.md": "f55edbe01bfb2b5bfbf1ea7728e55beaf61f84ef56aa2540889794bdbb60ee82",
     "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Filmes-Referencias.md": "2cfcfd0c63c23a79118b5c2d6c4ade3a3eded5476f3c3ba592e61305334ad394",
     "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Visuais-Favoritas.md": "b1ebb9798fd97267cba74976fc4ac6246dbbcc1935ea9f7d5fbc8e362439a5a0",
     "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Tecnicas-Assinatura-Firma.md": "1a5d0111773cb9af63746abb51defeea88803cf121ec889d3cd2f1871ddcaeb6",
@@ -149,14 +149,14 @@
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/FLUXO_TRABALHO.md": "61d19de9bccc9a09d4820ccc4be61f5f87ab26dca2b410aa87fb46cf499dc07b",
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Fluxo-13-Etapas.md": "ac3af06161b20ebb69e0b37fe1e01ea2d6086a431e69beb0e8a12853dea2fe5e",
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md": "ef4c33914027bfab14dc3a7c0b594a2967e0ccb218b2722bdbbfd3f07170fef3",
-    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md": "f84f647bbbeabcd7d5e6965a51bb37bc8800ca55cdcf5a87a51048021746b023",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md": "ee93c282130cde000809a4e31ba125249d4304ea16f1cfb99a29772e6249bffd",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/NOTEBOOKLM-SINCRONIZACAO.md": "d59afd4de370db7064052ec733158862ebaa8ce4b72c4b037d10b12f2e464dee",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/PROXIMOS-PASSOS.md": "132879ca71920583976c4fa96faaf6184b754523e90ed67575945fa1bf8c70dd",
-    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/MEMORIA.md": "5f2f555be35ed0f0c1c27b616daa476850018c3f112feb8a16cecd09fd5aea09",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/MEMORIA.md": "6416d01309af8c3ca8404d73c3f26b68a969bf12dc60c773bd537352a6d3c1ca",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/Manual-Oraculo-v1.md": "05de89e034425d3cf2e87956cd6b44649426eee9f384abb100dd481a72edb175",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/GUIA_ORACULO.md": "8443e7b8559882fbb689ecb4bd514cc6eece8344b6812c2bc9815eb463162af5",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/GUIA-SESSOES-AUTOMATIZADAS.md": "f78a46e165bc8fda08b1072468a9b917dc5e78c086d4cf3bfcf7b9848aa5a375",
-    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/CLAUDE.md": "b68e2aab1ff26edae0a6676fc26988648f82ce0c78e631712763002c53a18722",
+    "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/CLAUDE.md": "ecb8a3a5daada0f5c10c16b06f8c89f52eb95ea4d6e3252aee2b0af7c44d980d",
     "00-INBOX/_COMO-USAR.md": "ffe644ca9185a4c093059fcbccecdbc0f1a913802f3cd5d59a0060daeed2519e",
     "00-INBOX/reunioes/README.md": "bcfa08df64f9fe5fff00c1673ed04f978b06289c04818e379201488780a0a038",
     "00-INBOX/CHECKLIST-PRIMEIRA-SESSAO.md": "506ae83ed91134a0da414d02c46bf73bce50282e9cebc888a07fc881f24e9d72",
@@ -182,7 +182,16 @@
     "04-PROJETOS-ATIVOS/FIRMA-FIOCRUZ/01-BRIEFING.md": "d83993e7b8e1f3066701cd361e453e2ee2d0dd5951c1b55c070a3606ab8aece2",
     "wiki/projects/SOBRE2026.md": "fc14a7d310a2fc3fc551ca14550853d111742588128e43aa8e4c495e47a2b3fc",
     "wiki/projects/AGO.md": "1c26fa378dcbdaae0d6500a44c4e2f20d4754f7b51ffe0cb2381fabfe9b98e3a",
-    "wiki/projects/FIOCRUZ.md": "98e0cf7096d171996de6ee726d18ead94cad4d935c4c1a56119a3a62ae17175e"
+    "wiki/projects/FIOCRUZ.md": "98e0cf7096d171996de6ee726d18ead94cad4d935c4c1a56119a3a62ae17175e",
+    "08-FELIPE/_INDEX.md": "1b6467480367abec7cd085ffbc92b6b39edd7c0f41cea318057eb7b1dac29ad5",
+    "08-FELIPE/08.1-VISAO-DE-MUNDO/Mapa-Estudos-Junguianos.md": "b22ca9d3379cfe5539638030d0671718e3f16ebe9880296c9d3afce11e06d960",
+    "08-FELIPE/08.2-BIBLIOTECA/_COMO-FUNCIONA.md": "4da71b24fb9dab0158d6b18701f44bd8ebd142a942734fc82e54df22c7477130",
+    "08-FELIPE/08.3-HISTORIA-E-NARRATIVA/Linha-Narrativa-Felipe.md": "451b9899fa7117f8db8c9066282f2f6f2b4d154553d99892faae8e6037deee87",
+    "08-FELIPE/08.3-HISTORIA-E-NARRATIVA/Inventario-Acervo-Pessoal.md": "f4d5737f71eb208c563043bf33412f6be27977fde631d254f55f8f3257d81379",
+    "wiki/areas/Vida-Felipe.md": "a6464810f595064e113cb79c76857d76bebdba71d0d0c34a994d88a2654e559d",
+    "00-INBOX/capturas/README.md": "6d3c169ff840c24ec52a51cbc9671c249503cca282e7bb5043facd6f10d10d78",
+    "07-LOGS-DE-SESSAO/2026-06-12-Expansao-Vida-Pessoal.md": "703ce865778a77868014bb95299398eff7e21b8495ffc034fad5d4f8f56aaadc",
+    "07-LOGS-DE-SESSAO/2026-06-12-Sessao-26-Integracao-Google-Drive-e-Busca-Global-K.md": "d45744c7651b564d8a30c66d6abdb10825c359ef4c45c3fda1f2395eae90c5a2"
   },
   "files": {
     "wiki/projects/ORACULO-Cerebro.md": {
@@ -210,16 +219,16 @@
       "lastIngestAt": 1781294244799
     },
     "HOME.md": {
-      "hash": "8fca73035b006e9869bd214747588645d9817a8c1792e6eee2b499d20fb17780",
-      "hashedAt": 1781298320895,
-      "ingestCount": 2,
-      "lastIngestAt": 1781298320895
+      "hash": "3550ac9bd28e8a951c27ce67373cf0fc48799c6721d041bc5735acef4f49a79f",
+      "hashedAt": 1781302769843,
+      "ingestCount": 3,
+      "lastIngestAt": 1781302769843
     },
     "wiki/projects/Brasil-Participativo.md": {
-      "hash": "ef95478b08311fddd62bf2a2b7717ad07bb3200cf6f5da0c4ce72b13d61ea59a",
-      "hashedAt": 1781294244923,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294244923
+      "hash": "2bd0a633d2a9f18e5cae923b9650134d7526dbbc1f27f928e8d4fcf6a81179c8",
+      "hashedAt": 1781314637725,
+      "ingestCount": 2,
+      "lastIngestAt": 1781314637725
     },
     "wiki/projects/FAC-2026.md": {
       "hash": "ce040e6b655ab1406d7c42a63ca90f078b38226086bbabde1133ba6cb0012cb0",
@@ -228,10 +237,10 @@
       "lastIngestAt": 1781294244930
     },
     "wiki/log.md": {
-      "hash": "9c827e8f3f32f26c0fdcb87c47bc16242d0eb55cac5e3d03be1eb78ee63c8376",
-      "hashedAt": 1781294244967,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294244967
+      "hash": "f0d262741f3a11ce2032163bbbc5c4ff8d39ed8769a659e26d9753931a073eb2",
+      "hashedAt": 1781315957332,
+      "ingestCount": 2,
+      "lastIngestAt": 1781315957332
     },
     "wiki/index.md": {
       "hash": "1802a89d38ff74d78409864ae4fc75333f914bc68ab9229ca3956112990ef135",
@@ -240,16 +249,16 @@
       "lastIngestAt": 1781300463132
     },
     "CLAUDE.md": {
-      "hash": "9b724af32f29ffd53d7dae3844abfc4212fdb4b389fbe576b3ace9cf15ee01d2",
-      "hashedAt": 1781294245069,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294245069
+      "hash": "aed3833c6049d47e19e0705f6e6331b9733531e0ba87ae07ed07953b99a08f59",
+      "hashedAt": 1781302780995,
+      "ingestCount": 2,
+      "lastIngestAt": 1781302780995
     },
     "wiki/hot.md": {
-      "hash": "0885b5f0b2fbc6f536c0d645cc00afdfc7b12aa0c822b7eba106d5edd76b1f3a",
-      "hashedAt": 1781300477606,
-      "ingestCount": 2,
-      "lastIngestAt": 1781300477606
+      "hash": "741ea9aff6f2771232a4d833a53d43e0306304decc882a22e196ae5a5958758e",
+      "hashedAt": 1781314545089,
+      "ingestCount": 3,
+      "lastIngestAt": 1781314545089
     },
     "wiki/areas/Captacao.md": {
       "hash": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",
@@ -450,22 +459,22 @@
       "lastIngestAt": 1781294246503
     },
     "agents/wiki-lint.md": {
-      "hash": "49d3ff9f856d1d0492bb8c396b136e70c9f48b3bfb7e1690fbfcf2339b2aedfb",
-      "hashedAt": 1781294246589,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294246589
+      "hash": "ac0c7fa5c9ca212d5d2155af0410374f9bec2b41e84f10e7aba4f8622223a456",
+      "hashedAt": 1781314591462,
+      "ingestCount": 2,
+      "lastIngestAt": 1781314591462
     },
     "agents/verifier.md": {
-      "hash": "527413e6cab65580dbb54182154a6e62e557cb04234c2ccbeddf7749a3a96f14",
-      "hashedAt": 1781294246604,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294246604
+      "hash": "c4808be1a46cc0a6c73cd4f1f3d4dc31699cb3b618b4aea38f29f956f53e8d20",
+      "hashedAt": 1781314572344,
+      "ingestCount": 2,
+      "lastIngestAt": 1781314572344
     },
     "06-ESTUDOS-E-REFERENCIAS/_INDEX.md": {
-      "hash": "52e35569feda1c5c3b367383bddf07bbb2aa212612246578508d1de883d09c52",
-      "hashedAt": 1781294246625,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294246625
+      "hash": "f55edbe01bfb2b5bfbf1ea7728e55beaf61f84ef56aa2540889794bdbb60ee82",
+      "hashedAt": 1781302783354,
+      "ingestCount": 2,
+      "lastIngestAt": 1781302783354
     },
     "06-ESTUDOS-E-REFERENCIAS/06.2-ESTETICA-E-AUTORES/Filmes-Referencias.md": {
       "hash": "2cfcfd0c63c23a79118b5c2d6c4ade3a3eded5476f3c3ba592e61305334ad394",
@@ -1080,10 +1089,10 @@
       "lastIngestAt": 1781294250832
     },
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md": {
-      "hash": "f84f647bbbeabcd7d5e6965a51bb37bc8800ca55cdcf5a87a51048021746b023",
-      "hashedAt": 1781294250895,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294250895
+      "hash": "ee93c282130cde000809a4e31ba125249d4304ea16f1cfb99a29772e6249bffd",
+      "hashedAt": 1781300852832,
+      "ingestCount": 2,
+      "lastIngestAt": 1781300852832
     },
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/NOTEBOOKLM-SINCRONIZACAO.md": {
       "hash": "d59afd4de370db7064052ec733158862ebaa8ce4b72c4b037d10b12f2e464dee",
@@ -1098,10 +1107,10 @@
       "lastIngestAt": 1781294250942
     },
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/MEMORIA.md": {
-      "hash": "5f2f555be35ed0f0c1c27b616daa476850018c3f112feb8a16cecd09fd5aea09",
-      "hashedAt": 1781294250948,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294250948
+      "hash": "6416d01309af8c3ca8404d73c3f26b68a969bf12dc60c773bd537352a6d3c1ca",
+      "hashedAt": 1781300819687,
+      "ingestCount": 2,
+      "lastIngestAt": 1781300819687
     },
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/Manual-Oraculo-v1.md": {
       "hash": "05de89e034425d3cf2e87956cd6b44649426eee9f384abb100dd481a72edb175",
@@ -1122,10 +1131,10 @@
       "lastIngestAt": 1781294251144
     },
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/CLAUDE.md": {
-      "hash": "b68e2aab1ff26edae0a6676fc26988648f82ce0c78e631712763002c53a18722",
-      "hashedAt": 1781294251159,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294251159
+      "hash": "ecb8a3a5daada0f5c10c16b06f8c89f52eb95ea4d6e3252aee2b0af7c44d980d",
+      "hashedAt": 1781300820241,
+      "ingestCount": 2,
+      "lastIngestAt": 1781300820241
     },
     "00-INBOX/_COMO-USAR.md": {
       "hash": "ffe644ca9185a4c093059fcbccecdbc0f1a913802f3cd5d59a0060daeed2519e",
@@ -1282,6 +1291,60 @@
       "hashedAt": 1781300417004,
       "ingestCount": 1,
       "lastIngestAt": 1781300417004
+    },
+    "08-FELIPE/_INDEX.md": {
+      "hash": "1b6467480367abec7cd085ffbc92b6b39edd7c0f41cea318057eb7b1dac29ad5",
+      "hashedAt": 1781302684389,
+      "ingestCount": 1,
+      "lastIngestAt": 1781302684389
+    },
+    "08-FELIPE/08.1-VISAO-DE-MUNDO/Mapa-Estudos-Junguianos.md": {
+      "hash": "b22ca9d3379cfe5539638030d0671718e3f16ebe9880296c9d3afce11e06d960",
+      "hashedAt": 1781302695292,
+      "ingestCount": 1,
+      "lastIngestAt": 1781302695292
+    },
+    "08-FELIPE/08.2-BIBLIOTECA/_COMO-FUNCIONA.md": {
+      "hash": "4da71b24fb9dab0158d6b18701f44bd8ebd142a942734fc82e54df22c7477130",
+      "hashedAt": 1781302713555,
+      "ingestCount": 1,
+      "lastIngestAt": 1781302713555
+    },
+    "08-FELIPE/08.3-HISTORIA-E-NARRATIVA/Linha-Narrativa-Felipe.md": {
+      "hash": "451b9899fa7117f8db8c9066282f2f6f2b4d154553d99892faae8e6037deee87",
+      "hashedAt": 1781302720302,
+      "ingestCount": 1,
+      "lastIngestAt": 1781302720302
+    },
+    "08-FELIPE/08.3-HISTORIA-E-NARRATIVA/Inventario-Acervo-Pessoal.md": {
+      "hash": "f4d5737f71eb208c563043bf33412f6be27977fde631d254f55f8f3257d81379",
+      "hashedAt": 1781302746784,
+      "ingestCount": 1,
+      "lastIngestAt": 1781302746784
+    },
+    "wiki/areas/Vida-Felipe.md": {
+      "hash": "a6464810f595064e113cb79c76857d76bebdba71d0d0c34a994d88a2654e559d",
+      "hashedAt": 1781302757232,
+      "ingestCount": 1,
+      "lastIngestAt": 1781302757232
+    },
+    "00-INBOX/capturas/README.md": {
+      "hash": "6d3c169ff840c24ec52a51cbc9671c249503cca282e7bb5043facd6f10d10d78",
+      "hashedAt": 1781303081880,
+      "ingestCount": 1,
+      "lastIngestAt": 1781303081880
+    },
+    "07-LOGS-DE-SESSAO/2026-06-12-Expansao-Vida-Pessoal.md": {
+      "hash": "703ce865778a77868014bb95299398eff7e21b8495ffc034fad5d4f8f56aaadc",
+      "hashedAt": 1781314571160,
+      "ingestCount": 1,
+      "lastIngestAt": 1781314571160
+    },
+    "07-LOGS-DE-SESSAO/2026-06-12-Sessao-26-Integracao-Google-Drive-e-Busca-Global-K.md": {
+      "hash": "d45744c7651b564d8a30c66d6abdb10825c359ef4c45c3fda1f2395eae90c5a2",
+      "hashedAt": 1781315954678,
+      "ingestCount": 1,
+      "lastIngestAt": 1781315954678
     }
   },
   "attachments": {},

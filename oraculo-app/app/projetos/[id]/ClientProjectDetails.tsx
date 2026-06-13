@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 
@@ -16,6 +16,22 @@ function daysFrom(dateStr: string) {
   if (!dateStr) return null;
   return Math.ceil((new Date(dateStr).getTime() - Date.now()) / 86400000);
 }
+function formatBytes(bytes: number, decimals = 2) {
+  if (!bytes || bytes === 0) return '0 Bytes';
+  const k = 1024;
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+const FILE_ICONS: Record<string, string> = {
+  image: "🖼️",
+  video: "🎬",
+  pdf: "📕",
+  document: "📄",
+  folder: "📁",
+  other: "📎"
+};
 
 // ── Constants ─────────────────────────────────────────────────────────
 const WORKFLOW = ["Prospecção", "CRM", "Proposta", "Pré-Produção", "Filmagem", "Edição", "Entrega"];
@@ -37,13 +53,18 @@ function Pill({ label, color = "gray" }: { label: string; color?: string }) {
 function useAutoSave(value: string, saveFn: (v: string) => Promise<void>, delay = 1500) {
   const [status, setStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle');
   const [initialized, setInitialized] = useState(false);
+  const saveFnRef = useRef(saveFn);
+
+  useEffect(() => {
+    saveFnRef.current = saveFn;
+  }, [saveFn]);
 
   useEffect(() => {
     if (!initialized) { setInitialized(true); return; }
     setStatus('saving');
     const timer = setTimeout(async () => {
       try {
-        await saveFn(value);
+        await saveFnRef.current(value);
         setStatus('saved');
         toast.success('Salvo no Notion ✓');
         setTimeout(() => setStatus('idle'), 2500);
@@ -53,7 +74,7 @@ function useAutoSave(value: string, saveFn: (v: string) => Promise<void>, delay 
       }
     }, delay);
     return () => clearTimeout(timer);
-  }, [value]);
+  }, [value, delay, initialized]);
 
   const indicator = {
     idle:   null,
@@ -211,6 +232,101 @@ export default function ClientProjectDetails({
   const [cerebroFiles, setCerebroFiles] = useState<any[]>([]);
   const [activeNote, setActiveNote] = useState<any | null>(null);
 
+  // ── Google Drive Integration States & Handlers ───────────────────────
+  const [driveUrl, setDriveUrl] = useState(project.drive_folder_url || "");
+  const [driveFiles, setDriveFiles] = useState<any[]>([]);
+  const [loadingDrive, setLoadingDrive] = useState(false);
+  const [uploadingDrive, setUploadingDrive] = useState(false);
+  const [settingUpDrive, setSettingUpDrive] = useState(false);
+
+  const fetchDriveFiles = useCallback(async (url: string) => {
+    if (!url) return;
+    setLoadingDrive(true);
+    try {
+      const res = await fetch(`/api/drive?folderUrl=${encodeURIComponent(url)}`);
+      if (res.ok) {
+        const data = await res.json();
+        setDriveFiles(data.files || []);
+      } else {
+        console.error("Erro ao carregar arquivos do Drive");
+      }
+    } catch (err) {
+      console.error("Erro ao buscar arquivos do Drive:", err);
+    } finally {
+      setLoadingDrive(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (driveUrl) {
+      fetchDriveFiles(driveUrl);
+    }
+  }, [driveUrl, fetchDriveFiles]);
+
+  const handleSetupDrive = async () => {
+    setSettingUpDrive(true);
+    try {
+      const res = await fetch('/api/drive', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          action: 'setup',
+          projectId: project.id,
+          projectName: `FIRMA-${String(project.auto_id).padStart(2, '0')}-${project.titulo}`
+        })
+      });
+      if (res.ok) {
+        const data = await res.json();
+        setDriveUrl(data.folderUrl);
+        toast.success('Pastas criadas e vinculadas no Drive ✓');
+      } else {
+        const errData = await res.json();
+        toast.error(`Erro: ${errData.error || 'Falha ao configurar Drive'}`);
+      }
+    } catch (err) {
+      console.error("Erro ao configurar Drive:", err);
+      toast.error('Erro ao configurar Drive.');
+    } finally {
+      setSettingUpDrive(false);
+    }
+  };
+
+  const handleUploadDriveFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file || !driveUrl) return;
+
+    const match = driveUrl.match(/folders\/([a-zA-Z0-9-_]+)/);
+    const folderId = match ? match[1] : null;
+    if (!folderId) {
+      toast.error('ID da pasta do Drive inválido.');
+      return;
+    }
+
+    setUploadingDrive(true);
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('folderId', folderId);
+
+    try {
+      const res = await fetch('/api/drive', {
+        method: 'POST',
+        body: formData
+      });
+      if (res.ok) {
+        toast.success('Arquivo enviado ao Google Drive ✓');
+        fetchDriveFiles(driveUrl);
+      } else {
+        const errData = await res.json();
+        toast.error(`Erro: ${errData.error || 'Falha no upload'}`);
+      }
+    } catch (err) {
+      console.error('Erro no upload:', err);
+      toast.error('Erro ao enviar arquivo.');
+    } finally {
+      setUploadingDrive(false);
+    }
+  };
+
   // Inline edit hooks para campos do Notion
   const statusEdit = useInlineEdit<string>(project.status || '', async (v) => {
     await fetch('/api/notion', {
@@ -224,6 +340,18 @@ export default function ClientProjectDetails({
       method: 'POST', headers: {'Content-Type':'application/json'},
       body: JSON.stringify({ action: 'updateProjectStatus', projectId: project.id, status: statusEdit.value, etapa: v })
     });
+  });
+
+  const valorEdit = useInlineEdit<string>(String(project.valor_contrato || 0), async (v) => {
+    const numValue = Number(v);
+    if (isNaN(numValue)) {
+      throw new Error('Valor inválido');
+    }
+    const res = await fetch('/api/notion', {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ action: 'updateProjectValue', projectId: project.id, value: numValue })
+    });
+    if (!res.ok) throw new Error('Falha ao salvar');
   });
 
   // Auto-save de briefing com debounce 1.5s
@@ -327,7 +455,7 @@ export default function ClientProjectDetails({
   // Canvas suspenso desta versão — CanvasContainer não é mais importado
 
   return (
-    <div>
+    <div className="fade-in">
       {/* ── BREADCRUMB ─────────────────────────────────────────────── */}
       <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "20px", fontSize: "13px" }}>
         <Link href="/projetos" style={{ color: "var(--text-dim)" }}>Projetos</Link>
@@ -351,11 +479,11 @@ export default function ClientProjectDetails({
               <span style={{ fontSize: "11px", color: "var(--text-muted)", letterSpacing: "1.5px", textTransform: "uppercase" }}>
                 #{String(project.auto_id).padStart(3, "0")} · {project.clientes?.empresa || "Sem empresa"}
               </span>
-              <Pill label={project.status} color={STATUS_COLOR[project.status] ?? "gray"} />
+              <Pill label={statusEdit.value || project.status} color={STATUS_COLOR[statusEdit.value || project.status] ?? "gray"} />
             </div>
 
             <h1 style={{ fontSize: "26px", fontWeight: 800, marginBottom: "12px", letterSpacing: "-0.5px" }}>
-              {WF_ICON[project.workflow_step] ?? "🎬"} {project.titulo}
+              {WF_ICON[workflowEdit.value || project.workflow_step] ?? "🎬"} {project.titulo}
             </h1>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "18px" }}>
@@ -376,11 +504,45 @@ export default function ClientProjectDetails({
             </div>
           </div>
 
-          {/* Right – valor */}
+          {/* Right – valor com double-click edit */}
           <div style={{ textAlign: "right", flexShrink: 0 }}>
             <div style={{ fontSize: "11px", color: "var(--text-muted)", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "4px" }}>Valor Contrato</div>
-            <div style={{ fontSize: "26px", fontWeight: 800, color: "var(--gold)" }}>{R$(project.valor_contrato ?? 0)}</div>
-            <div style={{ fontSize: "12px", color: "var(--green)", marginTop: "4px" }}>{R$(recebido)} recebido (sinal)</div>
+            {valorEdit.editing ? (
+              <input
+                type="text"
+                autoFocus
+                value={valorEdit.value}
+                onChange={e => valorEdit.setValue(e.target.value)}
+                onBlur={() => valorEdit.save(valorEdit.value)}
+                onKeyDown={e => {
+                  if (e.key === 'Enter') valorEdit.save(valorEdit.value);
+                  if (e.key === 'Escape') valorEdit.setEditing(false);
+                }}
+                style={{
+                  background: 'var(--surface2)',
+                  border: '1px solid var(--gold)',
+                  borderRadius: '4px',
+                  color: 'var(--text)',
+                  fontSize: '22px',
+                  fontWeight: 800,
+                  padding: '2px 6px',
+                  width: '120px',
+                  textAlign: 'right',
+                  outline: 'none'
+                }}
+              />
+            ) : (
+              <div
+                onDoubleClick={() => valorEdit.setEditing(true)}
+                title="Duplo-clique para editar valor"
+                style={{ cursor: 'pointer', fontSize: "26px", fontWeight: 800, color: "var(--gold)" }}
+              >
+                {R$(Number(valorEdit.value))} <span style={{ fontSize: '12px', color: 'var(--text-muted)', opacity: 0.4 }}>✏️</span>
+              </div>
+            )}
+            <div style={{ fontSize: "12px", color: "var(--green)", marginTop: "4px" }}>
+              {R$(['Concluído', 'Finalizado'].includes(statusEdit.value) ? Number(valorEdit.value) : Number(valorEdit.value) * 0.5)} recebido (sinal)
+            </div>
           </div>
         </div>
 
@@ -417,13 +579,19 @@ export default function ClientProjectDetails({
       {/* ── WORKFLOW TRACKER ─────────────────────────────────────────── */}
       <div className="workflow" style={{ marginBottom: "20px" }}>
         {WORKFLOW.map((step, i) => {
-          const activeStep = project.workflow_step || "Prospecção";
+          const activeStep = workflowEdit.value || "Prospecção";
           const wfIdx = WORKFLOW.indexOf(activeStep);
           const done    = i < wfIdx;
           const active  = i === wfIdx;
           const pending = i > wfIdx;
           return (
-            <div key={step} className={`workflow-step ${done ? "done" : ""} ${active ? "active" : ""} ${pending ? "pending" : ""}`}>
+            <div
+              key={step}
+              onClick={() => workflowEdit.save(step)}
+              className={`workflow-step ${done ? "done" : ""} ${active ? "active" : ""} ${pending ? "pending" : ""}`}
+              style={{ cursor: "pointer", transition: "all 0.2s" }}
+              title={`Mudar etapa para ${step}`}
+            >
               <div className="workflow-icon">{WF_ICON[step]}</div>
               <div className="workflow-label" style={{ fontSize: "11px" }}>{step}</div>
               <div className="workflow-status">{done ? "Concluído" : active ? "Ativo" : "Pendente"}</div>
@@ -431,6 +599,7 @@ export default function ClientProjectDetails({
           );
         })}
       </div>
+
 
       {/* ── TABS ─────────────────────────────────────────────────────── */}
       <div className="tabs">
@@ -447,11 +616,19 @@ export default function ClientProjectDetails({
       {tab === "overview" && (
         <div>
           {/* 3 KPIs financeiros */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", marginBottom: "20px" }}>
-            <StatCard label="Contrato Fechado" value={R$(project.valor_contrato ?? 0)} color="gold" icon="💼" />
-            <StatCard label="Sinal Recebido (50%)" value={R$(recebido)} color="green" icon="✅" sub="Est. fluxo de caixa" />
-            <StatCard label="Saldo a Receber (50%)" value={R$(aReceber)} color="blue" icon="⏳" />
-          </div>
+          {(() => {
+            const currentValor = Number(valorEdit.value) || 0;
+            const isConcluido = ['Concluído', 'Finalizado'].includes(statusEdit.value || project.status);
+            const currentRecebido = isConcluido ? currentValor : currentValor * 0.5;
+            const currentAReceber = isConcluido ? 0 : currentValor * 0.5;
+            return (
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", marginBottom: "20px" }}>
+                <StatCard label="Contrato Fechado" value={R$(currentValor)} color="gold" icon="💼" />
+                <StatCard label="Sinal Recebido (50%)" value={R$(currentRecebido)} color="green" icon="✅" sub="Est. fluxo de caixa" />
+                <StatCard label="Saldo a Receber (50%)" value={R$(currentAReceber)} color="blue" icon="⏳" />
+              </div>
+            );
+          })()}
 
           {/* 2 colunas: cliente + detalhes */}
           <div className="grid-2">
@@ -593,6 +770,165 @@ export default function ClientProjectDetails({
                 }}
                 placeholder="Observações sobre o projeto... (salva automaticamente no Notion)"
               />
+            </div>
+          </div>
+
+          {/* ── Google Drive Files Visualizer ─────────────────────────── */}
+          <div style={{ marginBottom: "24px" }}>
+            <SectionHeader 
+              title="📁 Arquivos do Google Drive" 
+              action={
+                driveUrl ? (
+                  <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+                    <label 
+                      className="btn btn-ghost" 
+                      style={{ fontSize: "11px", padding: "4px 10px", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "4px" }}
+                    >
+                      <span>{uploadingDrive ? "📤 Enviando..." : "📤 Enviar Arquivo"}</span>
+                      <input 
+                        type="file" 
+                        onChange={handleUploadDriveFile} 
+                        disabled={uploadingDrive} 
+                        style={{ display: "none" }} 
+                      />
+                    </label>
+                    <button 
+                      onClick={() => fetchDriveFiles(driveUrl)} 
+                      className="btn btn-ghost" 
+                      style={{ fontSize: "11px", padding: "4px 10px" }}
+                      disabled={loadingDrive}
+                    >
+                      ⟳ Atualizar
+                    </button>
+                  </div>
+                ) : null
+              }
+            />
+
+            <div className="card" style={{ borderTop: "3px solid var(--gold)", padding: "20px 24px" }}>
+              {!driveUrl ? (
+                <div style={{ textAlign: "center", padding: "30px 10px" }}>
+                  <p style={{ color: "var(--text-dim)", fontSize: "13px", marginBottom: "16px" }}>
+                    Nenhuma pasta do Google Drive está associada a esta obra.
+                  </p>
+                  <button 
+                    onClick={handleSetupDrive} 
+                    className="btn btn-gold"
+                    disabled={settingUpDrive}
+                    style={{ fontSize: "13px", padding: "8px 16px" }}
+                  >
+                    {settingUpDrive ? "⏳ Configurando Pastas..." : "🚀 Criar Estrutura de Pastas no Drive"}
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px", borderBottom: "1px solid var(--border)", paddingBottom: "10px" }}>
+                    <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>
+                      Link Oficial:{" "}
+                      <a href={driveUrl} target="_blank" rel="noopener noreferrer" style={{ color: "var(--gold)", textDecoration: "underline" }}>
+                        Abrir Pasta no Google Drive ↗
+                      </a>
+                    </span>
+                    {loadingDrive && <span style={{ fontSize: "11px", color: "var(--text-muted)" }}>Carregando arquivos...</span>}
+                  </div>
+
+                  {loadingDrive && driveFiles.length === 0 ? (
+                    <div style={{ display: "flex", justifyContent: "center", padding: "40px 0" }}>
+                      <div className="shimmer" style={{ width: "100%", height: "80px", borderRadius: "6px" }} />
+                    </div>
+                  ) : driveFiles.length === 0 ? (
+                    <div style={{ textAlign: "center", color: "var(--text-dim)", padding: "30px 0", fontSize: "13px" }}>
+                      Nenhum arquivo encontrado nesta pasta do Google Drive. Envie um arquivo usando o botão superior!
+                    </div>
+                  ) : (
+                    <div style={{ 
+                      display: "grid", 
+                      gridTemplateColumns: "repeat(auto-fill, minmax(140px, 1fr))", 
+                      gap: "12px", 
+                      maxHeight: "350px", 
+                      overflowY: "auto",
+                      paddingRight: "6px"
+                    }} className="custom-scrollbar">
+                      {driveFiles.map((file) => (
+                        <a 
+                          key={file.id} 
+                          href={file.webViewLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{ textDecoration: "none" }}
+                        >
+                          <div 
+                            style={{
+                              background: "var(--surface2)",
+                              border: "1px solid var(--border)",
+                              borderRadius: "6px",
+                              padding: "10px",
+                              display: "flex",
+                              flexDirection: "column",
+                              alignItems: "center",
+                              gap: "8px",
+                              textAlign: "center",
+                              height: "100%",
+                              minHeight: "130px",
+                              justifyContent: "space-between",
+                              transition: "transform 0.15s ease, border-color 0.15s ease",
+                              cursor: "pointer"
+                            }}
+                            onMouseEnter={e => {
+                              e.currentTarget.style.transform = "translateY(-3px)";
+                              e.currentTarget.style.borderColor = "var(--gold)";
+                            }}
+                            onMouseLeave={e => {
+                              e.currentTarget.style.transform = "translateY(0)";
+                              e.currentTarget.style.borderColor = "var(--border)";
+                            }}
+                          >
+                            <div style={{ 
+                              width: "100%", 
+                              height: "70px", 
+                              borderRadius: "4px", 
+                              background: "rgba(0,0,0,0.2)",
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "center",
+                              overflow: "hidden",
+                              position: "relative"
+                            }}>
+                              {file.thumbnailUrl ? (
+                                <img 
+                                  src={file.thumbnailUrl} 
+                                  alt={file.name} 
+                                  style={{ width: "100%", height: "100%", objectFit: "cover" }} 
+                                />
+                              ) : (
+                                <span style={{ fontSize: "28px" }}>{FILE_ICONS[file.type] || "📎"}</span>
+                              )}
+                            </div>
+                            <div style={{ width: "100%" }}>
+                              <div 
+                                style={{ 
+                                  fontSize: "11px", 
+                                  fontWeight: 600, 
+                                  color: "var(--text)", 
+                                  overflow: "hidden", 
+                                  textOverflow: "ellipsis", 
+                                  whiteSpace: "nowrap" 
+                                }}
+                                title={file.name}
+                              >
+                                {file.name}
+                              </div>
+                              <div style={{ fontSize: "9px", color: "var(--text-muted)", marginTop: "2px" }}>
+                                {file.size ? formatBytes(Number(file.size)) : "Pasta/Doc"}
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
 

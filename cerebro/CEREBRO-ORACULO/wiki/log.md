@@ -1,10 +1,23 @@
 ---
 type: operational-log
-updated: 2026-06-07
+updated: 2026-06-12
 ---
 # Log de Operações — Wiki
 
 *Histórico cronológico de operações no vault. Append-only.*
+
+---
+
+## 2026-06-12
+
+### Sessão 26 — Integração Google Drive & Busca Global ⌘K
+
+**O que foi feito:**
+1. ✅ Criado visualizador de arquivos do Google Drive na aba Visão Geral do projeto.
+2. ✅ Implementado suporte a upload de arquivos e configuração automática de estrutura de pastas no Drive.
+3. ✅ Desenvolvido endpoint `/api/search` combinando buscas no Notion e Obsidian.
+4. ✅ Criado componente `SearchModal.tsx` com atalho global (`Ctrl+K` ou `⌘K`).
+5. ✅ Sucesso na compilação e validação do monorepo Next.js.
 
 ---
 

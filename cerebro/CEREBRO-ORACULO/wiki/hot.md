@@ -9,10 +9,10 @@ updated: 2026-06-12
 ---
 
 ## Última atualização
-**Sessão 25 (12 jun 2026) — Expansão Vida Pessoal:** Oráculo expandido para além da Firma. Nova área `08-FELIPE/` (visão de mundo, biblioteca, história); inbox universal via Telegram (blueprint n8n + skill `processar-inbox`); `docs/VISAO-ORACULO.md` (constituição — 4 domínios, 9 princípios); `docs/FLUXO_ORACULO.md` (5 modos de uso); `llm-council` ganhou 5ª persona (Guardião da Narrativa 🜍); identidade dupla: terceiro sócio da Firma + parceiro de vida do Felipe. **Próximo passo operacional:** montar workflow n8n (blueprint pronto em `automacoes/inbox-universal.md`).
+**Sessão 26 (12 jun 2026) — Google Drive & Busca Global ⌘K**: Criado o componente de visualização de arquivos na aba Visão Geral do projeto, conectado diretamente ao Google Drive via Service Account, com suporte a upload de arquivos e configuração automática de pastas físicas e Notion. Desenvolvido o endpoint `/api/search` unificando buscas no Notion e Obsidian (Wiki), acessado pelo componente `SearchModal.tsx` com atalho global (`Ctrl+K` ou `⌘K`).
+*(Sessão 25: Expansão Vida Pessoal — Área 08-FELIPE + Bot Telegram Inbox + Constituição docs/VISAO-ORACULO.md)*
 *(Sessão 24: Integração de 3 sistemas documentada — Notion/Cérebro/Drive + projetos SOBRE2026, AGO, FIOCRUZ)*
 *(Sessão 23: Integração agency-agents — 4 agentes web/produto + 8 skills novas)*
-*(Sessão 21-22: Monorepo consolidado + vault limpo + fluxo de reuniões projetado)*
 
 ## Estado atual da Firma
 

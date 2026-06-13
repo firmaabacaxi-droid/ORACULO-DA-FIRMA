@@ -1,5 +1,5 @@
 # STATUS DO ORÁCULO — Handoff de Sessão
-## Firma Abacaxi · atualizado 12 Jun 2026 · Sessão 24
+## Firma Abacaxi · atualizado 12 Jun 2026 · Sessão 26
 
 ---
 
@@ -1176,3 +1176,70 @@ O painel de 9 imagens diferencia-se de concorrentes FAC porque:
 1. **Utilizar o Oráculo Sync em novos projetos:** Ao criar novas propostas, roteiros ou alterar status, invocar o script `scripts/sync_proposal.py` no terminal utilizando os parâmetros genéricos (ex: `--project-name`, `--status`, `--items-json`).
 
 *Atualizado ao final da Sessão 24 — 11 Jun 2026 · Oráculo v2.3*
+
+---
+
+## SESSÃO 25 — Otimização Visual & Reatividade do Dashboard (12 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+#### 1. **Página de Obra 100% Interativa e Reativa**
+- **Etapas de Workflow Clicáveis**: No tracker visual superior, clicar em qualquer etapa atualiza dinamicamente a propriedade no Notion e renderiza o novo estado no front-end em tempo real.
+- **Valor do Contrato Editável**: Duplo-clique no valor do contrato abre um input numérico inline. Alterar o valor atualiza o Notion e recalcula instantaneamente os KPIs de "Sinal Recebido" e "Saldo a Receber" na interface.
+- **Auto-Save sem Dependência Circular**: Corrigido o hook `useAutoSave` adicionando `useRef` para segurar a função de salvamento. Isso resolveu o aviso de lint do React e dependências cíclicas.
+- **Transições Suaves**: Adicionado o efeito `.fade-in` de entrada na página de detalhes.
+
+#### 2. **Dashboard Otimizado e Correções de JSX**
+- **Fechamento de Tags JSX**: Resolvido erros críticos no arquivo `ClientDashboard.tsx` que continha tags `</div>` e chaves `}` sobressalentes gerando falha de compilação.
+- **Filtragem Ativa**: O dashboard principal agora exibe apenas projetos ativos (status diferente de "Concluído", "Finalizado" ou "Cancelado").
+- **Toasts Unificados**: Integração completa com o `react-hot-toast` para substituir todos os `alert()` bloqueantes remanescentes em formulários como `OnboardingModal.tsx` por notificações fluidas.
+
+#### 3. **Premium CSS & Animações**
+- **Animações**: Adicionado `@keyframes shimmer` (skeleton loaders) e `@keyframes fadeIn` (transições de página).
+- **KPI Elevation**: Efeito físico 3D em hover (`.kpi-hover`) e scrollbar Cine Terroso integrada.
+
+### 📊 Totais desta Sessão
+
+| Item | Quantidade | Status |
+|------|-----------|--------|
+| Componentes otimizados | 2 (`ClientProjectDetails.tsx`, `ClientDashboard.tsx`) | ✅ |
+| Modais reestruturados | 1 (`OnboardingModal.tsx`) | ✅ |
+| Estilos e Animações inseridos | 1 (`globals.css`) | ✅ |
+| Compilação TypeScript | 100% limpa (0 erros) | ✅ |
+| Servidor de Desenvolvimento | Rodando ativamente (hot-reload pronto) | ✅ |### 🔄 Próximos passos (Sessão 26 - concluída)
+1. ✅ **Google Drive Integration**: Integrar visualização de arquivos do Google Drive em tempo real na aba Visão Geral.
+2. ✅ **Busca Global ⌘K**: Criar componente de busca unificada para Notion, Clientes e Cérebro.
+
+---
+
+## SESSÃO 26 — Integração Google Drive & Busca Global ⌘K (12 Jun 2026)
+
+### ✅ Concluído nesta sessão
+
+**P1 — Visualizador de Arquivos do Google Drive (45 min)**
+- Criado o componente de visualização de arquivos na aba Visão Geral do projeto.
+- Carregamento assíncrono e em tempo real dos arquivos contidos na pasta do projeto usando a credencial Service Account configurada.
+- Renderização em grade premium (glassmorphism/hsl dark mode) com suporte a miniaturas dinâmicas amplas (`=s800`) e ícones dedicados por tipo de arquivo (imagem, vídeo, pdf, documento, pasta).
+- Formulário de upload integrado direto para a pasta do projeto correspondente no Drive.
+- Função de configuração automática ("Criar Estrutura de Pastas no Drive") para projetos órfãos de link, que gera a estrutura de pastas do projeto (PROJETOS/2026/... + subpastas) e atualiza o link no Notion dinamicamente.
+
+**P2 — Busca Global Unificada ⌘K (45 min)**
+- Endpoint de busca unificado `/api/search` criado: consulta a Notion Search API (`/v1/search`) para registros de bancos e escaneia localmente e de forma recursiva o vault Obsidian (Wiki) para correspondências de termos no título ou corpo das notas.
+- Componente de busca global `SearchModal.tsx` integrado no cabeçalho do sistema.
+- Suporte a navegação por teclado (ArrowUp, ArrowDown, Enter, Esc), campo com auto-focus, e exibição de snippets de texto destacados nas notas do Cérebro.
+- Atalho global `Ctrl+K` ou `⌘K` ativa instantaneamente a pesquisa de qualquer tela.
+
+### 📊 Totais desta Sessão
+
+| Item | Quantidade | Status |
+|------|-----------|--------|
+| Componentes implementados | 2 (`SearchModal.tsx`, Visualizador de Drive em `ClientProjectDetails.tsx`) | ✅ |
+| Rotas de API criadas/atualizadas | 2 (`/api/search/route.ts`, `/api/drive/route.ts` expandida) | ✅ |
+| Compilação e Linting | 100% livre de erros (TypeScript/Next) | ✅ |
+
+### 🔄 Próximos passos (Sessão 27)
+1. **Inbox Telegram & n8n**: Configurar o bot de captura Telegram integrado ao n8n para ingestão automática no `/00-INBOX/`.
+2. **Merge Monorepo**: Testar o fluxo operacional local e mesclar a branch `consolidacao-monorepo` na master.
+3. **Livro Piloto Biblioteca**: Cadastrar o primeiro livro piloto em `08.2-BIBLIOTECA/` para testes de estudos junguianos.
+
+*Atualizado ao final da Sessão 26 — 12 Jun 2026 · Oráculo v4.2*

@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
-import { listFolderFiles, uploadFileToFolder } from '@/lib/google-drive';
+import { listFolderFiles, uploadFileToFolder, setupProjectDriveFolder } from '@/lib/google-drive';
+import { updateProjectDriveFolder } from '@/lib/notion';
 
 // Helper para extrair o ID da pasta a partir da URL do Drive
 function extractFolderId(url: string): string | null {
@@ -32,6 +33,31 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
   try {
+    const contentType = request.headers.get('content-type') || '';
+    
+    if (contentType.includes('application/json')) {
+      const body = await request.json();
+      const { action, projectId, projectName } = body;
+      
+      if (action === 'setup') {
+        if (!projectId || !projectName) {
+          return NextResponse.json({ error: 'Faltam parâmetros projectId ou projectName' }, { status: 400 });
+        }
+        
+        // 1. Criar pastas no Google Drive
+        const driveSetup = await setupProjectDriveFolder(projectName);
+        const { folderId, folderUrl } = driveSetup;
+        
+        // 2. Atualizar o Notion com a URL da pasta do Drive
+        await updateProjectDriveFolder(projectId, folderUrl);
+        
+        return NextResponse.json({ success: true, folderId, folderUrl });
+      }
+      
+      return NextResponse.json({ error: 'Ação JSON desconhecida' }, { status: 400 });
+    }
+    
+    // Fallback: upload de arquivo (multipart/form-data)
     const formData = await request.formData();
     const file = formData.get('file') as File;
     const folderId = formData.get('folderId') as string;

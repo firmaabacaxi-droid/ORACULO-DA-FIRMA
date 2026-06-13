@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import toast from 'react-hot-toast';
 
 interface ClientShort {
   id: string;
@@ -26,7 +27,7 @@ export default function OnboardingModal({ clientes, onClose }: OnboardingModalPr
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!title.trim()) {
-      alert('Por favor, informe o título da obra.');
+      toast.error('Por favor, informe o título da obra.');
       return;
     }
 
@@ -59,7 +60,7 @@ export default function OnboardingModal({ clientes, onClose }: OnboardingModalPr
       }
     } catch (err: any) {
       console.error(err);
-      alert('Erro ao criar projeto: ' + err.message);
+      toast.error('Erro ao criar projeto: ' + err.message);
     } finally {
       setIsLoading(false);
     }

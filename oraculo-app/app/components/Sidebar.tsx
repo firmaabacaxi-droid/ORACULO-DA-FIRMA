@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SearchModal from "./SearchModal";
 
 const NAV_GROUPS = [
   {
@@ -105,29 +106,32 @@ export default function Sidebar() {
         </div>
       </aside>
 
-      <header className="topbar">
-        <button 
-          onClick={() => setIsOpen(!isOpen)} 
-          className="mobile-menu-btn"
-          aria-label="Toggle menu"
-          style={{
-            display: "none",
-            background: "transparent",
-            border: "none",
-            color: "var(--text)",
-            fontSize: "24px",
-            cursor: "pointer",
-            marginRight: "14px",
-            lineHeight: 1,
-            padding: "4px"
-          }}
-        >
-          {isOpen ? "✕" : "☰"}
-        </button>
-        <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-          <span style={{ fontSize: "16px" }}>{activeItem?.icon}</span>
-          <div className="topbar-title">{pageTitle}</div>
+      <header className="topbar" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <button 
+            onClick={() => setIsOpen(!isOpen)} 
+            className="mobile-menu-btn"
+            aria-label="Toggle menu"
+            style={{
+              display: "none",
+              background: "transparent",
+              border: "none",
+              color: "var(--text)",
+              fontSize: "24px",
+              cursor: "pointer",
+              marginRight: "14px",
+              lineHeight: 1,
+              padding: "4px"
+            }}
+          >
+            {isOpen ? "✕" : "☰"}
+          </button>
+          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+            <span style={{ fontSize: "16px" }}>{activeItem?.icon}</span>
+            <div className="topbar-title">{pageTitle}</div>
+          </div>
         </div>
+        <SearchModal />
       </header>
     </>
   );

@@ -325,7 +325,7 @@ export default function ClientDashboard({
   );
 
   return (
-    <div style={{ position: 'relative', minHeight: '100vh' }}>
+    <div className="fade-in" style={{ position: 'relative', minHeight: '100vh' }}>
       <DashboardHeader clientes={clientes} />
 
       {/* KPI GRID */}
@@ -780,7 +780,5 @@ export default function ClientDashboard({
           </div>
         </div>
       </div>
-    </div>
   );
-}
 }
