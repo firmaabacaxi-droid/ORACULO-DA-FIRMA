@@ -2,6 +2,10 @@
 ## Melhores práticas, funcionalidades e plano de ferramentas
 *Firma Abacaxi Ateliê Audiovisual · 2026*
 
+> **Nota (jun/2026):** As seções STATUS ATUAL e FERRAMENTAS A INSTALAR são de mai/2026 e foram
+> superadas pelo [`docs/PLANO-MASTER.md`](../../../../../docs/PLANO-MASTER.md) (tabela de 54
+> ferramentas + Fases 0-5). O guia de funcionalidades (Partes 1-2) permanece válido.
+
 ---
 
 # PARTE 1 — FUNCIONALIDADES PRINCIPAIS DO VS CODE + CLAUDE CODE

@@ -1,8 +1,9 @@
 # Mapa-Mestre — Onde mora cada coisa
 ## A bússola do sistema Oráculo · Firma Abacaxi
-*Atualizado em 11/06/2026 · Monorepo consolidado (branch `consolidacao-monorepo`)*
+*Última revisão: 12/06/2026 · Monorepo consolidado (branch `consolidacao-monorepo`)*
 
 > Em dúvida sobre **onde guardar** ou **onde encontrar** algo? Comece por aqui.
+> Em dúvida sobre **o que fazer**? Vá ao [PAINEL-MESTRE.md](PAINEL-MESTRE.md).
 
 ---
 
@@ -15,6 +16,22 @@
 | ☁️ **Google Drive** | Arquivos de trabalho editáveis — planilhas, DOCXs, PDFs de deliverable | Pasta `FIRMA ABACAXI/` no Drive |
 
 **Nunca duplicar entre lares.** Um aponta para o outro por link, não por cópia.
+
+---
+
+## A Regra de Lar Único
+
+Para acabar com a duplicação entre `docs/` e o vault (causa-raiz das inconsistências), **cada documento tem um único lar canônico**, definido pela sua camada:
+
+| Camada | Lar canônico | Exemplos |
+|---|---|---|
+| **Referência completa** (lida pelo Oráculo a cada sessão) + **meta-sistema** | **`docs/`** | MAPA-MESTRE, VISAO-ORACULO, FLUXO_ORACULO, PAINEL-MESTRE, GUIA-TOOLKIT, FASE2, CONTEXTO_FIRMA, FLUXO_TRABALHO, TABELA_PRECOS, ARQUITETURA_NOTION |
+| **Síntese navegável** (Obsidian) + **conhecimento gerado** | **vault `cerebro/`** | wiki/, DNA-Firma, Fluxo-13-Etapas, Tabela-Precos-Referencia, SOPs, projetos, clientes |
+| **Dados estruturados** — status, valores, prazos, contatos | **Notion** | PROJETO_2026, CRM, TAREFAS |
+
+**Como funciona na prática:** o documento **completo** vive em `docs/` (é o que o Oráculo lê); o vault guarda a **síntese navegável** do mesmo tema (resumo curto, conectado no grafo). Não são duplicata — são camadas. Onde havia cópia byte a byte, o lado do vault virou **stub** apontando para o completo em `docs/`.
+
+> ✅ **Resolvido (12/jun/2026):** as 4 cópias exatas que viviam nos dois lares — `CONTEXTO_FIRMA`, `FLUXO_TRABALHO`, `ARQUITETURA_NOTION`, `FASE2_IMPLEMENTACAO` — tiveram a versão do **vault** convertida em stub → `docs/`. O completo é editado só em `docs/`; o vault mantém as sínteses (`DNA-Firma`, `Fluxo-13-Etapas`, etc.).
 
 ---
 
@@ -110,7 +127,10 @@ O vault Obsidian (`cerebro/`) aceita **só markdown** (`.md`, `.canvas`, `.base`
 
 - [.claude/CLAUDE.md](.claude/CLAUDE.md) — identidade + routing do Oráculo
 - [cerebro/CEREBRO-ORACULO/wiki/hot.md](cerebro/CEREBRO-ORACULO/wiki/hot.md) — contexto recente (carregado automaticamente)
-- [docs/MAPA-MESTRE.md](docs/MAPA-MESTRE.md) — **este arquivo** — onde mora cada coisa
+- [docs/PAINEL-MESTRE.md](PAINEL-MESTRE.md) — **o que fazer** — controle de pendências (3 trilhas)
+- [docs/PLANO-MASTER.md](PLANO-MASTER.md) — **como crescer** — arquitetura, ferramentas e expansão (Fases 0-5)
+- [docs/MAPA-MESTRE.md](MAPA-MESTRE.md) — **este arquivo** — onde mora cada coisa
+- [docs/README.md](README.md) — guia de navegação da documentação
 
 ---
 

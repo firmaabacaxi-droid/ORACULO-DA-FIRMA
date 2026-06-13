@@ -1,6 +1,11 @@
 # PLANO DE IMPLEMENTAÇÃO — Oráculo
 ## Firma Abacaxi Ateliê Audiovisual · Brasília · 2026
 
+> 🗄️ **DOCUMENTO HISTÓRICO (arquivo).** Baseline de implementação de mai/2026, **superado por
+> [PLANO-MASTER.md](../PLANO-MASTER.md)** e pelo [PAINEL-MESTRE.md](../PAINEL-MESTRE.md).
+> Referências à `ANTIGRAVITY/` aqui são do sistema antigo — hoje a ANTIGRAVITY é **legado aguardando
+> arquivamento pós-merge** (ver [Mapa-Mestre](../MAPA-MESTRE.md)). Mantido só para consulta histórica.
+
 ---
 
 ## DIAGNÓSTICO ATUAL

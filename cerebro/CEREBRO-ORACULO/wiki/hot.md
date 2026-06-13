@@ -1,6 +1,6 @@
 ---
 type: hot-cache
-updated: 2026-06-12
+updated: 2026-06-13
 ---
 # Hot Cache — Firma Abacaxi
 
@@ -9,10 +9,11 @@ updated: 2026-06-12
 ---
 
 ## Última atualização
-**Sessão 26 (12 jun 2026) — Google Drive & Busca Global ⌘K**: Criado o componente de visualização de arquivos na aba Visão Geral do projeto, conectado diretamente ao Google Drive via Service Account, com suporte a upload de arquivos e configuração automática de pastas físicas e Notion. Desenvolvido o endpoint `/api/search` unificando buscas no Notion e Obsidian (Wiki), acessado pelo componente `SearchModal.tsx` com atalho global (`Ctrl+K` ou `⌘K`).
+**Sessão 27 (13 jun 2026) — PLANO-MASTER + Faxina da Documentação**: Criado `docs/PLANO-MASTER.md` — tabela de 54 ferramentas (Fases 0-5), integração Adobe/Firefly, passo a passo de expansão, desenvolvimento do Cérebro. Consolidação final: 9+ planos dispersos → 1 master + `docs/_arquivo/`. Faxina: STATUS.md 1178→80 linhas, Manual 627→50 linhas, stubs criados (Roadmap, PROXIMOS-PASSOS, CLAUDE.md vault). Documentação do Oráculo agora tem 5 âncoras limpas.
+*(Sessão 27a, 12 jun: PAINEL-MESTRE + Regra de Lar Único — hub único de pendências, 4 stubs docs↔vault)*
+*(Sessão 26: Google Drive & Busca Global ⌘K — visualizador de arquivos do Drive + endpoint `/api/search` + `SearchModal.tsx`)*
 *(Sessão 25: Expansão Vida Pessoal — Área 08-FELIPE + Bot Telegram Inbox + Constituição docs/VISAO-ORACULO.md)*
 *(Sessão 24: Integração de 3 sistemas documentada — Notion/Cérebro/Drive + projetos SOBRE2026, AGO, FIOCRUZ)*
-*(Sessão 23: Integração agency-agents — 4 agentes web/produto + 8 skills novas)*
 
 ## Estado atual da Firma
 
@@ -55,22 +56,25 @@ updated: 2026-06-12
   - `areas/` (captação, financeiro)
   - `resources/` (pessoas, editais, referências)
 
-## Próximos passos (ver docs/PLANO-DE-ACAO.md)
+## Próximos passos → **agora consolidados em [docs/PAINEL-MESTRE.md](../../../docs/PAINEL-MESTRE.md)**
+
+O controle completo de pendências (3 trilhas) vive no Painel-Mestre. Resumo do urgente:
 
 🔴 **Esta semana:**
 - Maranhã: entregar pós-produção (~15 jun)
 - SOBRE2026: confirmar proposta R$ 58.124 com UnB
-- Usar monorepo novo por 1 semana (validar antes de merge)
+- Revogar credenciais expostas em `ANTIGRAVITY/.env` (OpenAI, Notion, Supabase, Gemini)
 
-⭐ **Próxima sessão — Revisão do Cérebro:**
+⭐ **Próxima sessão — Operação:**
 - Popular `wiki/projects/` (FAC-2026, VMA, SOBRE2026) via `/wiki-ingest`
-- Revisar estrutura dos projetos ativos em `04-PROJETOS-ATIVOS/`
 - Testar fluxo de reunião: voz → Telegram → `00-INBOX/reunioes/`
+- Confirmar status FAC-2026 (deadline 5 jun venceu — situação incerta)
 
 🟡 **Infraestrutura pendente:**
-- Montar workflow n8n (blueprint em `automacoes/reuniao-transcricao-wiki.md`)
-- Merge `consolidacao-monorepo` → master (após validação)
-- Arquivar ANTIGRAVITY
+- ✅ Fase 1 concluída (13 jun): parallel-search, playwright, magic — **reiniciar Claude Code para carregar**
+- Merge `consolidacao-monorepo` → master (após 1 semana de uso real)
+- Fase 2: exa.ai (grátis 1k/mês), fal.ai (imagens IA), GitHub PAT — você gera, eu configuro
+- Montar workflows n8n (blueprints prontos em `automacoes/`)
 
 ## Status dos projetos ativos
 

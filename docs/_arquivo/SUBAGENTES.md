@@ -2,7 +2,10 @@
 ## System prompts dos 5 subagentes do Oráculo
 *Firma Abacaxi Ateliê Audiovisual · atualizado Mai 2026*
 
-> **Status:** ⏳ System prompts prontos — aguardando criação como Projects no claude.ai
+> 🗄️ **DOCUMENTO HISTÓRICO (arquivo).** Prompts dos subagentes de mai/2026 — absorvidos pelo
+> [PLANO-MASTER.md](../PLANO-MASTER.md) (§6 Pendências críticas). Mantido para referência dos system prompts.
+
+> **Status original:** ⏳ System prompts prontos — aguardando criação como Projects no claude.ai
 > Para criar: acesse claude.ai → Projects → New Project → cole o system prompt no campo "Project instructions" → suba os documentos indicados.
 
 Cada subagente pode ser criado como um Project separado no claude.ai.

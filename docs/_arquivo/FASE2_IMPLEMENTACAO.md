@@ -1,5 +1,9 @@
 # FASE 2 — Implementação Completa do Ecossistema Oráculo
 
+> 🗄️ **DOCUMENTO HISTÓRICO (arquivo).** Sprints A-E de mai/2026, absorvidos pelo
+> [PLANO-MASTER.md](../PLANO-MASTER.md) (§3 Expansão Fases 0-5). Consultar aqui apenas para o
+> detalhe step-by-step de cada sprint.
+
 **Status:** 🟠 Em análise | **Última atualização:** Mai 23, 2026 | **Versão:** v1.1
 
 ---

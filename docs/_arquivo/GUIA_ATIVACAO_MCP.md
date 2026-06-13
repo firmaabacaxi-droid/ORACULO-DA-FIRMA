@@ -1,14 +1,19 @@
 # Guia de Ativação — Obsidian MCP + NotebookLM MCP
 ## Firma Abacaxi · Oráculo · Mai 2026
 
+> 🗄️ **DOCUMENTO HISTÓRICO (arquivo).** Guia do setup inicial de mai/2026.
+> **Estado atual (12/jun/2026): NotebookLM MCP já está ATIVO** (9 fontes, sync via GitHub) —
+> a linha "precisa login Google" abaixo é do momento da instalação e não vale mais.
+> Para o estado vigente de MCPs e ferramentas, ver [PLANO-MASTER.md](../PLANO-MASTER.md).
+
 ---
 
-## Status atual
+## Status atual *(de mai/2026 — ver nota acima)*
 
 | MCP | Instalado | Configurado | Autenticado |
 |---|---|---|---|
 | mcp-obsidian | ✅ npm global | ✅ .mcp.json | ✅ sem login (lê vault direto) |
-| notebooklm | ✅ uv + repo clonado | ✅ .mcp.json | ⬜ precisa login Google |
+| notebooklm | ✅ uv + repo clonado | ✅ .mcp.json | ✅ autenticado (jun/2026) |
 
 ---
 

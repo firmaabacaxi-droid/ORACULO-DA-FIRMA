@@ -7,10 +7,10 @@
     "HOME.md": "3550ac9bd28e8a951c27ce67373cf0fc48799c6721d041bc5735acef4f49a79f",
     "wiki/projects/Brasil-Participativo.md": "2bd0a633d2a9f18e5cae923b9650134d7526dbbc1f27f928e8d4fcf6a81179c8",
     "wiki/projects/FAC-2026.md": "ce040e6b655ab1406d7c42a63ca90f078b38226086bbabde1133ba6cb0012cb0",
-    "wiki/log.md": "f0d262741f3a11ce2032163bbbc5c4ff8d39ed8769a659e26d9753931a073eb2",
+    "wiki/log.md": "924f04f9cc3f4292db02a2c8d40788bf773f601aa2beaac3210d833b2fd0e87a",
     "wiki/index.md": "1802a89d38ff74d78409864ae4fc75333f914bc68ab9229ca3956112990ef135",
     "CLAUDE.md": "aed3833c6049d47e19e0705f6e6331b9733531e0ba87ae07ed07953b99a08f59",
-    "wiki/hot.md": "b5a901b3ac18a545d5969da47b1e4dca15642c220a8d82dfeaaeeaad6afda8e9",
+    "wiki/hot.md": "7d923c998d5f1d218f28897cbebdf76d4351220a8ad556c2fbde107d5a317dfc",
     "wiki/areas/Captacao.md": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",
     "skills/wiki-retrieve/SKILL.md": "56378e239d37d2ee6ac1ba5d1bfec296827b0e7da19c25a2ea9fa13df1ce9384",
     "skills/wiki-lint/SKILL.md": "3b6cb1d2be85a64f92415eaada18ecb213f9fc9d54f42e1fb4629b6e7fdcab01",
@@ -135,8 +135,8 @@
     "01-OPERACAO-ORACULO/TEMPLATES/Template-Boletim-Camera-Som.md": "51fccada296b8af03a3943425def11a8dc414daa4b620ad7eaf5d1c53b6fc7bb",
     "01-OPERACAO-ORACULO/TEMPLATES/Template-Analise-Tecnica.md": "cf8320cd33587394e549c76f7283bbe7abfaf3784c532ea3f2e05a77e40e51cf",
     "01-OPERACAO-ORACULO/TEMPLATES/Template-Aprendizado.md": "3f3d714dd1eef827b0efb987d4bd389cfa136d4d843eee0b91a69c5457a98196",
-    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2_IMPLEMENTACAO.md": "609da0d9a6c1944412c93dde3b865e46eed58131b673c43345fad00f872c7cd7",
-    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA_NOTION.md": "f0f7184fe5dbfc7c7dd5fcfcaa87143a04148aaea1c81fafba841950b8a6a005",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2_IMPLEMENTACAO.md": "5ed9fb8d704f9a9927ad6af8b5169c7a7348d3c450aada4370644bd7ac8227d3",
+    "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA_NOTION.md": "3a7747e25c334e73eb914db2859b86583f5cf49f0f83cc7608fa0f7c17679580",
     "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/PLANO-MIGRACAO.md": "ac56fb05574186fe8b94c98016161c2331af23771a823e3d42acd175222a1f6a",
     "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/Subagentes.md": "808e2697677f053f39b6e4c3656336433e123350a5acbaedb22f347fa284b1b6",
     "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2-Implementacao.md": "491da39e2e0eda06e4a977453b4fffd7918b14fd2eee2b041d6ae66b2c93b22f",
@@ -146,9 +146,9 @@
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Tabela-Precos-Referencia.md": "45ce6dbd036ff706b75976edb421ad4a96e6f6aae2002e9e72ed48a255ac9396",
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Roadmap.md": "0d817ade8d72136ccd4b8d82e4ace20c08a79b90128e8bf2b433e0d6382de6b6",
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Regras-de-Negocio.md": "bdf40f9a893bbd2696524c6b1ef6e1df0c535bccb6206f637a2e592b758f95c1",
-    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/FLUXO_TRABALHO.md": "61d19de9bccc9a09d4820ccc4be61f5f87ab26dca2b410aa87fb46cf499dc07b",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/FLUXO_TRABALHO.md": "a43d7c0b5c5d3e4dd29078fdb57ea694645240a047773aec92b0257acb3f8dec",
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Fluxo-13-Etapas.md": "ac3af06161b20ebb69e0b37fe1e01ea2d6086a431e69beb0e8a12853dea2fe5e",
-    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md": "ef4c33914027bfab14dc3a7c0b594a2967e0ccb218b2722bdbbfd3f07170fef3",
+    "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md": "90445b79709fc9e503687b3e98ddc8fe922a42158cf28ec205abfac64d6623dc",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md": "ee93c282130cde000809a4e31ba125249d4304ea16f1cfb99a29772e6249bffd",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/NOTEBOOKLM-SINCRONIZACAO.md": "d59afd4de370db7064052ec733158862ebaa8ce4b72c4b037d10b12f2e464dee",
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/PROXIMOS-PASSOS.md": "132879ca71920583976c4fa96faaf6184b754523e90ed67575945fa1bf8c70dd",
@@ -237,10 +237,10 @@
       "lastIngestAt": 1781294244930
     },
     "wiki/log.md": {
-      "hash": "f0d262741f3a11ce2032163bbbc5c4ff8d39ed8769a659e26d9753931a073eb2",
-      "hashedAt": 1781315957332,
-      "ingestCount": 2,
-      "lastIngestAt": 1781315957332
+      "hash": "924f04f9cc3f4292db02a2c8d40788bf773f601aa2beaac3210d833b2fd0e87a",
+      "hashedAt": 1781318280647,
+      "ingestCount": 3,
+      "lastIngestAt": 1781318280647
     },
     "wiki/index.md": {
       "hash": "1802a89d38ff74d78409864ae4fc75333f914bc68ab9229ca3956112990ef135",
@@ -255,10 +255,10 @@
       "lastIngestAt": 1781302780995
     },
     "wiki/hot.md": {
-      "hash": "b5a901b3ac18a545d5969da47b1e4dca15642c220a8d82dfeaaeeaad6afda8e9",
-      "hashedAt": 1781315967763,
-      "ingestCount": 4,
-      "lastIngestAt": 1781315967763
+      "hash": "7d923c998d5f1d218f28897cbebdf76d4351220a8ad556c2fbde107d5a317dfc",
+      "hashedAt": 1781318271391,
+      "ingestCount": 6,
+      "lastIngestAt": 1781318271391
     },
     "wiki/areas/Captacao.md": {
       "hash": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",
@@ -1005,16 +1005,16 @@
       "lastIngestAt": 1781294250217
     },
     "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/FASE2_IMPLEMENTACAO.md": {
-      "hash": "609da0d9a6c1944412c93dde3b865e46eed58131b673c43345fad00f872c7cd7",
-      "hashedAt": 1781294250269,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294250269
+      "hash": "5ed9fb8d704f9a9927ad6af8b5169c7a7348d3c450aada4370644bd7ac8227d3",
+      "hashedAt": 1781318514915,
+      "ingestCount": 2,
+      "lastIngestAt": 1781318514915
     },
     "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/ARQUITETURA_NOTION.md": {
-      "hash": "f0f7184fe5dbfc7c7dd5fcfcaa87143a04148aaea1c81fafba841950b8a6a005",
-      "hashedAt": 1781294250348,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294250348
+      "hash": "3a7747e25c334e73eb914db2859b86583f5cf49f0f83cc7608fa0f7c17679580",
+      "hashedAt": 1781318507821,
+      "ingestCount": 2,
+      "lastIngestAt": 1781318507821
     },
     "01-OPERACAO-ORACULO/01.3-ARQUITETURA-TECNICA/PLANO-MIGRACAO.md": {
       "hash": "ac56fb05574186fe8b94c98016161c2331af23771a823e3d42acd175222a1f6a",
@@ -1071,10 +1071,10 @@
       "lastIngestAt": 1781294250697
     },
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/FLUXO_TRABALHO.md": {
-      "hash": "61d19de9bccc9a09d4820ccc4be61f5f87ab26dca2b410aa87fb46cf499dc07b",
-      "hashedAt": 1781294250706,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294250706
+      "hash": "a43d7c0b5c5d3e4dd29078fdb57ea694645240a047773aec92b0257acb3f8dec",
+      "hashedAt": 1781318500812,
+      "ingestCount": 2,
+      "lastIngestAt": 1781318500812
     },
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/Fluxo-13-Etapas.md": {
       "hash": "ac3af06161b20ebb69e0b37fe1e01ea2d6086a431e69beb0e8a12853dea2fe5e",
@@ -1083,10 +1083,10 @@
       "lastIngestAt": 1781294250744
     },
     "01-OPERACAO-ORACULO/01.2-DNA-E-VENDAS/CONTEXTO_FIRMA.md": {
-      "hash": "ef4c33914027bfab14dc3a7c0b594a2967e0ccb218b2722bdbbfd3f07170fef3",
-      "hashedAt": 1781294250832,
-      "ingestCount": 1,
-      "lastIngestAt": 1781294250832
+      "hash": "90445b79709fc9e503687b3e98ddc8fe922a42158cf28ec205abfac64d6623dc",
+      "hashedAt": 1781318494862,
+      "ingestCount": 2,
+      "lastIngestAt": 1781318494862
     },
     "01-OPERACAO-ORACULO/01.1-DIRETRIZES-GERAIS/STATUS.md": {
       "hash": "ee93c282130cde000809a4e31ba125249d4304ea16f1cfb99a29772e6249bffd",
