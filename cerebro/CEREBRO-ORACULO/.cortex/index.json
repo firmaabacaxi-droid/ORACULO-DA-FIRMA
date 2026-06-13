@@ -10,7 +10,7 @@
     "wiki/log.md": "f0d262741f3a11ce2032163bbbc5c4ff8d39ed8769a659e26d9753931a073eb2",
     "wiki/index.md": "1802a89d38ff74d78409864ae4fc75333f914bc68ab9229ca3956112990ef135",
     "CLAUDE.md": "aed3833c6049d47e19e0705f6e6331b9733531e0ba87ae07ed07953b99a08f59",
-    "wiki/hot.md": "741ea9aff6f2771232a4d833a53d43e0306304decc882a22e196ae5a5958758e",
+    "wiki/hot.md": "b5a901b3ac18a545d5969da47b1e4dca15642c220a8d82dfeaaeeaad6afda8e9",
     "wiki/areas/Captacao.md": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",
     "skills/wiki-retrieve/SKILL.md": "56378e239d37d2ee6ac1ba5d1bfec296827b0e7da19c25a2ea9fa13df1ce9384",
     "skills/wiki-lint/SKILL.md": "3b6cb1d2be85a64f92415eaada18ecb213f9fc9d54f42e1fb4629b6e7fdcab01",
@@ -255,10 +255,10 @@
       "lastIngestAt": 1781302780995
     },
     "wiki/hot.md": {
-      "hash": "741ea9aff6f2771232a4d833a53d43e0306304decc882a22e196ae5a5958758e",
-      "hashedAt": 1781314545089,
-      "ingestCount": 3,
-      "lastIngestAt": 1781314545089
+      "hash": "b5a901b3ac18a545d5969da47b1e4dca15642c220a8d82dfeaaeeaad6afda8e9",
+      "hashedAt": 1781315967763,
+      "ingestCount": 4,
+      "lastIngestAt": 1781315967763
     },
     "wiki/areas/Captacao.md": {
       "hash": "e8e461a1d3aa630899985248c0fdafc05af465a2c5dbd06abcb58fc924bdd462",

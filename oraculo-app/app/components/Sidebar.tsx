@@ -10,6 +10,7 @@ const NAV_GROUPS = [
     section: "Principal",
     items: [
       { name: "Dashboard",    href: "/",            icon: "⊞" },
+      { name: "Cockpit",      href: "/cockpit",     icon: "🔮" },
     ],
   },
   {
